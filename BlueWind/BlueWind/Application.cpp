@@ -4,6 +4,7 @@ using namespace std;
 
 Application::Application()
 {
+	currentFrame_ = new Menu(this);
 }
 
 void Application::run()
@@ -31,9 +32,10 @@ void Application::run()
 
 void Application::render(GameWindow & window)
 {
+	currentFrame_->render(window);
 }
 
 void Application::update()
 {
-
+	currentFrame_->update();
 }

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "GameWindow.h"
+#include "Frame.h"
+#include "Menu.h"
 
 class Application
 {
@@ -17,5 +19,5 @@ public:
 	void update();
 private:
 	GameWindow window_{ sf::VideoMode(800, 600), "SFML doesnt work!" };
-
+	Frame* currentFrame_;
 };
