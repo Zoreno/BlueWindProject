@@ -5,7 +5,16 @@ Frame::Frame(Application * appPtr)
 { 
 }
 
-void Frame::addButton(FrameButton button)
+Frame::~Frame()
 {
-	buttons_.push_back(button);
+	while (!buttons_.empty())
+	{
+		delete buttons_.back();
+		buttons_.pop_back();
+	}
+}
+
+void Frame::addButton(sf::Vector2f size, sf::Vector2f pos, std::string text)
+{
+	buttons_.push_back(new FrameButton(size, pos, text));
 }

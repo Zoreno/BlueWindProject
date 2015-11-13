@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Frame.h"
+#include "GameWindow.h"
 
 class Application;
 

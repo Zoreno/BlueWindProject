@@ -12,8 +12,10 @@ public:
 	virtual void update() = 0;
 	virtual void render(GameWindow&) = 0;
 
-	void addButton(FrameButton);
+	virtual ~Frame();
+
+	void addButton(sf::Vector2f, sf::Vector2f, std::string);
 protected:
-	std::vector<FrameButton> buttons_;
+	std::vector<FrameButton*> buttons_;
 	Application* appPointer_;
 };

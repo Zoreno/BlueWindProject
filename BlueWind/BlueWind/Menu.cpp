@@ -6,3 +6,7 @@ Menu::Menu(Application * appPtr)
 void Menu::update()
 {
 }
+
+void Menu::render(GameWindow &)
+{
+}
