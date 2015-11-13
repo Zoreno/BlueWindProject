@@ -16,5 +16,5 @@ Frame::~Frame()
 
 void Frame::addButton(sf::Vector2f size, sf::Vector2f pos, std::string text)
 {
-	buttons_.push_back(new FrameButton(size, pos, text));
+	buttons_.push_back(new FrameButton(appPointer_,size, pos, text));
 }

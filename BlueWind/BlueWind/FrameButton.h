@@ -4,10 +4,12 @@
 #include <string>
 #include "GameWindow.h"
 
+class Application;
+
 class FrameButton
 {
 public:
-	FrameButton(sf::Vector2f, sf::Vector2f, std::string);
+	FrameButton(Application*,sf::Vector2f, sf::Vector2f, std::string);
 	FrameButton(const FrameButton&) = delete;
 	FrameButton& operator=(const FrameButton&) = delete;
 
@@ -17,6 +19,7 @@ public:
 	void render(GameWindow&);
 
 private:
+	Application* appPointer_;
 	sf::Vector2f size_;
 	sf::Vector2f position_;
 	std::string text_;
