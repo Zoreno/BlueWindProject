@@ -9,6 +9,8 @@ class Menu : public Frame
 {
 public:
 	Menu(Application*);
+	Menu(const Menu&) = delete;
+	Menu& operator=(const Menu&) = delete;
 
 	void update() override;
 	void render(GameWindow&) override;

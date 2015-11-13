@@ -9,6 +9,9 @@ class Frame
 {
 public:
 	Frame(Application*);
+	Frame(const Frame&) = delete;
+	Frame& operator=(const Frame&) = delete;
+
 	virtual void update() = 0;
 	virtual void render(GameWindow&) = 0;
 

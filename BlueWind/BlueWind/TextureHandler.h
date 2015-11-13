@@ -10,10 +10,12 @@ class TextureHandler
 {
 public:
 	TextureHandler();
+	TextureHandler(const TextureHandler&) = delete;
+	TextureHandler& operator=(const TextureHandler&) = delete;
 
 	sf::Texture& getTextureRef(const std::string&);
 private:
-	 table textures_;
+	table textures_;
 
 	void loadTexture(const std::string&, const std::string&);
 };
