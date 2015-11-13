@@ -14,6 +14,6 @@ public:
 	void render(GameWindow& window);
 	void update();
 private:
-	GameWindow window{ sf::VideoMode(800, 600), "SFML works!" };
+	GameWindow window{ sf::VideoMode(800, 600), "SFML doesnt work!" };
 
 };
