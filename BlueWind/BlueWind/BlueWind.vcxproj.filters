@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{070f8669-6283-4ab1-8b38-7d21d4a4fb08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\worlds">
+      <UniqueIdentifier>{0800f129-5ae4-48e8-8491-bb7949e2811c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -40,6 +46,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Universe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,5 +86,28 @@
     <ClInclude Include="World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\enemy.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="res\textures\green.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="res\textures\player.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="res\textures\red.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="res\worlds\level.bmp">
+      <Filter>Resource Files\worlds</Filter>
+    </Image>
   </ItemGroup>
 </Project>

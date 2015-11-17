@@ -2,6 +2,9 @@
 
 #include "Frame.h"
 #include "GameWindow.h"
+#include "TextureHandler.h"
+#include "Universe.h"
+#include <string>
 
 class Game : public Frame
 {
@@ -11,7 +14,10 @@ public:
 	Game& operator=(const Game&) = delete;
 	
 	void update() override;
-	void render(GameWindow&) override;;
-private:
+	void render(GameWindow&) override;
 
+	sf::Texture& getTexture(const std::string&);
+private:
+	TextureHandler textureHandler_;
+	Universe universe_;
 };

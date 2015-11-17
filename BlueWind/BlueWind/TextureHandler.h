@@ -4,7 +4,7 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
-using table = std::map<const std::string, sf::Texture>;
+using table = std::map<const std::string, sf::Texture*>;
 
 class TextureHandler
 {
@@ -12,6 +12,8 @@ public:
 	TextureHandler();
 	TextureHandler(const TextureHandler&) = delete;
 	TextureHandler& operator=(const TextureHandler&) = delete;
+
+	//TODO destruktor
 
 	sf::Texture& getTextureRef(const std::string&);
 private:

@@ -17,6 +17,10 @@ void Application::run()
 	cout << "Program running..." << endl;
 
 	window_.setFramerateLimit(60);
+	sf::View view1 = window_.getView();
+	view1.setCenter(sf::Vector2f(0.0f, 0.0f));
+	view1.zoom(0.4f);
+	window_.setView(view1);
 
 	while (window_.isOpen())
 	{
