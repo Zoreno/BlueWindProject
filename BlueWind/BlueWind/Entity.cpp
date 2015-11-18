@@ -1,4 +1,7 @@
 #include "Entity.h"
+#include <iostream>
+
+using namespace std;
 
 Entity::Entity(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr)
 	:level_{ level }, health_{ health }, maxHealth_{ health }, damage_{ damage }, ID_{ ID }, name_{name}, position_{position}, worldPointer_{worldPtr}
@@ -66,9 +69,10 @@ void Entity::removeHealth(int value)
 	{
 		die();
 	}
+	cout << "Damage taken. Current health: " << health_ << endl;
 }
 
 void Entity::die()
 {
-	//TODO
+	cout << "U dieded" << endl;
 }

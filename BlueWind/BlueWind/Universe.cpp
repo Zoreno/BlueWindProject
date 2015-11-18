@@ -10,6 +10,7 @@ Universe::Universe(Game * gamePtr)
 {
 	loadTiles();
 	loadWorlds();
+	populateWorlds();
 }
 
 void Universe::update()
@@ -19,13 +20,26 @@ void Universe::update()
 
 void Universe::render(GameWindow & window)
 {
-	cout << "Universe renderar" << endl;
+	//cout << "Universe renderar" << endl;
 	currentWorld_->render(window);
 }
 
 World * Universe::getCurrentWorld()
 {
 	return currentWorld_;
+}
+
+World * Universe::getWorld(int ID)
+{
+	for (auto it : worlds_)
+	{
+		if (ID == it->getID())
+		{
+			return it;
+		}
+	}
+	//TODO kasta ex
+	return nullptr;
 }
 
 void Universe::setCurrentWorld(int ID)
@@ -44,6 +58,11 @@ Tile Universe::getTile(int i)
 	return (*tileAtlas_.find(i)->second);
 }
 
+Game * Universe::getGame() const
+{
+	return gamePointer_;
+}
+
 void Universe::loadTiles()
 {
 	cout << "Laddar in Tiles" << endl;
@@ -57,8 +76,24 @@ void Universe::loadWorlds()
 	cout << "Laddar in världar" << endl;
 	worlds_.push_back(new World(0, this, "res/worlds/level.bmp"));
 
-
 	cout << "Laddning av världar klart" << endl;
 
 	setCurrentWorld(0);
+}
+
+void Universe::populateWorlds()
+{
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+}
+
+void Universe::addEnemy(int worldID, Enemy * enemyPtr)
+{
+	for (auto it : worlds_)
+	{
+		if (it->getID() == worldID)
+		{
+			it->addEnemy(enemyPtr);
+			break;
+		}
+	}
 }

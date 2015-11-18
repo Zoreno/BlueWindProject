@@ -4,6 +4,7 @@
 #include "World.h"
 #include "Tile.h"
 #include <map>
+#include "Enemy.h"
 
 class Game;
 
@@ -17,9 +18,12 @@ public:
 	void update();
 	void render(GameWindow&);
 	World* getCurrentWorld();
+	World* getWorld(int);
 	void setCurrentWorld(int);
 
 	Tile getTile(int);
+
+	Game* getGame() const;
 
 private:
 	Game* gamePointer_;
@@ -29,4 +33,7 @@ private:
 
 	void loadTiles();
 	void loadWorlds();
+	void populateWorlds();
+
+	void addEnemy(int, Enemy*);
 };

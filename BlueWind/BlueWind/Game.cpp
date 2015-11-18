@@ -12,7 +12,7 @@ Game::Game(Application * appPtr)
 
 void Game::update()
 {
-	cout << "Game uppdaterar" << endl;
+	//cout << "Game uppdaterar" << endl;
 	universe_.update();
 	player_.update();
 }
@@ -22,9 +22,14 @@ void Game::render(GameWindow & window)
 	sf::View view2 = window.getView();
 	view2.setCenter(player_.getPosition());
 	window.setView(view2);
-	cout << "Game renderar" << endl;
+	//cout << "Game renderar" << endl;
 	universe_.render(window);
 	player_.render(window);
+}
+
+Player * Game::getPlayer()
+{
+	return &player_;
 }
 
 sf::Texture & Game::getTexture(const std::string& ref)

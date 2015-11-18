@@ -12,11 +12,15 @@ World::World(int ID, Universe * universePtr, std::string mapFile)
 
 void World::update()
 {
+	for (auto it : enemyVector_)
+	{
+		it->update();
+	}
 }
 
 void World::render(GameWindow & window)
 {
-	cout << "World renderar" << endl;
+	//cout << "World renderar" << endl;
 	sf::View view = window.getView();
 	int startX = (view.getCenter().x - (20 * 16)) / 16;
 	int endX = (view.getCenter().x + (20 * 16)) / 16;
@@ -50,7 +54,13 @@ void World::render(GameWindow & window)
 			universePointer_->getTile(tileVector_.at(x + mapWidth*y)).render(window, x, y);
 		}
 	}
-	cout << "World renderar klart" << endl;
+	//cout << "World renderar klart" << endl;
+
+	for (auto it : enemyVector_)
+	{
+		it->render(window);
+	}
+
 }
 
 void World::loadWorld(std::string mapFile)
@@ -70,6 +80,17 @@ void World::loadWorld(std::string mapFile)
 			tileVector_.push_back(getIntFromColor(image.getPixel(x, y)));
 		}
 	}
+}
+
+void World::addEnemy(Enemy * enemyPtr)
+{
+	cout << "Adding enemy in world " << ID_ << endl;
+	enemyVector_.push_back(enemyPtr);
+}
+
+Universe * World::getUniverse() const
+{
+	return universePointer_;
 }
 
 const int World::getID() const
