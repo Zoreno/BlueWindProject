@@ -5,6 +5,7 @@
 #include "TextureHandler.h"
 #include "Universe.h"
 #include <string>
+#include "Player.h"
 
 class Game : public Frame
 {
@@ -20,4 +21,5 @@ public:
 private:
 	TextureHandler textureHandler_;
 	Universe universe_;
+	Player player_;
 };

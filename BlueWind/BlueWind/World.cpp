@@ -42,7 +42,7 @@ void World::render(GameWindow & window)
 		endY = mapHeight;
 	if (endY < 0)
 		endY = 0;
-	cout << startX << "," << startY << "," << endX << "," << endY << endl;
+	//cout << startX << "," << startY << "," << endX << "," << endY << endl;
 	for (int y = startY; y < endY; ++y)
 	{
 		for (int x = startX; x < endX; ++x)

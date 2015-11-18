@@ -2,18 +2,16 @@
 
 Entity::Entity(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr)
 	:level_{ level }, health_{ health }, maxHealth_{ health }, damage_{ damage }, ID_{ ID }, name_{name}, position_{position}, worldPointer_{worldPtr}
-{
+{}
 
+void Entity::move(int dx, int dy)
+{
+	position_ += sf::Vector2f(dx, dy);
 }
 
-void Entity::move(int, int)
+void Entity::teleport(int x, int y)
 {
-	//TODO
-}
-
-void Entity::teleport(int, int)
-{
-	//TODO
+	position_ = sf::Vector2f(x, y);
 }
 
 int Entity::getLevel() const
