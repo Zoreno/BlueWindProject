@@ -98,6 +98,21 @@ const int World::getID() const
 	return ID_;
 }
 
+const int World::getMapWidth() const
+{
+	return mapWidth;
+}
+
+const int World::getMapHeight() const
+{
+	return mapHeight;
+}
+
+const std::vector<int> World::getTileVector() const
+{
+	return tileVector_;
+}
+
 int World::getIntFromColor(sf::Color color)
 {
 

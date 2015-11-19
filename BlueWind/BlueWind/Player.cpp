@@ -1,7 +1,7 @@
 #include "Player.h"
 
 Player::Player(World * worldPtr, sf::Texture& texture)
-	: Entity(1,100,10,0,"Kalle",sf::Vector2f(5*16,5*16), worldPtr)
+	: Entity(1,100,10,0,"Kalle",sf::Vector2f(2*16,2*16), worldPtr)
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
