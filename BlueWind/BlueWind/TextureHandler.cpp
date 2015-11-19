@@ -10,6 +10,7 @@ TextureHandler::TextureHandler()
 	loadTexture("tree", "res/textures/red.png");
 	loadTexture("player", "res/textures/player.png");
 	loadTexture("enemy", "res/textures/enemy.png"); 
+	loadTexture("NPC", "res/textures/NPC.png");
 	cout << "Laddar texturer klart" << endl;
 }
 
