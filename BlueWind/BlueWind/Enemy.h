@@ -18,6 +18,8 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
+
+	void die() override;
 private:
 	const sf::Vector2f startPosition_;
 	STATES state_{ IDLE };

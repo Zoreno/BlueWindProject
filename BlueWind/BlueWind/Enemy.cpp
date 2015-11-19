@@ -27,6 +27,12 @@ void Enemy::render(GameWindow & window)
 	window.draw(sprite_);
 }
 
+void Enemy::die()
+{
+	cout << "Enemy died!" << endl;
+	worldPointer_->removeEnemy(this);
+}
+
 void Enemy::updateState()
 {
 	sf::Vector2f playerPos = worldPointer_->getUniverse()->getGame()->getPlayer()->getPosition();
@@ -104,6 +110,8 @@ void Enemy::executeState()
 
 void Enemy::attackPlayer()
 {
+	
+
 	if (attackCooldown_ >= 60)
 	{
 		worldPointer_->getUniverse()->getGame()->getPlayer()->removeHealth(damage_);
@@ -111,6 +119,8 @@ void Enemy::attackPlayer()
 		return;
 	}
 	attackCooldown_++;
+	removeHealth(100);
+
 }
 
 float getDistance(sf::Vector2f vec1, sf::Vector2f vec2)

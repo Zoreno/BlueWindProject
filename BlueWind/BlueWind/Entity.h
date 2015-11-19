@@ -32,9 +32,10 @@ public:
 	void addHealth(int);
 	void removeHealth(int);
 
-	void die();
+	virtual void die();
 
 protected:
+	bool toBeRemoved{ false };
 	int level_;
 	int health_;
 	int maxHealth_;

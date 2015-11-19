@@ -81,11 +81,18 @@ void Universe::loadWorlds()
 	setCurrentWorld(0);
 }
 
-void Universe::populateWorlds()
+void Universe::populateWorlds() 
 {
-	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+
+	//OBS!!!!!!
+	//UNIKA ID KRÄVS
+	addNPC(0, new NPC(1, 100, 10, 0, "Schrodinger", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "din tjomme"));
 	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!"));
-	addNPC(0, new NPC(1, 100, 10, 1, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!"));
+	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!"));
+	//--------------------------
+	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)

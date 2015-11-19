@@ -18,6 +18,8 @@ public:
 	void update() override;
 	void render(GameWindow&) override;
 
+	//int enemyClose();
+
 private:
 	int experience_;
 
