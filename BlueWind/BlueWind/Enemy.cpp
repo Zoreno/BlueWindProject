@@ -32,27 +32,46 @@ void Enemy::updateState()
 	sf::Vector2f playerPos = worldPointer_->getUniverse()->getGame()->getPlayer()->getPosition();
 	float playerDistance = getDistance(position_, playerPos);
 	float startDistance = getDistance(position_, startPosition_);
-	if ((startDistance < 1) && state_ == RESET)
+
+	switch (state_)
 	{
-		state_ = IDLE;
-		cout << "Här sätts Idle" << endl;
+	case IDLE:
+		if (playerDistance <= 80)
+		{
+			state_ = MOVETOPLAYER;
+		}
+		break;
+
+	case RESET:
+		if (startDistance < 1)
+		{
+			state_ = IDLE;
+		}
+		break;
+
+	case ATTACK:
+		if (startDistance > 80 || playerDistance > 80)
+		{
+			state_ = RESET;
+		}
+		else if (playerDistance > 8)
+		{
+			state_ = MOVETOPLAYER;
+		}
+		break;
+
+	case MOVETOPLAYER:
+		if (startDistance > 80 || playerDistance > 80)
+		{
+			state_ = RESET;
+		}
+		else if (playerDistance <= 8)
+		{
+			state_ = ATTACK;
+		}
+		break;
+
 	}
-	else if (((startDistance > 80) || (playerDistance > 80)) && state_ != IDLE)
-	{
-		state_ = RESET;
-		cout << "Här sätts Reset" << endl;
-	}
-	else if ((playerDistance <= 8) && (state_ == MOVETOPLAYER))
-	{
-		state_ = ATTACK;
-		cout << "Här sätts Attack" << endl;
-	}
-	else if ((playerDistance <= 80) && (playerDistance > 8) && (state_ == IDLE || state_ ==  ATTACK))
-	{
-		state_ = MOVETOPLAYER;
-		cout << "Här sätts MoveToPlayer" << endl;
-	}
-	//else 
 }
 
 void Enemy::executeState()
