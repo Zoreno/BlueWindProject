@@ -61,6 +61,11 @@ void World::render(GameWindow & window)
 		it->render(window);
 	}
 
+	for (auto it : NPCVector_)
+	{
+		it->render(window);
+	}
+
 }
 
 void World::loadWorld(std::string mapFile)
@@ -86,6 +91,12 @@ void World::addEnemy(Enemy * enemyPtr)
 {
 	cout << "Adding enemy in world " << ID_ << endl;
 	enemyVector_.push_back(enemyPtr);
+}
+
+void World::addNPC(NPC * NPCPtr)
+{
+	cout << "Adding NPC in world " << ID_ << endl;
+	NPCVector_.push_back(NPCPtr);
 }
 
 Universe * World::getUniverse() const

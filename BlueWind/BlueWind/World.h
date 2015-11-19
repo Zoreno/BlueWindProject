@@ -3,6 +3,7 @@
 #include "GameWindow.h"
 #include <string>
 #include "Enemy.h"
+#include "NPC.h"
 
 class Universe;
 
@@ -19,6 +20,7 @@ public:
 
 	void loadWorld(std::string);
 	void addEnemy(Enemy*);
+	void addNPC(NPC*);
 	//TODO remove enemy
 
 	Universe* getUniverse() const;
@@ -33,6 +35,7 @@ private:
 	Universe* universePointer_;
 
 	std::vector<Enemy*> enemyVector_;
+	std::vector<NPC*> NPCVector_;
 
 	int mapWidth;
 	int mapHeight;

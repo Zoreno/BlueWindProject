@@ -5,6 +5,7 @@
 #include "Tile.h"
 #include <map>
 #include "Enemy.h"
+#include "NPC.h"
 
 class Game;
 
@@ -36,4 +37,5 @@ private:
 	void populateWorlds();
 
 	void addEnemy(int, Enemy*);
+	void addNPC(int, NPC*);
 };
