@@ -136,7 +136,7 @@ const std::vector<NPC*> World::getNPCVector() const
 	return NPCVector_;
 }
 
-const std::vector<Enemy*> World::getEnemyVector() const
+const std::map<int,Enemy*> World::getEnemyVector() const
 {
 	return enemyVector_;
 }

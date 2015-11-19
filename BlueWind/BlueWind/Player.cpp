@@ -48,10 +48,13 @@ void Player::update()
 			}
 		}
 	}
+
+	/*
 	if ((worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at(' ')) && (enemyClose()))
 	{
 		worldPointer_->getEnemyVector()[enemyClose()]->removeHealth(99);
-}
+	}
+	*/
 
 }
 
@@ -61,7 +64,9 @@ void Player::render(GameWindow & window)
 	window.draw(sprite_);
 }
 
-bool Player::enemyClose()
+//TODO kolla på detta.
+/*
+int Player::enemyClose()
 {
 	float enemyDistance{ 0 };
 	for (int i{ 0 }; i < worldPointer_->getEnemyVector().size(); ++i)
@@ -74,5 +79,6 @@ bool Player::enemyClose()
 			return i;
 		}
 	}
-	return false;
+	return -1;
 }
+*/

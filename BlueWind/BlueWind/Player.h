@@ -18,7 +18,7 @@ public:
 	void update() override;
 	void render(GameWindow&) override;
 
-	bool enemyClose();
+	//int enemyClose();
 
 private:
 	int experience_;
