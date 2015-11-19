@@ -3,6 +3,7 @@
 using namespace std;
 
 Application::Application()
+	: input_{this}
 {
 	if (!font_.loadFromFile("res/calibri.ttf"))
 	{
@@ -58,4 +59,9 @@ const Input Application::getInput()
 const sf::Font& Application::getFont() const
 {
 	return font_;
+}
+
+GameWindow& Application::getGameWindow()
+{
+	return window_;
 }

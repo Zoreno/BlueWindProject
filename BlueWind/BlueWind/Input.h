@@ -1,13 +1,18 @@
 #pragma once
 
 #include <map>
+#include "GameWindow.h"
+#include "FrameButton.h"
 
 class Input
 {
 public:
-	std::map<char, bool> pressedButtons_;
-
-	Input();
+	Input(Application*);
+	// TODO delete:a konstruktorer
+	
+	std::map<char, bool> pressedButtons_; // TODO lägg private och skapa en get-funtkion
 	void update();
 
+private:
+	Application* appPointer_;
 };

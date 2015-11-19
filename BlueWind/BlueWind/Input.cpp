@@ -1,8 +1,11 @@
 #include "Input.h"
+#include "Application.h"
 
 #include <SFML\Graphics.hpp>
 
-Input::Input()
+
+Input::Input(Application * appPtr)
+	: appPointer_(appPtr)
 {
 	pressedButtons_.emplace('a', false);
 	pressedButtons_.emplace('d', false);
@@ -34,4 +37,4 @@ void Input::update()
 		pressedButtons_['i'] = true;
 	else
 		pressedButtons_['i'] = false;
-}
+	}
