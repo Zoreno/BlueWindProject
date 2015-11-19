@@ -33,21 +33,44 @@ void Enemy::updateState()
 	float playerDistance = getDistance(position_, playerPos);
 	float startDistance = getDistance(position_, startPosition_);
 
-	if ((startDistance < 1) && state_ == RESET)
+	switch (state_)
 	{
-		state_ = IDLE;
-	}
-	else if (((startDistance > 80) || (playerDistance > 80)) && state_ != IDLE)
-	{
-		state_ = RESET;
-	}
-	else if ((playerDistance <= 8) && (state_ == MOVETOPLAYER))
-	{
-		state_ = ATTACK;
-	}
-	else if ((playerDistance <= 80) && (playerDistance > 8) && (state_ == IDLE || state_ ==  ATTACK))
-	{
-		state_ = MOVETOPLAYER;
+	case IDLE:
+		if (playerDistance <= 80)
+		{
+			state_ = MOVETOPLAYER;
+		}
+		break;
+
+	case RESET:
+		if (startDistance < 1)
+		{
+			state_ = IDLE;
+		}
+		break;
+
+	case ATTACK:
+		if (startDistance > 80 || playerDistance > 80)
+		{
+			state_ = RESET;
+		}
+		else if (playerDistance > 8)
+		{
+			state_ = MOVETOPLAYER;
+		}
+		break;
+
+	case MOVETOPLAYER:
+		if (startDistance > 80 || playerDistance > 80)
+		{
+			state_ = RESET;
+		}
+		else if (playerDistance <= 8)
+		{
+			state_ = ATTACK;
+		}
+		break;
+
 	}
 }
 
@@ -63,8 +86,11 @@ void Enemy::executeState()
 		break;
 	case RESET:
 		health_ = maxHealth_;
+		/*
 		returnVector = normalize(startPosition_ - position_);
 		move(returnVector.x, returnVector.y);
+		*/
+		teleport(startPosition_.x, startPosition_.y);
 		break;
 	case ATTACK:
 		attackPlayer();
