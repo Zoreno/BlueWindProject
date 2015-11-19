@@ -32,6 +32,11 @@ Player * Game::getPlayer()
 	return &player_;
 }
 
+Application * Game::getApp()
+{
+	return appPointer_;
+}
+
 sf::Texture & Game::getTexture(const std::string& ref)
 {
 	return textureHandler_.getTextureRef(ref);

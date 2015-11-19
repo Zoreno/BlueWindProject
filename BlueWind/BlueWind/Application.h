@@ -5,6 +5,7 @@
 #include "GameWindow.h"
 #include "Menu.h"
 #include "Game.h"
+#include "Input.h"
 
 class Application
 {
@@ -17,10 +18,12 @@ public:
 
 	void render(GameWindow& window);
 	void update();
+	const Input getInput();
 
 	const sf::Font& getFont() const;
 private:
 	GameWindow window_{ sf::VideoMode(800, 600), "SFML doesnt work!" };
 	Frame* currentFrame_;
 	sf::Font font_;
+	Input input_{};
 };
