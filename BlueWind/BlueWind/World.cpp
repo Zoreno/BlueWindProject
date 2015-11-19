@@ -124,6 +124,11 @@ const std::vector<int> World::getTileVector() const
 	return tileVector_;
 }
 
+const std::vector<NPC*> World::getNPCVector() const
+{
+	return NPCVector_;
+}
+
 const std::vector<Enemy*> World::getEnemyVector() const
 {
 	return enemyVector_;
