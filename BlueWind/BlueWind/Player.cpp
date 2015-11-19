@@ -11,7 +11,7 @@ using namespace std;
 
 
 Player::Player(World * worldPtr, sf::Texture& texture)
-	: Entity(1,100,10,0,"Kalle",sf::Vector2f(2*16,2*16), worldPtr)
+	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr)
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
@@ -37,6 +37,17 @@ void Player::update()
 		move(0, 1);
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
 		move(0, -1);
+	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('i')) 
+	{
+		for (auto it : worldPointer_->getNPCVector())
+		{
+			if (getDistance(position_, it->getPosition()) <= 16)
+			{
+				it->talk(); // TODO Fixa så att det bara skrivs ut en gång!
+				break;
+			}
+		}
+	}
 }
 
 void Player::render(GameWindow & window)
