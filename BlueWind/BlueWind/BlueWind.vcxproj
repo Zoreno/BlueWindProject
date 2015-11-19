@@ -164,6 +164,7 @@
     <ClCompile Include="FrameButton.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameWindow.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="FrameButton.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameWindow.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />

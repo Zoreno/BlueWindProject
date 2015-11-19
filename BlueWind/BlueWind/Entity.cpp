@@ -23,10 +23,6 @@ void Entity::move(int dx, int dy)
 	int mapWidth = worldPointer_->getMapWidth();
 	int mapHeight = worldPointer_->getMapHeight();
 
-	//cout << "x:" << upper_left.x << endl;
-	//cout << "y:" << upper_left.y << endl;
-	//cout << worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor((upper_left.x / 1 + ((mapWidth)*upper_left.y) / 1) / 16))).walkable_ << endl;
-
 	bool upper_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_left.x / 16) + mapWidth*floor(upper_left.y / 16))).walkable_;
 	bool bottom_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_left.x / 16) + mapWidth*floor(bottom_left.y / 16))).walkable_;
 	bool upper_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_right.x / 16) + mapWidth*floor(upper_right.y / 16))).walkable_;

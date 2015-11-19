@@ -18,7 +18,7 @@ public:
 	void render(GameWindow&) override;
 
 	Player* getPlayer();
-
+	Application* getApp();
 	sf::Texture& getTexture(const std::string&);
 private:
 	TextureHandler textureHandler_;

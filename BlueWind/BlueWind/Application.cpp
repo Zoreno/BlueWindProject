@@ -47,6 +47,12 @@ void Application::render(GameWindow & window)
 void Application::update()
 {
 	currentFrame_->update();
+	input_.update();
+}
+
+const Input Application::getInput()
+{
+	return input_;
 }
 
 const sf::Font& Application::getFont() const
