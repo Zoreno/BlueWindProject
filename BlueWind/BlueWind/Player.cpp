@@ -37,10 +37,31 @@ void Player::update()
 		move(0, 1);
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
 		move(0, -1);
+	if ((worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at(' ')) && (enemyClose()))
+	{
+		worldPointer_->getEnemyVector()[enemyClose()]->removeHealth(99);
+	}
+		
 }
 
 void Player::render(GameWindow & window)
 {
 	sprite_.setPosition(position_);
 	window.draw(sprite_);
+}
+
+bool Player::enemyClose()
+{
+	float enemyDistance{ 0 };
+	for (int i{ 0 }; i < worldPointer_->getEnemyVector().size(); ++i)
+	{
+		enemyDistance = getDistance(worldPointer_->getEnemyVector()[i]->getPosition() , position_);
+		cout << "NU KÖR VI" << enemyDistance << endl;
+		if (enemyDistance < 10)
+		{
+			cout << "hej" << endl;
+			return i;
+		}
+	}
+	return false;
 }

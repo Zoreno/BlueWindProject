@@ -8,6 +8,7 @@ Input::Input()
 	pressedButtons_.emplace('d', false);
 	pressedButtons_.emplace('s', false);
 	pressedButtons_.emplace('w', false);
+	pressedButtons_.emplace(' ', false);
 }
 
 void Input::update()
@@ -29,4 +30,8 @@ void Input::update()
 		pressedButtons_['d'] = true;
 	else
 		pressedButtons_['d'] = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		pressedButtons_[' '] = true;
+	else
+		pressedButtons_[' '] = false;
 }

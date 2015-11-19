@@ -29,6 +29,7 @@ public:
 	const int getMapWidth() const;
 	const int getMapHeight() const;
 	const std::vector<int> getTileVector() const;
+	const std::vector<Enemy*> getEnemyVector() const;
 private:
 	std::vector<int> tileVector_;
 	const int ID_;

@@ -124,6 +124,11 @@ const std::vector<int> World::getTileVector() const
 	return tileVector_;
 }
 
+const std::vector<Enemy*> World::getEnemyVector() const
+{
+	return enemyVector_;
+}
+
 int World::getIntFromColor(sf::Color color)
 {
 

@@ -84,6 +84,8 @@ void Universe::loadWorlds()
 void Universe::populateWorlds()
 {
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(12 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
 	addNPC(0, new NPC(1, 100, 10, 1, "Schrodinger", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "din tjomme"));
 }
 
