@@ -14,8 +14,9 @@ void World::update()
 {
 	for (auto it : enemyVector_)
 	{
-		it->update();
+		it.second->update();
 	}
+	updateLists();
 }
 
 void World::render(GameWindow & window)
@@ -58,7 +59,7 @@ void World::render(GameWindow & window)
 
 	for (auto it : enemyVector_)
 	{
-		it->render(window);
+		it.second->render(window);
 	}
 
 	for (auto it : NPCVector_)
@@ -90,13 +91,19 @@ void World::loadWorld(std::string mapFile)
 void World::addEnemy(Enemy * enemyPtr)
 {
 	cout << "Adding enemy in world " << ID_ << endl;
-	enemyVector_.push_back(enemyPtr);
+	enemyVector_.emplace(enemyPtr->getID(),enemyPtr);
 }
 
 void World::addNPC(NPC * NPCPtr)
 {
 	cout << "Adding NPC in world " << ID_ << endl;
 	NPCVector_.push_back(NPCPtr);
+}
+
+void World::removeEnemy(Enemy * enemyPtr)
+{
+	removeEnemyVector_.push_back(enemyPtr->getID());
+	cout << "Removing enemy" << endl;
 }
 
 Universe * World::getUniverse() const
@@ -138,4 +145,16 @@ int World::getIntFromColor(sf::Color color)
 		return -1;
 		//TODO kasta exception. Färgen finns inte! Bra Jobbat hörru.
 	}
+}
+
+void World::updateLists()
+{
+	for (auto iter : removeEnemyVector_)
+	{
+		auto it = enemyVector_.find(iter);
+		delete (it->second);
+		enemyVector_.erase(it);
+	}
+	removeEnemyVector_.clear();
+	
 }

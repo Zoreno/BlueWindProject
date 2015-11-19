@@ -4,6 +4,7 @@
 #include <string>
 #include "Enemy.h"
 #include "NPC.h"
+#include <map>
 
 class Universe;
 
@@ -21,7 +22,7 @@ public:
 	void loadWorld(std::string);
 	void addEnemy(Enemy*);
 	void addNPC(NPC*);
-	//TODO remove enemy
+	void removeEnemy(Enemy*);
 
 	Universe* getUniverse() const;
 
@@ -34,11 +35,14 @@ private:
 	const int ID_;
 	Universe* universePointer_;
 
-	std::vector<Enemy*> enemyVector_;
+	std::map<int,Enemy*> enemyVector_;
+	std::vector<int> removeEnemyVector_;
 	std::vector<NPC*> NPCVector_;
 
 	int mapWidth;
 	int mapHeight;
 
 	int getIntFromColor(sf::Color);
+
+	void updateLists();
 };
