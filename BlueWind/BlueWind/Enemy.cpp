@@ -86,8 +86,11 @@ void Enemy::executeState()
 		break;
 	case RESET:
 		health_ = maxHealth_;
+		/*
 		returnVector = normalize(startPosition_ - position_);
 		move(returnVector.x, returnVector.y);
+		*/
+		teleport(startPosition_.x, startPosition_.y);
 		break;
 	case ATTACK:
 		attackPlayer();
