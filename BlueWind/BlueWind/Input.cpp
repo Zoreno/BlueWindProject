@@ -12,6 +12,7 @@ Input::Input(Application * appPtr)
 	pressedButtons_.emplace('s', false);
 	pressedButtons_.emplace('w', false);
 	pressedButtons_.emplace('i', false); 
+	pressedButtons_.emplace('+', false);
 }
 
 void Input::update()
@@ -37,4 +38,8 @@ void Input::update()
 		pressedButtons_['i'] = true;
 	else
 		pressedButtons_['i'] = false;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		pressedButtons_['+'] = true;
+	else
+		pressedButtons_['+'] = false;
 	}

@@ -49,13 +49,17 @@ void Player::update()
 		}
 	}
 
-	/*
-	if ((worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at(' ')) && (enemyClose()))
+	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('+'))
 	{
-		worldPointer_->getEnemyVector()[enemyClose()]->removeHealth(99);
+		for (auto it : worldPointer_->getEnemyVector())
+		{
+			if (getDistance(position_, it.second->getPosition()) <= 16)
+			{
+				it.second->removeHealth(10);
+				break;
+			}
+		}
 	}
-	*/
-
 }
 
 void Player::render(GameWindow & window)
@@ -63,22 +67,3 @@ void Player::render(GameWindow & window)
 	sprite_.setPosition(position_);
 	window.draw(sprite_);
 }
-
-//TODO kolla på detta.
-/*
-int Player::enemyClose()
-{
-	float enemyDistance{ 0 };
-	for (int i{ 0 }; i < worldPointer_->getEnemyVector().size(); ++i)
-	{
-		enemyDistance = getDistance(worldPointer_->getEnemyVector()[i]->getPosition() , position_);
-		cout << "NU KÖR VI" << enemyDistance << endl;
-		if (enemyDistance < 10)
-		{
-			cout << "hej" << endl;
-			return i;
-		}
-	}
-	return -1;
-}
-*/

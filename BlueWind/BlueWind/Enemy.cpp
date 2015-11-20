@@ -119,7 +119,7 @@ void Enemy::attackPlayer()
 		return;
 	}
 	attackCooldown_++;
-	removeHealth(100);
+	//removeHealth(100);
 
 }
 
