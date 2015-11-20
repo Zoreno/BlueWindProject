@@ -5,11 +5,6 @@ using namespace std;
 Application::Application()
 	: input_{ this }
 {
-	if (!font_.loadFromFile("res/calibri.ttf"))
-	{
-		//TODO lägg till exception
-		cout << "Kan inte läsa font" << endl;
-	}
 	currentFrame_ = new Game(this);
 }
 
@@ -35,8 +30,11 @@ void Application::run()
 			{
 				input_.keyPressed(event);
 			}
+			if (event.type == sf::Event::MouseButtonReleased)
+			{
+				input_.mousePressed(event);
+			}
 		}
-		
 
 		update();
 

@@ -38,8 +38,12 @@ void Input::update()
 
 void Input::keyPressed(sf::Event event)
 {
-	if ((event.key.code == sf::Keyboard::Space) || (event.key.code == sf::Keyboard::I))
+	//if ((event.key.code == sf::Keyboard::Space) || (event.key.code == sf::Keyboard::I))
 		appPointer_->getCurrentFrame()->handleKeyEvent(event);
 }
 
+void Input::mousePressed(sf::Event event)
+{
+	appPointer_->getCurrentFrame()->handleMouseEvent(event);
+}
 

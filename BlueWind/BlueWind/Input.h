@@ -14,6 +14,7 @@ public:
 	void update();
 
 	void keyPressed(sf::Event);
+	void mousePressed(sf::Event);
 
 private:
 	Application* appPointer_;

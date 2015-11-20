@@ -14,7 +14,7 @@ Frame::~Frame()
 	}
 }
 
-void Frame::addButton(sf::Vector2f size, sf::Vector2f pos, std::string text)
+void Frame::addButton(sf::Vector2f pos, std::string file, sf::Vector2f size)
 {
-	buttons_.push_back(new FrameButton(appPointer_,size, pos, text));
+	buttons_.push_back(new FrameButton(appPointer_, pos, file, size));
 }

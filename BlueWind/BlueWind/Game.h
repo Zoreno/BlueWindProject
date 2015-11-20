@@ -18,6 +18,7 @@ public:
 	void render(GameWindow&) override;
 
 	void handleKeyEvent(sf::Event) override;
+	void handleMouseEvent(sf::Event) override;
 
 	Player* getPlayer();
 	Application* getApp();
