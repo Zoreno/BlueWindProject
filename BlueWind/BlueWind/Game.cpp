@@ -29,7 +29,9 @@ void Game::render(GameWindow & window)
 
 void Game::handleKeyEvent(sf::Event event)
 {
-	if (event.key.code == sf::Keyboard::Space)
+	switch (event.key.code)
+	{
+	case sf::Keyboard::Space:
 		for (auto it : universe_.getCurrentWorld()->getEnemyVector())
 		{
 			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
@@ -38,8 +40,7 @@ void Game::handleKeyEvent(sf::Event event)
 				break;
 			}
 		}
-	if (event.key.code == sf::Keyboard::I)
-	{
+	case sf::Keyboard::I:
 		for (auto it : universe_.getCurrentWorld()->getNPCVector())
 		{
 			if (getDistance(player_.getPosition(), it->getPosition()) <= 16)
@@ -48,6 +49,8 @@ void Game::handleKeyEvent(sf::Event event)
 				break;
 			}
 		}
+	default:
+		break;
 	}
 }
 

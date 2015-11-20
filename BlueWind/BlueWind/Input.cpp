@@ -24,10 +24,12 @@ void Input::update()
 		pressedButtons_['a'] = true;
 	else
 		pressedButtons_['a'] = false;
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		pressedButtons_['s'] = true;
 	else
 		pressedButtons_['s'] = false;
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		pressedButtons_['d'] = true;
 	else
@@ -36,9 +38,7 @@ void Input::update()
 
 void Input::keyPressed(sf::Event event)
 {
-	if (event.key.code == sf::Keyboard::Space)
-		appPointer_->getCurrentFrame()->handleKeyEvent(event);
-	if (event.key.code == sf::Keyboard::I)
+	if ((event.key.code == sf::Keyboard::Space) || (event.key.code == sf::Keyboard::I))
 		appPointer_->getCurrentFrame()->handleKeyEvent(event);
 }
 

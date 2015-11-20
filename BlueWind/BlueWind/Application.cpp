@@ -36,6 +36,7 @@ void Application::run()
 				input_.keyPressed(event);
 			}
 		}
+		
 
 		update();
 
