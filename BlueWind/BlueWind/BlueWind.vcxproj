@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -171,10 +172,15 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TextureHandler.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="UIBar.cpp" />
+    <ClCompile Include="UIComponent.cpp" />
+    <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
@@ -188,7 +194,11 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="TextureHandler.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="UIBar.h" />
+    <ClInclude Include="UIComponent.h" />
+    <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
+    <ClInclude Include="UserInterface.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>

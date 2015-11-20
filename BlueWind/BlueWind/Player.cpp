@@ -11,7 +11,8 @@ using namespace std;
 
 
 Player::Player(World * worldPtr, sf::Texture& texture)
-	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr)
+	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr),
+	mana_{20}, maxMana_{20}, maxExperience_{100}
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
@@ -27,6 +28,31 @@ void Player::addExperience(int value)
 	experience_ += value;
 }
 
+int Player::getMana() const
+{
+	return mana_;
+}
+
+void Player::setMana(int value)
+{
+	mana_ = value;
+}
+
+int Player::getMaxMana() const
+{
+	return maxMana_;
+}
+
+void Player::setMaxMana(int value)
+{
+	maxMana_ = value;
+}
+
+int Player::getMaxExperience()
+{
+	return maxExperience_;
+}
+
 void Player::update()
 {
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
@@ -37,7 +63,7 @@ void Player::update()
 		move(0, 1);
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
 		move(0, -1);
-}
+			}
 
 void Player::render(GameWindow & window)
 {
@@ -46,7 +72,7 @@ void Player::render(GameWindow & window)
 }
 
 const int Player::getAttackCooldown() const
-{
+		{
 	return attackCooldown_;
 }
 
