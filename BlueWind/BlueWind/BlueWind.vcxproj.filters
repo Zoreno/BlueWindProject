@@ -81,6 +81,9 @@
     <ClCompile Include="UIBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UIPortrait.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">

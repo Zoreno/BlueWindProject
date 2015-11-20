@@ -30,6 +30,7 @@ void Enemy::render(GameWindow & window)
 void Enemy::die()
 {
 	cout << "Enemy died!" << endl;
+	worldPointer_->getUniverse()->getGame()->getPlayer()->addExperience(20);
 	worldPointer_->removeEnemy(this);
 }
 
@@ -119,7 +120,7 @@ void Enemy::attackPlayer()
 		return;
 	}
 	attackCooldown_++;
-	removeHealth(100);
+	//removeHealth(100);
 
 }
 

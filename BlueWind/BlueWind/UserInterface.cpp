@@ -1,4 +1,19 @@
 #include "UserInterface.h"
+#include <iostream>
+#include "UIPortrait.h"
+
+using namespace std;
+
+UserInterface::UserInterface(Player * playerPtr)
+{
+	cout << playerPtr->getName() << endl;
+	if (!uiFont_.loadFromFile("res/calibri.ttf"))
+	{
+		//TODO lägg till exception
+		cout << "Kan inte läsa font" << endl;
+	}
+	loadComponents(playerPtr);
+}
 
 void UserInterface::update()
 {
@@ -10,6 +25,8 @@ void UserInterface::update()
 
 void UserInterface::render(GameWindow & window)
 {
+	sf::View old = window.getView();
+	window.setView(uiView_);
 	for (auto it : components_)
 	{
 		if (it->isVisible())
@@ -17,8 +34,15 @@ void UserInterface::render(GameWindow & window)
 			it->render(window);
 		}
 	}
+	window.setView(old);
 }
 
-void UserInterface::loadComponents()
+sf::Font & UserInterface::getFont()
 {
+	return uiFont_;
+}
+
+void UserInterface::loadComponents(Player* playerPtr)
+{
+	components_.push_back(new UIPortrait(this, playerPtr));
 }

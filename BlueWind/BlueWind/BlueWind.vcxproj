@@ -173,6 +173,7 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIBar.cpp" />
     <ClCompile Include="UIComponent.cpp" />
+    <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="World.cpp" />

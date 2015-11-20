@@ -95,4 +95,5 @@ void Entity::removeHealth(int value)
 void Entity::die()
 {
 	cout << "U dieded" << endl;
+
 }

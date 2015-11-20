@@ -1,5 +1,14 @@
 #include "UIComponent.h"
 
+UIComponent::UIComponent(sf::Vector2f position, sf::Vector2f size, UserInterface * uiPtr, Player * playerPtr, bool visible)
+	:position_{position}, 
+	size_{size}, 
+	ui_{uiPtr}, 
+	player_{playerPtr}, 
+	visible_{visible}
+{
+}
+
 bool UIComponent::isVisible() const
 {
 	return visible_;
