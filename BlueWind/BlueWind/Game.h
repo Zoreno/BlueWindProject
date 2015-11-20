@@ -18,6 +18,8 @@ public:
 	void update() override;
 	void render(GameWindow&) override;
 
+	void handleKeyEvent(sf::Event) override;
+
 	Player* getPlayer();
 	Application* getApp();
 	sf::Texture& getTexture(const std::string&);

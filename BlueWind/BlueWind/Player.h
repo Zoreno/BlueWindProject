@@ -22,6 +22,7 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
+	const int getAttackCooldown() const;
 
 	//int enemyClose();
 
@@ -30,7 +31,6 @@ private:
 	int mana_;
 	int maxMana_;
 	int maxExperience_; //Temporär
-
-
+	int attackCooldown_;
 	sf::Sprite sprite_;
 };

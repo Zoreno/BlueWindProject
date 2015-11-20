@@ -29,6 +29,33 @@ void Game::render(GameWindow & window)
 	ui_.render(window);
 }
 
+void Game::handleKeyEvent(sf::Event event)
+{
+	switch (event.key.code)
+	{
+	case sf::Keyboard::Space:
+		for (auto it : universe_.getCurrentWorld()->getEnemyVector())
+		{
+			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
+			{
+				it.second->removeHealth(10);
+				break;
+			}
+		}
+	case sf::Keyboard::I:
+		for (auto it : universe_.getCurrentWorld()->getNPCVector())
+		{
+			if (getDistance(player_.getPosition(), it->getPosition()) <= 16)
+			{
+				it->talk();
+				break;
+			}
+		}
+	default:
+		break;
+	}
+}
+
 Player * Game::getPlayer()
 {
 	return &player_;

@@ -19,6 +19,7 @@ public:
 	void render(GameWindow& window);
 	void update();
 	const Input getInput();
+	Frame* getCurrentFrame();
 
 	const sf::Font& getFont() const;
 	GameWindow& getGameWindow();
