@@ -23,6 +23,7 @@ public:
 	void addEnemy(Enemy*);
 	void addNPC(NPC*);
 	void removeEnemy(Enemy*);
+	void removeNPC(NPC*);
 
 	Universe* getUniverse() const;
 
@@ -31,7 +32,7 @@ public:
 	const int getMapHeight() const;
 	const std::vector<int> getTileVector() const;
 	const std::map<int,Enemy*> getEnemyVector() const;
-	const std::vector<NPC*> getNPCVector() const;
+	const std::map<int,NPC*> getNPCVector() const;
 private:
 	std::vector<int> tileVector_;
 	const int ID_;
@@ -39,7 +40,8 @@ private:
 
 	std::map<int,Enemy*> enemyVector_;
 	std::vector<int> removeEnemyVector_;
-	std::vector<NPC*> NPCVector_;
+	std::map<int,NPC*> NPCVector_;
+	std::vector<int> remoneNPCVector_;
 
 	int mapWidth;
 	int mapHeight;

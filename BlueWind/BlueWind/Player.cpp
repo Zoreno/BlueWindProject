@@ -41,9 +41,9 @@ void Player::update()
 	{
 		for (auto it : worldPointer_->getNPCVector())
 		{
-			if (getDistance(position_, it->getPosition()) <= 16)
+			if (getDistance(position_, it.second->getPosition()) <= 16)
 			{
-				it->talk(); // TODO Fixa så att det bara skrivs ut en gång!
+				it.second->talk(); // TODO Fixa så att det bara skrivs ut en gång!
 				break;
 			}
 		}

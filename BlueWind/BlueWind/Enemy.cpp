@@ -110,7 +110,7 @@ void Enemy::executeState()
 
 void Enemy::attackPlayer()
 {
-	
+
 
 	if (attackCooldown_ >= 60)
 	{
