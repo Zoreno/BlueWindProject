@@ -17,11 +17,12 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
+	const int getAttackCooldown() const;
 
 	//int enemyClose();
 
 private:
 	int experience_;
-
+	int attackCooldown_;
 	sf::Sprite sprite_;
 };

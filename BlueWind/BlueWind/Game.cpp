@@ -5,7 +5,7 @@ using namespace std;
 
 
 Game::Game(Application * appPtr)
-	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player")}
+	:Frame{ appPtr }, universe_{ this }, player_{ universe_.getCurrentWorld(), textureHandler_.getTextureRef("player") }
 {
 	cout << "Game startas!" << endl;
 }
@@ -25,6 +25,30 @@ void Game::render(GameWindow & window)
 	//cout << "Game renderar" << endl;
 	universe_.render(window);
 	player_.render(window);
+}
+
+void Game::handleKeyEvent(sf::Event event)
+{
+	if (event.key.code == sf::Keyboard::Space)
+		for (auto it : universe_.getCurrentWorld()->getEnemyVector())
+		{
+			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
+			{
+				it.second->removeHealth(10);
+				break;
+			}
+		}
+	if (event.key.code == sf::Keyboard::I)
+	{
+		for (auto it : universe_.getCurrentWorld()->getNPCVector())
+		{
+			if (getDistance(player_.getPosition(), it->getPosition()) <= 16)
+			{
+				it->talk();
+				break;
+			}
+		}
+	}
 }
 
 Player * Game::getPlayer()

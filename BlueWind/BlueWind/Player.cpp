@@ -37,29 +37,6 @@ void Player::update()
 		move(0, 1);
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
 		move(0, -1);
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('i')) 
-	{
-		for (auto it : worldPointer_->getNPCVector())
-		{
-			if (getDistance(position_, it->getPosition()) <= 16)
-			{
-				it->talk(); // TODO Fixa så att det bara skrivs ut en gång!
-				break;
-			}
-		}
-	}
-
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('+'))
-	{
-		for (auto it : worldPointer_->getEnemyVector())
-		{
-			if (getDistance(position_, it.second->getPosition()) <= 16)
-			{
-				it.second->removeHealth(10);
-				break;
-			}
-		}
-	}
 }
 
 void Player::render(GameWindow & window)
@@ -67,3 +44,9 @@ void Player::render(GameWindow & window)
 	sprite_.setPosition(position_);
 	window.draw(sprite_);
 }
+
+const int Player::getAttackCooldown() const
+{
+	return attackCooldown_;
+}
+

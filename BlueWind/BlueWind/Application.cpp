@@ -3,7 +3,7 @@
 using namespace std;
 
 Application::Application()
-	: input_{this}
+	: input_{ this }
 {
 	if (!font_.loadFromFile("res/calibri.ttf"))
 	{
@@ -30,6 +30,11 @@ void Application::run()
 		{
 			if (event.type == sf::Event::Closed)
 				window_.close();
+
+			if (event.type == sf::Event::KeyReleased)
+			{
+				input_.keyPressed(event);
+			}
 		}
 
 		update();
@@ -54,6 +59,11 @@ void Application::update()
 const Input Application::getInput()
 {
 	return input_;
+}
+
+Frame * Application::getCurrentFrame()
+{
+	return currentFrame_;
 }
 
 const sf::Font& Application::getFont() const

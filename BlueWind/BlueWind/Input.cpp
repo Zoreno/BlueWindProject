@@ -11,14 +11,12 @@ Input::Input(Application * appPtr)
 	pressedButtons_.emplace('d', false);
 	pressedButtons_.emplace('s', false);
 	pressedButtons_.emplace('w', false);
-	pressedButtons_.emplace('i', false); 
-	pressedButtons_.emplace('+', false);
 }
 
 void Input::update()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		pressedButtons_['w'] = true;	
+		pressedButtons_['w'] = true;
 	else
 		pressedButtons_['w'] = false;
 
@@ -34,12 +32,14 @@ void Input::update()
 		pressedButtons_['d'] = true;
 	else
 		pressedButtons_['d'] = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
-		pressedButtons_['i'] = true;
-	else
-		pressedButtons_['i'] = false;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-		pressedButtons_['+'] = true;
-	else
-		pressedButtons_['+'] = false;
-	}
+}
+
+void Input::keyPressed(sf::Event event)
+{
+	if (event.key.code == sf::Keyboard::Space)
+		appPointer_->getCurrentFrame()->handleKeyEvent(event);
+	if (event.key.code == sf::Keyboard::I)
+		appPointer_->getCurrentFrame()->handleKeyEvent(event);
+}
+
+
