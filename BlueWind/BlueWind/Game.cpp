@@ -56,6 +56,10 @@ void Game::handleKeyEvent(sf::Event event)
 	}
 }
 
+void Game::handleMouseEvent(sf::Event)
+{
+}
+
 Player * Game::getPlayer()
 {
 	return &player_;

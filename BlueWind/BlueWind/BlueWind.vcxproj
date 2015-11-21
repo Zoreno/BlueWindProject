@@ -204,8 +204,11 @@
   <ItemGroup>
     <Image Include="res\textures\enemy.png" />
     <Image Include="res\textures\green.png" />
+    <Image Include="res\textures\Menu.png" />
     <Image Include="res\textures\player.png" />
+    <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
+    <Image Include="res\textures\startButton.png" />
     <Image Include="res\worlds\level.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -166,5 +166,14 @@
     <Image Include="res\worlds\level.bmp">
       <Filter>Resource Files\worlds</Filter>
     </Image>
+    <Image Include="res\textures\quitButton.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="res\textures\startButton.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="res\textures\Menu.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>
