@@ -3,10 +3,10 @@
 
 using namespace std;
 
-FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, std::string file, sf::Vector2f size)
-	: appPointer_{ appPtr }, position_{ pos }, file_{ file }, size_{ size } 
+FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, std::string file, sf::Vector2f size, std::function<void(Application*)> callbackFunc)
+	: appPointer_{ appPtr }, position_{ pos }, file_{ file }, size_{ size }, callback_{callbackFunc}
 {
-	// TODO Fixa callback!
+	
 }
 
 sf::Vector2f FrameButton::getPosition() const
@@ -36,7 +36,9 @@ void FrameButton::render(GameWindow & window)
 	window.draw(sprite_);
 }
 
-void FrameButton::callback()
+void FrameButton::clicked()
 {
-
+	return callback_(appPointer_);
 }
+
+

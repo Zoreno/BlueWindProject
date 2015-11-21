@@ -10,7 +10,7 @@ class Application;
 class FrameButton
 {
 public:
-	FrameButton(Application*,sf::Vector2f, std::string, sf::Vector2f);
+	FrameButton(Application*,sf::Vector2f, std::string, sf::Vector2f, std::function<void (Application*)>);
 	FrameButton(const FrameButton&) = delete;
 	FrameButton& operator=(const FrameButton&) = delete;
 
@@ -19,7 +19,7 @@ public:
 
 	void update();
 	void render(GameWindow&);
-	void callback(); // TODO Fixa!
+	void clicked();
 
 private:
 	Application* appPointer_;
@@ -27,4 +27,5 @@ private:
 	sf::Vector2f size_;
 	std::string file_;
 	sf::Sprite sprite_;
+	std::function<void(Application*)> callback_;
 };

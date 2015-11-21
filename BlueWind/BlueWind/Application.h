@@ -20,6 +20,7 @@ public:
 	void update();
 	const Input getInput();
 	Frame* getCurrentFrame();
+	void startGame();
 
 	const sf::Font& getFont() const;
 	GameWindow& getGameWindow();

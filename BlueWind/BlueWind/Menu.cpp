@@ -7,8 +7,10 @@ using namespace std;
 Menu::Menu(Application * appPtr)
 	: Frame{appPtr} 
 {
-	addButton(sf::Vector2f(400-125, 200), "res/textures/startButton.png", sf::Vector2f(250, 100));
-	addButton(sf::Vector2f(400 - 125, 350), "res/textures/quitButton.png", sf::Vector2f(250, 100));
+	void startCallback(Application*);
+	void quitCallback(Application*);
+	addButton(sf::Vector2f(400-125, 200), "res/textures/startButton.png", sf::Vector2f(250, 100), startCallback);
+	addButton(sf::Vector2f(400 - 125, 350), "res/textures/quitButton.png", sf::Vector2f(250, 100), quitCallback);
 }
 
 void Menu::handleKeyEvent(sf::Event event)
@@ -28,7 +30,7 @@ void Menu::handleMouseEvent(sf::Event event)
 			if (mousePosition.x > it->getPosition().x && mousePosition.x < it->getPosition().x + it->getSize().x &&
 				mousePosition.y > it->getPosition().y && mousePosition.y < it->getPosition().y + it->getSize().y)
 			{
-				it->callback();
+				it->clicked();
 			}
 		}
 	}
@@ -64,3 +66,14 @@ void Menu::render(GameWindow & window)
 		it->render(window);
 	}
 }
+
+void startCallback(Application* ptr)
+{
+	ptr->startGame();
+}
+
+void quitCallback(Application* ptr)
+{
+	ptr->getGameWindow().close();
+}
+

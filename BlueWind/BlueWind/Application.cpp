@@ -65,6 +65,13 @@ Frame * Application::getCurrentFrame()
 	return currentFrame_;
 }
 
+void Application::startGame()
+{
+	// TODO Fixa!
+	//delete currentFrame_;
+	//currentFrame_ = new Game(this);
+}
+
 const sf::Font& Application::getFont() const
 {
 	return font_;
