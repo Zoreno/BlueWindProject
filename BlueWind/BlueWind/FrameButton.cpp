@@ -38,7 +38,7 @@ void FrameButton::render(GameWindow & window)
 
 void FrameButton::clicked()
 {
-	return callback_(appPointer_);
+	callback_(appPointer_);
 }
 
 

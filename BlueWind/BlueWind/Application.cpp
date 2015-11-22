@@ -5,7 +5,7 @@ using namespace std;
 Application::Application()
 	: input_{ this }
 {
-	currentFrame_ = new Game(this);
+	currentFrame_ = new Menu(this);
 }
 
 void Application::run()
@@ -13,10 +13,8 @@ void Application::run()
 	cout << "Program running..." << endl;
 
 	window_.setFramerateLimit(60);
-	sf::View view1 = window_.getView();
-	//view1.setCenter(sf::Vector2f(0.0f, 0.0f));
-	view1.zoom(0.4f);
-	window_.setView(view1);
+	sf::View view = window_.getView();
+	window_.setView(view);
 
 	while (window_.isOpen())
 	{
@@ -32,7 +30,7 @@ void Application::run()
 			}
 			if (event.type == sf::Event::MouseButtonReleased)
 			{
-				input_.mousePressed(event);
+ 				input_.mousePressed(event);
 			}
 		}
 
@@ -67,9 +65,15 @@ Frame * Application::getCurrentFrame()
 
 void Application::startGame()
 {
-	// TODO Fixa!
-	//delete currentFrame_;
-	//currentFrame_ = new Game(this);
+	// TODO Fixa mer allmän "changeframe"-funktion
+	soundHandler_.getMusic("menuMusic").stop();
+	
+	delete currentFrame_;
+	currentFrame_ = new Game(this);
+	
+	sf::View view = window_.getView();
+	view.zoom(0.4f);
+	window_.setView(view);
 }
 
 const sf::Font& Application::getFont() const
@@ -80,4 +84,9 @@ const sf::Font& Application::getFont() const
 GameWindow& Application::getGameWindow()
 {
 	return window_;
+}
+
+SoundHandler & Application::getSoundHandler()
+{
+	return soundHandler_;
 }

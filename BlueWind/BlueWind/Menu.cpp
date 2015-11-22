@@ -11,6 +11,7 @@ Menu::Menu(Application * appPtr)
 	void quitCallback(Application*);
 	addButton(sf::Vector2f(400-125, 200), "res/textures/startButton.png", sf::Vector2f(250, 100), startCallback);
 	addButton(sf::Vector2f(400 - 125, 350), "res/textures/quitButton.png", sf::Vector2f(250, 100), quitCallback);
+	appPtr->getSoundHandler().getMusic("menuMusic").play();
 }
 
 void Menu::handleKeyEvent(sf::Event event)
@@ -31,6 +32,7 @@ void Menu::handleMouseEvent(sf::Event event)
 				mousePosition.y > it->getPosition().y && mousePosition.y < it->getPosition().y + it->getSize().y)
 			{
 				it->clicked();
+				break;
 			}
 		}
 	}

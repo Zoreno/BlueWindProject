@@ -170,6 +170,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SoundHandler.cpp" />
     <ClCompile Include="TextureHandler.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIBar.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SoundHandler.h" />
     <ClInclude Include="TextureHandler.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UIBar.h" />
