@@ -7,11 +7,13 @@ using namespace std;
 Menu::Menu(Application * appPtr)
 	: Frame{appPtr} 
 {
-	void startCallback(Application*);
+	void newGameCallback(Application*);
+	void loadGameCallback(Application*);
 	void quitCallback(Application*);
-	addButton(sf::Vector2f(400-125, 200), "res/textures/startButton.png", sf::Vector2f(250, 100), startCallback);
-	addButton(sf::Vector2f(400 - 125, 350), "res/textures/quitButton.png", sf::Vector2f(250, 100), quitCallback);
-	appPtr->getSoundHandler().getMusic("menuMusic").play();
+	addButton(sf::Vector2f(400-175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
+	addButton(sf::Vector2f(400 - 175, 275), sf::Vector2f(350, 100), "res/textures/loadgameButton.png", "res/textures/loadgameButtonHover.png", loadGameCallback);
+	addButton(sf::Vector2f(400 - 175, 400), sf::Vector2f(350, 100), "res/textures/quitButton.png", "res/textures/quitButtonHover.png", quitCallback);
+	appPtr->getSoundHandler().playMusic("menuMusic");
 }
 
 void Menu::handleKeyEvent(sf::Event event)
@@ -28,15 +30,20 @@ void Menu::handleMouseEvent(sf::Event event)
 		
 		for (auto it : buttons_)
 		{
-			if (mousePosition.x > it->getPosition().x && mousePosition.x < it->getPosition().x + it->getSize().x &&
-				mousePosition.y > it->getPosition().y && mousePosition.y < it->getPosition().y + it->getSize().y)
+			if (it->mouseOnButton(mousePosition))
 			{
 				it->clicked();
 				break;
 			}
 		}
 	}
-		
+	break;
+	// Test för uppspelning av ljud!
+	case sf::Mouse::Right:
+	{
+		appPointer_->getSoundHandler().playSound("menuClick");
+		cout << "test" << endl;
+	}
 	default:
 		break;
 	}
@@ -52,26 +59,27 @@ void Menu::update()
 
 void Menu::render(GameWindow & window)
 {
-	//Render bakgrund
 	sf::Texture bTexture;
-
 	if (!bTexture.loadFromFile("res/textures/Menu.png"))
 		cout << "Could not load menu" << endl;
 
 	background_.setTexture(bTexture);
-
 	window.draw(background_);
 
-	//Render komponenter
 	for (auto it : buttons_)
 	{
 		it->render(window);
 	}
 }
 
-void startCallback(Application* ptr)
+void newGameCallback(Application* ptr)
 {
-	ptr->startGame();
+	ptr->startNewGame();
+}
+
+void loadGameCallback(Application* ptr)
+{
+
 }
 
 void quitCallback(Application* ptr)

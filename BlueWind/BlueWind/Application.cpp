@@ -63,10 +63,10 @@ Frame * Application::getCurrentFrame()
 	return currentFrame_;
 }
 
-void Application::startGame()
+void Application::startNewGame()
 {
 	// TODO Fixa mer allmän "changeframe"-funktion
-	soundHandler_.getMusic("menuMusic").stop();
+	soundHandler_.stopMusic("menuMusic");
 	
 	delete currentFrame_;
 	currentFrame_ = new Game(this);

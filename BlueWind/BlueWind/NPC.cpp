@@ -25,5 +25,5 @@ void NPC::render(GameWindow & window)
 
 void NPC::talk() const
 {
-	cout << conversation_ << endl;
+	
 }

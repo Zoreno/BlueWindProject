@@ -21,13 +21,13 @@ public:
 	void update();
 	const Input getInput();
 	Frame* getCurrentFrame();
-	void startGame();
+	void startNewGame();
 
 	const sf::Font& getFont() const;
 	GameWindow& getGameWindow();
 	SoundHandler& getSoundHandler();
 private:
-	GameWindow window_{ sf::VideoMode(800, 600), "SFML doesnt work!" };
+	GameWindow window_{ sf::VideoMode(800, 600), "Simon was here!" };
 	Frame* currentFrame_;
 	sf::Font font_;
 	Input input_;

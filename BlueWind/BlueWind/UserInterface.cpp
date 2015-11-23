@@ -1,6 +1,7 @@
 #include "UserInterface.h"
 #include <iostream>
 #include "UIPortrait.h"
+#include "UIConversation.h"
 
 using namespace std;
 
@@ -45,4 +46,5 @@ sf::Font & UserInterface::getFont()
 void UserInterface::loadComponents(Player* playerPtr)
 {
 	components_.push_back(new UIPortrait(this, playerPtr));
+	components_.push_back(new UIConversation(this, playerPtr));
 }

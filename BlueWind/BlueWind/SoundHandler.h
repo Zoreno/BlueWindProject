@@ -4,7 +4,7 @@
 #include <string>
 #include <SFML/Audio.hpp>
 
-using soundTable = std::map<const std::string, sf::Sound*>;
+using soundTable = std::map<const std::string, sf::SoundBuffer*>;
 using musicTable = std::map<const std::string, sf::Music*>;
 
 class SoundHandler
@@ -16,11 +16,17 @@ public:
 
 	//TODO destruktor
 
-	sf::Sound& getSound(const std::string&);
+	sf::SoundBuffer& getSound(const std::string&);
 	sf::Music& getMusic(const std::string&);
+
+	void playSound(const std::string&);
+	void playMusic(const std::string&);
+	void stopMusic(const std::string&);
+	
 private:
 	soundTable sounds_;
 	musicTable music_;
+
 
 	void loadSound(const std::string&, const std::string&);
 	void loadMusic(const std::string&, const std::string&);

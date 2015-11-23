@@ -175,6 +175,7 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIBar.cpp" />
     <ClCompile Include="UIComponent.cpp" />
+    <ClCompile Include="UIConversation.cpp" />
     <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UIBar.h" />
     <ClInclude Include="UIComponent.h" />
+    <ClInclude Include="UIConversation.h" />
     <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
     <ClInclude Include="UserInterface.h" />
@@ -210,8 +212,13 @@
     <Image Include="res\textures\player.png" />
     <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
-    <Image Include="res\textures\startButton.png" />
     <Image Include="res\worlds\level.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\sounds\menuClick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\sounds\menuMusic.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

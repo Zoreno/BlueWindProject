@@ -38,10 +38,11 @@ void Game::handleKeyEvent(sf::Event event)
 		{
 			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
 			{
-				it.second->removeHealth(10);
+				it.second->removeHealth(10); // TODO Skall skada med "damage"
 				break;
 			}
 		}
+		break;
 	case sf::Keyboard::I:
 		for (auto it : universe_.getCurrentWorld()->getNPCVector())
 		{
