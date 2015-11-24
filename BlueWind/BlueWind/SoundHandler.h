@@ -16,9 +16,6 @@ public:
 
 	//TODO destruktor
 
-	sf::SoundBuffer& getSound(const std::string&);
-	sf::Music& getMusic(const std::string&);
-
 	void playSound(const std::string&);
 	void playMusic(const std::string&);
 	void stopMusic(const std::string&);

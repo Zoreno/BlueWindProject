@@ -12,17 +12,6 @@ SoundHandler::SoundHandler()
 	cout << "Laddar ljud klart" << endl;
 }
 
-sf::SoundBuffer& SoundHandler::getSound(const std::string& soundName)
-{
-	return (*sounds_.find(soundName)->second);
-}
-
-
-sf::Music& SoundHandler::getMusic(const std::string& musicName)
-{
-	return (*music_.find(musicName)->second);
-}
-
 void SoundHandler::playSound(const std::string& soundName)
 {
 	currentSound_.setBuffer(*sounds_.find(soundName)->second);
