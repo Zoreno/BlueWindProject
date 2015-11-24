@@ -93,7 +93,7 @@
     <ClCompile Include="SoundHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UIConversation.cpp">
+    <ClCompile Include="UIChatBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -161,7 +161,7 @@
     <ClInclude Include="SoundHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UIConversation.h">
+    <ClInclude Include="UIChatBox.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>

@@ -52,9 +52,17 @@ void Game::handleKeyEvent(sf::Event event)
 				break;
 			}
 		}
+		break;
+	case sf::Keyboard::L:
+		ui_.addStringToChatBox("Hejsan fan.!");
+		break;
+	case sf::Keyboard::E:
+		ui_.handleKeyEvent(event);
+		break;
 	default:
 		break;
 	}
+	
 }
 
 void Game::handleMouseEvent(sf::Event)

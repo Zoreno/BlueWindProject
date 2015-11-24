@@ -175,7 +175,7 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIBar.cpp" />
     <ClCompile Include="UIComponent.cpp" />
-    <ClCompile Include="UIConversation.cpp" />
+    <ClCompile Include="UIChatBox.cpp" />
     <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -199,7 +199,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UIBar.h" />
     <ClInclude Include="UIComponent.h" />
-    <ClInclude Include="UIConversation.h" />
+    <ClInclude Include="UIChatBox.h" />
     <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
     <ClInclude Include="UserInterface.h" />

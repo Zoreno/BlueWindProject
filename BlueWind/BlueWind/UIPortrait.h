@@ -12,6 +12,8 @@ public:
 	UIPortrait(const UIPortrait&) = delete;
 	UIPortrait& operator=(const UIPortrait&) = delete;
 
+	void handleKeyEvent(sf::Event) override;
+
 	void update() override;
 	void render(GameWindow&) override;
 

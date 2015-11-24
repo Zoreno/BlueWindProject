@@ -1,7 +1,7 @@
 #include "UserInterface.h"
 #include <iostream>
 #include "UIPortrait.h"
-#include "UIConversation.h"
+#include "UIChatBox.h"
 
 using namespace std;
 
@@ -16,11 +16,24 @@ UserInterface::UserInterface(Player * playerPtr)
 	loadComponents(playerPtr);
 }
 
+void UserInterface::handleKeyEvent(sf::Event ev)
+{
+	for (auto it : components_)
+	{
+		it.second->handleKeyEvent(ev);
+	}
+}
+
+void UserInterface::addStringToChatBox(std::string newString)
+{
+	dynamic_cast<UIChatBox*>(components_.at("chatbox"))->setConversation(newString);
+}
+
 void UserInterface::update()
 {
 	for (auto it : components_)
 	{
-		it->update();
+		it.second->update();
 	}
 }
 
@@ -30,9 +43,9 @@ void UserInterface::render(GameWindow & window)
 	window.setView(uiView_);
 	for (auto it : components_)
 	{
-		if (it->isVisible())
+		if (it.second->isVisible())
 		{
-			it->render(window);
+			it.second->render(window);
 		}
 	}
 	window.setView(old);
@@ -45,6 +58,6 @@ sf::Font & UserInterface::getFont()
 
 void UserInterface::loadComponents(Player* playerPtr)
 {
-	components_.push_back(new UIPortrait(this, playerPtr));
-	components_.push_back(new UIConversation(this, playerPtr));
+	components_.emplace("portrait", new UIPortrait(this, playerPtr));
+	components_.emplace("chatbox", new UIChatBox(this, playerPtr));
 }
