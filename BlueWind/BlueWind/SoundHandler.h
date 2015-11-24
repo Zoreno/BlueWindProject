@@ -26,7 +26,7 @@ public:
 private:
 	soundTable sounds_;
 	musicTable music_;
-
+	sf::Sound currentSound_;
 
 	void loadSound(const std::string&, const std::string&);
 	void loadMusic(const std::string&, const std::string&);
