@@ -8,7 +8,7 @@ SoundHandler::SoundHandler()
 {
 	cout << "Laddar ljud" << endl;
 	loadMusic("menuMusic", "res/sounds/menuMusic.ogg");
-	loadSound("menuClick", "res/sounds/Menu Choice.mp3");
+	loadSound("menuClick", "res/sounds/menuClick.ogg");
 	cout << "Laddar ljud klart" << endl;
 }
 
@@ -27,7 +27,6 @@ void SoundHandler::playSound(const std::string& soundName)
 {
 	currentSound_.setBuffer(*sounds_.find(soundName)->second);
 	currentSound_.play();
-	cout << "test3" << endl;
 }
 
 void SoundHandler::playMusic(const std::string& musicName)
