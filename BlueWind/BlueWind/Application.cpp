@@ -10,7 +10,7 @@ Application::Application()
 		//TODO lägg till exception
 		cout << "Kan inte läsa font" << endl;
 	}
-	currentFrame_ = new Game(this);
+	currentFrame_ = new Menu(this);
 }
 
 void Application::run()
@@ -20,7 +20,7 @@ void Application::run()
 	window_.setFramerateLimit(60);
 	sf::View view1 = window_.getView();
 	//view1.setCenter(sf::Vector2f(0.0f, 0.0f));
-	view1.zoom(0.4f);
+	//view1.zoom(0.4f);
 	window_.setView(view1);
 
 	while (window_.isOpen())
@@ -54,6 +54,12 @@ void Application::update()
 const Input Application::getInput()
 {
 	return input_;
+}
+
+void Application::changeCurrentFrame()
+{
+	delete currentFrame_;
+	currentFrame_ = new Game(this);
 }
 
 const sf::Font& Application::getFont() const

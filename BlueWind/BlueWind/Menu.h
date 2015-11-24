@@ -14,4 +14,7 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
+
+private:
+	sf::Sprite background_;
 };

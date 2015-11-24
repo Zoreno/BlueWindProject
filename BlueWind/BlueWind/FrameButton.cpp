@@ -1,8 +1,10 @@
 #include "FrameButton.h"
 #include "Application.h"
 
-FrameButton::FrameButton(Application* appPtr, sf::Vector2f size, sf::Vector2f pos, std::string text)
-	: appPointer_{ appPtr }, size_ {size}, position_{ pos }, text_{ text } {}
+using namespace std;
+
+FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, string file)
+	: appPointer_{ appPtr }, position_{ pos }, file_{ file } {}
 
 sf::Vector2f FrameButton::getPosition() const
 {
@@ -14,11 +16,12 @@ void FrameButton::update()
 
 void FrameButton::render(GameWindow & window)
 {
-	sf::RectangleShape rect{ size_ };
-	rect.move(position_);
-	rect.setFillColor(sf::Color::Magenta);
-	//TODO byt namn
-	sf::Text t{ text_,appPointer_->getFont(), 140 };
-	window.draw(rect);
-	window.draw(t);
+	sf::Texture bTexture;
+
+	if (!bTexture.loadFromFile(file_))
+		cout << "Could not load menu" << endl;
+
+	sprite_.setTexture(bTexture);
+	sprite_.setPosition(position_);
+	window.draw(sprite_);
 }

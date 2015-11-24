@@ -9,7 +9,7 @@ class Application;
 class FrameButton
 {
 public:
-	FrameButton(Application*,sf::Vector2f, sf::Vector2f, std::string);
+	FrameButton(Application*,sf::Vector2f, std::string);
 	FrameButton(const FrameButton&) = delete;
 	FrameButton& operator=(const FrameButton&) = delete;
 
@@ -20,7 +20,7 @@ public:
 
 private:
 	Application* appPointer_;
-	sf::Vector2f size_;
 	sf::Vector2f position_;
-	std::string text_;
+	sf::Sprite sprite_;
+	std::string file_;
 };

@@ -1,5 +1,7 @@
 #include "Frame.h"
 
+using namespace std;
+
 Frame::Frame(Application * appPtr)
 	: appPointer_(appPtr)
 { 
@@ -14,7 +16,7 @@ Frame::~Frame()
 	}
 }
 
-void Frame::addButton(sf::Vector2f size, sf::Vector2f pos, std::string text)
+void Frame::addButton(sf::Vector2f pos, string file)
 {
-	buttons_.push_back(new FrameButton(appPointer_,size, pos, text));
+	buttons_.push_back(new FrameButton(appPointer_, pos, file));
 }

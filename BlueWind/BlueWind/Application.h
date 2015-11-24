@@ -20,6 +20,8 @@ public:
 	void update();
 	const Input getInput();
 
+	void changeCurrentFrame();
+
 	const sf::Font& getFont() const;
 	GameWindow& getGameWindow();
 private:
