@@ -6,6 +6,7 @@
 #include "Universe.h"
 #include <string>
 #include "Player.h"
+#include "UserInterface.h"
 
 class Game : public Frame
 {
@@ -17,6 +18,9 @@ public:
 	void update() override;
 	void render(GameWindow&) override;
 
+	void handleKeyEvent(sf::Event) override;
+	void handleMouseEvent(sf::Event) override;
+
 	Player* getPlayer();
 	Application* getApp();
 	sf::Texture& getTexture(const std::string&);
@@ -24,4 +28,5 @@ private:
 	TextureHandler textureHandler_;
 	Universe universe_;
 	Player player_;
+	UserInterface ui_;
 };

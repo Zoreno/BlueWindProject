@@ -64,7 +64,7 @@ void World::render(GameWindow & window)
 
 	for (auto it : NPCVector_)
 	{
-		it->render(window);
+		it.second->render(window);
 	}
 
 }
@@ -97,13 +97,18 @@ void World::addEnemy(Enemy * enemyPtr)
 void World::addNPC(NPC * NPCPtr)
 {
 	cout << "Adding NPC in world " << ID_ << endl;
-	NPCVector_.push_back(NPCPtr);
+	NPCVector_.emplace(NPCPtr->getID(), NPCPtr);
 }
 
 void World::removeEnemy(Enemy * enemyPtr)
 {
 	removeEnemyVector_.push_back(enemyPtr->getID());
 	cout << "Removing enemy" << endl;
+}
+
+void World::removeNPC(NPC * NPCPtr)
+{
+	remoneNPCVector_.push_back(NPCPtr->getID());
 }
 
 Universe * World::getUniverse() const
@@ -131,7 +136,7 @@ const std::vector<int> World::getTileVector() const
 	return tileVector_;
 }
 
-const std::vector<NPC*> World::getNPCVector() const
+const std::map<int,NPC*> World::getNPCVector() const
 {
 	return NPCVector_;
 }

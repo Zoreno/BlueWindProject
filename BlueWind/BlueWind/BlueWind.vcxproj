@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -169,12 +170,19 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SoundHandler.cpp" />
     <ClCompile Include="TextureHandler.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="UIBar.cpp" />
+    <ClCompile Include="UIComponent.cpp" />
+    <ClCompile Include="UIConversation.cpp" />
+    <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
@@ -186,9 +194,15 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SoundHandler.h" />
     <ClInclude Include="TextureHandler.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="UIBar.h" />
+    <ClInclude Include="UIComponent.h" />
+    <ClInclude Include="UIConversation.h" />
+    <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
+    <ClInclude Include="UserInterface.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
@@ -196,9 +210,16 @@
     <Image Include="res\textures\green.png" />
     <Image Include="res\textures\Menu.png" />
     <Image Include="res\textures\player.png" />
+    <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
     <Image Include="res\textures\Startbutton.png" />
     <Image Include="res\worlds\level.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\sounds\menuClick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\sounds\menuMusic.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
