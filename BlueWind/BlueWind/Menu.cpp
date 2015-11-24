@@ -13,7 +13,7 @@ Menu::Menu(Application * appPtr)
 	addButton(sf::Vector2f(400-175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
 	addButton(sf::Vector2f(400 - 175, 275), sf::Vector2f(350, 100), "res/textures/loadgameButton.png", "res/textures/loadgameButtonHover.png", loadGameCallback);
 	addButton(sf::Vector2f(400 - 175, 400), sf::Vector2f(350, 100), "res/textures/quitButton.png", "res/textures/quitButtonHover.png", quitCallback);
-	appPtr->getSoundHandler().playMusic("menuMusic");
+	//appPtr->getSoundHandler().playMusic("menuMusic");
 }
 
 void Menu::handleKeyEvent(sf::Event event)
@@ -43,7 +43,7 @@ void Menu::handleMouseEvent(sf::Event event)
 	{
 		appPointer_->getSoundHandler().playSound("menuClick");
 		cout << "test" << endl;
-}
+	}
 	default:
 		break;
 	}
