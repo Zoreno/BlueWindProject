@@ -23,6 +23,8 @@ public:
 	Frame* getCurrentFrame();
 	void startNewGame();
 
+	void changeCurrentFrame();
+
 	const sf::Font& getFont() const;
 	GameWindow& getGameWindow();
 	SoundHandler& getSoundHandler();

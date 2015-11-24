@@ -1,5 +1,7 @@
 #include "Frame.h"
 
+using namespace std;
+
 Frame::Frame(Application * appPtr)
 	: appPointer_(appPtr)
 { 

@@ -43,7 +43,7 @@ void Menu::handleMouseEvent(sf::Event event)
 	{
 		appPointer_->getSoundHandler().playSound("menuClick");
 		cout << "test" << endl;
-	}
+}
 	default:
 		break;
 	}
