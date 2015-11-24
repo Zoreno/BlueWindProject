@@ -216,10 +216,12 @@
     <Image Include="res\worlds\level.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="res\sounds\Menu Choice.mp3" />
     <Media Include="res\sounds\menuClick.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg" />
+    <None Include="res\sounds\robot.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
