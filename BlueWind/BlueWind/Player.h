@@ -25,6 +25,9 @@ public:
 
 	Inventory* getInventory();
 
+	int getXpToLevel();
+	bool checkForLevelup();
+
 	void update() override;
 	void render(GameWindow&) override;
 	const int getAttackCooldown() const;
@@ -35,7 +38,6 @@ private:
 	int experience_{ 0 };
 	int mana_;
 	int maxMana_;
-	int maxExperience_; //Temporär
 	int attackCooldown_;
 	Game* gamePointer_;
 	Inventory inventory_;

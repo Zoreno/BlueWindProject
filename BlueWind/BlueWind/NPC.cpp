@@ -35,6 +35,6 @@ void NPC::interact()
 	if (!talkedTo)
 	{
 		callback_(worldPointer_);
-		talkedTo = true;
+		//talkedTo = true;
 	}
 }

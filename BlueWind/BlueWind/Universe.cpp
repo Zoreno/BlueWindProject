@@ -138,7 +138,7 @@ void PaulInteract(World* worldPtr)
 
 void ErwinInteract(World* worldPtr)
 {
-	worldPtr->getUniverse()->getGame()->getPlayer()->addHealth(10);
+	worldPtr->getUniverse()->getGame()->getPlayer()->addExperience(10);
 }
 
 void JamesClerkInteract(World* worldPtr)
