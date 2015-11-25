@@ -54,7 +54,7 @@ void Game::handleKeyEvent(sf::Event event)
 		}
 		break;
 	case sf::Keyboard::L:
-		ui_.addStringToChatBox("Hejsan fan.!");
+		ui_.addStringToChatBox("Hejsan.!");
 		break;
 	case sf::Keyboard::E:
 		ui_.handleKeyEvent(event);
