@@ -2,6 +2,7 @@
 #include <iostream>
 #include "UIPortrait.h"
 #include "UIChatBox.h"
+#include "UIInventoryFrame.h"
 
 using namespace std;
 
@@ -60,4 +61,5 @@ void UserInterface::loadComponents(Player* playerPtr)
 {
 	components_.emplace("portrait", new UIPortrait(this, playerPtr));
 	components_.emplace("chatbox", new UIChatBox(this, playerPtr));
+	components_.emplace("inventoryScreen", new UIInventoryFrame(this, playerPtr));
 }

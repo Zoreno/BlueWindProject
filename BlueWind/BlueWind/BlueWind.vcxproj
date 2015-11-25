@@ -166,6 +166,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -176,6 +178,7 @@
     <ClCompile Include="UIBar.cpp" />
     <ClCompile Include="UIComponent.cpp" />
     <ClCompile Include="UIChatBox.cpp" />
+    <ClCompile Include="UIInventoryFrame.cpp" />
     <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -191,6 +194,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
@@ -200,6 +205,7 @@
     <ClInclude Include="UIBar.h" />
     <ClInclude Include="UIComponent.h" />
     <ClInclude Include="UIChatBox.h" />
+    <ClInclude Include="UIInventoryFrame.h" />
     <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
     <ClInclude Include="UserInterface.h" />

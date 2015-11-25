@@ -5,7 +5,7 @@ using namespace std;
 
 
 Game::Game(Application * appPtr)
-	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player")}, ui_{&player_}
+	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this}, ui_{&player_}
 {
 	cout << "Game startas!" << endl;
 }
@@ -54,7 +54,7 @@ void Game::handleKeyEvent(sf::Event event)
 		}
 		break;
 	case sf::Keyboard::L:
-		ui_.addStringToChatBox("Hejsan fan.!");
+		ui_.addStringToChatBox("Hejsan.!");
 		break;
 	case sf::Keyboard::E:
 		ui_.handleKeyEvent(event);
