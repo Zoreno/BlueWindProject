@@ -10,13 +10,10 @@
 using namespace std;
 
 
-Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr),
-	mana_{ 20 }, maxMana_{ 20 }, maxExperience_{ 100 }, gamePointer_{ game }, inventory_{ this,game }, anim_{ this }
-{
-	//sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
-	//sprite_.setTexture(texture);
-}
+Player::Player(World * worldPtr, sf::Texture& texture, Game* game, const string& fileName)
+	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr, fileName),
+	mana_{ 20 }, maxMana_{ 20 }, maxExperience_{ 100 }, gamePointer_{ game }, inventory_{ this,game }//, anim_{ this }
+{}
 
 int Player::getExperience() const
 {
@@ -60,50 +57,41 @@ Inventory* Player::getInventory()
 
 void Player::update()
 {
-	anim_.state_ = anim_.idle;
-	//bool isIdle_ {true};
+	//anim_.state_ = anim_.idle;
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
 	{
 		move(-1, 0);
-		anim_.state_ = anim_.walking;
-		anim_.dir_ = anim_.west;
-		//isIdle_ = false;
+	//anim_.state_ = anim_.walking;
+//anim_.dir_ = anim_.west;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
 	{
 		move(1, 0);
-		anim_.state_ = anim_.walking;
-		anim_.dir_ = anim_.east;
-		//isIdle_ = false;
+		//anim_.state_ = anim_.walking;
+		//anim_.dir_ = anim_.east;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('s'))
 	{
 		move(0, 1);
-		anim_.state_ = anim_.walking;
-		anim_.dir_ = anim_.south;
-		//isIdle_ = false;
+		//anim_.state_ = anim_.walking;
+		//anim_.dir_ = anim_.south;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
 	{
 		move(0, -1);
-		anim_.state_ = anim_.walking;
-		anim_.dir_ = anim_.north;
-		//isIdle_ = false;
+		//anim_.state_ = anim_.walking;
+		//anim_.dir_ = anim_.north;
 	}
-	//if (isIdle_)
-		//anim_.state_ = anim_.idle;
-	anim_.update();
-			}
+	//anim_.update();
+}
 
 void Player::render(GameWindow & window)
 {
-	//sprite_.setPosition(position_);
-	//window.draw(sprite_);
 	anim_.render(window);
 }
 
 const int Player::getAttackCooldown() const
-		{
+{
 	return attackCooldown_;
 }
 

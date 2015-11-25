@@ -6,8 +6,8 @@
 
 using namespace std;
 
-Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture)
-	: Entity(level,health,damage,ID,name,position,worldPtr), startPosition_{position}
+Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, const string& fileName)
+	: Entity(level,health,damage,ID,name,position,worldPtr, fileName), startPosition_{position}
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
@@ -23,8 +23,9 @@ void Enemy::update()
 void Enemy::render(GameWindow & window)
 {
 	//cout << "Enemy render" << endl;
-	sprite_.setPosition(position_);
-	window.draw(sprite_);
+	//sprite_.setPosition(position_);
+	//window.draw(sprite_);
+	anim_.render(window);
 }
 
 void Enemy::die()

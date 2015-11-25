@@ -90,13 +90,13 @@ void Universe::populateWorlds()
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
-	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * 16, 10 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract));
-	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
-	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
+	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * 16, 10 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract, "res/textures/player/player.png"));
+	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract, "res/textures/player/player.png"));
+	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract, "res/textures/player/player.png"));
 	//--------------------------
-	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
-	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
-	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
+	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/player.png"));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/player.png"));
+	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/player.png"));
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)

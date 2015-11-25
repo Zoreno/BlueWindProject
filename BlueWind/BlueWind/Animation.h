@@ -12,13 +12,13 @@ class Animation
 public:
 	enum STATES{walking, idle, attacking};
 	enum DIRECTION{north, west, east, south};
-	Animation(Entity*);
+	Animation(Entity*, const std::string&);
 	Animation(const Animation&) = delete;
 	Animation& operator=(const Animation&) = delete;
 
 	void update();
 	void render(GameWindow&);
-	void loadTexture(const std::string&, const std::string&, std::vector<sf::Texture*>&);
+	void loadTexture(const std::string&, const std::string&, std::vector<sf::Texture*>&, int);
 
 	sf::Sprite currentSprite_;
 	std::vector<sf::Texture*> walkingWest_;

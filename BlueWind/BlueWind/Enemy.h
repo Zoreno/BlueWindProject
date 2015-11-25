@@ -11,7 +11,7 @@ sf::Vector2f normalize(sf::Vector2f);
 class Enemy : public Entity
 {
 public:
-	Enemy(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&);
+	Enemy(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, const std::string&);
 	Enemy() = delete;
 	Enemy(const Enemy&) = delete;
 	Enemy& operator=(const Enemy&) = delete;

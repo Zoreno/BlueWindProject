@@ -3,13 +3,14 @@
 #include "GameWindow.h"
 #include <string>
 #include <SFML\Graphics.hpp>
+#include "Animation.h"
 
 class World;
 
 class Entity
 {
 public:
-	Entity(int, int, int, int, std::string, sf::Vector2f, World*);
+	Entity(int, int, int, int, std::string, sf::Vector2f, World*, const std::string&);
 
 	Entity(const Entity&) = delete;
 	Entity() = delete;
@@ -44,4 +45,5 @@ protected:
 	std::string name_;
 	sf::Vector2f position_;
 	World* worldPointer_;
+	Animation anim_;
 };

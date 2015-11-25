@@ -9,8 +9,8 @@
 using namespace std;
 
 
-Entity::Entity(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr)
-	:level_{ level }, health_{ health }, maxHealth_{ health }, damage_{ damage }, ID_{ ID }, name_{name}, position_{position}, worldPointer_{worldPtr}
+Entity::Entity(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, const string& fileName)
+	:level_{ level }, health_{ health }, maxHealth_{ health }, damage_{ damage }, ID_{ ID }, name_{name}, position_{position}, worldPointer_{worldPtr}, anim_{this, fileName}
 {}
 
 void Entity::move(int dx, int dy)
@@ -30,6 +30,20 @@ void Entity::move(int dx, int dy)
 	
 	if(upper_left_walkable && bottom_left_walkable && upper_right_walkable && bottom_right_walkable)
 	position_ += sf::Vector2f(dx, dy);
+
+	anim_.state_ = anim_.walking;
+
+	if (dx < 0)
+		anim_.dir_ = anim_.west;
+	if (dx > 0)
+		anim_.dir_ = anim_.east;
+
+	if(dy < 0)
+		anim_.dir_ = anim_.north;
+	if (dy > 0)
+		anim_.dir_ = anim_.south;
+
+	anim_.update();
 }
 
 void Entity::teleport(int x, int y)

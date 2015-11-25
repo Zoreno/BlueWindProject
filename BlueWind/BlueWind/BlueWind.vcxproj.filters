@@ -96,13 +96,13 @@
     <ClCompile Include="SoundHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UIChatBox.cpp">
+    <ClCompile Include="Inventory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
+    <ClCompile Include="UIChatBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UIInventoryFrame.cpp">
@@ -173,19 +173,19 @@
     <ClInclude Include="SoundHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UIChatBox.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UIInventoryFrame.h">
-      <Filter>Header Files\UI</Filter>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="UIChatBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIInventoryFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -211,31 +211,10 @@
     <Image Include="res\textures\Menu.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp0.png">
-      <Filter>Resource Files\textures\player</Filter>
+    <Image Include="res\textures\Startbutton.png">
+      <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp1.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp2.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp3.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp4.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp5.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp6.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp7.png">
-      <Filter>Resource Files\textures\player</Filter>
-    </Image>
-    <Image Include="res\textures\player\SkeletonWalkUp8.png">
+    <Image Include="res\textures\player\player.png">
       <Filter>Resource Files\textures\player</Filter>
     </Image>
   </ItemGroup>
@@ -243,17 +222,13 @@
     <Media Include="res\sounds\menuClick.wav">
       <Filter>Resource Files\sounds</Filter>
     </Media>
-    <Media Include="res\sounds\Menu Choice.mp3">
-      <Filter>Resource Files\sounds</Filter>
-    </Media>
+    <Media Include="res\sounds\Menu Choice.mp3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg">
       <Filter>Resource Files\sounds</Filter>
     </None>
-    <None Include="res\sounds\robot.ogg">
-      <Filter>Resource Files\sounds</Filter>
-    </None>
+    <None Include="res\sounds\robot.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlueWind.rc">

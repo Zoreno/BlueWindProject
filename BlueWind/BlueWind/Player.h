@@ -2,7 +2,7 @@
 
 #include "Entity.h"
 #include "Inventory.h"
-#include "Animation.h"
+//#include "Animation.h"
 
 class World;
 class Game;
@@ -10,7 +10,7 @@ class Game;
 class Player : public Entity
 {
 public:
-	Player(World*, sf::Texture&, Game*);
+	Player(World*, sf::Texture&, Game*, const std::string&);
 	Player(const Player&) = delete;
 	Player() = delete;
 	Player& operator=(const Player&) = delete;
@@ -39,6 +39,6 @@ private:
 	int attackCooldown_;
 	Game* gamePointer_;
 	Inventory inventory_;
-	Animation anim_;
+	//Animation anim_;
 	//sf::Sprite sprite_;
 };

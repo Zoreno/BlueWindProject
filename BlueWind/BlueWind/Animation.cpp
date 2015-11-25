@@ -4,18 +4,23 @@
 using namespace std;
 
 
-Animation::Animation(Entity* entityPointer)
+Animation::Animation(Entity* entityPointer, const string& filename)
 	: entityPtr_{entityPointer}
 {
-	loadTexture("SkeletonWalkUp0", "res/textures/player/SkeletonWalkUp0.png", idle_);
-	loadTexture("SkeletonWalkUp1", "res/textures/player/SkeletonWalkUp1.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp2", "res/textures/player/SkeletonWalkUp2.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp3", "res/textures/player/SkeletonWalkUp3.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp4", "res/textures/player/SkeletonWalkUp4.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp5", "res/textures/player/SkeletonWalkUp5.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp6", "res/textures/player/SkeletonWalkUp6.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp7", "res/textures/player/SkeletonWalkUp7.png", walkingNorth_);
-	loadTexture("SkeletonWalkUp8", "res/textures/player/SkeletonWalkUp8.png", walkingNorth_);
+	loadTexture("WalkUp0", filename, idle_, 6);
+	loadTexture("WalkUp1", filename, walkingNorth_, 6);
+	loadTexture("WalkUp2", filename, walkingNorth_, 7);
+	loadTexture("WalkDown0", filename, idle_, 0);
+	loadTexture("WalkDown1", filename, walkingSouth_, 0);
+	loadTexture("WalkDown2", filename, walkingSouth_, 1);
+	loadTexture("WalkRight0", filename, idle_, 4);
+	loadTexture("WalkRight1", filename, walkingEast_, 4);
+	loadTexture("WalkRight2", filename, walkingEast_, 5);
+	loadTexture("WalkDown0", filename, idle_, 2);
+	loadTexture("WalkDown1", filename, walkingWest_, 2);
+	loadTexture("WalkDown2", filename, walkingWest_, 3);
+	currentSprite_.setTexture(*walkingSouth_[0]);
+	//cout << walkingSouth_.size() << endl;
 }
 
 void Animation::update()
@@ -36,7 +41,7 @@ void Animation::update()
 				cooldown = 0;
 				break;
 
-			/*case south:
+			case south:
 				if (it > walkingSouth_.size())
 					it = 1;
 				currentSprite_.setTexture(*walkingSouth_[it - 1]);
@@ -55,27 +60,33 @@ void Animation::update()
 					it = 1;
 				currentSprite_.setTexture(*walkingWest_[it - 1]);
 				cooldown = 0;
-				break;*/
+				break;
 
 			default:
 				break;
 			}
 		}
 		break;
+
 	case Animation::idle:
 		switch (dir_)
 		{
 		case north:
 			currentSprite_.setTexture(*idle_[0]);
+			break;
 
-		/*case south:
+		case south:
 			currentSprite_.setTexture(*idle_[1]);
+			break;
 
 		case east:
 			currentSprite_.setTexture(*idle_[2]);
+			break;
 
 		case west:
-			currentSprite_.setTexture(*idle_[3]);*/
+			currentSprite_.setTexture(*idle_[1]);
+			break;
+
 		default:
 			break;
 		}
@@ -85,28 +96,18 @@ void Animation::update()
 	default:
 		break;
 	}
-	
 }
-
-
-
 
 void Animation::render(GameWindow& window)
 {
-	//cout << "Nu är vi här" << endl;
 	currentSprite_.setPosition(entityPtr_->getPosition());
-	//cout << "Det gick bra!" << endl;
 	window.draw(currentSprite_);
 }
 
-void Animation::loadTexture(const std::string& texName, const std::string& fileName, std::vector<sf::Texture*>& animVector)
+void Animation::loadTexture(const std::string& texName, const std::string& fileName, std::vector<sf::Texture*>& animVector, int pos)
 {
 	sf::Texture* tex = new sf::Texture;
-	if (!tex->loadFromFile(fileName))
-	{
-		//TODO lägg till ex
-		cout << "Kan inte ladda textur: " + texName << endl;
-	}
-	else
-		animVector.push_back(tex);
+	sf::IntRect area(pos * 16, 0, 16, 16);
+	tex->loadFromFile(fileName, area);
+	animVector.push_back(tex);
 }
