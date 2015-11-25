@@ -9,6 +9,7 @@ SoundHandler::SoundHandler()
 	cout << "Laddar ljud" << endl;
 	loadMusic("menuMusic", "res/sounds/menuMusic.ogg");
 	loadSound("menuClick", "res/sounds/menuClick.ogg");
+	loadSound("diracTrain", "res/sounds/diracTrain.ogg");
 	cout << "Laddar ljud klart" << endl;
 }
 

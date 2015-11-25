@@ -48,7 +48,7 @@ void Game::handleKeyEvent(sf::Event event)
 		{
 			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
 			{
-				it.second->talk();
+				it.second->interact();
 				break;
 			}
 		}
@@ -77,6 +77,11 @@ Player * Game::getPlayer()
 Application * Game::getApp()
 {
 	return appPointer_;
+}
+
+UserInterface * Game::getUserInterface()
+{
+	return &ui_;
 }
 
 sf::Texture & Game::getTexture(const std::string& ref)
