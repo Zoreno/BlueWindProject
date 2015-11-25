@@ -63,6 +63,21 @@ bool Inventory::hasItem(int ID)
 	return false;
 }
 
+Item * Inventory::at(int pos)
+{
+	return items_.at(pos);
+}
+
+int Inventory::getSize()
+{
+	return items_.size();
+}
+
+const unsigned int Inventory::getMaxSize()
+{
+	return maxSize_;
+}
+
 void Inventory::populateItemList()
 {
 	allItems_.push_back(new Item{ 0,"TestItem",gamePointer_->getTexture("tree") });

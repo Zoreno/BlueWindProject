@@ -19,10 +19,14 @@ public:
 	void removeItem(int);
 	bool hasItem(int);
 
+	Item* at(int);
+
+	int getSize();
+	const unsigned int getMaxSize();
 
 private:
 	std::vector<Item*> items_;
-	const unsigned int maxSize_{10};
+	const unsigned int maxSize_{8};
 	Player* playerPointer_;
 	Game* gamePointer_;
 

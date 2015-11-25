@@ -30,6 +30,8 @@ public:
 	std::string getName() const;
 	const sf::Vector2f getPosition() const;
 
+	void setCurrentWorld(World*);
+
 	void addHealth(int);
 	void removeHealth(int);
 

@@ -22,6 +22,8 @@ public:
 	World* getWorld(int);
 	void setCurrentWorld(int);
 
+	void switchWorld(int, int, int);
+
 	Tile getTile(int);
 
 	Game* getGame() const;

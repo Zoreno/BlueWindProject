@@ -54,6 +54,13 @@ void Universe::setCurrentWorld(int ID)
 	}
 }
 
+void Universe::switchWorld(int ID, int x, int y)
+{
+	setCurrentWorld(ID);
+	gamePointer_->getPlayer()->teleport(x, y);
+	gamePointer_->getPlayer()->setCurrentWorld(currentWorld_);
+}
+
 Tile Universe::getTile(int i)
 {
 	return (*tileAtlas_.find(i)->second);
@@ -76,6 +83,7 @@ void Universe::loadWorlds()
 {
 	cout << "Laddar in världar" << endl;
 	worlds_.push_back(new World(0, this, "res/worlds/level.bmp"));
+	worlds_.push_back(new World(1, this, "res/worlds/level2.bmp"));
 
 	cout << "Laddning av världar klart" << endl;
 
@@ -130,10 +138,10 @@ void PaulInteract(World* worldPtr)
 
 void ErwinInteract(World* worldPtr)
 {
-	worldPtr->getUniverse()->getGame()->getPlayer()->addHealth(10);
+	worldPtr->getUniverse()->getGame()->getPlayer()->addExperience(10);
 }
 
 void JamesClerkInteract(World* worldPtr)
 {
-	worldPtr->getUniverse()->getGame()->getPlayer()->removeHealth(10);
+	worldPtr->getUniverse()->switchWorld(1, 32, 32);
 }
