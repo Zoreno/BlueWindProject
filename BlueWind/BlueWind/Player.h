@@ -1,13 +1,14 @@
 #pragma once
 
 #include "Entity.h"
+#include "Animation.h"
 
 class World;
 
 class Player : public Entity
 {
 public:
-	Player(World*, sf::Texture&);
+	Player(World*);// sf::Texture&);
 	Player(const Player&) = delete;
 	Player() = delete;
 	Player& operator=(const Player&) = delete;
@@ -32,5 +33,6 @@ private:
 	int maxMana_;
 	int maxExperience_; //Temporär
 	int attackCooldown_;
-	sf::Sprite sprite_;
+	Animation anim_;
+	//sf::Sprite sprite_;
 };

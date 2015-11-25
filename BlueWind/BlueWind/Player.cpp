@@ -10,12 +10,12 @@
 using namespace std;
 
 
-Player::Player(World * worldPtr, sf::Texture& texture)
+Player::Player(World * worldPtr)// sf::Texture& texture)
 	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr),
-	mana_{20}, maxMana_{20}, maxExperience_{100}
+	mana_{20}, maxMana_{20}, maxExperience_{100}, anim_{this}
 {
-	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
-	sprite_.setTexture(texture);
+	//sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
+	//sprite_.setTexture(texture);
 }
 
 int Player::getExperience() const
@@ -55,20 +55,46 @@ int Player::getMaxExperience()
 
 void Player::update()
 {
+	anim_.state_ = anim_.idle;
+	//bool isIdle_ {true};
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
+	{
 		move(-1, 0);
+		anim_.state_ = anim_.walking;
+		anim_.dir_ = anim_.west;
+		//isIdle_ = false;
+	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
+	{
 		move(1, 0);
+		anim_.state_ = anim_.walking;
+		anim_.dir_ = anim_.east;
+		//isIdle_ = false;
+	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('s'))
+	{
 		move(0, 1);
+		anim_.state_ = anim_.walking;
+		anim_.dir_ = anim_.south;
+		//isIdle_ = false;
+	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
+	{
 		move(0, -1);
-			}
+		anim_.state_ = anim_.walking;
+		anim_.dir_ = anim_.north;
+		//isIdle_ = false;
+	}
+	//if (isIdle_)
+		//anim_.state_ = anim_.idle;
+	anim_.update();
+	}
 
 void Player::render(GameWindow & window)
 {
-	sprite_.setPosition(position_);
-	window.draw(sprite_);
+	//sprite_.setPosition(position_);
+	//window.draw(sprite_);
+	anim_.render(window);
 }
 
 const int Player::getAttackCooldown() const

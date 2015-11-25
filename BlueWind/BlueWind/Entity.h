@@ -27,7 +27,7 @@ public:
 	int getDamage() const;
 	int getID() const;
 	std::string getName() const;
-	sf::Vector2f getPosition() const;
+	const sf::Vector2f getPosition() const;
 
 	void addHealth(int);
 	void removeHealth(int);

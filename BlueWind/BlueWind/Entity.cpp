@@ -67,7 +67,7 @@ std::string Entity::getName() const
 	return name_;
 }
 
-sf::Vector2f Entity::getPosition() const
+const sf::Vector2f Entity::getPosition() const
 {
 	return position_;
 }

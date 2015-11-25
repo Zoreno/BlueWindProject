@@ -5,7 +5,7 @@ using namespace std;
 
 
 Game::Game(Application * appPtr)
-	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player")}, ui_{&player_}
+	:Frame{ appPtr }, universe_{ this }, player_{ universe_.getCurrentWorld() }, ui_{ &player_ }//, textureHandler_.getTextureRef("player")}, ui_{&player_}
 {
 	cout << "Game startas!" << endl;
 }
