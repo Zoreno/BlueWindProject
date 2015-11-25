@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "Inventory.h"
+#include "Animation.h"
 
 class World;
 class Game;
@@ -36,7 +37,8 @@ private:
 	int maxMana_;
 	int maxExperience_; //Temporär
 	int attackCooldown_;
-	sf::Sprite sprite_;
 	Game* gamePointer_;
 	Inventory inventory_;
+	Animation anim_;
+	//sf::Sprite sprite_;
 };

@@ -1,6 +1,7 @@
 #include "Universe.h"
 #include "Game.h"
-
+#include "World.h" 
+#include "Application.h"
 #include <iostream>
 
 using namespace std;
@@ -83,12 +84,15 @@ void Universe::loadWorlds()
 
 void Universe::populateWorlds() 
 {
+	void PaulInteract(World*);
+	void ErwinInteract(World*);
+	void JamesClerkInteract(World*);
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
-	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * 16, 10 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Paul!"));
-	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!"));
-	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!"));
+	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * 16, 10 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract));
+	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
+	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
 	//--------------------------
 	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy")));
@@ -117,4 +121,19 @@ void Universe::addNPC(int worldID, NPC * NPCPtr)
 			break;
 		}
 	}
+}
+
+void PaulInteract(World* worldPtr)
+{
+	worldPtr->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
+}
+
+void ErwinInteract(World* worldPtr)
+{
+	worldPtr->getUniverse()->getGame()->getPlayer()->addHealth(10);
+}
+
+void JamesClerkInteract(World* worldPtr)
+{
+	worldPtr->getUniverse()->getGame()->getPlayer()->removeHealth(10);
 }

@@ -25,6 +25,9 @@
     <Filter Include="Resource Files\sounds">
       <UniqueIdentifier>{4c7c06c0-fbb5-41d3-9ca8-df1123fcbec6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\textures\player">
+      <UniqueIdentifier>{b7aa2f42-6e28-446f-ba5e-597e0c7d6024}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -182,6 +185,9 @@
     <ClInclude Include="UIInventoryFrame.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\enemy.png">
@@ -205,8 +211,32 @@
     <Image Include="res\textures\Menu.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
-    <Image Include="res\textures\Startbutton.png">
-      <Filter>Resource Files</Filter>
+    <Image Include="res\textures\player\SkeletonWalkUp0.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp1.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp2.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp3.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp4.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp5.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp6.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp7.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
+    <Image Include="res\textures\player\SkeletonWalkUp8.png">
+      <Filter>Resource Files\textures\player</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -224,5 +254,10 @@
     <None Include="res\sounds\robot.ogg">
       <Filter>Resource Files\sounds</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BlueWind.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

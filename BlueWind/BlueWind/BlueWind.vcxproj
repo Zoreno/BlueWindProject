@@ -199,6 +199,7 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SoundHandler.h" />
     <ClInclude Include="TextureHandler.h" />
     <ClInclude Include="Tile.h" />
@@ -216,6 +217,15 @@
     <Image Include="res\textures\green.png" />
     <Image Include="res\textures\Menu.png" />
     <Image Include="res\textures\player.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp0.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp1.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp2.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp3.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp4.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp5.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp6.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp7.png" />
+    <Image Include="res\textures\player\SkeletonWalkUp8.png" />
     <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
     <Image Include="res\textures\Startbutton.png" />
@@ -228,6 +238,9 @@
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg" />
     <None Include="res\sounds\robot.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BlueWind.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
