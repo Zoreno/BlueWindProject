@@ -217,6 +217,9 @@
     <Image Include="res\textures\player\player.png">
       <Filter>Resource Files\textures\player</Filter>
     </Image>
+    <Image Include="res\textures\player\enemy.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\sounds\menuClick.wav">
