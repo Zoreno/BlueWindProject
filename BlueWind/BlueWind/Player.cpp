@@ -10,9 +10,9 @@
 using namespace std;
 
 
-Player::Player(World * worldPtr, sf::Texture& texture)
+Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
 	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr),
-	mana_{20}, maxMana_{20}, maxExperience_{100}
+	mana_{20}, maxMana_{20}, maxExperience_{100}, gamePointer_{game}, inventory_{this,game}
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
@@ -53,6 +53,11 @@ int Player::getMaxExperience()
 	return maxExperience_;
 }
 
+Inventory& Player::getInventory()
+{
+	return inventory_;
+}
+
 void Player::update()
 {
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
@@ -72,7 +77,7 @@ void Player::render(GameWindow & window)
 }
 
 const int Player::getAttackCooldown() const
-		{
+{
 	return attackCooldown_;
 }
 
