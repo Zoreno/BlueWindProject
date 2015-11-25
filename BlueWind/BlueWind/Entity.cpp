@@ -72,6 +72,11 @@ const sf::Vector2f Entity::getPosition() const
 	return position_;
 }
 
+void Entity::setCurrentWorld(World * worldPtr)
+{
+	worldPointer_ = worldPtr;
+}
+
 void Entity::addHealth(int value)
 {
 	//TODO jonas fixar.
