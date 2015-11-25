@@ -178,6 +178,7 @@
     <ClCompile Include="UIBar.cpp" />
     <ClCompile Include="UIComponent.cpp" />
     <ClCompile Include="UIChatBox.cpp" />
+    <ClCompile Include="UIInventoryFrame.cpp" />
     <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="UIBar.h" />
     <ClInclude Include="UIComponent.h" />
     <ClInclude Include="UIChatBox.h" />
+    <ClInclude Include="UIInventoryFrame.h" />
     <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
     <ClInclude Include="UserInterface.h" />

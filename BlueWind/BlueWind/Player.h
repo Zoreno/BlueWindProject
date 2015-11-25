@@ -22,7 +22,7 @@ public:
 	void setMaxMana(int);
 	int getMaxExperience();
 
-	Inventory& getInventory();
+	Inventory* getInventory();
 
 	void update() override;
 	void render(GameWindow&) override;

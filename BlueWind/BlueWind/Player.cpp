@@ -53,9 +53,9 @@ int Player::getMaxExperience()
 	return maxExperience_;
 }
 
-Inventory& Player::getInventory()
+Inventory* Player::getInventory()
 {
-	return inventory_;
+	return &inventory_;
 }
 
 void Player::update()
