@@ -54,6 +54,12 @@ void Universe::setCurrentWorld(int ID)
 	}
 }
 
+void Universe::switchWorld(int ID, int x, int y)
+{
+	setCurrentWorld(ID);
+	gamePointer_->getPlayer()->teleport(x, y);
+}
+
 Tile Universe::getTile(int i)
 {
 	return (*tileAtlas_.find(i)->second);
