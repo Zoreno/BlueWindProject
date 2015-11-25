@@ -57,6 +57,7 @@ void Game::handleKeyEvent(sf::Event event)
 		ui_.addStringToChatBox("Hejsan.!");
 		break;
 	case sf::Keyboard::E:
+	case sf::Keyboard::T:
 		ui_.handleKeyEvent(event);
 		break;
 	default:

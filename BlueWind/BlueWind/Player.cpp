@@ -16,6 +16,7 @@ Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
+	inventory_.addItem(0);
 }
 
 int Player::getExperience() const

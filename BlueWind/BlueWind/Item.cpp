@@ -1,10 +1,12 @@
 #include "Item.h"
+#include "GameWindow.h"
 
-Item::Item(int ID, std::string name, sf::Texture texture)
+Item::Item(int ID, std::string name, sf::Texture& texture)
 	: ID_{ID}, name_{name}
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
+	sprite_.setScale(sf::Vector2f(3.0f, 3.0f));
 }
 
 std::string Item::getName()
@@ -20,4 +22,10 @@ int Item::getID()
 const sf::Sprite& Item::getSprite() const
 {
 	return sprite_;
+}
+
+void Item::render(GameWindow & window, sf::Vector2f pos)
+{
+	sprite_.setPosition(pos);
+	window.draw(sprite_);
 }

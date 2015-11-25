@@ -1,5 +1,5 @@
 #include "UIChatBox.h"
-#include <algorithm>
+
 #include <iostream>
 
 using namespace std;
