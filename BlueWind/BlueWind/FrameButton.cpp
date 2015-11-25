@@ -43,6 +43,7 @@ void FrameButton::render(GameWindow & window)
 
 void FrameButton::clicked()
 {
+	appPointer_->getSoundHandler().playSound("menuClick");
 	callback_(appPointer_);
 }
 

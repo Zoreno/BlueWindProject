@@ -23,6 +23,7 @@ public:
 
 	Player* getPlayer();
 	Application* getApp();
+	UserInterface* getUserInterface();
 	sf::Texture& getTexture(const std::string&);
 private:
 	TextureHandler textureHandler_;

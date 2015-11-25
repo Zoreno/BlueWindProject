@@ -11,6 +11,10 @@ UIPortrait::UIPortrait(UserInterface * uiPtr, Player * playerPtr)
 {
 }
 
+void UIPortrait::handleKeyEvent(sf::Event)
+{
+}
+
 void UIPortrait::update()
 {
 	healthBar_.update(player_->getHealth(), player_->getMaxHealth());

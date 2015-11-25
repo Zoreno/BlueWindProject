@@ -5,7 +5,7 @@ using namespace std;
 
 
 Game::Game(Application * appPtr)
-	:Frame{ appPtr }, universe_{ this }, player_{ universe_.getCurrentWorld() }, ui_{ &player_ }//, textureHandler_.getTextureRef("player")}, ui_{&player_}
+	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this}, ui_{&player_}
 {
 	cout << "Game startas!" << endl;
 }
@@ -48,13 +48,21 @@ void Game::handleKeyEvent(sf::Event event)
 		{
 			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
 			{
-				it.second->talk();
+				it.second->interact();
 				break;
 			}
 		}
+		break;
+	case sf::Keyboard::L:
+		ui_.addStringToChatBox("Hejsan.!");
+		break;
+	case sf::Keyboard::E:
+		ui_.handleKeyEvent(event);
+		break;
 	default:
 		break;
 	}
+	
 }
 
 void Game::handleMouseEvent(sf::Event)
@@ -69,6 +77,11 @@ Player * Game::getPlayer()
 Application * Game::getApp()
 {
 	return appPointer_;
+}
+
+UserInterface * Game::getUserInterface()
+{
+	return &ui_;
 }
 
 sf::Texture & Game::getTexture(const std::string& ref)

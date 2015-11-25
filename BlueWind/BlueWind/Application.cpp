@@ -6,7 +6,7 @@ Application::Application()
 	: input_{ this }
 {
 	currentFrame_ = new Menu(this);
-}
+	}
 
 void Application::run()
 {

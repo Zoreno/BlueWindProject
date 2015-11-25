@@ -166,6 +166,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -175,7 +177,8 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIBar.cpp" />
     <ClCompile Include="UIComponent.cpp" />
-    <ClCompile Include="UIConversation.cpp" />
+    <ClCompile Include="UIChatBox.cpp" />
+    <ClCompile Include="UIInventoryFrame.cpp" />
     <ClCompile Include="UIPortrait.cpp" />
     <ClCompile Include="Universe.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -191,6 +194,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
@@ -200,7 +205,8 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UIBar.h" />
     <ClInclude Include="UIComponent.h" />
-    <ClInclude Include="UIConversation.h" />
+    <ClInclude Include="UIChatBox.h" />
+    <ClInclude Include="UIInventoryFrame.h" />
     <ClInclude Include="UIPortrait.h" />
     <ClInclude Include="Universe.h" />
     <ClInclude Include="UserInterface.h" />
@@ -222,13 +228,16 @@
     <Image Include="res\textures\player\SkeletonWalkUp8.png" />
     <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
+    <Image Include="res\textures\Startbutton.png" />
     <Image Include="res\worlds\level.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="res\sounds\Menu Choice.mp3" />
     <Media Include="res\sounds\menuClick.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg" />
+    <None Include="res\sounds\robot.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlueWind.rc" />

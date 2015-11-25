@@ -2,13 +2,14 @@
 
 #include "Entity.h"
 #include "GameWindow.h"
+#include <functional>
 
+class Game;
 
 class NPC : public Entity
 {
 public:
-	//TODO lägg till interactfunktionen
-	NPC(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::string);
+	NPC(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::string, std::function<void(World*)>);
 	NPC() = delete;
 	NPC(const NPC&) = delete;
 	NPC& operator=(const NPC&) = delete;
@@ -16,7 +17,10 @@ public:
 	void update() override;
 	void render(GameWindow&) override;
 	void talk() const;
+	void interact();
 private:
 	sf::Sprite sprite_;
 	std::string conversation_;
+	std::function<void(World*)> callback_;
+	bool talkedTo{ false };
 };

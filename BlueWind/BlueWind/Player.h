@@ -1,14 +1,16 @@
 #pragma once
 
 #include "Entity.h"
+#include "Inventory.h"
 #include "Animation.h"
 
 class World;
+class Game;
 
 class Player : public Entity
 {
 public:
-	Player(World*);// sf::Texture&);
+	Player(World*, sf::Texture&, Game*);
 	Player(const Player&) = delete;
 	Player() = delete;
 	Player& operator=(const Player&) = delete;
@@ -20,6 +22,8 @@ public:
 	int getMaxMana() const;
 	void setMaxMana(int);
 	int getMaxExperience();
+
+	Inventory* getInventory();
 
 	void update() override;
 	void render(GameWindow&) override;
@@ -33,6 +37,8 @@ private:
 	int maxMana_;
 	int maxExperience_; //Temporär
 	int attackCooldown_;
+	Game* gamePointer_;
+	Inventory inventory_;
 	Animation anim_;
 	//sf::Sprite sprite_;
 };

@@ -6,8 +6,8 @@
 
 using namespace std;
 
-NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation)
-	: Entity(level, health, damage, ID, name, position, worldPtr), conversation_{conversation}
+NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation, std::function<void(World*)> callbackFunc)
+	: Entity(level, health, damage, ID, name, position, worldPtr), conversation_{ conversation }, callback_{ callbackFunc }
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setPosition(position);
@@ -25,5 +25,16 @@ void NPC::render(GameWindow & window)
 
 void NPC::talk() const
 {
+	worldPointer_->getUniverse()->getGame()->getUserInterface()->addStringToChatBox(conversation_);
+}
+
+void NPC::interact()
+{
+	talk();
 	
+	if (!talkedTo)
+	{
+		callback_(worldPointer_);
+		talkedTo = true;
+	}
 }
