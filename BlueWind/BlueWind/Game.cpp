@@ -3,9 +3,8 @@
 
 using namespace std;
 
-
 Game::Game(Application * appPtr)
-	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this, "res/textures/player/player.png" }, ui_{&player_}
+	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this, "res/textures/player/player32.png" }, ui_{&player_}
 {
 	cout << "Game startas!" << endl;
 }
@@ -36,7 +35,7 @@ void Game::handleKeyEvent(sf::Event event)
 	case sf::Keyboard::Space:
 		for (auto it : universe_.getCurrentWorld()->getEnemyVector())
 		{
-			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 16)
+			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 32)
 			{
 				it.second->removeHealth(10); // TODO Skall skada med "damage"
 				break;
@@ -52,6 +51,9 @@ void Game::handleKeyEvent(sf::Event event)
 				break;
 			}
 		}
+		break;
+	case sf::Keyboard::U:
+		cout << (int) player_.getPosition().x / 16 << "," << (int) player_.getPosition().y / 16 << endl;
 		break;
 	case sf::Keyboard::L:
 		ui_.addStringToChatBox("Hejsan.!");

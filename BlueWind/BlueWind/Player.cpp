@@ -12,7 +12,7 @@ using namespace std;
 
 
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game, const string& fileName)
-	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 16, 2 * 16), worldPtr, fileName),
+	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, fileName),
 	mana_{ 20 }, maxMana_{ 20 }, gamePointer_{ game }, inventory_{ this,game }//, anim_{ this }
 {
 	inventory_.addItem(0);
@@ -112,7 +112,7 @@ void Player::render(GameWindow & window)
 }
 
 const int Player::getAttackCooldown() const
-		{
+{
 	return attackCooldown_;
 }
 

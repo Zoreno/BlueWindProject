@@ -15,4 +15,5 @@ public:
 	sf::Sprite sprite_;
 	bool walkable_;
 	
+	static const int TILESIZE{ 32 };
 };

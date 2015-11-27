@@ -71,9 +71,11 @@ void Application::startNewGame()
 	delete currentFrame_;
 	currentFrame_ = new Game(this);
 	
+	/*
 	sf::View view = window_.getView();
 	view.zoom(0.4f);
 	window_.setView(view);
+	*/
 }
 
 const sf::Font& Application::getFont() const
