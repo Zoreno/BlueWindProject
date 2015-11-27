@@ -8,6 +8,9 @@ SoundHandler::SoundHandler()
 {
 	cout << "Laddar ljud" << endl;
 	loadMusic("menuMusic", "res/sounds/menuMusic.ogg");
+	loadMusic("gameOverMusic", "res/sounds/gameOverMusic.ogg");
+	loadMusic("gameWonMusic", "res/sounds/gameWonMusic.ogg");
+
 	loadSound("menuClick", "res/sounds/menuClick.ogg");
 	loadSound("diracTrain", "res/sounds/diracTrain.ogg");
 	cout << "Laddar ljud klart" << endl;
@@ -22,6 +25,7 @@ void SoundHandler::playSound(const std::string& soundName)
 void SoundHandler::playMusic(const std::string& musicName)
 {
 	(*music_.find(musicName)->second).play();
+	(*music_.find(musicName)->second).setLoop(true);
 }
 
 void SoundHandler::stopMusic(const std::string& musicName)

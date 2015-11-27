@@ -164,7 +164,9 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="FrameButton.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameWindow.cpp" />
+    <ClCompile Include="GameWon.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -192,7 +194,9 @@
     <ClInclude Include="Frame.h" />
     <ClInclude Include="FrameButton.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameWindow.h" />
+    <ClInclude Include="GameWon.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
@@ -221,16 +225,14 @@
     <Image Include="res\textures\player\player.png" />
     <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
-    <Image Include="res\textures\Startbutton.png" />
     <Image Include="res\worlds\level.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="res\sounds\Menu Choice.mp3" />
-    <Media Include="res\sounds\menuClick.wav" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="res\sounds\diracTrain.ogg" />
+    <None Include="res\sounds\gameOverMusic.ogg" />
+    <None Include="res\sounds\gameWonMusic.ogg" />
+    <None Include="res\sounds\menuClick.ogg" />
     <None Include="res\sounds\menuMusic.ogg" />
-    <None Include="res\sounds\robot.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlueWind.rc" />

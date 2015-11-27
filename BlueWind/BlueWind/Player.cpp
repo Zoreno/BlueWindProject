@@ -7,6 +7,7 @@
 #include "Input.h"
 #include <map>
 #include <math.h>
+#include "GameOver.h"
 
 using namespace std;
 
@@ -153,7 +154,7 @@ void Player::render(GameWindow & window)
 
 void Player::die()
 {
-	gamePointer_->getApp()->setNextFrame(new Menu(gamePointer_->getApp())); // TODO Byt Menu mot "GameOver"
+	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp())); 
 	//gamePointer_->getApp()->setZoomLevel(2.5f);
 }
 
