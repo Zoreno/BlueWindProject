@@ -26,13 +26,13 @@ public:
 	const sf::Font& getFont() const;
 	GameWindow& getGameWindow();
 	SoundHandler& getSoundHandler();
-	void setNextFrame(Frame*); //
-	void setZoomLevel(float); //
+	void setNextFrame(Frame*); 
+	//void setZoomLevel(float); 
 private:
 	GameWindow window_{ sf::VideoMode(800, 600), "Simon was here!" };
 	Frame* currentFrame_;
-	Frame* nextFrame_; //
-	float zoomLevel_; //
+	Frame* nextFrame_; 
+	//float zoomLevel_; 
 	sf::Font font_;
 	Input input_;
 	SoundHandler soundHandler_;

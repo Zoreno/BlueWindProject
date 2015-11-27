@@ -153,8 +153,7 @@ void Player::render(GameWindow & window)
 
 void Player::die()
 {
-	gamePointer_->getApp()->setNextFrame(new Menu(gamePointer_->getApp()));
-	gamePointer_->getApp()->setZoomLevel(2.5f);
-	//gamePointer_->getApp()->changeCurrentFrame(new Menu(gamePointer_->getApp()), 2.5f); // TODO Byt Menu mot "GameOver"
+	gamePointer_->getApp()->setNextFrame(new Menu(gamePointer_->getApp())); // TODO Byt Menu mot "GameOver"
+	//gamePointer_->getApp()->setZoomLevel(2.5f);
 }
 

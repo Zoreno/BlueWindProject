@@ -7,7 +7,7 @@ Application::Application()
 {
 	window_.setFramerateLimit(60);
 	currentFrame_ = new Menu(this);
-	nextFrame_ = currentFrame_; //
+	nextFrame_ = currentFrame_; 
 }
 
 void Application::run()
@@ -37,7 +37,7 @@ void Application::run()
 		window_.display();
 
 		if (currentFrame_ != nextFrame_) // Fick skumma fel om frame-bytet gjordes mitt i loopen
-			changeCurrentFrame(); //
+			changeCurrentFrame(); 
 	}
 }
 
@@ -67,12 +67,11 @@ void Application::changeCurrentFrame()
 	delete currentFrame_;
 	currentFrame_ = nextFrame_;
 	
-	/*
 	sf::View view = window_.getView();
 	view.setCenter(sf::Vector2f(400, 300));
-	view.zoom(zoomLevel_);
+	//view.zoom(zoomLevel_);
 	window_.setView(view);
-	*/
+	
 }
 
 const sf::Font& Application::getFont() const
@@ -95,7 +94,7 @@ void Application::setNextFrame(Frame* framePtr)
 	nextFrame_ = framePtr;
 }
 
-void Application::setZoomLevel(float zoom)
-{
-	zoomLevel_ = zoom;
-}
+//void Application::setZoomLevel(float zoom)
+//{
+//	zoomLevel_ = zoom;
+//}
