@@ -150,8 +150,4 @@ void Player::render(GameWindow & window)
 	anim_.render(window);
 }
 
-const int Player::getAttackCooldown() const
-{
-	return attackCooldown_;
-}
 

@@ -26,6 +26,10 @@ void Enemy::render(GameWindow & window)
 	//sprite_.setPosition(position_);
 	//window.draw(sprite_);
 	anim_.render(window);
+	sf::RectangleShape hpBar{ sf::Vector2f(32 * ((float)health_ / (float)maxHealth_), 8) };
+	hpBar.setPosition(position_ + sf::Vector2f(0, -8));
+	hpBar.setFillColor(sf::Color::Red);
+	window.draw(hpBar);
 }
 
 void Enemy::die()

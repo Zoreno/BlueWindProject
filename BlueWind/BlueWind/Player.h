@@ -35,7 +35,6 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
-	const int getAttackCooldown() const;
 
 	//int enemyClose();
 
@@ -43,7 +42,6 @@ private:
 	int experience_{ 0 };
 	int mana_;
 	int maxMana_;
-	int attackCooldown_;
 	Game* gamePointer_;
 	Inventory inventory_;
 	//Animation anim_;
