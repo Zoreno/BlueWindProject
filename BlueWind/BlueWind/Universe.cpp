@@ -140,7 +140,8 @@ void PaulInteract(World* worldPtr)
 
 void ErwinInteract(World* worldPtr)
 {
-	worldPtr->getUniverse()->getGame()->getPlayer()->addExperience(10);
+	worldPtr->getUniverse()->getGame()->getApp()->setNextFrame(new Menu(worldPtr->getUniverse()->getGame()->getApp()));
+	//worldPtr->getUniverse()->getGame()->getApp()->setZoomLevel(2.5f);
 }
 
 void JamesClerkInteract(World* worldPtr)

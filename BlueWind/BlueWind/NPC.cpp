@@ -39,3 +39,7 @@ void NPC::interact()
 		//talkedTo = true;
 	}
 }
+
+void NPC::die()
+{
+}

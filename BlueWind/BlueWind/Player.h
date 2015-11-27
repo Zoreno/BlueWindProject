@@ -42,7 +42,7 @@ public:
 	void update() override;
 	void render(GameWindow&) override;
 
-	//int enemyClose();
+	void die() override;
 
 private:
 	int experience_{ 0 };

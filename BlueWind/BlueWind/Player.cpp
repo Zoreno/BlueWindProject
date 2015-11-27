@@ -165,8 +165,8 @@ void Player::update()
 
 
 	//TODO balansera lite
-	addHealth(1);
-	addMana(1);
+	//addHealth(1);
+	//addMana(1);
 	
 
 	//anim_.update();
@@ -177,4 +177,10 @@ void Player::render(GameWindow & window)
 	anim_.render(window);
 }
 
+
+void Player::die()
+{
+	gamePointer_->getApp()->setNextFrame(new Menu(gamePointer_->getApp())); // TODO Byt Menu mot "GameOver"
+	//gamePointer_->getApp()->setZoomLevel(2.5f);
+}
 

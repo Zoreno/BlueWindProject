@@ -18,6 +18,8 @@ public:
 	void render(GameWindow&) override;
 	void talk() const;
 	void interact();
+
+	void die() override;
 private:
 	sf::Sprite sprite_;
 	std::string conversation_;
