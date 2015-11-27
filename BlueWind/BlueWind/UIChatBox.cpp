@@ -20,7 +20,7 @@ void UIChatBox::handleKeyEvent(sf::Event ev)
 	case sf::Keyboard::E:
 		if (!inputBuffer_.empty())
 		{
-			inputBuffer_.pop_front();
+			//inputBuffer_.pop_front();
 		}
 		break;
 	default:
@@ -43,10 +43,10 @@ void UIChatBox::render(GameWindow & window)
 	window.draw(frame);
 
 
-	for (int i{ 0 }; i < (min(3, (int)inputBuffer_.size())); ++i)
+	for (int i{ 0 }; i < (min(4, (int)inputBuffer_.size())); ++i)
 	{
 		sf::Text conversationText{ inputBuffer_.at(i), ui_->getFont(), 20 };
-		conversationText.setPosition(position_ + sf::Vector2f(0, 24*i));
+		conversationText.setPosition(position_ + sf::Vector2f(0, 24*(3-i)));
 		conversationText.setColor(sf::Color::Black);
 		window.draw(conversationText);
 	}
@@ -54,5 +54,5 @@ void UIChatBox::render(GameWindow & window)
 
 void UIChatBox::setConversation(std::string newConversation)
 {
-	inputBuffer_.push_back(newConversation);
+	inputBuffer_.push_front(newConversation);
 }

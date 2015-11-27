@@ -1,6 +1,7 @@
 #include "Universe.h"
 #include "Game.h"
 #include "World.h" 
+#include "Tile.h"
 #include "Application.h"
 #include <iostream>
 
@@ -98,13 +99,14 @@ void Universe::populateWorlds()
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
-	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * 16, 10 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract, "res/textures/player/player.png"));
-	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * 16, 7 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract, "res/textures/player/player.png"));
-	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * 16, 3 * 16), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract, "res/textures/player/player.png"));
+	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract, "res/textures/player/player32.png"));
+	addNPC(0, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(7 * Tile::TILESIZE, 7 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract, "res/textures/player/player32.png"));
+	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract, "res/textures/player/player32.png"));
 	//--------------------------
-	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/enemy.png"));
-	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/enemy.png"));
-	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * 16, 14 * 16), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/enemy.png"));
+	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/enemy32.png"));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/enemy32.png"));
+	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy"), "res/textures/player/enemy32.png"));
+
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)

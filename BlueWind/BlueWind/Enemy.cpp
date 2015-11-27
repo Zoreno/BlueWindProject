@@ -26,6 +26,10 @@ void Enemy::render(GameWindow & window)
 	//sprite_.setPosition(position_);
 	//window.draw(sprite_);
 	anim_.render(window);
+	sf::RectangleShape hpBar{ sf::Vector2f(32 * ((float)health_ / (float)maxHealth_), 8) };
+	hpBar.setPosition(position_ + sf::Vector2f(0, -8));
+	hpBar.setFillColor(sf::Color::Red);
+	window.draw(hpBar);
 }
 
 void Enemy::die()
@@ -44,36 +48,36 @@ void Enemy::updateState()
 	switch (state_)
 	{
 	case IDLE:
-		if (playerDistance <= 80)
+		if (playerDistance <= 160)
 		{
 			state_ = MOVETOPLAYER;
 		}
 		break;
 
 	case RESET:
-		if (startDistance < 1)
+		if (startDistance < 2)
 		{
 			state_ = IDLE;
 		}
 		break;
 
 	case ATTACK:
-		if (startDistance > 80 || playerDistance > 80)
+		if (startDistance > 160 || playerDistance > 160)
 		{
 			state_ = RESET;
 		}
-		else if (playerDistance > 8)
+		else if (playerDistance > 16)
 		{
 			state_ = MOVETOPLAYER;
 		}
 		break;
 
 	case MOVETOPLAYER:
-		if (startDistance > 80 || playerDistance > 80)
+		if (startDistance > 160 || playerDistance > 160)
 		{
 			state_ = RESET;
 		}
-		else if (playerDistance <= 8)
+		else if (playerDistance <= 16)
 		{
 			state_ = ATTACK;
 		}
@@ -112,8 +116,6 @@ void Enemy::executeState()
 
 void Enemy::attackPlayer()
 {
-
-
 	if (attackCooldown_ >= 60)
 	{
 		worldPointer_->getUniverse()->getGame()->getPlayer()->removeHealth(damage_);
@@ -122,7 +124,6 @@ void Enemy::attackPlayer()
 	}
 	attackCooldown_++;
 	//removeHealth(100);
-
 }
 
 float getDistance(sf::Vector2f vec1, sf::Vector2f vec2)

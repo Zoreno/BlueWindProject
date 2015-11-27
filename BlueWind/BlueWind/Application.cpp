@@ -67,10 +67,12 @@ void Application::changeCurrentFrame()
 	delete currentFrame_;
 	currentFrame_ = nextFrame_;
 	
+	/*
 	sf::View view = window_.getView();
 	view.setCenter(sf::Vector2f(400, 300));
 	view.zoom(zoomLevel_);
 	window_.setView(view);
+	*/
 }
 
 const sf::Font& Application::getFont() const

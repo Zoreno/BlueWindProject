@@ -23,10 +23,10 @@ void World::render(GameWindow & window)
 {
 	//cout << "World renderar" << endl;
 	sf::View view = window.getView();
-	int startX = (view.getCenter().x - (20 * 16)) / 16;
-	int endX = (view.getCenter().x + (20 * 16)) / 16;
-	int startY = (view.getCenter().y - (20 * 16)) / 16;
-	int endY = (view.getCenter().y + (20 * 16)) / 16;
+	int startX = (view.getCenter().x - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int endX = (view.getCenter().x + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int startY = (view.getCenter().y - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int endY = (view.getCenter().y + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
 
 	if (startX > mapWidth)
 		startX = mapWidth;

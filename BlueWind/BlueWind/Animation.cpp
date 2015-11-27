@@ -107,7 +107,7 @@ void Animation::render(GameWindow& window)
 void Animation::loadTexture(const std::string& texName, const std::string& fileName, std::vector<sf::Texture*>& animVector, int pos)
 {
 	sf::Texture* tex = new sf::Texture;
-	sf::IntRect area(pos * 16, 0, 16, 16);
+	sf::IntRect area(pos * 32, 0, 32, 32);
 	tex->loadFromFile(fileName, area);
 	animVector.push_back(tex);
 }
