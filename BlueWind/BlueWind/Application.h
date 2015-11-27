@@ -21,9 +21,6 @@ public:
 	void update();
 	const Input getInput();
 	Frame* getCurrentFrame();
-	void startNewGame();
-	void startLoadGame();
-
 	void changeCurrentFrame();
 
 	const sf::Font& getFont() const;

@@ -76,7 +76,9 @@ void newGameCallback(Application* ptr)
 
 void loadGameCallback(Application* ptr)
 {
-	ptr->startLoadGame();
+	ptr->getSoundHandler().stopMusic("menuMusic");
+	ptr->setNextFrame(new Game(ptr, true));
+	//ptr->setZoomLevel(0.8f);
 }
 
 void quitCallback(Application* ptr)
