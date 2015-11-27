@@ -2,10 +2,12 @@
 
 #include "Entity.h"
 #include "Inventory.h"
+#include <map>
 //#include "Animation.h"
 
 class World;
 class Game;
+class Enemy;
 
 class Player : public Entity
 {
@@ -24,6 +26,8 @@ public:
 	int getMaxExperience();
 
 	Inventory* getInventory();
+
+	void attack(const std::map<int, Enemy*>);
 
 	int getXpToLevel();
 	bool checkForLevelup();

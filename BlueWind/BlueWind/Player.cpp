@@ -60,6 +60,20 @@ Inventory* Player::getInventory()
 	return &inventory_;
 }
 
+
+void Player::attack(const map<int, Enemy*> enemies)
+{
+	for (auto it : enemies)
+	{
+		if (getDistance(position_, it.second->getPosition()) <= 32)
+		{
+			it.second->removeHealth(damage_); 
+			break;
+		}
+	}
+
+}
+
 int Player::getXpToLevel()
 {
 	return std::floor( 100 * std::pow(1.15f, level_));
