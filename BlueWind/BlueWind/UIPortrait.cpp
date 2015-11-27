@@ -6,7 +6,7 @@ using namespace std;
 UIPortrait::UIPortrait(UserInterface * uiPtr, Player * playerPtr)
 	:UIComponent{ sf::Vector2f(10,10), sf::Vector2f(100,120), uiPtr, playerPtr },
 	healthBar_{position_ + sf::Vector2f(10,40), sf::Vector2f(80,20), sf::Color::Red, "HP", uiPtr},
-	manaBar_{ position_ + sf::Vector2f(10,60), sf::Vector2f(80,20), sf::Color{0,100,255,255}, "MP", uiPtr },
+	manaBar_{ position_ + sf::Vector2f(10,60), sf::Vector2f(80,20), sf::Color::Yellow, "kWh", uiPtr },
 	expBar_{ position_ + sf::Vector2f(10,80), sf::Vector2f(80,20), sf::Color::Green, "XP", uiPtr }
 {
 }

@@ -21,6 +21,7 @@ public:
 	void addExperience(int);
 	int getMana() const;
 	void setMana(int);
+	void addMana(int);
 	int getMaxMana() const;
 	void setMaxMana(int);
 	int getMaxExperience();

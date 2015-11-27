@@ -27,7 +27,13 @@ void Player::addExperience(int value)
 {
 	experience_ += value;
 	while(checkForLevelup())
-	{ }
+	{
+		maxHealth_ += 20;
+		health_ = maxHealth_;
+		maxMana_ += 10;
+		mana_ = maxMana_;
+		damage_ += 10;
+	}
 }
 
 int Player::getMana() const
@@ -38,6 +44,16 @@ int Player::getMana() const
 void Player::setMana(int value)
 {
 	mana_ = value;
+}
+
+void Player::addMana(int value)
+{
+	//TODO jonas fixar.
+	mana_ += value;
+	if(mana_ > maxMana_)
+	{
+		mana_ = maxMana_;
+	}
 }
 
 int Player::getMaxMana() const
@@ -63,6 +79,8 @@ Inventory* Player::getInventory()
 
 void Player::attack(const map<int, Enemy*> enemies)
 {
+	if (mana_ < 5) return;
+	mana_ -= 5;
 	for (auto it : enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 32)
@@ -117,8 +135,15 @@ void Player::update()
 		//anim_.state_ = anim_.walking;
 		//anim_.dir_ = anim_.north;
 	}
+
+
+	//TODO balansera lite
+	addHealth(1);
+	addMana(1);
+	
+
 	//anim_.update();
-			}
+}
 
 void Player::render(GameWindow & window)
 {
