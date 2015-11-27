@@ -78,6 +78,15 @@ void Application::startNewGame()
 	*/
 }
 
+void Application::startLoadGame()
+{
+	soundHandler_.stopMusic("menuMusic");
+
+	delete currentFrame_;
+	currentFrame_ = new Game(this, true);
+
+}
+
 const sf::Font& Application::getFont() const
 {
 	return font_;

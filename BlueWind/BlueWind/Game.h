@@ -11,7 +11,7 @@
 class Game : public Frame
 {
 public:
-	Game(Application*);
+	Game(Application*, bool = false);
 	Game(const Game&) = delete;
 	Game& operator=(const Game&) = delete;
 	
@@ -20,6 +20,9 @@ public:
 
 	void handleKeyEvent(sf::Event) override;
 	void handleMouseEvent(sf::Event) override;
+
+	void saveGame();
+	void loadGame();
 
 	Player* getPlayer();
 	Application* getApp();

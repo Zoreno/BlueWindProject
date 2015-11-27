@@ -72,7 +72,7 @@ void newGameCallback(Application* ptr)
 
 void loadGameCallback(Application* ptr)
 {
-
+	ptr->startLoadGame();
 }
 
 void quitCallback(Application* ptr)

@@ -24,6 +24,8 @@ public:
 	int getSize();
 	const unsigned int getMaxSize();
 
+	std::string toString();
+
 private:
 	std::vector<Item*> items_;
 	const unsigned int maxSize_{8};

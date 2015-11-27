@@ -8,7 +8,6 @@ using namespace std;
 
 UserInterface::UserInterface(Player * playerPtr)
 {
-	cout << playerPtr->getName() << endl;
 	if (!uiFont_.loadFromFile("res/calibri.ttf"))
 	{
 		//TODO lägg till exception

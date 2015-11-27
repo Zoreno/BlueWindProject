@@ -15,7 +15,7 @@ Player::Player(World * worldPtr, sf::Texture& texture, Game* game, const string&
 	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, fileName),
 	mana_{ 20 }, maxMana_{ 20 }, gamePointer_{ game }, inventory_{ this,game }//, anim_{ this }
 {
-	inventory_.addItem(0);
+	
 }
 
 int Player::getExperience() const
@@ -64,11 +64,38 @@ int Player::getMaxMana() const
 void Player::setMaxMana(int value)
 {
 	maxMana_ = value;
+	mana_ = value;
 }
 
 int Player::getMaxExperience()
 {
 	return getXpToLevel();
+}
+
+void Player::setName(std::string name)
+{
+	name_ = name;
+}
+
+void Player::setMaxHealth(int value)
+{
+	maxHealth_ = value;
+	health_ = value;
+}
+
+void Player::setDamage(int value)
+{
+	damage_ = value;
+}
+
+void Player::setLevel(int value)
+{
+	level_ = value;
+}
+
+void Player::setExperience(int value)
+{
+	experience_ = value;
 }
 
 Inventory* Player::getInventory()

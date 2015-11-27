@@ -22,6 +22,7 @@ public:
 	const Input getInput();
 	Frame* getCurrentFrame();
 	void startNewGame();
+	void startLoadGame();
 
 	void changeCurrentFrame();
 
