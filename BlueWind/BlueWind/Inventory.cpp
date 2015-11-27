@@ -27,6 +27,7 @@ void Inventory::addItem(int ID)
 	if (items_.size() >= maxSize_)
 	{
 		cout << "Inventory is full" << endl;
+		return;
 	}
 	for (auto it : allItems_)
 	{
@@ -76,6 +77,16 @@ int Inventory::getSize()
 const unsigned int Inventory::getMaxSize()
 {
 	return maxSize_;
+}
+
+std::string Inventory::toString()
+{
+	string s;
+	for (auto it : items_)
+	{
+		s = s + to_string(it->getID()) + " ";
+	}
+	return s;
 }
 
 void Inventory::populateItemList()

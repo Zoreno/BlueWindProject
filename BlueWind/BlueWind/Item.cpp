@@ -6,7 +6,7 @@ Item::Item(int ID, std::string name, sf::Texture& texture)
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
-	sprite_.setScale(sf::Vector2f(3.0f, 3.0f));
+	sprite_.setScale(sf::Vector2f(1.5f, 1.5f));
 }
 
 std::string Item::getName()

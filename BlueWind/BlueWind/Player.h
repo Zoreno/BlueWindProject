@@ -26,6 +26,12 @@ public:
 	void setMaxMana(int);
 	int getMaxExperience();
 
+	void setName(std::string);
+	void setMaxHealth(int);
+	void setDamage(int);
+	void setLevel(int);
+	void setExperience(int);
+
 	Inventory* getInventory();
 
 	void attack(const std::map<int, Enemy*>);
