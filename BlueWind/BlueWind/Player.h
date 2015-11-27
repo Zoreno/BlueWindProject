@@ -32,7 +32,7 @@ public:
 	void render(GameWindow&) override;
 	const int getAttackCooldown() const;
 
-	//int enemyClose();
+	void die() override;
 
 private:
 	int experience_{ 0 };

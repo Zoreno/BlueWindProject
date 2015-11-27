@@ -106,14 +106,14 @@ void Entity::removeHealth(int value)
 	health_ -= value;
 	if (health_ <= 0)
 	{
-		die();
 		health_ = 0;
+		die();
 	}
 	cout << "Damage taken. Current health: " << health_ << endl;
 }
 
 void Entity::die()
 {
-	cout << "U dieded" << endl;
-
+	cout << "Entity died" << endl; 
 }
+

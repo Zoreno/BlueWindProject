@@ -16,6 +16,8 @@ Menu::Menu(Application * appPtr)
 	appPtr->getSoundHandler().playMusic("menuMusic");
 }
 
+
+
 void Menu::handleKeyEvent(sf::Event event)
 {
 }
@@ -67,7 +69,10 @@ void Menu::render(GameWindow & window)
 
 void newGameCallback(Application* ptr)
 {
-	ptr->startNewGame();
+	ptr->getSoundHandler().stopMusic("menuMusic");
+	ptr->setNextFrame(new Game(ptr));
+	ptr->setZoomLevel(0.4f);
+	//ptr->changeCurrentFrame(new Game(ptr), 0.4f);
 }
 
 void loadGameCallback(Application* ptr)

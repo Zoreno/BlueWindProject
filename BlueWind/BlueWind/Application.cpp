@@ -5,17 +5,13 @@ using namespace std;
 Application::Application()
 	: input_{ this }
 {
+	window_.setFramerateLimit(60);
 	currentFrame_ = new Menu(this);
-	}
+	nextFrame_ = currentFrame_; //
+}
 
 void Application::run()
 {
-	cout << "Program running..." << endl;
-
-	window_.setFramerateLimit(60);
-	sf::View view = window_.getView();
-	window_.setView(view);
-
 	while (window_.isOpen())
 	{
 		sf::Event event;
@@ -39,6 +35,9 @@ void Application::run()
 		window_.clear();
 		render(window_);
 		window_.display();
+
+		if (currentFrame_ != nextFrame_) // Fick skumma fel om frame-bytet gjordes mitt i loopen
+			changeCurrentFrame(); //
 	}
 }
 
@@ -63,16 +62,14 @@ Frame * Application::getCurrentFrame()
 	return currentFrame_;
 }
 
-void Application::startNewGame()
+void Application::changeCurrentFrame()
 {
-	// TODO Fixa mer allmän "changeframe"-funktion
-	soundHandler_.stopMusic("menuMusic");
-	
 	delete currentFrame_;
-	currentFrame_ = new Game(this);
+	currentFrame_ = nextFrame_;
 	
 	sf::View view = window_.getView();
-	view.zoom(0.4f);
+	view.setCenter(sf::Vector2f(400, 300));
+	view.zoom(zoomLevel_);
 	window_.setView(view);
 }
 
@@ -89,4 +86,14 @@ GameWindow& Application::getGameWindow()
 SoundHandler & Application::getSoundHandler()
 {
 	return soundHandler_;
+}
+
+void Application::setNextFrame(Frame* framePtr)
+{
+	nextFrame_ = framePtr;
+}
+
+void Application::setZoomLevel(float zoom)
+{
+	zoomLevel_ = zoom;
 }
