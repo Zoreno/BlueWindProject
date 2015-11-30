@@ -225,6 +225,7 @@
     <Image Include="res\textures\player.png" />
     <Image Include="res\textures\player\enemy.png" />
     <Image Include="res\textures\player\player.png" />
+    <Image Include="res\textures\player\playerHEj.png" />
     <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
     <Image Include="res\worlds\level.bmp" />
