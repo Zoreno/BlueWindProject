@@ -12,9 +12,9 @@
 using namespace std;
 
 
-Player::Player(World * worldPtr, sf::Texture& texture, Game* game, const string& fileName)
-	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, fileName),
-	mana_{ 20 }, maxMana_{ 20 }, gamePointer_{ game }, inventory_{ this,game }//, anim_{ this }
+Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
+	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, game->getTexture("player")),
+	mana_{ 20 }, maxMana_{ 20 }, gamePointer_{ game }, inventory_{ this,game }
 {
 	
 }
@@ -109,6 +109,7 @@ void Player::attack(const map<int, Enemy*> enemies)
 {
 	if (mana_ < 5) return;
 	mana_ -= 5;
+	state_ = attacking;
 	for (auto it : enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 32)
@@ -138,39 +139,38 @@ bool Player::checkForLevelup()
 
 void Player::update()
 {
-	//anim_.state_ = anim_.idle;
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
-	{
-		move(-1, 0);
-	//anim_.state_ = anim_.walking;
-//anim_.dir_ = anim_.west;
-	}
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
-	{
-		move(1, 0);
-		//anim_.state_ = anim_.walking;
-		//anim_.dir_ = anim_.east;
-	}
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('s'))
-	{
-		move(0, 1);
-		//anim_.state_ = anim_.walking;
-		//anim_.dir_ = anim_.south;
-	}
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
-	{
-		move(0, -1);
-		//anim_.state_ = anim_.walking;
-		//anim_.dir_ = anim_.north;
-	}
-
-
 	//TODO balansera lite
 	//addHealth(1);
 	addMana(1);
-	
-
-	//anim_.update();
+	if (state_ == attacking)
+	{
+		anim_.update(state_, dir_, walking_);
+		if (attackCounter % 15 == 14)
+		{
+			state_ = walking1;
+			attackCounter = 0;
+		}
+		attackCounter++;
+		return;
+	}
+	walking_ = false;
+	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
+	{
+		move(-1, 0);
+	}
+	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
+	{
+		move(1, 0);		
+	}
+	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('s'))
+	{
+		move(0, 1);		
+	}
+	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
+	{
+		move(0, -1);		
+	}
+	anim_.update(state_, dir_, walking_);
 }
 
 void Player::render(GameWindow & window)

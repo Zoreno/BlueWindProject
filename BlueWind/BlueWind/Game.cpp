@@ -7,7 +7,7 @@
 using namespace std;
 
 Game::Game(Application * appPtr, bool loadSave)
-	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this, "res/textures/player/player32.png" }, ui_{&player_}
+	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this }, ui_{&player_}
 {
 	cout << "Game startas!" << endl;
 	if (loadSave)

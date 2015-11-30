@@ -9,8 +9,12 @@ class World;
 
 class Entity
 {
+	friend class Animation;
 public:
-	Entity(int, int, int, int, std::string, sf::Vector2f, World*, const std::string&);
+	enum STATES { walking1 = 0x0,walking2 = 0x1, attacking = 0x2 };
+	enum DIRECTION { north = 0x0, west = 0x1, east = 0x2, south = 0x3 };
+
+	Entity(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&);
 
 	Entity(const Entity&) = delete;
 	Entity() = delete;
@@ -44,6 +48,12 @@ protected:
 	int maxHealth_;
 	int damage_;
 	int ID_;
+
+	bool walking_;
+
+	STATES state_{ walking1 };
+	DIRECTION dir_{ south };
+
 	std::string name_;
 	sf::Vector2f position_;
 	World* worldPointer_;
