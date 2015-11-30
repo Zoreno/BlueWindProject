@@ -8,8 +8,6 @@ GameWon::GameWon(Application * appPtr)
 	: Frame{ appPtr }
 {
 	void mainMenuCallback(Application*);
-	void playAgainCallback(Application*);
-	addButton(sf::Vector2f(400 - 175, 225), sf::Vector2f(350, 100), "res/textures/playAgainButton.png", "res/textures/playAgainButtonHover.png", playAgainCallback);
 	addButton(sf::Vector2f(400 - 175, 350), sf::Vector2f(350, 100), "res/textures/menuButton.png", "res/textures/menuButtonHover.png", mainMenuCallback);
 	appPtr->getSoundHandler().playMusic("gameWonMusic");
 }
@@ -63,11 +61,6 @@ void GameWon::render(GameWindow & window)
 	{
 		it->render(window);
 	}
-}
-
-void playAgainCallback(Application* ptr)
-{
-
 }
 
 void mainMenuCallback(Application* ptr)
