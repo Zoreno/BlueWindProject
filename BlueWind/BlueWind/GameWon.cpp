@@ -67,5 +67,4 @@ void mainMenuCallback(Application* ptr)
 {
 	ptr->getSoundHandler().stopMusic("gameWonMusic");
 	ptr->setNextFrame(new Menu(ptr));
-	//ptr->setZoomLevel(0.8f);
 }

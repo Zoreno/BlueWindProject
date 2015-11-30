@@ -24,8 +24,6 @@ void Enemy::update()
 void Enemy::render(GameWindow & window)
 {
 	//cout << "Enemy render" << endl;
-	//sprite_.setPosition(position_);
-	//window.draw(sprite_);
 	anim_.render(window);
 	sf::RectangleShape hpBar{ sf::Vector2f(32 * ((float)health_ / (float)maxHealth_), 8) };
 	hpBar.setPosition(position_ + sf::Vector2f(0, -8));
@@ -124,7 +122,6 @@ void Enemy::attackPlayer()
 		return;
 	}
 	attackCooldown_++;
-	//removeHealth(100);
 }
 
 float getDistance(sf::Vector2f vec1, sf::Vector2f vec2)

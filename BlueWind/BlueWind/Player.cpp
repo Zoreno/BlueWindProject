@@ -182,8 +182,7 @@ void Player::render(GameWindow & window)
 
 void Player::die()
 {
-	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp())); 
-	//gamePointer_->getApp()->setZoomLevel(2.5f);
+	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp()));
 }
 
 
