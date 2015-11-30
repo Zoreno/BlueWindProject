@@ -6,6 +6,11 @@ Application::Application()
 	: input_{ this }
 {
 	window_.setFramerateLimit(60);
+	sf::Image icon;
+	if (icon.loadFromFile("res/textures/icon.png"))
+	{
+		window_.setIcon(32,32,icon.getPixelsPtr());
+	}
 	currentFrame_ = new Menu(this);
 	nextFrame_ = currentFrame_; 
 }
