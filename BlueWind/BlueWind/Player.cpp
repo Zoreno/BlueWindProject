@@ -154,19 +154,19 @@ void Player::update()
 		return;
 	}
 	walking_ = false;
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
+	if (gamePointer_->getApp()->getInput().pressedButtons_.at('a'))
 	{
 		move(-1, 0);
 	}
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
+	if (gamePointer_->getApp()->getInput().pressedButtons_.at('d'))
 	{
 		move(1, 0);		
 	}
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('s'))
+	if (gamePointer_->getApp()->getInput().pressedButtons_.at('s'))
 	{
 		move(0, 1);		
 	}
-	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
+	if (gamePointer_->getApp()->getInput().pressedButtons_.at('w'))
 	{
 		move(0, -1);		
 	}
@@ -188,7 +188,7 @@ void Player::die()
 
 void Player::checkSensors()
 {
-	for (auto it : worldPointer_->getUniverse()->getCurrentWorld()->getSensorVector())
+	for (auto it : worldPointer_->getSensorVector())
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 32)
 		{
