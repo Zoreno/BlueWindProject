@@ -45,6 +45,8 @@ public:
 	void die() override;
 
 private:
+	void checkSensors();
+
 	int experience_{ 0 };
 	int mana_;
 	int maxMana_;

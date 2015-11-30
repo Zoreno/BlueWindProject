@@ -142,8 +142,8 @@ void Player::update()
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
 	{
 		move(-1, 0);
-	//anim_.state_ = anim_.walking;
-//anim_.dir_ = anim_.west;
+		//anim_.state_ = anim_.walking;
+		//anim_.dir_ = anim_.west;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
 	{
@@ -164,13 +164,14 @@ void Player::update()
 		//anim_.dir_ = anim_.north;
 	}
 
-
 	//TODO balansera lite
 	//addHealth(1);
 	addMana(1);
-	
+
 
 	//anim_.update();
+
+	checkSensors();
 }
 
 void Player::render(GameWindow & window)
@@ -183,5 +184,18 @@ void Player::die()
 {
 	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp())); 
 	//gamePointer_->getApp()->setZoomLevel(2.5f);
+}
+
+
+void Player::checkSensors()
+{
+	for (auto it : worldPointer_->getUniverse()->getCurrentWorld()->getSensorVector())
+	{
+		if (getDistance(position_, it.second->getPosition()) <= 32)
+		{
+			it.second->trigger();
+			break;
+		}
+	}
 }
 
