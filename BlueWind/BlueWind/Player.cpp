@@ -167,7 +167,7 @@ void Player::update()
 
 	//TODO balansera lite
 	//addHealth(1);
-	//addMana(1);
+	addMana(1);
 	
 
 	//anim_.update();
