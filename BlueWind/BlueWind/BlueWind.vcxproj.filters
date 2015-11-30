@@ -235,6 +235,9 @@
     <Image Include="res\textures\player\enemy.png">
       <Filter>Resource Files\textures\player</Filter>
     </Image>
+    <Image Include="res\textures\player\playerHEj.png">
+      <Filter>Resource Files\textures\player</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg">
