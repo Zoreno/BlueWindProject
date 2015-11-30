@@ -141,25 +141,25 @@ void Player::update()
 	//anim_.state_ = anim_.idle;
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('a'))
 	{
-		move(-1, 0);
+		move(-4, 0);
 	//anim_.state_ = anim_.walking;
 //anim_.dir_ = anim_.west;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('d'))
 	{
-		move(1, 0);
+		move(4, 0);
 		//anim_.state_ = anim_.walking;
 		//anim_.dir_ = anim_.east;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('s'))
 	{
-		move(0, 1);
+		move(0, 4);
 		//anim_.state_ = anim_.walking;
 		//anim_.dir_ = anim_.south;
 	}
 	if (worldPointer_->getUniverse()->getGame()->getApp()->getInput().pressedButtons_.at('w'))
 	{
-		move(0, -1);
+		move(0, -4);
 		//anim_.state_ = anim_.walking;
 		//anim_.dir_ = anim_.north;
 	}

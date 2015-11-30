@@ -24,6 +24,7 @@ public:
 	void addNPC(NPC*);
 	void removeEnemy(Enemy*);
 	void removeNPC(NPC*);
+	void changeTile(int, int);
 
 	Universe* getUniverse() const;
 

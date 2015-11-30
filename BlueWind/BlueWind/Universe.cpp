@@ -78,6 +78,7 @@ void Universe::loadTiles()
 	cout << "Laddar in Tiles" << endl;
 	tileAtlas_.emplace(0,new Tile(gamePointer_->getTexture("grass"), true));
 	tileAtlas_.emplace(1,new Tile(gamePointer_->getTexture("tree"), false));
+	tileAtlas_.emplace(2, new Tile(gamePointer_->getTexture("bridge"), true));
 	cout << "Laddning av tiles klart" << endl;
 }
 
@@ -137,6 +138,12 @@ void Universe::addNPC(int worldID, NPC * NPCPtr)
 void PaulInteract(World* worldPtr)
 {
 	worldPtr->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
+
+	for (int i = 0; i < 6; ++i)
+	{
+		worldPtr->changeTile((6 * worldPtr->getMapWidth() + 15 + i), 2);
+		worldPtr->changeTile((7 * worldPtr->getMapWidth() + 15 + i), 2);
+	}
 }
 
 void ErwinInteract(World* worldPtr)
