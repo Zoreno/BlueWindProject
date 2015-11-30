@@ -29,7 +29,7 @@ public:
 	void setNextFrame(Frame*); 
 	//void setZoomLevel(float); 
 private:
-	GameWindow window_{ sf::VideoMode(800, 600), "Simon was here!" };
+	GameWindow window_{ sf::VideoMode(800, 600), "Bluewind" };
 	Frame* currentFrame_;
 	Frame* nextFrame_; 
 	//float zoomLevel_; 

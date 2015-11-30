@@ -9,7 +9,7 @@ class Game;
 class NPC : public Entity
 {
 public:
-	NPC(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::string, std::function<void(World*)>, const std::string&);
+	NPC(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::string, std::function<void(World*)>);
 	NPC() = delete;
 	NPC(const NPC&) = delete;
 	NPC& operator=(const NPC&) = delete;

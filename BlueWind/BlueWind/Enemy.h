@@ -3,15 +3,15 @@
 #include "Entity.h"
 #include "GameWindow.h"
 
-enum STATES{ ATTACK, MOVETOPLAYER, IDLE, RESET };
-
 float getDistance(sf::Vector2f, sf::Vector2f);
 sf::Vector2f normalize(sf::Vector2f);
 
 class Enemy : public Entity
 {
 public:
-	Enemy(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, const std::string&);
+	enum STATES { ATTACK, MOVETOPLAYER, IDLE, RESET };
+
+	Enemy(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&);
 	Enemy() = delete;
 	Enemy(const Enemy&) = delete;
 	Enemy& operator=(const Enemy&) = delete;

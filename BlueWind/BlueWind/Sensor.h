@@ -9,7 +9,7 @@ class Game;
 class Sensor : public Entity
 {
 public:
-	Sensor(int, std::string, sf::Vector2f, World*, std::function<void(World*)>, const std::string&);
+	Sensor(int, std::string, sf::Vector2f, World*, std::function<void(World*)>, sf::Texture&);
 	Sensor() = delete;
 	Sensor(const Sensor&) = delete;
 	Sensor& operator=(const Sensor&) = delete;

@@ -12,7 +12,9 @@ class Enemy;
 class Player : public Entity
 {
 public:
-	Player(World*, sf::Texture&, Game*, const std::string&);
+	
+
+	Player(World*, sf::Texture&, Game*);
 	Player(const Player&) = delete;
 	Player() = delete;
 	Player& operator=(const Player&) = delete;
@@ -52,6 +54,7 @@ private:
 	int maxMana_;
 	Game* gamePointer_;
 	Inventory inventory_;
+	int attackCounter;
 	//Animation anim_;
 	//sf::Sprite sprite_;
 };
