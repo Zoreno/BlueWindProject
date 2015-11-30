@@ -69,7 +69,6 @@ void Application::changeCurrentFrame()
 	
 	sf::View view = window_.getView();
 	view.setCenter(sf::Vector2f(400, 300)); // Behöver återställas vid byte från game till meny
-	//view.zoom(zoomLevel_);
 	window_.setView(view);
 }
 
@@ -93,7 +92,3 @@ void Application::setNextFrame(Frame* framePtr)
 	nextFrame_ = framePtr;
 }
 
-//void Application::setZoomLevel(float zoom)
-//{
-//	zoomLevel_ = zoom;
-//}

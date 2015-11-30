@@ -20,7 +20,6 @@ void NPC::update()
 
 void NPC::render(GameWindow & window)
 {
-	//window.draw(sprite_);
 	anim_.render(window);
 }
 
@@ -36,7 +35,7 @@ void NPC::interact()
 	if (!talkedTo)
 	{
 		callback_(worldPointer_);
-		//talkedTo = true;
+		// talkedTo = true; //TODO ta bort? kan kolla om player redan har föremål
 	}
 }
 

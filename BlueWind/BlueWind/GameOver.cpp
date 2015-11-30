@@ -67,6 +67,5 @@ void menuCallback(Application* ptr)
 {
 	ptr->getSoundHandler().stopMusic("gameOverMusic");
 	ptr->setNextFrame(new Menu(ptr));
-	//ptr->setZoomLevel(0.8f);
 }
 

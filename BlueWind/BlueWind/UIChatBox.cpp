@@ -15,17 +15,6 @@ UIChatBox::UIChatBox(UserInterface* uiPtr, Player* playerPtr)
 void UIChatBox::handleKeyEvent(sf::Event ev)
 {
 
-	switch(ev.key.code)
-	{
-	case sf::Keyboard::E:
-		if (!inputBuffer_.empty())
-		{
-			//inputBuffer_.pop_front();
-		}
-		break;
-	default:
-		break;
-	}
 }
 
 void UIChatBox::update()
