@@ -27,6 +27,7 @@ public:
 	void removeEnemy(Enemy*);
 	void removeNPC(NPC*);
 	void removeSensor(Sensor*);
+	void changeTile(int, int);
 
 	Universe* getUniverse() const;
 

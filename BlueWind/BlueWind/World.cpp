@@ -121,6 +121,14 @@ void World::removeSensor(Sensor* sensorPtr)
 	removeSensorVector_.push_back(sensorPtr->getID());
 }
 
+void World::changeTile(int pos, int value)
+{
+	if (!(pos > tileVector_.size()))
+	{
+		tileVector_.at(pos) = value;	
+	}
+}
+
 Universe * World::getUniverse() const
 {
 	return universePointer_;
@@ -166,10 +174,12 @@ int World::getIntFromColor(sf::Color color)
 
 	switch (color.toInteger())
 	{
-	case 0x00FF00FF:
+	case 0x00FF00FF: //Gräs
 		return 0;
-	case 0xFF0000FF:
+	case 0xFF0000FF: //Träd
 		return 1;
+	case 0x7F6A00FF: //Bro
+		return 2;	
 	default:
 		cout << "Fel färg!" << endl;
 		return -1;

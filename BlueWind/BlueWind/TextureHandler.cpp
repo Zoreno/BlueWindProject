@@ -8,6 +8,7 @@ TextureHandler::TextureHandler()
 	cout << "Laddar texturer" << endl;
 	loadTexture("grass", "res/textures/Gräs.png");
 	loadTexture("tree", "res/textures/Gran.png");
+	loadTexture("bridge", "res/textures/bridge.png");
 	loadTexture("player", "res/textures/player/playerHEj.png");
 	loadTexture("enemy", "res/textures/player/playerHEj.png"); 
 	loadTexture("NPC", "res/textures/player/playerHEj.png");
