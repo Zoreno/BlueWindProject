@@ -171,6 +171,7 @@ void Player::update()
 		move(0, -1);		
 	}
 	anim_.update(state_, dir_, walking_);
+	checkSensors();
 }
 
 void Player::render(GameWindow & window)
@@ -183,5 +184,18 @@ void Player::die()
 {
 	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp())); 
 	//gamePointer_->getApp()->setZoomLevel(2.5f);
+}
+
+
+void Player::checkSensors()
+{
+	for (auto it : worldPointer_->getUniverse()->getCurrentWorld()->getSensorVector())
+	{
+		if (getDistance(position_, it.second->getPosition()) <= 32)
+		{
+			it.second->trigger();
+			break;
+		}
+	}
 }
 

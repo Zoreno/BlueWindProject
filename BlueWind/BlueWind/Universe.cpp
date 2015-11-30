@@ -98,6 +98,8 @@ void Universe::populateWorlds()
 	void ErwinInteract(World*);
 	void JamesClerkInteract(World*);
 
+	void SensorseiInteract(World*);
+
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
 	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract));
@@ -107,6 +109,8 @@ void Universe::populateWorlds()
 	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy")));
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy")));
 	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy")));
+
+	addSensor(1, new Sensor(0, "Sensorsei", sf::Vector2f(1 * Tile::TILESIZE, 0 * Tile::TILESIZE), getWorld(1), SensorseiInteract, gamePointer_->getTexture("enemy")));
 
 }
 
@@ -134,6 +138,18 @@ void Universe::addNPC(int worldID, NPC * NPCPtr)
 	}
 }
 
+void Universe::addSensor(int worldID, Sensor* sensorPtr)
+{
+	for (auto it : worlds_)
+	{
+		if (it->getID() == worldID)
+		{
+			it->addSensor(sensorPtr);
+			break;
+		}
+	}
+}
+
 void PaulInteract(World* worldPtr)
 {
 	worldPtr->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
@@ -147,5 +163,10 @@ void ErwinInteract(World* worldPtr)
 
 void JamesClerkInteract(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(1, 32, 32);
+	worldPtr->getUniverse()->switchWorld(1, 64, 64);
+}
+
+void SensorseiInteract(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(0, 64, 64);
 }

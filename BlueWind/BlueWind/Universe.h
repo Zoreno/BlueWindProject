@@ -6,6 +6,7 @@
 #include <map>
 #include "Enemy.h"
 #include "NPC.h"
+#include "Sensor.h"
 
 class Game;
 
@@ -40,4 +41,5 @@ private:
 
 	void addEnemy(int, Enemy*);
 	void addNPC(int, NPC*);
+	void addSensor(int, Sensor*);
 };
