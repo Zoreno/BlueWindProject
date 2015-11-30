@@ -100,15 +100,25 @@ void World::addNPC(NPC * NPCPtr)
 	NPCVector_.emplace(NPCPtr->getID(), NPCPtr);
 }
 
+void World::addSensor(Sensor* sensorPtr)
+{
+	cout << "Adding Sensor in world " << ID_ << endl;
+	sensorVector_.emplace(sensorPtr->getID(), sensorPtr);
+}
+
 void World::removeEnemy(Enemy * enemyPtr)
 {
 	removeEnemyVector_.push_back(enemyPtr->getID());
-	cout << "Removing enemy" << endl;
 }
 
 void World::removeNPC(NPC * NPCPtr)
 {
-	remoneNPCVector_.push_back(NPCPtr->getID());
+	removeNPCVector_.push_back(NPCPtr->getID());
+}
+
+void World::removeSensor(Sensor* sensorPtr)
+{
+	removeSensorVector_.push_back(sensorPtr->getID());
 }
 
 void World::changeTile(int pos, int value)
@@ -149,6 +159,11 @@ const std::map<int,NPC*> World::getNPCVector() const
 	return NPCVector_;
 }
 
+const std::map<int, Sensor*> World::getSensorVector() const
+{
+	return sensorVector_;
+}
+
 const std::map<int,Enemy*> World::getEnemyVector() const
 {
 	return enemyVector_;
@@ -181,5 +196,21 @@ void World::updateLists()
 		enemyVector_.erase(it);
 	}
 	removeEnemyVector_.clear();
+
+	for (auto iter : removeNPCVector_)
+	{
+		auto it = NPCVector_.find(iter);
+		delete (it->second);
+		NPCVector_.erase(it);
+	}
+	removeNPCVector_.clear();
+
+	for (auto iter : removeSensorVector_)
+	{
+		auto it = sensorVector_.find(iter);
+		delete (it->second);
+		sensorVector_.erase(it);
+	}
+	removeSensorVector_.clear();
 	
 }
