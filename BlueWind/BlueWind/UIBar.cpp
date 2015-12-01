@@ -13,12 +13,12 @@ UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::str
 {
 }
 
-void UIBar::update(float current, float max)
+void UIBar::update(int current, int max)
 {
-	text_ = to_string(static_cast<int>(current)) + '/' + to_string(static_cast<int>(max));
+	text_ = to_string(current) + '/' + to_string(max);
 	if (max != 0 && current > 0)
 	{
-		fillLevel_ = current / max;
+		fillLevel_ = static_cast<float>(current) / static_cast<float>(max);
 		return;
 	}
 	fillLevel_ = 0;

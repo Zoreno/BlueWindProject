@@ -9,6 +9,6 @@ Tile::Tile(sf::Texture& texture, bool walkable)
 
 void Tile::render(GameWindow & window, int x, int y)
 {
-	sprite_.setPosition(TILESIZE * x, TILESIZE * y);
+	sprite_.setPosition(static_cast<float>(TILESIZE * x), static_cast<float>(TILESIZE * y));
 	window.draw(sprite_);
 }

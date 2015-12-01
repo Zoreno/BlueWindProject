@@ -32,7 +32,7 @@ void UIChatBox::render(GameWindow & window)
 	for (int i{ 0 }; i < (min(4, (int)inputBuffer_.size())); ++i)
 	{
 		sf::Text conversationText{ inputBuffer_.at(i), ui_->getFont(), 20 };
-		conversationText.setPosition(position_ + sf::Vector2f(0, 24*(3-i)));
+		conversationText.setPosition(position_ + sf::Vector2f(0, 24.0f*(3-i)));
 		conversationText.setColor(sf::Color::Black);
 		window.draw(conversationText);
 	}

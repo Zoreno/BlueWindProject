@@ -12,7 +12,7 @@ public:
 	UIBar(UIBar&) = delete;
 	UIBar& operator=(const UIBar&) = delete;
 
-	void update(float, float);
+	void update(int, int);
 	void render(GameWindow&);
 
 private:

@@ -32,10 +32,10 @@ void UIInventoryFrame::render(GameWindow & window)
 	for (int i{ 0 }; i <  (min((int)inventorySize_, playerInventory_->getSize())); ++i)
 	{
 		Item* item = playerInventory_->at(i);
-		item->render(window, position_ + sf::Vector2f(10, 80 + 52 * i));
+		item->render(window, position_ + sf::Vector2f(10.0f, 80.0f + 52.0f * i));
 
 		sf::Text conversationText{ item->getName(), ui_->getFont(), 30 };
-		conversationText.setPosition(position_ + sf::Vector2f(80, 82 + 52 * i));
+		conversationText.setPosition(position_ + sf::Vector2f(80.0f, 82.0f + 52.0f * i));
 		conversationText.setColor(sf::Color::Black);
 		window.draw(conversationText);
 	}

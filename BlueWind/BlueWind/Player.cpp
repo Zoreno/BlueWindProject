@@ -122,7 +122,7 @@ void Player::attack(const map<int, Enemy*>& enemies)
 
 int Player::getXpToLevel()
 {
-	return std::floor( 100 * std::pow(1.15f, level_));
+	return static_cast<int>(std::floor( 100 * std::pow(1.15f, level_)));
 }
 
 bool Player::checkForLevelup()

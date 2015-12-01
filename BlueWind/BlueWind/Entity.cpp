@@ -64,7 +64,7 @@ void Entity::move(int dx, int dy)
 
 void Entity::teleport(int x, int y)
 {
-	position_ = sf::Vector2f(x, y);
+	position_ = sf::Vector2f(static_cast<float>(x), static_cast<float>(y));
 }
 
 int Entity::getLevel() const

@@ -24,10 +24,10 @@ void World::render(GameWindow & window)
 {
 	//cout << "World renderar" << endl;
 	sf::View view = window.getView();
-	int startX = (view.getCenter().x - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
-	int endX = (view.getCenter().x + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
-	int startY = (view.getCenter().y - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
-	int endY = (view.getCenter().y + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int startX = (static_cast<int>(view.getCenter().x) - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int endX = (static_cast<int>(view.getCenter().x) + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int startY = (static_cast<int>(view.getCenter().y) - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
+	int endY = (static_cast<int>(view.getCenter().y) + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
 
 	if (startX > mapWidth)
 		startX = mapWidth;
@@ -122,8 +122,13 @@ void World::removeSensor(Sensor* sensorPtr)
 
 void World::changeTile(int pos, int value)
 {
-	//TODO Kanske exception.
-	if (!(pos > tileVector_.size()))
+	if (pos < 0)
+	{
+		return;
+		//TODO Kanske exception.
+	}
+	
+	if (!(static_cast<unsigned int>(pos) > tileVector_.size()))
 	{
 		tileVector_.at(pos) = value;	
 	}

@@ -88,7 +88,7 @@ void Enemy::updateState()
 void Enemy::executeState()
 {
 	//TODO
-	sf::Vector2f playerPos = worldPointer_->getUniverse()->getGame()->getPlayer()->getPosition();
+	const sf::Vector2f playerPos = worldPointer_->getUniverse()->getGame()->getPlayer()->getPosition();
 	sf::Vector2f returnVector;
 	sf::Vector2f toPlayerVector;
 	switch (state_)
@@ -101,14 +101,14 @@ void Enemy::executeState()
 		returnVector = normalize(startPosition_ - position_);
 		move(returnVector.x, returnVector.y);
 		*/
-		teleport(startPosition_.x, startPosition_.y);
+		teleport(static_cast<int>(startPosition_.x), static_cast<int>(startPosition_.y));
 		break;
 	case ATTACK:
 		attackPlayer();
 		break;
 	case MOVETOPLAYER:
 		toPlayerVector = normalize(playerPos - position_);
-		move(toPlayerVector.x, toPlayerVector.y);
+		move(static_cast<int>(toPlayerVector.x), static_cast<int>(toPlayerVector.y));
 		break;
 	}
 }
@@ -132,8 +132,8 @@ float getDistance(sf::Vector2f vec1, sf::Vector2f vec2)
 
 sf::Vector2f normalize(sf::Vector2f vec)
 {
-	int x = vec.x;
-	int y = vec.y;
+	int x = static_cast<int>(vec.x);
+	int y = static_cast<int>(vec.y);
 
 	if (x != 0)
 	{
