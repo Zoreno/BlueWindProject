@@ -11,7 +11,7 @@ public:
 	UserInterface() = delete;
 	UserInterface(const UserInterface&) = delete;
 	UserInterface& operator=(const UserInterface&) = delete;
-
+	~UserInterface();
 	void handleKeyEvent(sf::Event);
 
 	void addStringToChatBox(std::string);

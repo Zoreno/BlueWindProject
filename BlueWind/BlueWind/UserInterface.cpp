@@ -16,6 +16,16 @@ UserInterface::UserInterface(Player * playerPtr)
 	loadComponents(playerPtr);
 }
 
+UserInterface::~UserInterface()
+{
+	while (!components_.empty())
+	{
+		auto it = components_.begin();
+		delete it->second;
+		components_.erase(it);
+	}
+}
+
 void UserInterface::handleKeyEvent(sf::Event ev)
 {
 	for (auto it : components_)
