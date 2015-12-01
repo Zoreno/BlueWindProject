@@ -8,13 +8,17 @@
 #include <map>
 #include <math.h>
 #include "GameOver.h"
+#include <algorithm>
 
 using namespace std;
 
 
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
 	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, game->getTexture("player")),
-	mana_{ 20 }, maxMana_{ 20 }, gamePointer_{ game }, inventory_{ this,game }
+	mana_{ 20 }, 
+	maxMana_{ 20 }, 
+	gamePointer_{ game }, 
+	inventory_{ this,game }
 {
 	
 }
@@ -49,12 +53,7 @@ void Player::setMana(int value)
 
 void Player::addMana(int value)
 {
-	//TODO jonas fixar.
-	mana_ += value;
-	if(mana_ > maxMana_)
-	{
-		mana_ = maxMana_;
-	}
+	mana_ = min(mana_ + value, maxMana_);
 }
 
 int Player::getMaxMana() const
@@ -105,7 +104,7 @@ Inventory* Player::getInventory()
 }
 
 
-void Player::attack(const map<int, Enemy*> enemies)
+void Player::attack(const map<int, Enemy*>& enemies)
 {
 	if (mana_ < 5) return;
 	mana_ -= 5;

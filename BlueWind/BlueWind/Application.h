@@ -19,7 +19,7 @@ public:
 
 	void render(GameWindow& window);
 	void update();
-	const Input getInput();
+	const Input& getInput();
 	Frame* getCurrentFrame();
 	void changeCurrentFrame();
 

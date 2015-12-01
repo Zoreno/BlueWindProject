@@ -8,6 +8,7 @@ UIInventoryFrame::UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
 	:UIComponent{ sf::Vector2f(480,50), sf::Vector2f(300,500), uiPtr, playerPtr , false}
 {
 	playerInventory_ = playerPtr->getInventory();
+	inventorySize_ = playerInventory_->getMaxSize();
 }
 
 void UIInventoryFrame::update()
@@ -28,7 +29,7 @@ void UIInventoryFrame::render(GameWindow & window)
 	conversationText.setColor(sf::Color::Black);
 	window.draw(conversationText);
 
-	for (int i{ 0 }; i <  (min(8, playerInventory_->getSize())); ++i)
+	for (int i{ 0 }; i <  (min((int)inventorySize_, playerInventory_->getSize())); ++i)
 	{
 		Item* item = playerInventory_->at(i);
 		item->render(window, position_ + sf::Vector2f(10, 80 + 52 * i));

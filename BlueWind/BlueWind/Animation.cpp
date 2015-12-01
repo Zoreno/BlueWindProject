@@ -6,7 +6,8 @@
 using namespace std;
 
 Animation::Animation(Entity* entityPointer, sf::Texture& tex)
-	: entityPtr_{entityPointer}, texture_{tex}
+	: entityPtr_{entityPointer}, 
+	texture_{tex}
 {
 	currentSprite_.setTexture(tex);
 }

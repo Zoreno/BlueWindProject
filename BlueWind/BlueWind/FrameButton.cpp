@@ -4,7 +4,10 @@
 using namespace std;
 
 FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f size, std::string normalFile, std::string hoverFile, std::function<void(Application*)> callbackFunc)
-	: appPointer_{ appPtr }, position_{ pos }, size_{ size }, callback_{callbackFunc}
+	: appPointer_{ appPtr }, 
+	position_{ pos }, 
+	size_{ size }, 
+	callback_{callbackFunc}
 {
 	if (!normalTexture.loadFromFile(normalFile))
 		cout << "Could not load" << normalFile << endl;

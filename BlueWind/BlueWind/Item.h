@@ -22,5 +22,4 @@ private:
 	std::string name_;
 	int ID_;
 	sf::Sprite sprite_;
-
 };

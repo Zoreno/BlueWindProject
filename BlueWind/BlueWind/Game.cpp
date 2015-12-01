@@ -7,7 +7,10 @@
 using namespace std;
 
 Game::Game(Application * appPtr, bool loadSave)
-	:Frame{appPtr}, universe_{this}, player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this }, ui_{&player_}
+	:Frame{appPtr}, 
+	universe_{this}, 
+	player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this }, 
+	ui_{&player_}
 {
 	cout << "Game startas!" << endl;
 	if (loadSave)
@@ -44,7 +47,6 @@ void Game::handleKeyEvent(sf::Event event)
 		
 		break;
 	case sf::Keyboard::I:
-
 		//TODO flytta in i player kanske
 		for (auto it : universe_.getCurrentWorld()->getNPCVector())
 		{
@@ -74,7 +76,6 @@ void Game::handleKeyEvent(sf::Event event)
 	default:
 		break;
 	}
-	
 }
 
 void Game::handleMouseEvent(sf::Event)
@@ -94,6 +95,7 @@ vector<int> splitString(string s)
 
 void Game::saveGame()
 {
+	// Exception
 	ofstream saveStream;
 	saveStream.open("savefile.txt", std::ofstream::out | std::ofstream::trunc);
 	if (saveStream.is_open())
@@ -115,6 +117,7 @@ void Game::saveGame()
 
 void Game::loadGame()
 {
+	// Exception
 	string line;
 	ifstream saveStream("savefile.txt");
 	if (saveStream.is_open())

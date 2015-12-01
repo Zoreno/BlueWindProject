@@ -50,6 +50,7 @@ void GameOver::update()
 
 void GameOver::render(GameWindow & window)
 {
+	//TODO Detta kan göras i konstruktorn.
 	sf::Texture bTexture;
 	if (!bTexture.loadFromFile("res/textures/GameOver.png"))
 		cout << "Could not load gameOver" << endl;

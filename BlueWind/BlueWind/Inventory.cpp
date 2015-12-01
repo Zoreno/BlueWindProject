@@ -6,7 +6,8 @@
 using namespace std;
 
 Inventory::Inventory(Player * player, Game* game)
-	: playerPointer_{ player }, gamePointer_{game}
+	: playerPointer_{ player }, 
+	gamePointer_{game}
 {
 	items_.reserve(maxSize_);
 	populateItemList();
@@ -91,5 +92,6 @@ std::string Inventory::toString()
 
 void Inventory::populateItemList()
 {
+	//							ID	Namn		Textur
 	allItems_.push_back(new Item{ 0,"TestItem",gamePointer_->getTexture("tree") });
 }

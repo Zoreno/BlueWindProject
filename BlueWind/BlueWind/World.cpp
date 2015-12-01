@@ -5,7 +5,8 @@
 using namespace std;
 
 World::World(int ID, Universe * universePtr, std::string mapFile)
-	: ID_{ID}, universePointer_{universePtr}
+	: ID_{ID}, 
+	universePointer_{universePtr}
 {
 	loadWorld(mapFile);
 }
@@ -47,7 +48,6 @@ void World::render(GameWindow & window)
 		endY = mapHeight;
 	if (endY < 0)
 		endY = 0;
-	//cout << startX << "," << startY << "," << endX << "," << endY << endl;
 	for (int y = startY; y < endY; ++y)
 	{
 		for (int x = startX; x < endX; ++x)
@@ -55,7 +55,6 @@ void World::render(GameWindow & window)
 			universePointer_->getTile(tileVector_.at(x + mapWidth*y)).render(window, x, y);
 		}
 	}
-	//cout << "World renderar klart" << endl;
 
 	for (auto it : enemyVector_)
 	{
@@ -123,6 +122,7 @@ void World::removeSensor(Sensor* sensorPtr)
 
 void World::changeTile(int pos, int value)
 {
+	//TODO Kanske exception.
 	if (!(pos > tileVector_.size()))
 	{
 		tileVector_.at(pos) = value;	

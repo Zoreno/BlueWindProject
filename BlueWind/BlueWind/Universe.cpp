@@ -23,7 +23,6 @@ void Universe::update()
 
 void Universe::render(GameWindow & window)
 {
-	//cout << "Universe renderar" << endl;
 	currentWorld_->render(window);
 }
 

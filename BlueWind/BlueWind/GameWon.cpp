@@ -50,6 +50,7 @@ void GameWon::update()
 
 void GameWon::render(GameWindow & window)
 {
+	//TODO Detta kan göras i konstruktorn.
 	sf::Texture bTexture;
 	if (!bTexture.loadFromFile("res/textures/GameWon.png"))
 		cout << "Could not load gameOver" << endl;

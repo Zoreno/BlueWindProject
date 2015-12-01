@@ -3,6 +3,7 @@
 
 #include <SFML\Graphics.hpp>
 
+using namespace std;
 
 Input::Input(Application * appPtr)
 	: appPointer_(appPtr)
@@ -15,30 +16,22 @@ Input::Input(Application * appPtr)
 
 void Input::update()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		pressedButtons_['w'] = true;
-	else
-		pressedButtons_['w'] = false;
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		pressedButtons_['a'] = true;
-	else
-		pressedButtons_['a'] = false;
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		pressedButtons_['s'] = true;
-	else
-		pressedButtons_['s'] = false;
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		pressedButtons_['d'] = true;
-	else
-		pressedButtons_['d'] = false;
+	try
+	{
+		pressedButtons_.at('w') = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
+		pressedButtons_.at('a') = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+		pressedButtons_.at('s') = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
+		pressedButtons_.at('d') = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+	}
+	catch (const out_of_range& e)
+	{
+		cerr << e.what() << " @ Input.update()" << endl;
+	}
 }
 
 void Input::keyPressed(sf::Event event)
 {
-		appPointer_->getCurrentFrame()->handleKeyEvent(event);
+	appPointer_->getCurrentFrame()->handleKeyEvent(event);
 }
 
 void Input::mousePressed(sf::Event event)

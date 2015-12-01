@@ -57,7 +57,7 @@ void Application::update()
 	input_.update();
 }
 
-const Input Application::getInput()
+const Input& Application::getInput()
 {
 	return input_;
 }

@@ -1,7 +1,6 @@
 #include "SoundHandler.h"
 #include <iostream>
 
-
 using namespace std;
 
 SoundHandler::SoundHandler()
@@ -24,13 +23,13 @@ void SoundHandler::playSound(const std::string& soundName)
 
 void SoundHandler::playMusic(const std::string& musicName)
 {
-	(*music_.find(musicName)->second).play();
-	(*music_.find(musicName)->second).setLoop(true);
+	music_.find(musicName)->second->play();
+	music_.find(musicName)->second->setLoop(true);
 }
 
 void SoundHandler::stopMusic(const std::string& musicName)
 {
-	(*music_.find(musicName)->second).stop();
+	music_.find(musicName)->second->stop();
 }
 
 void SoundHandler::loadSound(const std::string& soundName, const std::string& fileName)

@@ -17,4 +17,5 @@ public:
 
 private:
 	Inventory* playerInventory_;
+	unsigned int inventorySize_;
 };

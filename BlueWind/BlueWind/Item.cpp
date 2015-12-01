@@ -2,7 +2,8 @@
 #include "GameWindow.h"
 
 Item::Item(int ID, std::string name, sf::Texture& texture)
-	: ID_{ID}, name_{name}
+	: ID_{ID}, 
+	name_{name}
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);

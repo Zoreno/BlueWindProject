@@ -6,20 +6,18 @@ using namespace std;
 
 UIChatBox::UIChatBox(UserInterface* uiPtr, Player* playerPtr)
 	:UIComponent{ sf::Vector2f(10,450), sf::Vector2f(300,100), uiPtr, playerPtr } 
-{
-	inputBuffer_.push_back("Hej.");
-	inputBuffer_.push_back("Detta är en sträng.");
-	inputBuffer_.push_back("Detta är också en sträng.");
-}
+{}
 
 void UIChatBox::handleKeyEvent(sf::Event ev)
 {
-
 }
 
 void UIChatBox::update()
 {
-
+	if (inputBuffer_.size() > 4)
+	{
+		inputBuffer_.pop_back();
+	}
 }
 
 void UIChatBox::render(GameWindow & window)
@@ -30,7 +28,6 @@ void UIChatBox::render(GameWindow & window)
 	frame.setOutlineColor(sf::Color{ 100,100,100,255 });
 	frame.setOutlineThickness(4.0f);
 	window.draw(frame);
-
 
 	for (int i{ 0 }; i < (min(4, (int)inputBuffer_.size())); ++i)
 	{

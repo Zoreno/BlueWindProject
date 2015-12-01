@@ -50,7 +50,6 @@ private:
 	std::map<int, Sensor*> sensorVector_;
 	std::vector<int> removeSensorVector_;
 
-
 	int mapWidth;
 	int mapHeight;
 

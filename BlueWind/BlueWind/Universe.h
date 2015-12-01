@@ -25,6 +25,7 @@ public:
 
 	void switchWorld(int, int, int);
 
+	//TODO returnera pekare istället för att kopiera.
 	Tile getTile(int);
 
 	Game* getGame() const;

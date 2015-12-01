@@ -8,7 +8,9 @@ class Input
 {
 public:
 	Input(Application*);
-	// TODO delete:a konstruktorer
+	Input(const Input&) = delete;
+	Input() = delete;
+	Input& operator=(const Input&) = delete;
 	
 	std::map<char, bool> pressedButtons_; // TODO lägg private och skapa en get-funtkion
 	void update();

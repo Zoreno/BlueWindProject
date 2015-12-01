@@ -4,7 +4,12 @@
 using namespace std;
 
 UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
-	:fillLevel_{ 1 }, position_ {position}, size_ {size}, color_{color}, postfix_ {postfix}, ui_{uiPtr}
+	:fillLevel_{ 1 }, 
+	position_ {position}, 
+	size_ {size}, 
+	color_{color}, 
+	postfix_ {postfix}, 
+	ui_{uiPtr}
 {
 }
 

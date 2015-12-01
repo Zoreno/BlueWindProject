@@ -12,8 +12,6 @@ class Enemy;
 class Player : public Entity
 {
 public:
-	
-
 	Player(World*, sf::Texture&, Game*);
 	Player(const Player&) = delete;
 	Player() = delete;
@@ -36,7 +34,7 @@ public:
 
 	Inventory* getInventory();
 
-	void attack(const std::map<int, Enemy*>);
+	void attack(const std::map<int, Enemy*>&);
 
 	int getXpToLevel();
 	bool checkForLevelup();
@@ -55,6 +53,4 @@ private:
 	Game* gamePointer_;
 	Inventory inventory_;
 	int attackCounter;
-	//Animation anim_;
-	//sf::Sprite sprite_;
 };

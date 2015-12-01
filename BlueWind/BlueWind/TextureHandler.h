@@ -4,7 +4,7 @@
 #include <string>
 #include <SFML\Graphics.hpp>
 
-using table = std::map<const std::string, sf::Texture*>;
+using textureTable = std::map<const std::string, sf::Texture*>;
 
 class TextureHandler
 {
@@ -17,7 +17,7 @@ public:
 
 	sf::Texture& getTextureRef(const std::string&);
 private:
-	table textures_;
+	textureTable textures_;
 
 	void loadTexture(const std::string&, const std::string&);
 };
