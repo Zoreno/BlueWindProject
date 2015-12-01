@@ -1,7 +1,67 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    UIBar.cpp
+* Enhetsnamn: UIBar
+* Typ:        Definitioner hörande till klass UIBar
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen UIBar.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "UIBar.h"
 #include <string>
 
 using namespace std;
+
+/*
+* KONSTRUKTOR UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
+*
+* BESKRIVNING
+*
+* Denna konstruktor konstruerar en mätare.
+*
+* INDATA
+*
+* position:		Plats på skärm där mätaren ska ritas.
+* size:			Storlek på mätaren.
+* color:		Färg på mätaren.
+* postfix:		Text som ska skrivas sist på mätaren.
+* uiPtr:		Pekare till användargränssnittet som mätaren är en del av.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+* 
+*/
 
 UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
 	:fillLevel_{ 1 }, 
@@ -13,6 +73,38 @@ UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::str
 {
 }
 
+/*
+* FUNKTION UIBar::update(int current, int max)
+*
+* BESKRIVNING
+*
+* Uppdaterar mätaren.
+*
+* INDATA
+*
+* current:		Nuvarande värdet på representerad storhet.
+* max:			Maximala värdet på representerad storhet.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void UIBar::update(int current, int max)
 {
 	text_ = to_string(current) + '/' + to_string(max);
@@ -23,6 +115,37 @@ void UIBar::update(int current, int max)
 	}
 	fillLevel_ = 0;
 }
+
+/*
+* FUNKTION UIBar::render(GameWindow& window)
+*
+* BESKRIVNING
+*
+* Ritar mätaren.
+*
+* INDATA
+*
+* window:		Fönster som mätaren ska ritas på.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void UIBar::render(GameWindow & window)
 {
@@ -47,3 +170,7 @@ void UIBar::render(GameWindow & window)
 	text.setStyle(sf::Text::Bold);
 	window.draw(text);
 }
+
+/*
+* SLUT PÅ FILEN UIBar.cpp
+*/

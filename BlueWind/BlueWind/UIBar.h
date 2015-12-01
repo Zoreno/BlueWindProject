@@ -1,8 +1,80 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    UIBar.h
+* Enhetsnamn: UIBar
+* Typ:        Moduldeklaration
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna modul representerar en mätare på användargränssnittet.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*
+*/
+
 #pragma once
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
 
 #include <SFML\Graphics.hpp>
 #include "GameWindow.h"
 #include "UserInterface.h"
+
+/*
+* KLASS UIBar
+*
+* BASKLASSER
+*
+* -
+*
+* BESKRIVNING
+*
+* Klassen representerar en mätare på användargränssnittet.
+*
+* TILLSTÅND
+*
+* -
+*
+* KONSTRUKTORER
+*
+* UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
+* position:		Plats på skärm där mätaren ska ritas.
+* size:			Storlek på mätaren.
+* color:		Färg på mätaren.
+* postfix:		Text som ska skrivas sist på mätaren.
+* uiPtr:		Pekare till användargränssnittet som mätaren är en del av.
+*
+* OPERATIONER
+*
+* -
+*
+* DATAMEDLEMMAR
+*
+* fillLevel_:	Anger hur stor del av mätaren som ska vara ifylld.
+* size_:		Storlek på mätaren.
+* position_:	Plats på skärmen som mätaren kommer att ritas.
+* color_:		Färg på mätaren.
+* postfix_:		Sträng som ska skrivas ut sist på mätaren.
+* text_:		Sträng som ska skrivas ut på mätaren.
+* ui_:			Pekare till användargränssnittet som mätaren är en del av.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+* 
+*/
 
 class UIBar
 {
@@ -24,4 +96,8 @@ private:
 	std::string text_;
 
 	UserInterface* ui_;
-};
+}; //class UIBar
+
+/*
+* SLUT PÅ FILEN UIBar.h
+*/
