@@ -138,9 +138,19 @@ bool Player::checkForLevelup()
 
 void Player::update()
 {
-	//TODO balansera lite
-	//addHealth(1);
-	addMana(1);
+	healthCounter_++;
+	manaCounter_++;
+
+	if(healthCounter_ % 15 == 0)
+	{ 
+		addHealth(1);
+		healthCounter_ = 0;
+	}
+	if (manaCounter_ % 5 == 0)
+	{
+		addMana(1);
+		manaCounter_ = 0;
+	}
 	walking_ = false;
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('a'))
 	{

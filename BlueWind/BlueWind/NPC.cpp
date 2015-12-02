@@ -22,7 +22,8 @@ void NPC::update()
 
 void NPC::render(GameWindow & window)
 {
-	anim_.render(window);
+	sprite_.setPosition(position_);
+	window.draw(sprite_);
 }
 
 void NPC::talk() const

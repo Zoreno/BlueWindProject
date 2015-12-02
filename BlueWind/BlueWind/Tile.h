@@ -4,7 +4,6 @@
 #include <SFML\Graphics.hpp>
 #include "GameWindow.h"
 
-//TODO fixa
 class Tile
 {
 public:
@@ -12,8 +11,10 @@ public:
 
 	void render(GameWindow&, int, int);
 
+	static const int TILESIZE{ 32 };
+
+	bool isWalkable();
+private:
 	sf::Sprite sprite_;
 	bool walkable_;
-	
-	static const int TILESIZE{ 32 };
 };
