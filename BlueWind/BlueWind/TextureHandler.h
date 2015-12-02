@@ -13,7 +13,7 @@ public:
 	TextureHandler(const TextureHandler&) = delete;
 	TextureHandler& operator=(const TextureHandler&) = delete;
 
-	//TODO destruktor
+	~TextureHandler();
 
 	sf::Texture& getTextureRef(const std::string&);
 private:

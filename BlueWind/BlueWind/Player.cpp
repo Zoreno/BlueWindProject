@@ -108,7 +108,7 @@ void Player::attack(const map<int, Enemy*>& enemies)
 {
 	if (mana_ < 5) return;
 	mana_ -= 5;
-	state_ = attacking;
+	animState_ = attacking;
 	for (auto it : enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 32)
@@ -138,19 +138,18 @@ bool Player::checkForLevelup()
 
 void Player::update()
 {
-	//TODO balansera lite
-	//addHealth(1);
-	addMana(1);
-	if (state_ == attacking)
+	healthCounter_++;
+	manaCounter_++;
+
+	if(healthCounter_ % 15 == 0)
+	{ 
+		addHealth(1);
+		healthCounter_ = 0;
+	}
+	if (manaCounter_ % 5 == 0)
 	{
-		anim_.update(state_, dir_, walking_);
-		if (attackCounter % 15 == 14)
-		{
-			state_ = walking1;
-			attackCounter = 0;
-		}
-		attackCounter++;
-		return;
+		addMana(1);
+		manaCounter_ = 0;
 	}
 	walking_ = false;
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('a'))
@@ -169,7 +168,7 @@ void Player::update()
 	{
 		move(0, -2);		
 	}
-	anim_.update(state_, dir_, walking_);
+	anim_.update(animState_, dir_, walking_);
 	checkSensors();
 }
 

@@ -17,6 +17,8 @@ public:
 	Universe(const Universe&) = delete;
 	Universe& operator=(const Universe&) = delete;
 
+	~Universe();
+
 	void update();
 	void render(GameWindow&);
 	World* getCurrentWorld();

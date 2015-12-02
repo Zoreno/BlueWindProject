@@ -11,6 +11,31 @@ World::World(int ID, Universe * universePtr, std::string mapFile)
 	loadWorld(mapFile);
 }
 
+World::~World()
+{
+	universePointer_ = nullptr;
+	while (!enemyVector_.empty())
+	{
+		auto it = enemyVector_.begin();
+		delete it->second;
+		enemyVector_.erase(it);
+	}
+	while (!NPCVector_.empty())
+	{
+		auto it = NPCVector_.begin();
+		delete it->second;
+		NPCVector_.erase(it);
+	}
+	while (!sensorVector_.empty())
+	{
+		auto it = sensorVector_.begin();
+		delete it->second;
+		sensorVector_.erase(it);
+	}
+}
+
+
+
 void World::update()
 {
 	for (auto it : enemyVector_)

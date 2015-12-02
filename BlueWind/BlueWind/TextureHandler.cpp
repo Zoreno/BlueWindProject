@@ -22,6 +22,16 @@ TextureHandler::TextureHandler()
 	cout << "Laddar texturer klart" << endl;
 }
 
+TextureHandler::~TextureHandler()
+{
+	while (!textures_.empty())
+	{
+		auto it = textures_.begin();
+		delete it->second;
+		textures_.erase(it);
+	}
+}
+
 sf::Texture & TextureHandler::getTextureRef(const std::string& ref)
 {
 	return (*textures_.find(ref)->second);

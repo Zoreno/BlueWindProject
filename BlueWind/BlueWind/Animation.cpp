@@ -15,15 +15,25 @@ Animation::Animation(Entity* entityPointer, sf::Texture& tex)
 void Animation::update(int state, int dir, bool walking)
 {
 	animState = state;
+	if (state == Entity::STATES::attacking)
+	{
+		if (attackCounter % 15 == 14)
+		{
+			entityPtr_->animState_ = Entity::STATES::walking1;
+			attackCounter = 0;
+		}
+		attackCounter++;
+		return;
+	}
 	if (walking && (counter % 20) == 0)
 	{
 		switch (state)
 		{
 		case Entity::STATES::walking1:
-			entityPtr_->state_ = Entity::STATES::walking2;
+			entityPtr_->animState_ = Entity::STATES::walking2;
 			break;
 		case Entity::STATES::walking2:
-			entityPtr_->state_ = Entity::STATES::walking1;
+			entityPtr_->animState_ = Entity::STATES::walking1;
 			break;
 		case Entity::STATES::attacking:
 			break;

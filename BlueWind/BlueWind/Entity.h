@@ -51,7 +51,7 @@ protected:
 
 	bool walking_;
 
-	STATES state_{ walking1 };
+	STATES animState_{ walking1 };
 	DIRECTION dir_{ south };
 
 	std::string name_;

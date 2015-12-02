@@ -15,6 +15,11 @@ Application::Application()
 	nextFrame_ = currentFrame_; 
 }
 
+Application::~Application()
+{
+	delete currentFrame_;
+}
+
 void Application::run()
 {
 	while (window_.isOpen())

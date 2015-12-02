@@ -12,3 +12,8 @@ void Tile::render(GameWindow & window, int x, int y)
 	sprite_.setPosition(static_cast<float>(TILESIZE * x), static_cast<float>(TILESIZE * y));
 	window.draw(sprite_);
 }
+
+bool Tile::isWalkable()
+{
+	return walkable_;
+}

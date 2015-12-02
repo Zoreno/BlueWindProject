@@ -11,6 +11,7 @@ class Animation
 {
 public:
 	Animation(Entity*, sf::Texture&);
+	Animation() = delete;
 	Animation(const Animation&) = delete;
 	Animation& operator=(const Animation&) = delete;
 
@@ -22,6 +23,7 @@ private:
 
 	int counter;
 	int animState;
+	int attackCounter;
 
 	Entity* entityPtr_;
 };
