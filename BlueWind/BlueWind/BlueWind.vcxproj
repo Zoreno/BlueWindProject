@@ -220,9 +220,21 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\enemy.png" />
+    <Image Include="res\textures\enemy1.png" />
+    <Image Include="res\textures\enemy2.png" />
+    <Image Include="res\textures\enemy3.png" />
+    <Image Include="res\textures\enemy7.png" />
     <Image Include="res\textures\green.png" />
     <Image Include="res\textures\Menu.png" />
+    <Image Include="res\textures\NPC1.png" />
+    <Image Include="res\textures\NPC2.png" />
+    <Image Include="res\textures\NPC3.png" />
+    <Image Include="res\textures\NPC4.png" />
+    <Image Include="res\textures\NPC5.png" />
+    <Image Include="res\textures\NPC6.png" />
+    <Image Include="res\textures\NPC7.png" />
     <Image Include="res\textures\player.png" />
+    <Image Include="res\textures\PLAYER2.png" />
     <Image Include="res\textures\player\enemy.png" />
     <Image Include="res\textures\player\player.png" />
     <Image Include="res\textures\player\playerHEj.png" />

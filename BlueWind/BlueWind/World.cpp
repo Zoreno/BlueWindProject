@@ -210,6 +210,20 @@ int World::getIntFromColor(sf::Color color)
 		return 1;
 	case 0x7F6A00FF: //Bro
 		return 2;	
+	case 0xB24400FF: //Hus00
+		return 3;
+	case 0xB24401FF: //Hus10
+		return 4;
+	case 0xB24402FF: //Hus01
+		return 5;
+	case 0xB24403FF: //Hus11
+		return 6;
+	case 0x7F7F7FFF: //Berg
+		return 7;
+	case 0x0000FFFF: //Vatten
+		return 8;
+	case 0xFF7F00FF: //Stubbe
+		return 9;
 	default:
 		cout << "Fel färg!" << endl;
 		return -1;

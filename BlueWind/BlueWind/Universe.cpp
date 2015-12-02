@@ -97,14 +97,22 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(0,new Tile(gamePointer_->getTexture("grass"), true));
 	tileAtlas_.emplace(1,new Tile(gamePointer_->getTexture("tree"), false));
 	tileAtlas_.emplace(2, new Tile(gamePointer_->getTexture("bridge"), true));
+	tileAtlas_.emplace(3, new Tile(gamePointer_->getTexture("house00"), false));
+	tileAtlas_.emplace(4, new Tile(gamePointer_->getTexture("house10"), false));
+	tileAtlas_.emplace(5, new Tile(gamePointer_->getTexture("house01"), false));
+	tileAtlas_.emplace(6, new Tile(gamePointer_->getTexture("house11"), false));
+	tileAtlas_.emplace(7, new Tile(gamePointer_->getTexture("mountainGrass"), false));
+	tileAtlas_.emplace(8, new Tile(gamePointer_->getTexture("water"), false));
+	tileAtlas_.emplace(9, new Tile(gamePointer_->getTexture("stump"), true));
 	cout << "Laddning av tiles klart" << endl;
 }
 
 void Universe::loadWorlds()
 {
 	cout << "Laddar in världar" << endl;
-	worlds_.push_back(new World(0, this, "res/worlds/level.bmp"));
-	worlds_.push_back(new World(1, this, "res/worlds/level2.bmp"));
+	worlds_.push_back(new World(0, this, "res/worlds/world1.bmp"));
+	worlds_.push_back(new World(1, this, "res/worlds/level.bmp"));
+	worlds_.push_back(new World(2, this, "res/worlds/level2.bmp"));
 
 	cout << "Laddning av världar klart" << endl;
 
@@ -121,17 +129,15 @@ void Universe::populateWorlds()
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
-	addNPC(0, new NPC(1, 100, 10, -3, "Paul", sf::Vector2f(7 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC1"), "Here comes the dirac train!", PaulInteract));
-	addNPC(0, new NPC(1, 100, 10, -2, "Paul", sf::Vector2f(8 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC2"), "Here comes the dirac train!", PaulInteract));
-	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(3 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC3"), "Here comes the dirac train!", PaulInteract));
-	addNPC(1, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(10 * Tile::TILESIZE, 5 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC4"), "Hej, jag heter Erwin!", ErwinInteract));
-	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC5"), "Hej, jag heter James Clerk!", JamesClerkInteract));
+	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(42 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract));
+	addNPC(1, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(10 * Tile::TILESIZE, 5 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
+	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
 	//--------------------------
 	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy1")));
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy2")));
 	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy3")));
 
-	addSensor(1, new Sensor(0, "Sensorsei", sf::Vector2f(1 * Tile::TILESIZE, 0 * Tile::TILESIZE), getWorld(1), SensorseiInteract, gamePointer_->getTexture("enemy2")));
+	addSensor(0, new Sensor(0, "Sensorsei", sf::Vector2f(50 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), SensorseiInteract, gamePointer_->getTexture("enemy")));
 
 }
 
@@ -175,10 +181,9 @@ void PaulInteract(World* worldPtr)
 {
 	worldPtr->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
 
-	for (int i = 0; i < 6; ++i)
+	for (int i = 0; i < 13; ++i)
 	{
-		worldPtr->changeTile((6 * worldPtr->getMapWidth() + 15 + i), 2);
-		worldPtr->changeTile((7 * worldPtr->getMapWidth() + 15 + i), 2);
+		worldPtr->changeTile((13 * worldPtr->getMapWidth() + 40 + i), 2);
 	}
 }
 
@@ -194,5 +199,5 @@ void JamesClerkInteract(World* worldPtr)
 
 void SensorseiInteract(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(0, 64, 64);
+	worldPtr->getUniverse()->switchWorld(1, 64, 64);
 }
