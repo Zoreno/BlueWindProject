@@ -108,7 +108,7 @@ void Player::attack(const map<int, Enemy*>& enemies)
 {
 	if (mana_ < 5) return;
 	mana_ -= 5;
-	state_ = attacking;
+	animState_ = attacking;
 	for (auto it : enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 32)
@@ -141,17 +141,6 @@ void Player::update()
 	//TODO balansera lite
 	//addHealth(1);
 	addMana(1);
-	if (state_ == attacking)
-	{
-		anim_.update(state_, dir_, walking_);
-		if (attackCounter % 15 == 14)
-		{
-			state_ = walking1;
-			attackCounter = 0;
-		}
-		attackCounter++;
-		return;
-	}
 	walking_ = false;
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('a'))
 	{
@@ -169,7 +158,7 @@ void Player::update()
 	{
 		move(0, -1);		
 	}
-	anim_.update(state_, dir_, walking_);
+	anim_.update(animState_, dir_, walking_);
 	checkSensors();
 }
 

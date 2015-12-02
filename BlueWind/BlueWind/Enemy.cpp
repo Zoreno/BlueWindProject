@@ -18,7 +18,7 @@ void Enemy::update()
 	//cout << "Enemy uppdaterar" << endl;
 	updateState();
 	executeState();
-	anim_.update(Entity::state_, dir_, walking_);
+	anim_.update(animState_, dir_, walking_);
 }
 
 void Enemy::render(GameWindow & window)
@@ -57,6 +57,7 @@ void Enemy::updateState()
 		if (startDistance < 2)
 		{
 			state_ = IDLE;
+			walking_ = false;
 		}
 		break;
 
@@ -115,8 +116,10 @@ void Enemy::executeState()
 
 void Enemy::attackPlayer()
 {
+	
 	if (attackCooldown_ >= 60)
 	{
+		animState_ = Entity::STATES::attacking;
 		worldPointer_->getUniverse()->getGame()->getPlayer()->removeHealth(damage_);
 		attackCooldown_ = 0;
 		return;

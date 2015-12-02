@@ -16,8 +16,6 @@ Menu::Menu(Application * appPtr)
 	appPtr->getSoundHandler().playMusic("menuMusic");
 }
 
-
-
 void Menu::handleKeyEvent(sf::Event event)
 {
 }
