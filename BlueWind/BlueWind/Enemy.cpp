@@ -66,7 +66,7 @@ void Enemy::updateState()
 		{
 			state_ = RESET;
 		}
-		else if (playerDistance > 16)
+		else if (playerDistance > 32)
 		{
 			state_ = MOVETOPLAYER;
 		}
@@ -77,7 +77,7 @@ void Enemy::updateState()
 		{
 			state_ = RESET;
 		}
-		else if (playerDistance <= 16)
+		else if (playerDistance <= 32)
 		{
 			state_ = ATTACK;
 		}

@@ -9,9 +9,16 @@ TextureHandler::TextureHandler()
 	loadTexture("grass", "res/textures/Gräs.png");
 	loadTexture("tree", "res/textures/Gran.png");
 	loadTexture("bridge", "res/textures/bridge.png");
-	loadTexture("player", "res/textures/enemy2.png");
-	loadTexture("enemy", "res/textures/enemy1.png"); 
-	loadTexture("NPC", "res/textures/player/playerHEj.png");
+	loadTexture("player", "res/textures/enemy5.png");
+	loadTexture("enemy1", "res/textures/enemy1.png"); 
+	loadTexture("enemy2", "res/textures/enemy2.png");
+	loadTexture("enemy3", "res/textures/enemy3.png");
+
+	loadTexture("NPC1", "res/textures/NPC1.png");
+	loadTexture("NPC2", "res/textures/NPC2.png");
+	loadTexture("NPC3", "res/textures/NPC3.png");
+	loadTexture("NPC4", "res/textures/NPC4.png");
+	loadTexture("NPC5", "res/textures/NPC5.png");
 	cout << "Laddar texturer klart" << endl;
 }
 
