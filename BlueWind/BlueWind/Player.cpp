@@ -12,7 +12,6 @@
 
 using namespace std;
 
-
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
 	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, game->getTexture("player")),
 	mana_{ 20 }, 

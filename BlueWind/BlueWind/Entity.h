@@ -12,7 +12,7 @@ class Entity
 	friend class Animation;
 public:
 	enum STATES { walking1 = 0x0,walking2 = 0x1, attacking = 0x2 };
-	enum DIRECTION { north = 0x0, west = 0x1, east = 0x2, south = 0x3 };
+	enum DIRECTION { north = 0x0, west = 0x2, east = 0x3, south = 0x1 };
 
 	Entity(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&);
 
