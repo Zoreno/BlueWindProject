@@ -95,6 +95,7 @@ Game * Universe::getGame() const
 void Universe::loadTiles()
 {
 	cout << "Laddar in Tiles" << endl;
+	tileAtlas_.emplace(-1, new Tile(gamePointer_->getTexture("void"), true));
 	tileAtlas_.emplace(0,new Tile(gamePointer_->getTexture("grass"), true));
 	tileAtlas_.emplace(1,new Tile(gamePointer_->getTexture("tree"), false));
 	tileAtlas_.emplace(2, new Tile(gamePointer_->getTexture("bridge"), true));

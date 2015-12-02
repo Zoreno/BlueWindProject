@@ -47,7 +47,6 @@ void World::update()
 
 void World::render(GameWindow & window)
 {
-	//cout << "World renderar" << endl;
 	sf::View view = window.getView();
 	int startX = (static_cast<int>(view.getCenter().x) - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
 	int endX = (static_cast<int>(view.getCenter().x) + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
@@ -227,7 +226,6 @@ int World::getIntFromColor(sf::Color color)
 	default:
 		cout << "Fel färg!" << endl;
 		return -1;
-		//TODO kasta exception. Färgen finns inte! Bra Jobbat hörru.
 	}
 }
 

@@ -6,8 +6,14 @@
 #include "NPC.h"
 #include "Sensor.h"
 #include <map>
+#include <stdexcept>
 
 class Universe;
+
+class WorldException : public std::logic_error
+{
+	using std::logic_error::logic_error;
+};
 
 class World
 {
