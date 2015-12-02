@@ -32,10 +32,10 @@ void Entity::move(int dx, int dy)
 	int mapWidth = worldPointer_->getMapWidth();
 	int mapHeight = worldPointer_->getMapHeight();
 
-	bool upper_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_left.x / Tile::TILESIZE) + mapWidth*floor(upper_left.y / Tile::TILESIZE))).walkable_;
-	bool bottom_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_left.x / Tile::TILESIZE) + mapWidth*floor(bottom_left.y / Tile::TILESIZE))).walkable_;
-	bool upper_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_right.x / Tile::TILESIZE) + mapWidth*floor(upper_right.y / Tile::TILESIZE))).walkable_;
-	bool bottom_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_right.x / Tile::TILESIZE) + mapWidth*floor(bottom_right.y / Tile::TILESIZE))).walkable_;
+	bool upper_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_left.x / Tile::TILESIZE) + mapWidth*floor(upper_left.y / Tile::TILESIZE))).isWalkable();
+	bool bottom_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_left.x / Tile::TILESIZE) + mapWidth*floor(bottom_left.y / Tile::TILESIZE))).isWalkable();
+	bool upper_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_right.x / Tile::TILESIZE) + mapWidth*floor(upper_right.y / Tile::TILESIZE))).isWalkable();
+	bool bottom_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_right.x / Tile::TILESIZE) + mapWidth*floor(bottom_right.y / Tile::TILESIZE))).isWalkable();
 	
 	if(upper_left_walkable && bottom_left_walkable && upper_right_walkable && bottom_right_walkable)
 	position_ += sf::Vector2f(dx, dy);
