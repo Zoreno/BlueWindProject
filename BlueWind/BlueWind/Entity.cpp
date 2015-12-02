@@ -102,6 +102,11 @@ const sf::Vector2f Entity::getPosition() const
 	return position_;
 }
 
+World * Entity::getWorld() const
+{
+	return worldPointer_;
+}
+
 void Entity::setCurrentWorld(World * worldPtr)
 {
 	worldPointer_ = worldPtr;

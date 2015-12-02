@@ -6,7 +6,7 @@
 
 using namespace std;
 
-NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation, std::function<void(World*)> callbackFunc)
+NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation, std::function<void(NPC*)> callbackFunc)
 	: Entity(level, health, damage, ID, name, position, worldPtr, texture), 
 	conversation_{ conversation }, 
 	callback_{ callbackFunc }
@@ -37,11 +37,12 @@ void NPC::interact()
 	
 	if (!talkedTo)
 	{
-		callback_(worldPointer_);
+		callback_(this);
 		// talkedTo = true; //TODO ta bort? kan kolla om player redan har föremål
 	}
 }
 
 void NPC::die()
 {
+	worldPointer_->removeNPC(this);
 }

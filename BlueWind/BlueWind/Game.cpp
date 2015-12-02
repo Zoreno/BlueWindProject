@@ -50,7 +50,7 @@ void Game::handleKeyEvent(sf::Event event)
 		//TODO flytta in i player kanske
 		for (auto it : universe_.getCurrentWorld()->getNPCVector())
 		{
-			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 32)
+			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 33)
 			{
 				it.second->interact();
 				break;

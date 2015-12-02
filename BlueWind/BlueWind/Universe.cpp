@@ -4,6 +4,7 @@
 #include "Tile.h"
 #include "Application.h"
 #include "GameWon.h"
+#include "NPC.h"
 #include <iostream>
 
 using namespace std;
@@ -121,11 +122,11 @@ void Universe::loadWorlds()
 
 void Universe::populateWorlds() 
 {
-	void PaulInteract(World*);
-	void ErwinInteract(World*);
-	void JamesClerkInteract(World*);
+	void PaulInteract(NPC*);
+	void ErwinInteract(NPC*);
+	void JamesClerkInteract(NPC*);
 
-	void treeInteract(World*);
+	void treeInteract(NPC*);
 	void SensorseiInteract(World*);
 
 	//OBS!!!!!!
@@ -133,13 +134,46 @@ void Universe::populateWorlds()
 	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(42 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract));
 	addNPC(1, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(10 * Tile::TILESIZE, 5 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
 	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
+	
 	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
 	addNPC(0, new NPC(1, 100, 10, 4, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
 	addNPC(0, new NPC(1, 100, 10, 5, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+
+	addNPC(0, new NPC(1, 100, 10, 6, "Tree", sf::Vector2f(31 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 7, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 8, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 9, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 10, "Tree", sf::Vector2f(35 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+
+	addNPC(0, new NPC(1, 100, 10, 11, "Tree", sf::Vector2f(30 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 12, "Tree", sf::Vector2f(31 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 13, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 15, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 16, "Tree", sf::Vector2f(35 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 17, "Tree", sf::Vector2f(36 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+
+	addNPC(0, new NPC(1, 100, 10, 18, "Tree", sf::Vector2f(30 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 19, "Tree", sf::Vector2f(31 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 20, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 21, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 22, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 27* Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 23, "Tree", sf::Vector2f(35 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 24, "Tree", sf::Vector2f(36 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+
+	addNPC(0, new NPC(1, 100, 10, 25, "Tree", sf::Vector2f(31 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 26, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 27, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 28, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 29, "Tree", sf::Vector2f(35 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+
+	addNPC(0, new NPC(1, 100, 10, 30, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 31, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 32, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
 	//--------------------------
-	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy1")));
-	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy2")));
-	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(14 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy3")));
+	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy1")));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(34 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy2")));
+	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(36 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy3")));
 
 	addSensor(0, new Sensor(0, "Sensorsei", sf::Vector2f(50 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), SensorseiInteract, gamePointer_->getTexture("enemy")));
 
@@ -181,24 +215,24 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 	}
 }
 
-void PaulInteract(World* worldPtr)
+void PaulInteract(NPC* NPCPtr) // TODO Fixa så att han kollar om player har träd i inventory!
 {
-	worldPtr->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
 
 	for (int i = 0; i < 13; ++i)
 	{
-		worldPtr->changeTile((13 * worldPtr->getMapWidth() + 40 + i), 2);
+		NPCPtr->getWorld()->changeTile((13 * NPCPtr->getWorld()->getMapWidth() + 40 + i), 2);
 	}
 }
 
-void ErwinInteract(World* worldPtr)
+void ErwinInteract(NPC* NPCPtr)
 {
-	worldPtr->getUniverse()->getGame()->getApp()->setNextFrame(new GameWon(worldPtr->getUniverse()->getGame()->getApp()));
+	NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->setNextFrame(new GameWon(NPCPtr->getWorld()->getUniverse()->getGame()->getApp()));
 }
 
-void JamesClerkInteract(World* worldPtr)
+void JamesClerkInteract(NPC* NPCPtr)
 {
-	worldPtr->getUniverse()->switchWorld(1, 64, 64);
+	NPCPtr->getWorld()->getUniverse()->switchWorld(1, 64, 64);
 }
 
 void SensorseiInteract(World* worldPtr)
@@ -206,6 +240,9 @@ void SensorseiInteract(World* worldPtr)
 	worldPtr->getUniverse()->switchWorld(1, 64, 64);
 }
 
-void treeInteract(World* worldPtr)
+void treeInteract(NPC* NPCPtr) 
 {
+	NPCPtr->getWorld()->changeTile(((NPCPtr->getPosition().y/32) * NPCPtr->getWorld()->getMapWidth() + NPCPtr->getPosition().x/32), 9);
+	NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(0);
+	NPCPtr->die();
 }

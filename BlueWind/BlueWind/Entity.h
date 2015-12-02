@@ -33,6 +33,7 @@ public:
 	int getID() const;
 	std::string getName() const;
 	const sf::Vector2f getPosition() const;
+	World* getWorld() const;
 
 	void setCurrentWorld(World*);
 
