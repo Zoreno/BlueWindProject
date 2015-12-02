@@ -16,6 +16,25 @@ Universe::Universe(Game * gamePtr)
 	populateWorlds();
 }
 
+Universe::~Universe()
+{
+	gamePointer_ = nullptr;
+	currentWorld_ = nullptr;
+
+	while (!worlds_.empty())
+	{
+		delete worlds_.back();
+		worlds_.pop_back();
+	}
+
+	while (!tileAtlas_.empty())
+	{
+		auto it = tileAtlas_.begin();
+		delete it->second;
+		tileAtlas_.erase(it);
+	}
+}
+
 void Universe::update()
 {
 	currentWorld_->update();

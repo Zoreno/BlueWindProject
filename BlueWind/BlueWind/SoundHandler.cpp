@@ -15,6 +15,23 @@ SoundHandler::SoundHandler()
 	cout << "Laddar ljud klart" << endl;
 }
 
+SoundHandler::~SoundHandler()
+{
+	while (!sounds_.empty())
+	{
+		auto it = sounds_.begin();
+		delete it->second;
+		sounds_.erase(it);
+	}
+
+	while (!music_.empty())
+	{
+		auto it = music_.begin();
+		delete it->second;
+		music_.erase(it);
+	}
+}
+
 void SoundHandler::playSound(const std::string& soundName)
 {
 	currentSound_.setBuffer(*sounds_.find(soundName)->second);

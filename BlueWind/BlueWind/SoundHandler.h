@@ -14,7 +14,7 @@ public:
 	SoundHandler(const SoundHandler&) = delete;
 	SoundHandler& operator=(const SoundHandler&) = delete;
 
-	//TODO destruktor
+	~SoundHandler();
 
 	void playSound(const std::string&);
 	void playMusic(const std::string&);
