@@ -52,5 +52,4 @@ private:
 	int maxMana_;
 	Game* gamePointer_;
 	Inventory inventory_;
-	int attackCounter;
 };

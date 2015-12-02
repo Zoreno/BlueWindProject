@@ -14,7 +14,7 @@ public:
 	Application();
 	Application(const Application&) = delete;
 	Application& operator=(const Application&) = delete;
-
+	~Application();
 	void run();
 
 	void render(GameWindow& window);
@@ -27,12 +27,10 @@ public:
 	GameWindow& getGameWindow();
 	SoundHandler& getSoundHandler();
 	void setNextFrame(Frame*); 
-	//void setZoomLevel(float); 
 private:
 	GameWindow window_{ sf::VideoMode(800, 600), "Bluewind" };
 	Frame* currentFrame_;
 	Frame* nextFrame_; 
-	//float zoomLevel_; 
 	sf::Font font_;
 	Input input_;
 	SoundHandler soundHandler_;
