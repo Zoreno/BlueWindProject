@@ -6,6 +6,9 @@ using namespace std;
 TextureHandler::TextureHandler()
 {
 	cout << "Laddar texturer" << endl;
+
+	loadTexture("void", "res/textures/voidtile.png");
+
 	loadTexture("grass", "res/textures/Gräs.png");
 	loadTexture("tree", "res/textures/Gran.png");
 	loadTexture("bridge", "res/textures/bridge.png");
