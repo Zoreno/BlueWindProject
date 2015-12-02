@@ -16,6 +16,7 @@ public:
 	World() = delete;
 	World(const World&) = delete;
 	World& operator=(const World&) = delete;
+	~World();
 
 	void update();
 	void render(GameWindow&);

@@ -18,7 +18,6 @@ Application::Application()
 Application::~Application()
 {
 	delete currentFrame_;
-	delete nextFrame_;
 }
 
 void Application::run()
