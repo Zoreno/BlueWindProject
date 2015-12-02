@@ -9,6 +9,13 @@ TextureHandler::TextureHandler()
 	loadTexture("grass", "res/textures/Gräs.png");
 	loadTexture("tree", "res/textures/Gran.png");
 	loadTexture("bridge", "res/textures/bridge.png");
+	loadTexture("house00", "res/textures/house00.png");
+	loadTexture("house10", "res/textures/house10.png");
+	loadTexture("house01", "res/textures/house01.png");
+	loadTexture("house11", "res/textures/house11.png");
+	loadTexture("mountainGrass", "res/textures/mountainGrass.png");
+	loadTexture("water", "res/textures/water.png");
+	loadTexture("stump", "res/textures/stump.png");
 	loadTexture("player", "res/textures/player/playerHEj.png");
 	loadTexture("enemy", "res/textures/player/playerHEj.png"); 
 	loadTexture("NPC", "res/textures/player/playerHEj.png");

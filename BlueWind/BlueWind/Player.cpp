@@ -14,7 +14,7 @@ using namespace std;
 
 
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(2 * 32, 2 * 32), worldPtr, game->getTexture("player")),
+	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
 	mana_{ 20 }, 
 	maxMana_{ 20 }, 
 	gamePointer_{ game }, 
@@ -155,19 +155,19 @@ void Player::update()
 	walking_ = false;
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('a'))
 	{
-		move(-1, 0);
+		move(-2, 0);
 	}
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('d'))
 	{
-		move(1, 0);		
+		move(2, 0);		
 	}
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('s'))
 	{
-		move(0, 1);		
+		move(0, 2);		
 	}
 	if (gamePointer_->getApp()->getInput().pressedButtons_.at('w'))
 	{
-		move(0, -1);		
+		move(0, -2);		
 	}
 	anim_.update(state_, dir_, walking_);
 	checkSensors();

@@ -78,14 +78,22 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(0,new Tile(gamePointer_->getTexture("grass"), true));
 	tileAtlas_.emplace(1,new Tile(gamePointer_->getTexture("tree"), false));
 	tileAtlas_.emplace(2, new Tile(gamePointer_->getTexture("bridge"), true));
+	tileAtlas_.emplace(3, new Tile(gamePointer_->getTexture("house00"), false));
+	tileAtlas_.emplace(4, new Tile(gamePointer_->getTexture("house10"), false));
+	tileAtlas_.emplace(5, new Tile(gamePointer_->getTexture("house01"), false));
+	tileAtlas_.emplace(6, new Tile(gamePointer_->getTexture("house11"), false));
+	tileAtlas_.emplace(7, new Tile(gamePointer_->getTexture("mountainGrass"), false));
+	tileAtlas_.emplace(8, new Tile(gamePointer_->getTexture("water"), false));
+	tileAtlas_.emplace(9, new Tile(gamePointer_->getTexture("stump"), true));
 	cout << "Laddning av tiles klart" << endl;
 }
 
 void Universe::loadWorlds()
 {
 	cout << "Laddar in världar" << endl;
-	worlds_.push_back(new World(0, this, "res/worlds/level.bmp"));
-	worlds_.push_back(new World(1, this, "res/worlds/level2.bmp"));
+	worlds_.push_back(new World(0, this, "res/worlds/world1.bmp"));
+	worlds_.push_back(new World(1, this, "res/worlds/level.bmp"));
+	worlds_.push_back(new World(2, this, "res/worlds/level2.bmp"));
 
 	cout << "Laddning av världar klart" << endl;
 
