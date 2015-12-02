@@ -125,6 +125,7 @@ void Universe::populateWorlds()
 	void ErwinInteract(World*);
 	void JamesClerkInteract(World*);
 
+	void treeInteract(World*);
 	void SensorseiInteract(World*);
 
 	//OBS!!!!!!
@@ -132,6 +133,9 @@ void Universe::populateWorlds()
 	addNPC(0, new NPC(1, 100, 10, 0, "Paul", sf::Vector2f(42 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", PaulInteract));
 	addNPC(1, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(10 * Tile::TILESIZE, 5 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
 	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
+	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 4, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 5, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("tree"), "", treeInteract));
 	//--------------------------
 	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy")));
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(13 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy")));
@@ -200,4 +204,8 @@ void JamesClerkInteract(World* worldPtr)
 void SensorseiInteract(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(1, 64, 64);
+}
+
+void treeInteract(World* worldPtr)
+{
 }
