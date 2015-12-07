@@ -93,5 +93,5 @@ std::string Inventory::toString()
 void Inventory::populateItemList()
 {
 	//							ID	Namn		Textur
-	allItems_.push_back(new Item{ 0,"TestItem",gamePointer_->getTexture("tree") });
+	allItems_.push_back(new Item{ 0,"Tree",gamePointer_->getTexture("grassTree") });
 }
