@@ -274,6 +274,15 @@
     <Image Include="res\textures\PLAYER2.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="res\worlds\world1.bmp">
+      <Filter>Resource Files\worlds</Filter>
+    </Image>
+    <Image Include="res\worlds\world2.bmp">
+      <Filter>Resource Files\worlds</Filter>
+    </Image>
+    <Image Include="res\worlds\world3.bmp">
+      <Filter>Resource Files\worlds</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg">

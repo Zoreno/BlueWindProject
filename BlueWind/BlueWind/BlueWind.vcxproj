@@ -241,6 +241,9 @@
     <Image Include="res\textures\quitButton.png" />
     <Image Include="res\textures\red.png" />
     <Image Include="res\worlds\level.bmp" />
+    <Image Include="res\worlds\world1.bmp" />
+    <Image Include="res\worlds\world2.bmp" />
+    <Image Include="res\worlds\world3.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\diracTrain.ogg" />
