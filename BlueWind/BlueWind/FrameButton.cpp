@@ -27,7 +27,7 @@ sf::Vector2f FrameButton::getSize() const
 
 void FrameButton::update()
 {
-	sf::Vector2i mousePosition{ sf::Mouse::getPosition(appPointer_->getGameWindow()) };
+	sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
 		
 	if (mouseOnButton(mousePosition))
 		sprite_.setTexture(hoverTexture);
