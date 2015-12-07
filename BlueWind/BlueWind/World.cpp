@@ -223,6 +223,8 @@ int World::getIntFromColor(sf::Color color)
 		return 8;
 	case 0xFF7F00FF: //Stubbe
 		return 9;
+	case 0xFFFFFFFF : //is
+		return 10;
 	default:
 		cout << "Fel färg!" << endl;
 		return -1;
