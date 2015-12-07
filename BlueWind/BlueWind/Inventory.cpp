@@ -72,7 +72,7 @@ bool Inventory::isFull()
 
 int Inventory::getCount(int ID)
 {
-	int count;
+	int count{ 0 };
 
 	for (auto it : items_)
 	{

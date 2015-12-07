@@ -28,6 +28,7 @@ void NPC::render(GameWindow & window)
 
 void NPC::talk() const
 {
+	if (conversation_.size() == 0) return;
 	worldPointer_->getUniverse()->getGame()->getUserInterface()->addStringToChatBox(conversation_);
 }
 
