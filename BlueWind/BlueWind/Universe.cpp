@@ -77,9 +77,11 @@ void Universe::setCurrentWorld(int ID)
 
 void Universe::switchWorld(int ID, int x, int y)
 {
+	gamePointer_->getApp()->getSoundHandler().stopMusic(currentWorld_->getMusic());
 	setCurrentWorld(ID);
 	gamePointer_->getPlayer()->teleport(x, y);
 	gamePointer_->getPlayer()->setCurrentWorld(currentWorld_);
+	gamePointer_->getApp()->getSoundHandler().playMusic(currentWorld_->getMusic());
 }
 
 Tile Universe::getTile(int i)
@@ -113,9 +115,9 @@ void Universe::loadTiles()
 void Universe::loadWorlds()
 {
 	cout << "Laddar in världar" << endl;
-	worlds_.push_back(new World(0, this, "res/worlds/world1.bmp"));
-	worlds_.push_back(new World(1, this, "res/worlds/world2.bmp"));
-	worlds_.push_back(new World(2, this, "res/worlds/world3.bmp"));
+	worlds_.push_back(new World(0, this, "res/worlds/world1.bmp", "world0Music"));
+	worlds_.push_back(new World(1, this, "res/worlds/world2.bmp", "world1Music"));
+	worlds_.push_back(new World(2, this, "res/worlds/world3.bmp", "world2Music"));
 
 	cout << "Laddning av världar klart" << endl;
 

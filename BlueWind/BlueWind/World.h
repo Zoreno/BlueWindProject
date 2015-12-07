@@ -18,7 +18,7 @@ class WorldException : public std::logic_error
 class World
 {
 public:
-	World(int, Universe*, std::string);
+	World(int, Universe*, std::string, std::string);
 	World() = delete;
 	World(const World&) = delete;
 	World& operator=(const World&) = delete;
@@ -39,6 +39,7 @@ public:
 	Universe* getUniverse() const;
 
 	const int getID() const;
+	const std::string getMusic();
 	const int getMapWidth() const;
 	const int getMapHeight() const;
 	const std::vector<int> getTileVector() const;
@@ -49,6 +50,7 @@ private:
 	std::vector<int> tileVector_;
 	const int ID_;
 	Universe* universePointer_;
+	std::string music_;
 
 	std::map<int,Enemy*> enemyVector_;
 	std::vector<int> removeEnemyVector_;

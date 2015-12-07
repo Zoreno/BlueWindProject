@@ -300,6 +300,18 @@
     <None Include="res\sounds\menuClick.ogg">
       <Filter>Resource Files\sounds</Filter>
     </None>
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world0Music.ogg">
+      <Filter>Resource Files\sounds</Filter>
+    </None>
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world1Music.ogg">
+      <Filter>Resource Files\sounds</Filter>
+    </None>
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world2Music.ogg">
+      <Filter>Resource Files\sounds</Filter>
+    </None>
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world3Music.ogg">
+      <Filter>Resource Files\sounds</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BlueWind.rc">

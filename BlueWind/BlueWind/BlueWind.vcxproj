@@ -246,6 +246,10 @@
     <Image Include="res\worlds\world3.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world0Music.ogg" />
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world1Music.ogg" />
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world2Music.ogg" />
+    <None Include="..\..\..\..\..\Dropbox\TDDC76 projekt\Programkod\Musik\Skogsvärld\world3Music.ogg" />
     <None Include="res\sounds\diracTrain.ogg" />
     <None Include="res\sounds\gameOverMusic.ogg" />
     <None Include="res\sounds\gameWonMusic.ogg" />

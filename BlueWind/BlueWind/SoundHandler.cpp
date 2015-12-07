@@ -9,6 +9,10 @@ SoundHandler::SoundHandler()
 	loadMusic("menuMusic", "res/sounds/menuMusic.ogg");
 	loadMusic("gameOverMusic", "res/sounds/gameOverMusic.ogg");
 	loadMusic("gameWonMusic", "res/sounds/gameWonMusic.ogg");
+	loadMusic("world0Music", "res/sounds/world0Music.ogg");
+	loadMusic("world1Music", "res/sounds/world1Music.ogg");
+	loadMusic("world2Music", "res/sounds/world2Music.ogg");
+	loadMusic("world3Music", "res/sounds/world3Music.ogg");
 
 	loadSound("menuClick", "res/sounds/menuClick.ogg");
 	loadSound("diracTrain", "res/sounds/diracTrain.ogg");

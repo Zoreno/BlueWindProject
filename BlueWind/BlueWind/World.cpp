@@ -4,9 +4,10 @@
 
 using namespace std;
 
-World::World(int ID, Universe * universePtr, std::string mapFile)
-	: ID_{ID}, 
-	universePointer_{universePtr}
+World::World(int ID, Universe * universePtr, std::string mapFile, string music)
+	: ID_{ ID },
+	universePointer_{ universePtr },
+	music_{music}
 {
 	loadWorld(mapFile);
 }
@@ -166,6 +167,11 @@ Universe * World::getUniverse() const
 const int World::getID() const
 {
 	return ID_;
+}
+
+const std::string World::getMusic()
+{
+	return music_;
 }
 
 const int World::getMapWidth() const

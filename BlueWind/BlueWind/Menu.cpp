@@ -68,6 +68,7 @@ void Menu::render(GameWindow & window)
 void newGameCallback(Application* ptr)
 {
 	ptr->getSoundHandler().stopMusic("menuMusic");
+	ptr->getSoundHandler().playMusic("world0Music");
 	ptr->setNextFrame(new Game(ptr));
 }
 
