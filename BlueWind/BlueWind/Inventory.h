@@ -18,6 +18,7 @@ public:
 	void addItem(int);
 	void removeItem(int);
 	bool hasItem(int);
+	bool isFull();
 
 	Item* at(int);
 
@@ -31,7 +32,6 @@ private:
 	const unsigned int maxSize_{8};
 	Player* playerPointer_;
 	Game* gamePointer_;
-
 
 	void populateItemList();
 	std::vector<Item*> allItems_;

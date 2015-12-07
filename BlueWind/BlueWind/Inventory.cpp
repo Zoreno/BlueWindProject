@@ -25,7 +25,7 @@ Inventory::~Inventory()
 
 void Inventory::addItem(int ID)
 {
-	if (items_.size() >= maxSize_)
+	if (isFull())
 	{
 		cout << "Inventory is full" << endl;
 		return;
@@ -63,6 +63,11 @@ bool Inventory::hasItem(int ID)
 		}
 	}
 	return false;
+}
+
+bool Inventory::isFull()
+{
+	return (items_.size() >= maxSize_);
 }
 
 Item * Inventory::at(int pos)

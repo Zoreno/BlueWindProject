@@ -213,7 +213,7 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 
 void BridgeGuardInteract(NPC* NPCPtr) // TODO Fixa så att han kollar om player har träd i inventory!
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
+	//NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
 	int startposition{ 13 * NPCPtr->getWorld()->getMapWidth() + 40 };
 
 	while (NPCPtr->getWorld()->getTileVector()[startposition] == 2)
