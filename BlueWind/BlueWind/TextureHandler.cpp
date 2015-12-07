@@ -18,6 +18,7 @@ TextureHandler::TextureHandler()
 	loadTexture("house11", "res/textures/house11.png");
 	loadTexture("mountainGrass", "res/textures/mountainGrass.png");
 	loadTexture("water", "res/textures/water.png");
+	loadTexture("snow", "res/textures/snow.png");
 	loadTexture("stump", "res/textures/stump.png");
 	loadTexture("player", "res/textures/PLAYER2.png");
 	loadTexture("enemy", "res/textures/enemy7.png"); 
