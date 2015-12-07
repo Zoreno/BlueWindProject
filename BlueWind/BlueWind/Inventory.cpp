@@ -70,6 +70,21 @@ bool Inventory::isFull()
 	return (items_.size() >= maxSize_);
 }
 
+int Inventory::getCount(int ID)
+{
+	int count;
+
+	for (auto it : items_)
+	{
+		if (it->getID() == ID)
+		{
+			count++;
+		}
+	}
+
+	return count;
+}
+
 Item * Inventory::at(int pos)
 {
 	return items_.at(pos);

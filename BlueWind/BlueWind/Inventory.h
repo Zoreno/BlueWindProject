@@ -19,6 +19,7 @@ public:
 	void removeItem(int);
 	bool hasItem(int);
 	bool isFull();
+	int getCount(int);
 
 	Item* at(int);
 
