@@ -120,6 +120,10 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(20, new Tile(gamePointer_->getTexture("water"), false));
 	tileAtlas_.emplace(21, new Tile(gamePointer_->getTexture("grassStump"), true));
 	tileAtlas_.emplace(22, new Tile(gamePointer_->getTexture("snow"), true));
+	tileAtlas_.emplace(23, new Tile(gamePointer_->getTexture("snowTree"), true));
+	tileAtlas_.emplace(24, new Tile(gamePointer_->getTexture("cactus"), true));
+	tileAtlas_.emplace(25, new Tile(gamePointer_->getTexture("sand"), true));
+	tileAtlas_.emplace(26, new Tile(gamePointer_->getTexture("palmtree"), true));
 	cout << "Laddning av tiles klart" << endl;
 }
 

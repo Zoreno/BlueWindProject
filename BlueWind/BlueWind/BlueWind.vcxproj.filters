@@ -283,6 +283,9 @@
     <Image Include="res\worlds\world3.bmp">
       <Filter>Resource Files\worlds</Filter>
     </Image>
+    <Image Include="res\worlds\world0.bmp">
+      <Filter>Resource Files\worlds</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\sounds\menuMusic.ogg">

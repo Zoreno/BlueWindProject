@@ -250,7 +250,7 @@ int World::getIntFromColor(sf::Color color)
 		return 20;
 	case 0xFF7F00FF: //Stubbe
 		return 21;
-	case 0xFFFFFFFF: //Is
+	case 0x00FFFFFF: //snow
 		return 22;
 	case 0xFFFF00FF : //snowTree
 		return 23;
