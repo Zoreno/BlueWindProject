@@ -8,6 +8,7 @@
 class World;
 class Game;
 class Enemy;
+class NPC;
 
 class Player : public Entity
 {
@@ -35,6 +36,7 @@ public:
 	Inventory* getInventory();
 
 	void attack(const std::map<int, Enemy*>&);
+	void interact(const std::map<int, NPC*>&);
 
 	int getXpToLevel();
 	bool checkForLevelup();

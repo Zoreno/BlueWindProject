@@ -35,8 +35,6 @@ World::~World()
 	}
 }
 
-
-
 void World::update()
 {
 	for (auto it : enemyVector_)
@@ -98,7 +96,7 @@ void World::loadWorld(std::string mapFile)
 	sf::Image image;
 	if (!image.loadFromFile(mapFile))
 	{
-		//TODO Kasta exception
+		throw WorldException("Kunde inte läsa världsfil:" + mapFile);
 	}
 
 	mapWidth = image.getSize().x;
@@ -149,8 +147,7 @@ void World::changeTile(int pos, int value)
 {
 	if (pos < 0)
 	{
-		return;
-		//TODO Kanske exception.
+		throw WorldException("Position för tile måste vara större än 0, du angav:" + pos);
 	}
 	
 	if (!(static_cast<unsigned int>(pos) > tileVector_.size()))
@@ -215,22 +212,46 @@ int World::getIntFromColor(sf::Color color)
 		return 1;
 	case 0x7F6A00FF: //Bro
 		return 2;	
-	case 0xB24400FF: //Hus00
+	case 0xFF8800FF: //Hus00
 		return 3;
-	case 0xB24401FF: //Hus10
+	case 0xFF8801FF: //Hus01
 		return 4;
-	case 0xB24402FF: //Hus01
+	case 0xFF8802FF: //Hus02
 		return 5;
-	case 0xB24403FF: //Hus11
+	case 0xFF8803FF: //Hus03
 		return 6;
-	case 0x7F7F7FFF: //Berg
+	case 0xFF8810FF: //Hus10
 		return 7;
-	case 0x0000FFFF: //Vatten
+	case 0xFF8811FF: //Hus11
 		return 8;
-	case 0xFF7F00FF: //Stubbe
+	case 0xFF8812FF: //Hus12
 		return 9;
-	case 0x00FFFFFF : //is
+	case 0xFF8813FF: //Hus13
 		return 10;
+	case 0xFF8820FF: //Hus20
+		return 11;
+	case 0xFF8821FF: //Hus21
+		return 12;
+	case 0xFF8822FF: //Hus22
+		return 13;
+	case 0xFF8823FF: //Hus23
+		return 14;
+	case 0xFF8830FF: //Hus30
+		return 15;
+	case 0xFF8831FF: //Hus31
+		return 16;
+	case 0xFF8832FF: //Hus32
+		return 17;
+	case 0xFF8833FF: //Hus33
+		return 18;
+	case 0x7F7F7FFF: //Berg
+		return 19;
+	case 0x0000FFFF: //Vatten
+		return 20;
+	case 0xFF7F00FF: //Stubbe
+		return 21;
+	case 0xFFFFFFFF: //Is
+		return 22;
 	case 0xFFFF00FF : //snowTree
 		return 23;
 	case 0xFF006EFF: //cactus
@@ -251,24 +272,33 @@ void World::updateLists()
 	for (auto iter : removeEnemyVector_)
 	{
 		auto it = enemyVector_.find(iter);
+		if (it != enemyVector_.end())
+		{
 		delete (it->second);
 		enemyVector_.erase(it);
+	}
 	}
 	removeEnemyVector_.clear();
 
 	for (auto iter : removeNPCVector_)
 	{
 		auto it = NPCVector_.find(iter);
+		if (it != NPCVector_.end())
+		{
 		delete (it->second);
 		NPCVector_.erase(it);
+	}
 	}
 	removeNPCVector_.clear();
 
 	for (auto iter : removeSensorVector_)
 	{
 		auto it = sensorVector_.find(iter);
+		if (it != sensorVector_.end())
+		{
 		delete (it->second);
 		sensorVector_.erase(it);
+	}
 	}
 	removeSensorVector_.clear();
 	

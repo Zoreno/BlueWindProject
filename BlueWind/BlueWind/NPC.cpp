@@ -35,12 +35,7 @@ void NPC::talk() const
 void NPC::interact()
 {
 	talk();
-	
-	if (!talkedTo)
-	{
-		callback_(this);
-		// talkedTo = true; //TODO ta bort? kan kolla om player redan har föremål
-	}
+	callback_(this);
 }
 
 void NPC::die()

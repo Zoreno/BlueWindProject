@@ -2,8 +2,15 @@
 
 #include "GameWindow.h"
 #include "FrameButton.h"
+#include <stdexcept>
 
 class Application;
+
+class FrameException : public std::logic_error
+{
+public:
+	using std::logic_error::logic_error;
+};
 
 class Frame
 {

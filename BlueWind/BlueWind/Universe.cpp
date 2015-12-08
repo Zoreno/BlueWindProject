@@ -60,8 +60,7 @@ World * Universe::getWorld(int ID)
 			return it;
 		}
 	}
-	//TODO kasta ex
-	return nullptr;
+	throw UniverseException("Kunde inte hitta värld med ID:" + ID);
 }
 
 void Universe::setCurrentWorld(int ID)
@@ -84,7 +83,7 @@ void Universe::switchWorld(int ID, int x, int y)
 	gamePointer_->getApp()->getSoundHandler().playMusic(currentWorld_->getMusic());
 }
 
-Tile Universe::getTile(int i)
+Tile& Universe::getTile(int i)
 {
 	return (*tileAtlas_.find(i)->second);
 }
@@ -102,17 +101,25 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(1,new Tile(gamePointer_->getTexture("grassTree"), false));
 	tileAtlas_.emplace(2, new Tile(gamePointer_->getTexture("bridge"), true));
 	tileAtlas_.emplace(3, new Tile(gamePointer_->getTexture("house00"), false));
-	tileAtlas_.emplace(4, new Tile(gamePointer_->getTexture("house10"), false));
-	tileAtlas_.emplace(5, new Tile(gamePointer_->getTexture("house01"), false));
-	tileAtlas_.emplace(6, new Tile(gamePointer_->getTexture("house11"), false));
-	tileAtlas_.emplace(7, new Tile(gamePointer_->getTexture("mountainGrass"), false));
-	tileAtlas_.emplace(8, new Tile(gamePointer_->getTexture("water"), false));
-	tileAtlas_.emplace(9, new Tile(gamePointer_->getTexture("stump"), true));
-	tileAtlas_.emplace(10, new Tile(gamePointer_->getTexture("snow"), true));
-	tileAtlas_.emplace(23, new Tile(gamePointer_->getTexture("snowTree"), false));
-	tileAtlas_.emplace(24, new Tile(gamePointer_->getTexture("cactus"), false));
-	tileAtlas_.emplace(25, new Tile(gamePointer_->getTexture("sand"), true));
-	tileAtlas_.emplace(26, new Tile(gamePointer_->getTexture("palmtree"), false));
+	tileAtlas_.emplace(4, new Tile(gamePointer_->getTexture("house01"), false));
+	tileAtlas_.emplace(5, new Tile(gamePointer_->getTexture("house02"), false));
+	tileAtlas_.emplace(6, new Tile(gamePointer_->getTexture("house03"), false));
+	tileAtlas_.emplace(7, new Tile(gamePointer_->getTexture("house10"), false));
+	tileAtlas_.emplace(8, new Tile(gamePointer_->getTexture("house11"), false));
+	tileAtlas_.emplace(9, new Tile(gamePointer_->getTexture("house12"), false));
+	tileAtlas_.emplace(10, new Tile(gamePointer_->getTexture("house13"), false));
+	tileAtlas_.emplace(11, new Tile(gamePointer_->getTexture("house20"), false));
+	tileAtlas_.emplace(12, new Tile(gamePointer_->getTexture("house21"), false));
+	tileAtlas_.emplace(13, new Tile(gamePointer_->getTexture("house22"), false));
+	tileAtlas_.emplace(14, new Tile(gamePointer_->getTexture("house23"), false));
+	tileAtlas_.emplace(15, new Tile(gamePointer_->getTexture("house30"), false));
+	tileAtlas_.emplace(16, new Tile(gamePointer_->getTexture("house31"), false));
+	tileAtlas_.emplace(17, new Tile(gamePointer_->getTexture("house32"), false));
+	tileAtlas_.emplace(18, new Tile(gamePointer_->getTexture("house33"), false));
+	tileAtlas_.emplace(19, new Tile(gamePointer_->getTexture("mountainGrass"), false));
+	tileAtlas_.emplace(20, new Tile(gamePointer_->getTexture("water"), false));
+	tileAtlas_.emplace(21, new Tile(gamePointer_->getTexture("grassStump"), true));
+	tileAtlas_.emplace(22, new Tile(gamePointer_->getTexture("snow"), true));
 	cout << "Laddning av tiles klart" << endl;
 }
 
@@ -152,20 +159,18 @@ void Universe::populateWorlds()
 	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
 	
 	//Träd
-	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 4, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 5, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-
-	addNPC(0, new NPC(1, 100, 10, 6, "Tree", sf::Vector2f(31 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 7, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 8, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 9, "Tree", sf::Vector2f(34 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 10, "Tree", sf::Vector2f(35 * Tile::TILESIZE, 25 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-
-	addNPC(0, new NPC(1, 100, 10, 11, "Tree", sf::Vector2f(30 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 12, "Tree", sf::Vector2f(31 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 13, "Tree", sf::Vector2f(32 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	addNPC(0, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(26 * Tile::TILESIZE, 26 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 4, "Tree", sf::Vector2f(41 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 5, "Tree", sf::Vector2f(37 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 6, "Tree", sf::Vector2f(29 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 7, "Tree", sf::Vector2f(18 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 8, "Tree", sf::Vector2f(33 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 9, "Tree", sf::Vector2f(38 * Tile::TILESIZE, 38 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 10, "Tree", sf::Vector2f(46 * Tile::TILESIZE, 34 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 11, "Tree", sf::Vector2f(44 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 12, "Tree", sf::Vector2f(37 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 13, "Tree", sf::Vector2f(30 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
+	addNPC(0, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(23 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
 	
 	//Enemies
 	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy1")));
@@ -226,12 +231,11 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 	}
 }
 
-void BridgeGuardInteract(NPC* NPCPtr) // TODO Fixa så att han kollar om player har träd i inventory!
+void BridgeGuardInteract(NPC* NPCPtr)
 {
-	//NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
 	int startposition{ 13 * NPCPtr->getWorld()->getMapWidth() + 40 };
 
-	while (NPCPtr->getWorld()->getTileVector()[startposition] == 2)
+	while (NPCPtr->getWorld()->getTileVector().at(startposition) == 2)
 		++startposition;
 
 	while (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(0))
@@ -244,7 +248,9 @@ void BridgeGuardInteract(NPC* NPCPtr) // TODO Fixa så att han kollar om player h
 
 void ErwinInteract(NPC* NPCPtr)
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->setNextFrame(new GameWon(NPCPtr->getWorld()->getUniverse()->getGame()->getApp()));
+	Application* AppPtr{ NPCPtr->getWorld()->getUniverse()->getGame()->getApp() };
+	AppPtr->getSoundHandler().stopMusic(NPCPtr->getWorld()->getMusic());
+	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
 void JamesClerkInteract(NPC* NPCPtr)
@@ -252,13 +258,11 @@ void JamesClerkInteract(NPC* NPCPtr)
 	NPCPtr->getWorld()->getUniverse()->switchWorld(1, 64, 64);
 }
 
-
-
 void treeInteract(NPC* NPCPtr) 
 {
 	if (!NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->isFull())
 	{
-		NPCPtr->getWorld()->changeTile(((NPCPtr->getPosition().y / 32) * NPCPtr->getWorld()->getMapWidth() + NPCPtr->getPosition().x / 32), 9);
+		NPCPtr->getWorld()->changeTile(((NPCPtr->getPosition().y / 32) * NPCPtr->getWorld()->getMapWidth() + NPCPtr->getPosition().x / 32), 21);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(0);
 		NPCPtr->die();
 	}

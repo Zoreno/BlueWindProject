@@ -21,7 +21,6 @@ Game::Game(Application * appPtr, bool loadSave)
 
 void Game::update()
 {
-	//cout << "Game uppdaterar" << endl;
 	universe_.update();
 	player_.update();
 	ui_.update();
@@ -29,10 +28,9 @@ void Game::update()
 
 void Game::render(GameWindow & window)
 {
-	sf::View view2 = window.getView();
-	view2.setCenter(player_.getPosition());
-	window.setView(view2);
-	//cout << "Game renderar" << endl;
+	sf::View camera = window.getView();
+	camera.setCenter(player_.getPosition());
+	window.setView(camera);
 	universe_.render(window);
 	player_.render(window);
 	ui_.render(window);
@@ -44,18 +42,9 @@ void Game::handleKeyEvent(sf::Event event)
 	{
 	case sf::Keyboard::Space:
 		player_.attack(universe_.getCurrentWorld()->getEnemyVector());
-		
 		break;
 	case sf::Keyboard::I:
-		//TODO flytta in i player kanske
-		for (auto it : universe_.getCurrentWorld()->getNPCVector())
-		{
-			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 33)
-			{
-				it.second->interact();
-				break;
-			}
-		}
+		player_.interact(universe_.getCurrentWorld()->getNPCVector());
 		break;
 	case sf::Keyboard::U:
 		cout << (int) player_.getPosition().x / 32 << "," << (int) player_.getPosition().y / 32 << endl;
@@ -95,7 +84,6 @@ vector<int> splitString(string s)
 
 void Game::saveGame()
 {
-	// Exception
 	ofstream saveStream;
 	saveStream.open("savefile.txt", std::ofstream::out | std::ofstream::trunc);
 	if (saveStream.is_open())
@@ -113,11 +101,12 @@ void Game::saveGame()
 		saveStream.close();
 		cout << "Game saved!" << endl;
 	}
+	else
+		throw FrameException("Kunde inte spara data till savefile.txt");
 }
 
 void Game::loadGame()
 {
-	// Exception
 	string line;
 	ifstream saveStream("savefile.txt");
 	if (saveStream.is_open())
@@ -149,6 +138,8 @@ void Game::loadGame()
 		}
 		saveStream.close();
 	}
+	else
+		throw FrameException("Kunde inte ladda data från savefile.txt");
 }
 
 Player * Game::getPlayer()

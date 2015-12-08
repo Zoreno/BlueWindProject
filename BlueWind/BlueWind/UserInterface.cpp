@@ -10,8 +10,7 @@ UserInterface::UserInterface(Player * playerPtr)
 {
 	if (!uiFont_.loadFromFile("res/calibri.ttf"))
 	{
-		//TODO lägg till exception
-		cout << "Kan inte läsa font" << endl;
+		throw UIException("Kan inte läsa in typsnitt: res/calibri.ttf");
 	}
 	loadComponents(playerPtr);
 }
