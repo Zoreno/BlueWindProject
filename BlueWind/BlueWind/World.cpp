@@ -260,6 +260,12 @@ int World::getIntFromColor(sf::Color color)
 		return 25;
 	case 0x404040FF: //palmtree
 		return 26;
+	case 0xFF0022FF: //lava
+		return 100;
+	case 0x808080FF: //lavastone
+		return 101;
+	case 0x7F3300FF: //burnedTree
+		return 102;
 
 	default:
 		cout << "Fel färg!" << endl;
