@@ -15,7 +15,6 @@ SoundHandler::SoundHandler()
 	loadMusic("world3Music", "res/sounds/world3Music.ogg");
 
 	loadSound("menuClick", "res/sounds/menuClick.ogg");
-	loadSound("diracTrain", "res/sounds/diracTrain.ogg");
 	cout << "Laddar ljud klart" << endl;
 }
 
