@@ -267,7 +267,17 @@ void BridgeGuardInteract(NPC* NPCPtr)
 	case 0:
 		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Bring me some wood and I could perhaps, possibly, but most likely not, help build you a bridge!");
 		break;
-	case 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 ||10 || 11: // TODO Hur använder man olikheter här istället?
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+	case 10:
+	case 11:
 		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I still need some more wood in order to finish the bridge!");
 		break;
 	case 12:
