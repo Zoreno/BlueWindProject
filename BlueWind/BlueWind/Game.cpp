@@ -44,18 +44,9 @@ void Game::handleKeyEvent(sf::Event event)
 	{
 	case sf::Keyboard::Space:
 		player_.attack(universe_.getCurrentWorld()->getEnemyVector());
-		
 		break;
 	case sf::Keyboard::I:
-		//TODO flytta in i player kanske
-		for (auto it : universe_.getCurrentWorld()->getNPCVector())
-		{
-			if (getDistance(player_.getPosition(), it.second->getPosition()) <= 33)
-			{
-				it.second->interact();
-				break;
-			}
-		}
+		player_.interact(universe_.getCurrentWorld()->getNPCVector());
 		break;
 	case sf::Keyboard::U:
 		cout << (int) player_.getPosition().x / 32 << "," << (int) player_.getPosition().y / 32 << endl;

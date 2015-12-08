@@ -120,6 +120,18 @@ void Player::attack(const map<int, Enemy*>& enemies)
 
 }
 
+void Player::interact(const std::map<int, NPC*>& NPCs)
+{
+	for (auto it : NPCs)
+	{
+		if (getDistance(position_, it.second->getPosition()) <= 33)
+		{
+			it.second->interact();
+			break;
+		}
+	}
+}
+
 int Player::getXpToLevel()
 {
 	return static_cast<int>(std::floor( 100 * std::pow(1.15f, level_)));
