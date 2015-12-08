@@ -127,7 +127,7 @@ void Universe::loadTiles()
 void Universe::loadWorlds()
 {
 	cout << "Laddar in världar" << endl;
-	worlds_.push_back(new World(0, this, "res/worlds/world1.bmp", "world0Music"));
+	worlds_.push_back(new World(0, this, "res/worlds/world0.bmp", "world0Music"));
 	worlds_.push_back(new World(1, this, "res/worlds/world2.bmp", "world1Music"));
 	worlds_.push_back(new World(2, this, "res/worlds/world3.bmp", "world2Music"));
 
