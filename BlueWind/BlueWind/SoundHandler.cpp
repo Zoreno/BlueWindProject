@@ -58,8 +58,7 @@ void SoundHandler::loadSound(const std::string& soundName, const std::string& fi
 	sf::SoundBuffer* soundBuffer = new sf::SoundBuffer;
 	if (!soundBuffer->loadFromFile(fileName))
 	{
-		//TODO lägg till ex
-		cout << "Kan inte ladda ljud: " + soundName << endl;
+		throw SoundException("Kunde inte ladda in ljud från fil:" + fileName);
 	}
 	sounds_.emplace(soundName, soundBuffer);
 }
@@ -69,8 +68,7 @@ void SoundHandler::loadMusic(const std::string& musicName, const std::string& fi
 	sf::Music* music = new sf::Music;
 	if (!music->openFromFile(fileName))
 	{
-		//TODO lägg till ex
-		cout << "Kan inte ladda musik: " + musicName << endl;
+		throw SoundException("Kunde inte ladda in musik från fil:" + fileName);
 	}
 	music_.emplace(musicName, music);
 }

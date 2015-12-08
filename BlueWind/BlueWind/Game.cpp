@@ -21,7 +21,6 @@ Game::Game(Application * appPtr, bool loadSave)
 
 void Game::update()
 {
-	//cout << "Game uppdaterar" << endl;
 	universe_.update();
 	player_.update();
 	ui_.update();
@@ -29,10 +28,9 @@ void Game::update()
 
 void Game::render(GameWindow & window)
 {
-	sf::View view2 = window.getView();
-	view2.setCenter(player_.getPosition());
-	window.setView(view2);
-	//cout << "Game renderar" << endl;
+	sf::View camera = window.getView();
+	camera.setCenter(player_.getPosition());
+	window.setView(camera);
 	universe_.render(window);
 	player_.render(window);
 	ui_.render(window);
@@ -86,7 +84,6 @@ vector<int> splitString(string s)
 
 void Game::saveGame()
 {
-	// Exception
 	ofstream saveStream;
 	saveStream.open("savefile.txt", std::ofstream::out | std::ofstream::trunc);
 	if (saveStream.is_open())
@@ -104,11 +101,12 @@ void Game::saveGame()
 		saveStream.close();
 		cout << "Game saved!" << endl;
 	}
+	else
+		throw FrameException("Kunde inte spara data till savefile.txt");
 }
 
 void Game::loadGame()
 {
-	// Exception
 	string line;
 	ifstream saveStream("savefile.txt");
 	if (saveStream.is_open())
@@ -140,6 +138,8 @@ void Game::loadGame()
 		}
 		saveStream.close();
 	}
+	else
+		throw FrameException("Kunde inte ladda data från savefile.txt");
 }
 
 Player * Game::getPlayer()

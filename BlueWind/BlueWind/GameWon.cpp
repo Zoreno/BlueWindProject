@@ -53,7 +53,7 @@ void GameWon::render(GameWindow & window)
 	//TODO Detta kan göras i konstruktorn.
 	sf::Texture bTexture;
 	if (!bTexture.loadFromFile("res/textures/GameWon.png"))
-		cout << "Could not load gameOver" << endl;
+		throw FrameException("Kunde inte läsa in bild för GameWon: res/textures/GameWon.png");
 
 	background_.setTexture(bTexture);
 	window.draw(background_);

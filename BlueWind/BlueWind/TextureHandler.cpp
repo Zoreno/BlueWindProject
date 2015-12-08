@@ -74,8 +74,7 @@ void TextureHandler::loadTexture(const std::string& texName, const std::string& 
 	sf::Texture* tex = new sf::Texture;
 	if (!tex->loadFromFile(fileName))
 	{
-		//TODO lägg till ex
-		cout << "Kan inte ladda textur: " + texName << endl;
+		throw TextureException("Kunde inte ladda in textur från fil:" + fileName);
 	}
 	textures_.emplace(texName, tex);
 }

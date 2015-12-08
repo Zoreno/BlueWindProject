@@ -60,8 +60,7 @@ World * Universe::getWorld(int ID)
 			return it;
 		}
 	}
-	//TODO kasta ex
-	return nullptr;
+	throw UniverseException("Kunde inte hitta värld med ID:" + ID);
 }
 
 void Universe::setCurrentWorld(int ID)
@@ -84,7 +83,7 @@ void Universe::switchWorld(int ID, int x, int y)
 	gamePointer_->getApp()->getSoundHandler().playMusic(currentWorld_->getMusic());
 }
 
-Tile Universe::getTile(int i)
+Tile& Universe::getTile(int i)
 {
 	return (*tileAtlas_.find(i)->second);
 }
@@ -221,12 +220,11 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 	}
 }
 
-void BridgeGuardInteract(NPC* NPCPtr) // TODO Fixa så att han kollar om player har träd i inventory!
+void BridgeGuardInteract(NPC* NPCPtr)
 {
-	//NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("diracTrain");
 	int startposition{ 13 * NPCPtr->getWorld()->getMapWidth() + 40 };
 
-	while (NPCPtr->getWorld()->getTileVector()[startposition] == 2)
+	while (NPCPtr->getWorld()->getTileVector().at(startposition) == 2)
 		++startposition;
 
 	while (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(0))

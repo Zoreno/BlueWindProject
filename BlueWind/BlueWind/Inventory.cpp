@@ -27,7 +27,7 @@ void Inventory::addItem(int ID)
 {
 	if (isFull())
 	{
-		cout << "Inventory is full" << endl;
+		gamePointer_->getUserInterface()->addStringToChatBox("Inventory is full");
 		return;
 	}
 	for (auto it : allItems_)
@@ -87,7 +87,10 @@ int Inventory::getCount(int ID)
 
 Item * Inventory::at(int pos)
 {
-	return items_.at(pos);
+	if (pos >= 0 && pos <= items_.size())
+		return items_.at(pos);
+	else
+		throw InventoryException("Kan ej hämta element på angiven position:" + pos);
 }
 
 int Inventory::getSize()
