@@ -55,6 +55,9 @@ TextureHandler::TextureHandler()
 	loadTexture("house31", "res/textures/house31.png");
 	loadTexture("house32", "res/textures/house32.png");
 	loadTexture("house33", "res/textures/house33.png");
+	loadTexture("lava", "res/textures/lava.png");
+	loadTexture("burnedTree", "res/textures/burnedTree.png");
+	loadTexture("lavastone", "res/textures/lavastone.png");
 
 	cout << "Laddar texturer klart" << endl;
 }
