@@ -9,7 +9,7 @@ TextureHandler::TextureHandler()
 
 	loadTexture("void", "res/textures/voidtile.png");
 
-	loadTexture("grass", "res/textures/Gräs.png");
+	loadTexture("grass", "res/textures/grass.png");
 	loadTexture("grassTree", "res/textures/grassTree.png");
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
 	loadTexture("bridge", "res/textures/bridge.png");
