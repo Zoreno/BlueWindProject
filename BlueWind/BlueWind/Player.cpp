@@ -211,15 +211,15 @@ void Player::update()
 	}
 	if (gamePointer_->getApp()->getInput().isPressed('d'))
 	{
-		move(2, 0);		
+		move(2, 0);
 	}
 	if (gamePointer_->getApp()->getInput().isPressed('s'))
 	{
-		move(0, 2);		
+		move(0, 2);
 	}
 	if (gamePointer_->getApp()->getInput().isPressed('w'))
 	{
-		move(0, -2);		
+		move(0, -2);
 	}
 	anim_.update(animState_, dir_, walking_);
 	checkSensors();
