@@ -14,6 +14,11 @@ Input::Input(Application * appPtr)
 	pressedButtons_.emplace('w', false);
 }
 
+bool Input::isPressed(char c) const
+{
+	return pressedButtons_.find(c)->second;
+}
+
 void Input::update()
 {
 	try

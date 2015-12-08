@@ -205,19 +205,19 @@ void Player::update()
 		manaCounter_ = 0;
 	}
 	walking_ = false;
-	if (gamePointer_->getApp()->getInput().pressedButtons_.at('a'))
+	if (gamePointer_->getApp()->getInput().isPressed('a'))
 	{
 		move(-2, 0);
 	}
-	if (gamePointer_->getApp()->getInput().pressedButtons_.at('d'))
+	if (gamePointer_->getApp()->getInput().isPressed('d'))
 	{
 		move(2, 0);		
 	}
-	if (gamePointer_->getApp()->getInput().pressedButtons_.at('s'))
+	if (gamePointer_->getApp()->getInput().isPressed('s'))
 	{
 		move(0, 2);		
 	}
-	if (gamePointer_->getApp()->getInput().pressedButtons_.at('w'))
+	if (gamePointer_->getApp()->getInput().isPressed('w'))
 	{
 		move(0, -2);		
 	}

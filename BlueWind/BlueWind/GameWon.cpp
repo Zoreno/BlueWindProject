@@ -50,7 +50,6 @@ void GameWon::update()
 
 void GameWon::render(GameWindow & window)
 {
-	//TODO Detta kan göras i konstruktorn.
 	sf::Texture bTexture;
 	if (!bTexture.loadFromFile("res/textures/GameWon.png"))
 		throw FrameException("Kunde inte läsa in bild för GameWon: res/textures/GameWon.png");
