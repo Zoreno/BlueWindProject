@@ -167,6 +167,7 @@
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GameWon.cpp" />
+    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GameWon.h" />
+    <ClInclude Include="Help.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />

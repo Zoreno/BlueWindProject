@@ -1,5 +1,7 @@
 #include "Menu.h"
 #include "Application.h"
+#include "GameOver.h"
+#include "Help.h"
 #include <iostream>
 
 using namespace std;
@@ -88,7 +90,7 @@ void quitCallback(Application* ptr)
 
 void helpCallback(Application* ptr)
 {
-	ptr->getGameWindow().close(); // TODO Byt!
+	ptr->setNextFrame(new Help(ptr)); 
 }
 
 void creditsCallback(Application* ptr)
