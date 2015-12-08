@@ -12,7 +12,6 @@ Application::Application()
 		window_.setIcon(32,32,icon.getPixelsPtr());
 	}
 	currentFrame_ = new Menu(this);
-	getSoundHandler().playMusic("menuMusic");
 	nextFrame_ = currentFrame_; 
 }
 

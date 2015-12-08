@@ -20,6 +20,7 @@ Menu::Menu(Application * appPtr)
 	addButton(sf::Vector2f(400 - 175, 400), sf::Vector2f(350, 100), "res/textures/quitButton.png", "res/textures/quitButtonHover.png", quitCallback);
 	addButton(sf::Vector2f(800 - 155, 600 - 65), sf::Vector2f(130, 50), "res/textures/helpButton.png", "res/textures/helpButtonHover.png", helpCallback);
 	addButton(sf::Vector2f(25, 600 - 65), sf::Vector2f(130, 50), "res/textures/creditsButton.png", "res/textures/creditsButtonHover.png", creditsCallback);
+	appPtr->getSoundHandler().playMusic("menuMusic");
 }
 
 void Menu::handleKeyEvent(sf::Event event)
