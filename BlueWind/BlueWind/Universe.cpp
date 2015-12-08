@@ -239,15 +239,15 @@ void BridgeGuardInteract(NPC* NPCPtr) // TODO Fixa så att han kollar om player h
 
 void ErwinInteract(NPC* NPCPtr)
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->setNextFrame(new GameWon(NPCPtr->getWorld()->getUniverse()->getGame()->getApp()));
+	Application* AppPtr{ NPCPtr->getWorld()->getUniverse()->getGame()->getApp() };
+	AppPtr->getSoundHandler().stopMusic(NPCPtr->getWorld()->getMusic());
+	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
 void JamesClerkInteract(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->switchWorld(1, 64, 64);
 }
-
-
 
 void treeInteract(NPC* NPCPtr) 
 {
@@ -262,7 +262,6 @@ void treeInteract(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Inventory is full.");
 	}
 }
-
 
 void World1_World2Interact(World* worldPtr)
 {

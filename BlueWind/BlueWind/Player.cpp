@@ -14,7 +14,7 @@ using namespace std;
 
 
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "Kalle", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
+	: Entity(1, 100, 10, 0, "L!NK", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
 	mana_{ 20 }, 
 	maxMana_{ 20 }, 
 	gamePointer_{ game }, 
@@ -113,11 +113,31 @@ void Player::attack(const map<int, Enemy*>& enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 32)
 		{
-			it.second->removeHealth(damage_); 
-			break;
+			if (dir_ == north && it.second->getPosition().y <= position_.y)
+			{
+				it.second->removeHealth(damage_);
+				//break;
+			}
+			else if (dir_ == west && it.second->getPosition().x <= position_.x)
+			{
+				it.second->removeHealth(damage_);
+				//break;
+			}
+			else if (dir_ == east && it.second->getPosition().x >= position_.x)
+			{
+				it.second->removeHealth(damage_);
+				//break;
+			}
+			else if (dir_ == south && it.second->getPosition().y >= position_.y)
+			{
+				it.second->removeHealth(damage_);
+				//break;
+			}
+			else
+			{ }
+				//break;
 		}
 	}
-
 }
 
 void Player::interact(const std::map<int, NPC*>& NPCs)
@@ -126,8 +146,29 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 33)
 		{
-			it.second->interact();
-			break;
+			if (dir_ == north && it.second->getPosition().y <= position_.y)
+			{
+				it.second->interact();
+				break;
+			}
+			else if (dir_ == west && it.second->getPosition().x <= position_.x)
+			{
+				it.second->interact();
+				break;
+			}
+			else if (dir_ == east && it.second->getPosition().x >= position_.x)
+			{
+				it.second->interact();
+				break;
+			}
+			else if (dir_ == south && it.second->getPosition().y >= position_.y)
+			{
+				it.second->interact();
+				break;
+			}
+			else
+			{
+			}
 		}
 	}
 }
@@ -192,6 +233,7 @@ void Player::render(GameWindow & window)
 
 void Player::die()
 {
+	gamePointer_->getApp()->getSoundHandler().stopMusic(worldPointer_->getMusic());
 	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp()));
 }
 
