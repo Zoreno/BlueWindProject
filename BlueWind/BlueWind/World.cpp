@@ -229,8 +229,17 @@ int World::getIntFromColor(sf::Color color)
 		return 8;
 	case 0xFF7F00FF: //Stubbe
 		return 9;
-	case 0xFFFFFFFF : //is
+	case 0x00FFFFFF : //is
 		return 10;
+	case 0xFFFF00FF : //snowTree
+		return 23;
+	case 0xFF006EFF: //cactus
+		return 24;
+	case 0xFF6A00FF: //sand
+		return 25;
+	case 0x404040FF: //palmtree
+		return 26;
+
 	default:
 		cout << "Fel färg!" << endl;
 		return -1;

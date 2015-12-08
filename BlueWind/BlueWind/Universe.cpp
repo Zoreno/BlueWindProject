@@ -109,15 +109,20 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(8, new Tile(gamePointer_->getTexture("water"), false));
 	tileAtlas_.emplace(9, new Tile(gamePointer_->getTexture("stump"), true));
 	tileAtlas_.emplace(10, new Tile(gamePointer_->getTexture("snow"), true));
+	tileAtlas_.emplace(23, new Tile(gamePointer_->getTexture("snowTree"), false));
+	tileAtlas_.emplace(24, new Tile(gamePointer_->getTexture("cactus"), false));
+	tileAtlas_.emplace(25, new Tile(gamePointer_->getTexture("sand"), true));
+	tileAtlas_.emplace(26, new Tile(gamePointer_->getTexture("palmtree"), false));
 	cout << "Laddning av tiles klart" << endl;
 }
 
 void Universe::loadWorlds()
 {
 	cout << "Laddar in världar" << endl;
-	worlds_.push_back(new World(0, this, "res/worlds/world1.bmp", "world0Music"));
-	worlds_.push_back(new World(1, this, "res/worlds/world2.bmp", "world1Music"));
-	worlds_.push_back(new World(2, this, "res/worlds/world3.bmp", "world2Music"));
+	worlds_.push_back(new World(0, this, "res/worlds/world0.bmp", "world0Music"));
+	worlds_.push_back(new World(1, this, "res/worlds/world1.bmp", "world1Music"));
+	worlds_.push_back(new World(2, this, "res/worlds/world2.bmp", "world2Music"));
+	worlds_.push_back(new World(3, this, "res/worlds/world3.bmp", "world3Music"));
 
 	cout << "Laddning av världar klart" << endl;
 
@@ -131,15 +136,17 @@ void Universe::populateWorlds()
 	void JamesClerkInteract(NPC*);
 
 	void treeInteract(NPC*);
+	void World0_World1Interact(World*);
+	void World1_World0Interact(World*);
 	void World1_World2Interact(World*);
 	void World2_World1Interact(World*);
-	//void World2_World3Interact(World*);
-
+	void World2_World3Interact(World*);
+	void World3_World2Interact(World*);
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
 
-	//-----------------WORLD 1------------------------------------
+	//-----------------WORLD 0------------------------------------
 	//NPC
 	addNPC(0, new NPC(1, 100, 10, 0, "Bridge Guard", sf::Vector2f(42 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", BridgeGuardInteract));
 	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
@@ -166,13 +173,21 @@ void Universe::populateWorlds()
 	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(36 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy3")));
 
 	//Sensorer
-	addSensor(0, new Sensor(0, "World1_World2", sf::Vector2f(66 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("enemy")));
+	addSensor(0, new Sensor(0, "World0_World1", sf::Vector2f(66 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), World0_World1Interact, gamePointer_->getTexture("enemy")));
 
 
-	//----------------------------WORLD 2-------------------------
+	//----------------------------WORLD 1-------------------------
 	addNPC(1, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(30 * Tile::TILESIZE, 20 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
-	addSensor(1, new Sensor(0, "World2_World1", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World2_World1Interact, gamePointer_->getTexture("enemy")));
-	//addSensor(1, new Sensor(0, "World2_World1", sf::Vector2f( 63* Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World2_World3Interact, gamePointer_->getTexture("enemy")));
+	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("enemy")));
+	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(59 * Tile::TILESIZE, 11 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
+
+	//----------------------------WORLD2--------------------------
+	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f( 42* Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
+	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(58 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
+
+	//----------------------------WORLD3--------------------------
+	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(10 * Tile::TILESIZE, 8 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
+
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
@@ -254,17 +269,32 @@ void treeInteract(NPC* NPCPtr)
 }
 
 
-void World1_World2Interact(World* worldPtr)
+void World0_World1Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(1, 14 * Tile::TILESIZE, 14 * Tile::TILESIZE);
 }
 
-void World2_World1Interact(World* worldPtr)
+void World1_World0Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(0, 65 * Tile::TILESIZE, 13 * Tile::TILESIZE);
 }
 
-//void World2_World3Interact(World* worldPtr)
-//{
-//	worldPtr->getUniverse()->switchWorld(2, 14 * Tile::TILESIZE, 14 * Tile::TILESIZE);
-//}
+void World1_World2Interact(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(2, 42 * Tile::TILESIZE, 45 * Tile::TILESIZE);
+}
+
+void World2_World1Interact(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(1, 59 * Tile::TILESIZE, 12 * Tile::TILESIZE);
+}
+
+void World2_World3Interact(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(3, 10 * Tile::TILESIZE, 16 * Tile::TILESIZE);
+}
+
+void World3_World2Interact(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(2, 32 * Tile::TILESIZE, 3 * Tile::TILESIZE);
+}

@@ -20,6 +20,7 @@ TextureHandler::TextureHandler()
 	loadTexture("mountainGrass", "res/textures/mountainGrass.png");
 	loadTexture("water", "res/textures/water.png");
 	loadTexture("snow", "res/textures/snow.png");
+	loadTexture("snowTree", "res/textures/snowTree.png");
 	loadTexture("stump", "res/textures/stump.png");
 	loadTexture("player", "res/textures/PLAYER2.png");
 	loadTexture("enemy", "res/textures/enemy7.png"); 
@@ -27,6 +28,9 @@ TextureHandler::TextureHandler()
 	loadTexture("enemy1", "res/textures/enemy1.png"); 
 	loadTexture("enemy2", "res/textures/enemy2.png");
 	loadTexture("enemy3", "res/textures/enemy3.png");
+	loadTexture("sand", "res/textures/sand.png");
+	loadTexture("palmtree", "res/textures/palmtree.png");
+	loadTexture("cactus", "res/textures/cactus.png");
 
 	loadTexture("NPC1", "res/textures/NPC1.png");
 	loadTexture("NPC2", "res/textures/NPC2.png");
