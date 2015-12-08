@@ -66,5 +66,6 @@ void GameWon::render(GameWindow & window)
 void mainMenuCallback(Application* ptr)
 {
 	ptr->getSoundHandler().stopMusic("gameWonMusic");
+	ptr->getSoundHandler().playMusic("menuMusic");
 	ptr->setNextFrame(new Menu(ptr));
 }

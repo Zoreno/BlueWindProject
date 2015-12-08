@@ -66,6 +66,7 @@ void GameOver::render(GameWindow & window)
 void menuCallback(Application* ptr)
 {
 	ptr->getSoundHandler().stopMusic("gameOverMusic");
+	ptr->getSoundHandler().playMusic("menuMusic");
 	ptr->setNextFrame(new Menu(ptr));
 }
 
