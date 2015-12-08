@@ -10,9 +10,13 @@ Menu::Menu(Application * appPtr)
 	void newGameCallback(Application*);
 	void loadGameCallback(Application*);
 	void quitCallback(Application*);
+	void helpCallback(Application*);
+	void creditsCallback(Application*);
 	addButton(sf::Vector2f(400-175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
 	addButton(sf::Vector2f(400 - 175, 275), sf::Vector2f(350, 100), "res/textures/loadgameButton.png", "res/textures/loadgameButtonHover.png", loadGameCallback);
 	addButton(sf::Vector2f(400 - 175, 400), sf::Vector2f(350, 100), "res/textures/quitButton.png", "res/textures/quitButtonHover.png", quitCallback);
+	addButton(sf::Vector2f(800 - 155, 600 - 65), sf::Vector2f(130, 50), "res/textures/helpButton.png", "res/textures/helpButtonHover.png", helpCallback);
+	addButton(sf::Vector2f(25, 600 - 65), sf::Vector2f(130, 50), "res/textures/creditsButton.png", "res/textures/creditsButtonHover.png", creditsCallback);
 	appPtr->getSoundHandler().playMusic("menuMusic");
 }
 
@@ -80,5 +84,15 @@ void loadGameCallback(Application* ptr)
 void quitCallback(Application* ptr)
 {
 	ptr->getGameWindow().close();
+}
+
+void helpCallback(Application* ptr)
+{
+	ptr->getGameWindow().close(); // TODO Byt!
+}
+
+void creditsCallback(Application* ptr)
+{
+	ptr->getGameWindow().close(); // TODO Byt!
 }
 
