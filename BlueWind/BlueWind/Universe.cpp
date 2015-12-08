@@ -138,7 +138,7 @@ void Universe::loadWorlds()
 	worlds_.push_back(new World(1, this, "res/worlds/world1.bmp", "world1Music"));
 	worlds_.push_back(new World(2, this, "res/worlds/world2.bmp", "world2Music"));
 	worlds_.push_back(new World(3, this, "res/worlds/world3.bmp", "world3Music"));
-	worlds_.push_back(new World(4, this, "res/worlds/world4.bmp", "world3Music"));
+	worlds_.push_back(new World(4, this, "res/worlds/world4.bmp", "world4Music"));
 
 	cout << "Laddning av världar klart" << endl;
 
