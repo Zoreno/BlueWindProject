@@ -165,7 +165,7 @@ void Universe::populateWorlds()
 
 	//-----------------WORLD 0------------------------------------
 	//NPC
-	addNPC(0, new NPC(1, 100, 10, 0, "Bridge Guard", sf::Vector2f(42 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Here comes the dirac train!", BridgeGuardInteract));
+	addNPC(0, new NPC(1, 100, 10, 0, "Bridge Guard", sf::Vector2f(42 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "", BridgeGuardInteract));
 	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
 	
 	//Träd
@@ -246,15 +246,35 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 void BridgeGuardInteract(NPC* NPCPtr)
 {
 	int startposition{ 13 * NPCPtr->getWorld()->getMapWidth() + 40 };
+	int bridgeLength{ 0 };
 
 	while (NPCPtr->getWorld()->getTileVector().at(startposition) == 2)
+	{
 		++startposition;
+		++bridgeLength;
+	}
 
 	while (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(0))
 	{
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(0);
 		NPCPtr->getWorld()->changeTile(startposition, 2);
 		++startposition;
+		++bridgeLength;
+	}
+
+	switch (bridgeLength)
+	{
+	case 0:
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Bring me some wood and I could perhaps, possibly, but most likely not, help build you a bridge!");
+		break;
+	case 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 ||10 || 11: // TODO Hur använder man olikheter här istället?
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I still need some more wood in order to finish the bridge!");
+		break;
+	case 12:
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("The bridge is finished!");
+		break;
+	default:
+		break;
 	}
 }
 
