@@ -76,7 +76,6 @@ void Universe::setCurrentWorld(int ID)
 
 void Universe::switchWorld(int ID, int x, int y)
 {
-	gamePointer_->getApp()->getSoundHandler().stopMusic(currentWorld_->getMusic());
 	setCurrentWorld(ID);
 	gamePointer_->getPlayer()->teleport(x, y);
 	gamePointer_->getPlayer()->setCurrentWorld(currentWorld_);
@@ -282,7 +281,6 @@ void BridgeGuardInteract(NPC* NPCPtr)
 void ErwinInteract(NPC* NPCPtr)
 {
 	Application* AppPtr{ NPCPtr->getWorld()->getUniverse()->getGame()->getApp() };
-	AppPtr->getSoundHandler().stopMusic(NPCPtr->getWorld()->getMusic());
 	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
