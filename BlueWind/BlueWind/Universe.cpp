@@ -200,11 +200,11 @@ void Universe::populateWorlds()
 	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(52 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
 
 	//----------------------------WORLD3--------------------------
-	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(10 * Tile::TILESIZE, 8 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
-	addSensor(3, new Sensor(1, "World3_World2", sf::Vector2f(53 * Tile::TILESIZE, 35 * Tile::TILESIZE), getWorld(3), World3_World4Interact, gamePointer_->getTexture("enemy")));
+	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
+	addSensor(3, new Sensor(1, "World3_World4", sf::Vector2f(51 * Tile::TILESIZE, 34 * Tile::TILESIZE), getWorld(3), World3_World4Interact, gamePointer_->getTexture("enemy")));
 
 	//----------------------------WORLD4--------------------------
-	addSensor(4, new Sensor(0, "World3_World2", sf::Vector2f(8 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), World4_World3Interact, gamePointer_->getTexture("enemy")));
+	addSensor(4, new Sensor(0, "World4_World3", sf::Vector2f(14 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), World4_World3Interact, gamePointer_->getTexture("enemy")));
 	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(49 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
 }
 
@@ -308,7 +308,7 @@ void World2_World1Interact(World* worldPtr)
 
 void World2_World3Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(3, 10 * Tile::TILESIZE, 16 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(3, 14 * Tile::TILESIZE, 17 * Tile::TILESIZE);
 }
 
 void World3_World2Interact(World* worldPtr)
@@ -318,10 +318,10 @@ void World3_World2Interact(World* worldPtr)
 
 void World3_World4Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(4, 11 * Tile::TILESIZE, 37 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(4, 14 * Tile::TILESIZE, 38 * Tile::TILESIZE);
 }
 
 void World4_World3Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(3, 49 * Tile::TILESIZE, 35 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(3, 50 * Tile::TILESIZE, 34 * Tile::TILESIZE);
 }
