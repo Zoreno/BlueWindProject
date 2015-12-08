@@ -233,7 +233,6 @@ void Player::render(GameWindow & window)
 
 void Player::die()
 {
-	gamePointer_->getApp()->getSoundHandler().stopMusic(worldPointer_->getMusic());
 	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp()));
 }
 

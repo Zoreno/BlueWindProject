@@ -25,6 +25,7 @@ private:
 	STATES state_{ IDLE };
 
 	int attackCooldown_{ 0 };
+	int resetTimer_{ 0 };
 	sf::Sprite sprite_;
 
 	void updateState();

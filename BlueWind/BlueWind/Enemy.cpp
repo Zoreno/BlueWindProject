@@ -89,14 +89,25 @@ void Enemy::executeState()
 	const sf::Vector2f playerPos = worldPointer_->getUniverse()->getGame()->getPlayer()->getPosition();
 	sf::Vector2f returnVector;
 	sf::Vector2f toPlayerVector;
+	sf::Vector2f toStartVector;
 	switch (state_)
 	{
 	case IDLE:
+		resetTimer_ = 0;
 		break;
 	case RESET:
 		health_ = maxHealth_;
-		teleport(static_cast<int>(startPosition_.x), static_cast<int>(startPosition_.y));
-		break;
+		if (resetTimer_ >= 300)
+		{
+			teleport(static_cast<int>(startPosition_.x), static_cast<int>(startPosition_.y));
+		}
+		else
+		{
+			resetTimer_++;
+			toStartVector = normalize(startPosition_ - position_);
+			move(static_cast<int>(2*toStartVector.x), static_cast<int>(2*toStartVector.y));
+		}
+			break;
 	case ATTACK:
 		attackPlayer();
 		break;

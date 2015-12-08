@@ -1,8 +1,9 @@
 #include "Game.h"
-#include <iostream>
+#include "Application.h"
 #include "Universe.h"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -13,10 +14,13 @@ Game::Game(Application * appPtr, bool loadSave)
 	ui_{&player_}
 {
 	cout << "Game startas!" << endl;
+	
 	if (loadSave)
 	{
 		loadGame();
 	}
+	else
+		appPtr->getSoundHandler().playMusic("world0Music");
 }
 
 void Game::update()

@@ -44,13 +44,22 @@ void SoundHandler::playSound(const std::string& soundName)
 
 void SoundHandler::playMusic(const std::string& musicName)
 {
-	music_.find(musicName)->second->play();
-	music_.find(musicName)->second->setLoop(true);
+	if (currentMusic_ != musicName)
+	{
+		stopMusic();
+		music_.find(musicName)->second->play();
+		music_.find(musicName)->second->setLoop(true);
+		currentMusic_ = musicName;
+	}
 }
 
-void SoundHandler::stopMusic(const std::string& musicName)
+void SoundHandler::stopMusic()
 {
-	music_.find(musicName)->second->stop();
+	for (auto it : music_)
+	{
+		it.second->stop();
+	}
+	
 }
 
 void SoundHandler::loadSound(const std::string& soundName, const std::string& fileName)
