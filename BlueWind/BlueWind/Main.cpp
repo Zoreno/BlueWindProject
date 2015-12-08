@@ -26,11 +26,21 @@
 #include <iostream>
 #include "Application.h"
 
+using namespace std;
+
 int main()
 {
-	Application app;
+	try
+	{
+		Application app;
+		app.run();
+	}
+	catch (const exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+	
 
-	app.run();
 	return 0;
 }
 

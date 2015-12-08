@@ -7,8 +7,15 @@
 #include "Enemy.h"
 #include "NPC.h"
 #include "Sensor.h"
+#include <stdexcept>
 
 class Game;
+
+class UniverseException : public std::logic_error
+{
+public:
+	using std::logic_error::logic_error;
+};
 
 class Universe
 {
@@ -27,8 +34,7 @@ public:
 
 	void switchWorld(int, int, int);
 
-	//TODO returnera pekare istället för att kopiera.
-	Tile getTile(int);
+	Tile& getTile(int);
 
 	Game* getGame() const;
 

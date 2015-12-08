@@ -12,7 +12,8 @@ public:
 	Input() = delete;
 	Input& operator=(const Input&) = delete;
 	
-	std::map<char, bool> pressedButtons_; // TODO lägg private och skapa en get-funtkion
+	bool isPressed(char) const;
+	
 	void update();
 
 	void keyPressed(sf::Event);
@@ -20,4 +21,5 @@ public:
 
 private:
 	Application* appPointer_;
+	std::map<char, bool> pressedButtons_;
 };

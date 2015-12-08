@@ -20,6 +20,8 @@ TextureHandler::TextureHandler()
 	loadTexture("mountainGrass", "res/textures/mountainGrass.png");
 	loadTexture("water", "res/textures/water.png");
 	loadTexture("snow", "res/textures/snow.png");
+	loadTexture("snowTree", "res/textures/snowTree.png");
+
 	loadTexture("grassStump", "res/textures/grassStump.png");
 	loadTexture("player", "res/textures/player.png");
 	loadTexture("enemy", "res/textures/enemy7.png"); 
@@ -27,6 +29,9 @@ TextureHandler::TextureHandler()
 	loadTexture("enemy1", "res/textures/enemy1.png"); 
 	loadTexture("enemy2", "res/textures/enemy2.png");
 	loadTexture("enemy3", "res/textures/enemy3.png");
+	loadTexture("sand", "res/textures/sand.png");
+	loadTexture("palmtree", "res/textures/palmtree.png");
+	loadTexture("cactus", "res/textures/cactus.png");
 
 	loadTexture("NPC1", "res/textures/NPC1.png");
 	loadTexture("NPC2", "res/textures/NPC2.png");
@@ -74,8 +79,7 @@ void TextureHandler::loadTexture(const std::string& texName, const std::string& 
 	sf::Texture* tex = new sf::Texture;
 	if (!tex->loadFromFile(fileName))
 	{
-		//TODO lägg till ex
-		cout << "Kan inte ladda textur: " + texName << endl;
+		throw TextureException("Kunde inte ladda in textur från fil:" + fileName);
 	}
 	textures_.emplace(texName, tex);
 }

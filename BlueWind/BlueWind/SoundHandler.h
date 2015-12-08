@@ -3,9 +3,16 @@
 #include <map>
 #include <string>
 #include <SFML/Audio.hpp>
+#include <stdexcept>
 
 using soundTable = std::map<const std::string, sf::SoundBuffer*>;
 using musicTable = std::map<const std::string, sf::Music*>;
+
+class SoundException : public std::logic_error
+{
+public:
+	using std::logic_error::logic_error;
+};
 
 class SoundHandler
 {

@@ -51,10 +51,9 @@ void Menu::update()
 
 void Menu::render(GameWindow & window)
 {
-	//TODO Kan göras i konstruktorn
 	sf::Texture bTexture;
 	if (!bTexture.loadFromFile("res/textures/Menu.png"))
-		cout << "Could not load menu" << endl;
+		throw FrameException("Kunde inte läsa in bild för Menu: res/textures/Menu.png");
 
 	background_.setTexture(bTexture);
 	window.draw(background_);

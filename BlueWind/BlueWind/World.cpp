@@ -35,8 +35,6 @@ World::~World()
 	}
 }
 
-
-
 void World::update()
 {
 	for (auto it : enemyVector_)
@@ -98,7 +96,7 @@ void World::loadWorld(std::string mapFile)
 	sf::Image image;
 	if (!image.loadFromFile(mapFile))
 	{
-		//TODO Kasta exception
+		throw WorldException("Kunde inte läsa världsfil:" + mapFile);
 	}
 
 	mapWidth = image.getSize().x;
@@ -149,8 +147,7 @@ void World::changeTile(int pos, int value)
 {
 	if (pos < 0)
 	{
-		return;
-		//TODO Kanske exception.
+		throw WorldException("Position för tile måste vara större än 0, du angav:" + pos);
 	}
 	
 	if (!(static_cast<unsigned int>(pos) > tileVector_.size()))
@@ -253,8 +250,17 @@ int World::getIntFromColor(sf::Color color)
 		return 20;
 	case 0xFF7F00FF: //Stubbe
 		return 21;
-	case 0xFFFFFFFF : //is
+	case 0x00FFFFFF: //snow
 		return 22;
+	case 0xFFFF00FF : //snowTree
+		return 23;
+	case 0xFF006EFF: //cactus
+		return 24;
+	case 0xFF6A00FF: //sand
+		return 25;
+	case 0x404040FF: //palmtree
+		return 26;
+
 	default:
 		cout << "Fel färg!" << endl;
 		return -1;
@@ -266,24 +272,33 @@ void World::updateLists()
 	for (auto iter : removeEnemyVector_)
 	{
 		auto it = enemyVector_.find(iter);
+		if (it != enemyVector_.end())
+		{
 		delete (it->second);
 		enemyVector_.erase(it);
+	}
 	}
 	removeEnemyVector_.clear();
 
 	for (auto iter : removeNPCVector_)
 	{
 		auto it = NPCVector_.find(iter);
+		if (it != NPCVector_.end())
+		{
 		delete (it->second);
 		NPCVector_.erase(it);
+	}
 	}
 	removeNPCVector_.clear();
 
 	for (auto iter : removeSensorVector_)
 	{
 		auto it = sensorVector_.find(iter);
+		if (it != sensorVector_.end())
+		{
 		delete (it->second);
 		sensorVector_.erase(it);
+	}
 	}
 	removeSensorVector_.clear();
 	

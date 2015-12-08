@@ -10,9 +10,9 @@ FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f siz
 	callback_{callbackFunc}
 {
 	if (!normalTexture.loadFromFile(normalFile))
-		cout << "Could not load" << normalFile << endl;
+		throw FrameButtonException("Kunde inte läsa in textur för knapp från fil:" + normalFile);
 	if (!hoverTexture.loadFromFile(hoverFile))
-		cout << "Could not load" << hoverFile << endl;
+		throw FrameButtonException("Kunde inte läsa in textur för knapp från fil:" + hoverFile);
 }
 
 sf::Vector2f FrameButton::getPosition() const

@@ -15,7 +15,6 @@ Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Ve
 
 void Enemy::update()
 {
-	//cout << "Enemy uppdaterar" << endl;
 	updateState();
 	executeState();
 	anim_.update(animState_, dir_, walking_);
@@ -23,7 +22,6 @@ void Enemy::update()
 
 void Enemy::render(GameWindow & window)
 {
-	//cout << "Enemy render" << endl;
 	anim_.render(window);
 	sf::RectangleShape hpBar{ sf::Vector2f(32 * ((float)health_ / (float)maxHealth_), 8) };
 	hpBar.setPosition(position_ + sf::Vector2f(0, -8));
@@ -88,7 +86,6 @@ void Enemy::updateState()
 
 void Enemy::executeState()
 {
-	//TODO
 	const sf::Vector2f playerPos = worldPointer_->getUniverse()->getGame()->getPlayer()->getPosition();
 	sf::Vector2f returnVector;
 	sf::Vector2f toPlayerVector;
@@ -98,10 +95,6 @@ void Enemy::executeState()
 		break;
 	case RESET:
 		health_ = maxHealth_;
-		/*
-		returnVector = normalize(startPosition_ - position_);
-		move(returnVector.x, returnVector.y);
-		*/
 		teleport(static_cast<int>(startPosition_.x), static_cast<int>(startPosition_.y));
 		break;
 	case ATTACK:
