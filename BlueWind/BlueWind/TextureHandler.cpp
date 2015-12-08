@@ -33,6 +33,24 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC3", "res/textures/NPC3.png");
 	loadTexture("NPC4", "res/textures/NPC4.png");
 	loadTexture("NPC5", "res/textures/NPC5.png");
+
+	loadTexture("house00", "res/textures/house00.png");
+	loadTexture("house01", "res/textures/house01.png");
+	loadTexture("house02", "res/textures/house02.png");
+	loadTexture("house03", "res/textures/house03.png");
+	loadTexture("house10", "res/textures/house10.png");
+	loadTexture("house11", "res/textures/house11.png");
+	loadTexture("house12", "res/textures/house12.png");
+	loadTexture("house13", "res/textures/house13.png");
+	loadTexture("house20", "res/textures/house20.png");
+	loadTexture("house21", "res/textures/house21.png");
+	loadTexture("house22", "res/textures/house22.png");
+	loadTexture("house23", "res/textures/house23.png");
+	loadTexture("house30", "res/textures/house30.png");
+	loadTexture("house31", "res/textures/house31.png");
+	loadTexture("house32", "res/textures/house32.png");
+	loadTexture("house33", "res/textures/house33.png");
+
 	cout << "Laddar texturer klart" << endl;
 }
 
