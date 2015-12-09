@@ -59,9 +59,6 @@ void Game::handleKeyEvent(sf::Event event)
 	case sf::Keyboard::L:
 		ui_.addStringToChatBox("Hejsan.!");
 		break;
-	case sf::Keyboard::E:
-		saveGame();
-		break;
 	case sf::Keyboard::F:
 		player_.getInventory()->addItem(0);
 		cout << player_.getInventory()->toString() << endl;
