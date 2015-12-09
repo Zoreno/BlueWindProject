@@ -204,6 +204,7 @@ void Universe::populateWorlds()
 	//----------------------------WORLD4--------------------------
 	
 	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(49 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
+	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(53 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
 
 	//Enemy
 	addEnemy(4, new Enemy(1, 300, 30, 0, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("enemy7")));
