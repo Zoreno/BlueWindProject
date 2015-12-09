@@ -24,7 +24,7 @@ void UIChatBox::render(GameWindow & window)
 {
 	sf::RectangleShape frame{ size_ };
 	frame.setPosition(position_);
-	frame.setFillColor(sf::Color{ 200,200,200,100 });
+	frame.setFillColor(sf::Color{ 200,200,200,150 });
 	frame.setOutlineColor(sf::Color{ 100,100,100,255 });
 	frame.setOutlineThickness(4.0f);
 	window.draw(frame);
