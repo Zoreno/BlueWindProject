@@ -30,6 +30,7 @@ TextureHandler::TextureHandler()
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
 	loadTexture("pickAxe", "res/textures/pickAxe.png");
 	loadTexture("energyRing", "res/textures/energyRing.png");
+	loadTexture("armour", "res/textures/armour.png");
 	loadTexture("sword", "res/textures/sword.png");
 
 	//Player
