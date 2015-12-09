@@ -149,6 +149,7 @@ void Universe::populateWorlds()
 	void BridgeGuardInteract(NPC*);
 	void ErwinInteract(NPC*);
 	void JamesClerkInteract(NPC*);
+	void CthuluInteract(NPC*);
 
 	void treeInteract(NPC*);
 	void World0_World1Interact(World*);
@@ -157,8 +158,6 @@ void Universe::populateWorlds()
 	void World2_World1Interact(World*);
 	void World2_World3Interact(World*);
 	void World3_World2Interact(World*);
-	void World3_World4Interact(World*);
-	void World4_World3Interact(World*);
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
@@ -196,15 +195,20 @@ void Universe::populateWorlds()
 
 	//----------------------------WORLD2--------------------------
 	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f(41* Tile::TILESIZE, 64 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
-	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(52 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
+	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(70 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
 
 	//----------------------------WORLD3--------------------------
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
-	addSensor(3, new Sensor(1, "World3_World4", sf::Vector2f(51 * Tile::TILESIZE, 34 * Tile::TILESIZE), getWorld(3), World3_World4Interact, gamePointer_->getTexture("enemy")));
+
+	//NPC
+	addNPC(3, new NPC(1, 100, 10, 1, "Cthulu", sf::Vector2f(58 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("NPC5"), "I AM CTHULU", CthuluInteract));
 
 	//----------------------------WORLD4--------------------------
-	addSensor(4, new Sensor(0, "World4_World3", sf::Vector2f(14 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), World4_World3Interact, gamePointer_->getTexture("enemy")));
+	
 	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(49 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
+
+	//Enemy
+	addEnemy(4, new Enemy(1, 300, 30, 0, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("enemy7")));
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
@@ -313,6 +317,10 @@ void treeInteract(NPC* NPCPtr)
 	}
 }
 
+void CthuluInteract(NPC* NPCPtr)
+{
+	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
+}
 
 void World0_World1Interact(World* worldPtr)
 {
@@ -336,20 +344,10 @@ void World2_World1Interact(World* worldPtr)
 
 void World2_World3Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(3, 14 * Tile::TILESIZE, 17 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(3, 13 * Tile::TILESIZE, 17 * Tile::TILESIZE);
 }
 
 void World3_World2Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(2, 51 * Tile::TILESIZE, 14 * Tile::TILESIZE);
-}
-
-void World3_World4Interact(World* worldPtr)
-{
-	worldPtr->getUniverse()->switchWorld(4, 14 * Tile::TILESIZE, 38 * Tile::TILESIZE);
-}
-
-void World4_World3Interact(World* worldPtr)
-{
-	worldPtr->getUniverse()->switchWorld(3, 50 * Tile::TILESIZE, 34 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(2, 69 * Tile::TILESIZE, 17 * Tile::TILESIZE);
 }
