@@ -25,6 +25,8 @@ TextureHandler::TextureHandler()
 	loadTexture("lava", "res/textures/lava.png");
 	loadTexture("burnedTree", "res/textures/burnedTree.png");
 	loadTexture("lavastone", "res/textures/lavastone.png");
+	loadTexture("grassBurnedTree", "res/textures/grassBurnedTree.png");
+
 
 	//Items
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
@@ -59,6 +61,8 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC6", "res/textures/NPC6.png");
 	loadTexture("NPC8", "res/textures/NPC8.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
+	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 
+
 
 	//House
 	loadTexture("house00", "res/textures/house00.png");

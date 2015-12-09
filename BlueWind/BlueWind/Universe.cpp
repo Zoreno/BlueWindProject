@@ -127,6 +127,7 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(100, new Tile(gamePointer_->getTexture("lava"), false));
 	tileAtlas_.emplace(101, new Tile(gamePointer_->getTexture("lavastone"), true));
 	tileAtlas_.emplace(102, new Tile(gamePointer_->getTexture("burnedTree"), false));
+	tileAtlas_.emplace(900, new Tile(gamePointer_->getTexture("grassBurnedTree"), false));
 	
 	cout << "Laddning av tiles klart" << endl;
 }
@@ -154,6 +155,8 @@ void Universe::populateWorlds()
 	void citizenInteract(NPC*);
 	void energyPowerupInteract(NPC*);
 	void snowChestInteract(NPC*);
+	void world5GuyInteract(NPC*);
+	void FirimaniumsInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -175,6 +178,7 @@ void Universe::populateWorlds()
 	void blueWindDeath(Enemy*);
 	void isgolathDeath(Enemy*);
 	void minotaurDeath(Enemy*);
+	void fireDeath(Enemy*); //
 
 	void voidFkn(NPC*);
 
@@ -203,7 +207,6 @@ void Universe::populateWorlds()
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
 	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(38 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
 	addEnemy(0, new Enemy(1, 100, 10, 3, "Pelle", sf::Vector2f(27 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
-	//addEnemy(0, new Enemy(1, 0, 10, 4, "Pelle", sf::Vector2f(15 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("fire"), defaultDeath));
 
 	//Sensorer
 	addSensor(0, new Sensor(0, "World0_World1", sf::Vector2f(66 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), World0_World1Interact, gamePointer_->getTexture("enemy")));
@@ -267,12 +270,18 @@ void Universe::populateWorlds()
 
     //------------------------WORLD5-----------------------------
 
-	// Sensorer
-	addSensor(5, new Sensor(0, "World5_World1", sf::Vector2f(47 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(5), World5_World1Interact, gamePointer_->getTexture("NPC")));
+	addSensor(5, new Sensor(0, "World5_World1", sf::Vector2f(31 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(5), World5_World1Interact, gamePointer_->getTexture("NPC")));
 
+	// Enemies
+	addEnemy(5, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(5, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(5, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(29 * Tile::TILESIZE, 52 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(5, new Enemy(1, 100, 10, 3, "Pelle", sf::Vector2f(20 * Tile::TILESIZE, 48 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(5, new Enemy(1, 100, 10, 4, "Pelle", sf::Vector2f(25 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("enemy4"), defaultDeath));
 
-
-
+	// NPC
+	addNPC(5, new NPC(1, 100, 10, 0, "Guy", sf::Vector2f(25 * Tile::TILESIZE, 48 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("NPC8"), "", world5GuyInteract));
+	addNPC(5, new NPC(1, 100, 10, 1, "Firimaniums", sf::Vector2f(18 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("Firimaniums"), "", FirimaniumsInteract));
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
@@ -350,7 +359,7 @@ void BridgeGuardInteract(NPC* NPCPtr)
 
 void voidFkn(NPC*)
 {
-	;
+
 }
 
 void treeInteract(NPC* NPCPtr) 
@@ -421,7 +430,7 @@ void World1_World2Interact(World* worldPtr)
 
 void World1_World5Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(5, 47 * Tile::TILESIZE, 13 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(5, 31 * Tile::TILESIZE, 13 * Tile::TILESIZE);
 }
 
 void World5_World1Interact(World* worldPtr)
@@ -532,6 +541,11 @@ void blueWindDeath(Enemy* enemyPtr)
 	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
+void fireDeath(Enemy* enemyPtr)
+{
+
+}
+
 void energyPowerupInteract(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
@@ -568,4 +582,50 @@ void snowChestInteract(NPC* NPCPtr)
 	{
 		UI->addStringToChatBox("The chest is empty.");
 	}
+}
+
+void world5GuyInteract(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+
+	if (!(NPCPtr->getWorld()->getTileVector().at(51 * NPCPtr->getWorld()->getMapWidth() + 26) == 900))
+	{
+		UI->addStringToChatBox("The wizard gave me a fireball,");
+		UI->addStringToChatBox("look what I can do!");
+
+		NPCPtr->getWorld()->changeTile(51 * NPCPtr->getWorld()->getMapWidth() + 26, 900);
+		NPCPtr->getWorld()->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 5, "Pelle", sf::Vector2f(26 * Tile::TILESIZE, 51 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(5), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		NPCPtr->getWorld()->changeTile(48 * NPCPtr->getWorld()->getMapWidth() + 27, 900);
+		NPCPtr->getWorld()->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 6, "Pelle", sf::Vector2f(27 * Tile::TILESIZE, 48 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(5), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		NPCPtr->getWorld()->changeTile(49 * NPCPtr->getWorld()->getMapWidth() + 27, 900);
+		NPCPtr->getWorld()->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 7, "Pelle", sf::Vector2f(27 * Tile::TILESIZE, 49 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(5), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		NPCPtr->getWorld()->changeTile(50 * NPCPtr->getWorld()->getMapWidth() + 27, 900);
+		NPCPtr->getWorld()->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 8, "Pelle", sf::Vector2f(27 * Tile::TILESIZE, 50 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(5), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		NPCPtr->getWorld()->changeTile(50 * NPCPtr->getWorld()->getMapWidth() + 28, 900);
+		NPCPtr->getWorld()->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 9, "Pelle", sf::Vector2f(28 * Tile::TILESIZE, 50 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(5), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		NPCPtr->getWorld()->changeTile(51 * NPCPtr->getWorld()->getMapWidth() + 28, 900);
+		NPCPtr->getWorld()->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 10, "Pelle", sf::Vector2f(28 * Tile::TILESIZE, 51 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(5), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+
+		UI->addStringToChatBox("Woops, I guess you must be careful!");
+	}
+	else
+		UI->addStringToChatBox("Be careful!");	
+}
+
+// TODO Fixa rätt funtkion!
+void FirimaniumsInteract(NPC* NPCPtr)
+{
+	/*UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
+	if (!inv->isFull() && !inv->hasItem(4))
+	{
+		inv->addItem(4);
+		Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
+		player->setDamage(player->getDamage() + 10);
+		UI->addStringToChatBox("You find a sword in the chest.");
+	}
+	else
+	{
+		UI->addStringToChatBox("The chest is empty.");
+	}*/
 }

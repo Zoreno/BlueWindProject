@@ -266,6 +266,8 @@ int World::getIntFromColor(sf::Color color)
 		return 101;
 	case 0x7F3300FF: //burnedTree
 		return 102;
+	case 0x7F1C00FF: //burnedTree
+		return 900;
 
 	default:
 		cout << "Fel färg!" << endl;
