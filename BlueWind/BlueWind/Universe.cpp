@@ -251,6 +251,7 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 
 void BridgeGuardInteract(NPC* NPCPtr)
 {
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	int startposition{ 13 * NPCPtr->getWorld()->getMapWidth() + 40 };
 	int bridgeLength{ 0 };
 
@@ -268,28 +269,21 @@ void BridgeGuardInteract(NPC* NPCPtr)
 		++bridgeLength;
 	}
 
-	switch (bridgeLength)
+	if (bridgeLength == 0)
 	{
-	case 0:
-		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Bring me some wood and I could perhaps, possibly, but most likely not, help build you a bridge!");
-		break;
-	case 1:
-	case 2:
-	case 3:
-	case 4:
-	case 5:
-	case 6:
-	case 7:
-	case 8:
-	case 9:
-		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I still need some more wood in order to finish the bridge!");
-		break;
-	case 10:
-		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("The bridge is finished!");
-		break;
-	default:
-		break;
+		UI->addStringToChatBox("Bring me some wood and I could");
+		UI->addStringToChatBox("help you repair the bridge!");
 	}
+
+	if (bridgeLength > 0 && bridgeLength < 10)
+	{
+		UI->addStringToChatBox("I still need some more wood in");
+		UI->addStringToChatBox("order to finish the bridge!");
+	}
+
+	if (bridgeLength >= 10)
+		UI->addStringToChatBox("The bridge is finished!");
+	
 }
 
 void ErwinInteract(NPC* NPCPtr)
