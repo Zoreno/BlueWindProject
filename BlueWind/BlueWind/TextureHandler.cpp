@@ -35,7 +35,9 @@ TextureHandler::TextureHandler()
 	loadTexture("enemy7", "res/textures/enemy7.png");
 	loadTexture("blueWind", "res/textures/blueWind.png");
 	loadTexture("wizzzard", "res/textures/figur5.png");
-	loadTexture("badAlloc", "res/textures/superMario.png");
+	loadTexture("blueWizard", "res/textures/blueWizard.png");
+	loadTexture("badAlloc", "res/textures/badAlloc.png");
+	loadTexture("snowWolf", "res/textures/snowWolf.png");
 
 
 	loadTexture("sand", "res/textures/sand.png");
