@@ -38,6 +38,10 @@ public:
 
 	Game* getGame() const;
 
+	void addEnemy(int, Enemy*);
+	void addNPC(int, NPC*);
+	void addSensor(int, Sensor*);
+
 private:
 	Game* gamePointer_;
 	World* currentWorld_;
@@ -49,7 +53,5 @@ private:
 	void populateWorlds();
 
 
-	void addEnemy(int, Enemy*);
-	void addNPC(int, NPC*);
-	void addSensor(int, Sensor*);
+	
 };

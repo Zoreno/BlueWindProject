@@ -25,6 +25,16 @@ void Animation::update(int state, int dir, bool walking)
 		attackCounter++;
 		return;
 	}
+	if (state == Entity::STATES::spell)
+	{
+		if (attackCounter % 15 == 14)
+		{
+			entityPtr_->animState_ = Entity::STATES::walking1;
+			attackCounter = 0;
+		}
+		attackCounter++;
+		return;
+	}
 	if (walking && (counter % 20) == 0)
 	{
 		switch (state)
@@ -44,7 +54,7 @@ void Animation::update(int state, int dir, bool walking)
 
 void Animation::render(GameWindow& window)
 {
-	sf::Rect<int> rect(32 * (animState + 3 * entityPtr_->dir_), 0, 32, 32);
+	sf::Rect<int> rect(32 * (animState + 4 * entityPtr_->dir_), 0, 32, 32);
 	currentSprite_.setTextureRect(rect);
 	currentSprite_.setPosition(entityPtr_->getPosition());
 	window.draw(currentSprite_);
