@@ -28,6 +28,8 @@ TextureHandler::TextureHandler()
 	//Items
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
 	loadTexture("pickAxe", "res/textures/pickAxe.png");
+	loadTexture("energyRing", "res/textures/energyRing.png");
+	loadTexture("armour", "res/textures/armour.png");
 
 	//Player
 	loadTexture("player", "res/textures/player.png");
@@ -73,7 +75,6 @@ TextureHandler::TextureHandler()
 	loadTexture("house32", "res/textures/house32.png");
 	loadTexture("house33", "res/textures/house33.png");
 
-	loadTexture("energyRing", "res/textures/energyRing.png");
 
 	cout << "Laddar texturer klart" << endl;
 }

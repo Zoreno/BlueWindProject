@@ -213,7 +213,7 @@ void Universe::populateWorlds()
 
 	addNPC(1, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("mountainGrass"), "", stoneInteract));
 
-	addEnemy(1, new Enemy(1, 10, 1, 2, "Pelle", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("enemy1"), minotaurDeath));
+	addEnemy(1, new Enemy(1, 100, 20, 2, "Minotaur", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("enemy1"), minotaurDeath));
 
 	addNPC(1, new NPC(1, 100, 10, 0, "Olle", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC5"), "Please save us from the minotaur!", voidFkn));
 
@@ -371,6 +371,8 @@ void stoneInteract(NPC* NPCPtr)
 		NPCPtr->die();
 		int startposition{ 12 * NPCPtr->getWorld()->getMapWidth() + 58 };
 		NPCPtr->getWorld()->changeTile(startposition, 0);
+		startposition = 65 * NPCPtr->getWorld()->getUniverse()->getWorld(2)->getMapWidth() + 41;
+		NPCPtr->getWorld()->getUniverse()->getWorld(2)->changeTile(startposition, 0);
 	}
 }
 
@@ -454,8 +456,27 @@ void saveGame(NPC* NPCPtr)
 
 void thankfulManInteract(NPC* NPCPtr)
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I give you my pickaxe!");
-	NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(1);
+	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
+	if (!inv->isFull() && !inv->hasItem(1))
+	{
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I give you my pickaxe!");
+		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(1);
+	}
+}
+
+void thankfulCitizen(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
+		
+	if (!inv->isFull() && !inv->hasItem(3))
+		{
+			UI->addStringToChatBox("Here you get an armour ");
+			UI->addStringToChatBox("to protect you!");
+			inv->addItem(3);
+			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
+			player->setMaxMana(player->getHealth() + 10);
+		}
 }
 
 void minotaurDeath(Enemy* enemyPtr)
@@ -472,7 +493,7 @@ void minotaurDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 7, "Citizen", sf::Vector2f(29 * Tile::TILESIZE, 45 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC2"), "", citizenInteract));
 	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC6"), "Thank you for saving us!", thankfulManInteract));
 	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 9, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("saveNPC"), "", saveGame));
-
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC6"), "Thank you for saving us!", thankfulCitizen));
 }
 void isgolathDeath(Enemy* enemyPtr)
 {
