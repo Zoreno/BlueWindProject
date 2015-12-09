@@ -154,6 +154,8 @@ void Universe::populateWorlds()
 	void saveGame(NPC*);
 
 	void treeInteract(NPC*);
+	void stoneInteract(NPC*);
+
 	void World0_World1Interact(World*);
 	void World1_World0Interact(World*);
 	void World1_World2Interact(World*);
@@ -200,6 +202,8 @@ void Universe::populateWorlds()
 	//----------------------------WORLD 1-------------------------
 	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("enemy")));
 	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(58 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
+
+	addNPC(1, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("mountainGrass"), "", stoneInteract));
 
 	addEnemy(1, new Enemy(1, 10, 1, 2, "Pelle", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("enemy1"), minotaurDeath));
 
@@ -343,6 +347,16 @@ void treeInteract(NPC* NPCPtr)
 	}
 }
 
+void stoneInteract(NPC* NPCPtr)
+{
+	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(1))
+	{
+		NPCPtr->die();
+		int startposition{ 12 * NPCPtr->getWorld()->getMapWidth() + 58 };
+		NPCPtr->getWorld()->changeTile(startposition, 0);
+	}
+}
+
 void CthuluInteract(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
@@ -411,6 +425,12 @@ void saveGame(NPC* NPCPtr)
 	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Game saved!");
 }
 
+void thankfulManInteract(NPC* NPCPtr)
+{
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I give you my pickaxe!");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(1);
+}
+
 void minotaurDeath(Enemy* enemyPtr)
 {
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(30);
@@ -423,8 +443,8 @@ void minotaurDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 5, "Citizen", sf::Vector2f(36 * Tile::TILESIZE, 47 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
 	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 6, "Citizen", sf::Vector2f(31 * Tile::TILESIZE, 30 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
 	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 7, "Citizen", sf::Vector2f(29 * Tile::TILESIZE, 45 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
-	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
-	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 8, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("saveNPC"), "", saveGame));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "", thankfulManInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 9, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("saveNPC"), "", saveGame));
 
 }
 void isgolathDeath(Enemy* enemyPtr)

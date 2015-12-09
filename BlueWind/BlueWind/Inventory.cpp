@@ -117,4 +117,5 @@ void Inventory::populateItemList()
 {
 	//							ID	Namn		Textur
 	allItems_.push_back(new Item{ 0,"Tree",gamePointer_->getTexture("grassTreeChoppable") });
+	allItems_.push_back(new Item{ 1,"pickAxe",gamePointer_->getTexture("pickAxe") });
 }

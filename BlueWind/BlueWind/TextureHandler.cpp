@@ -11,7 +11,11 @@ TextureHandler::TextureHandler()
 
 	loadTexture("grass", "res/textures/grass.png");
 	loadTexture("grassTree", "res/textures/grassTree.png");
+
+	//Items
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
+	loadTexture("pickAxe", "res/textures/pickAxe.png");
+
 	loadTexture("bridge", "res/textures/bridge.png");
 	loadTexture("house00", "res/textures/house00.png");
 	loadTexture("house10", "res/textures/house10.png");
