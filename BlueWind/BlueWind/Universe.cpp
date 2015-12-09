@@ -138,6 +138,7 @@ void Universe::loadWorlds()
 	worlds_.push_back(new World(2, this, "res/worlds/world2.bmp", "world2Music"));
 	worlds_.push_back(new World(3, this, "res/worlds/world3.bmp", "world3Music"));
 	worlds_.push_back(new World(4, this, "res/worlds/world4.bmp", "world4Music"));
+	worlds_.push_back(new World(5, this, "res/worlds/world5.bmp", "world1Music"));
 
 	cout << "Laddning av världar klart" << endl;
 
@@ -160,6 +161,9 @@ void Universe::populateWorlds()
 	void World2_World1Interact(World*);
 	void World2_World3Interact(World*);
 	void World3_World2Interact(World*);
+
+	void World1_World5Interact(World*);
+	void World5_World1Interact(World*);
 
 	void defaultDeath(Enemy*);
 	void badAllocDeath(Enemy*);
@@ -200,6 +204,7 @@ void Universe::populateWorlds()
 	//----------------------------WORLD 1-------------------------
 	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("enemy")));
 	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(58 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
+	addSensor(1, new Sensor(2, "World1_World5", sf::Vector2f(56 * Tile::TILESIZE, 54 * Tile::TILESIZE), getWorld(1), World1_World5Interact, gamePointer_->getTexture("NPC")));
 
 	addEnemy(1, new Enemy(1, 10, 1, 2, "Pelle", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("enemy1"), minotaurDeath));
 
@@ -249,6 +254,15 @@ void Universe::populateWorlds()
 	addEnemy(4, new Enemy(1, 150, 30, 6, "Wizzzard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 300, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
 	addEnemy(4, new Enemy(10, 300, 50, 3, "BlueWind", sf::Vector2f(46 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
+
+    //------------------------WORLD5-----------------------------
+
+	// Sensorer
+	addSensor(5, new Sensor(0, "World5_World1", sf::Vector2f(47 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(5), World5_World1Interact, gamePointer_->getTexture("NPC")));
+
+
+
+
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
@@ -381,6 +395,16 @@ void World1_World0Interact(World* worldPtr)
 void World1_World2Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(2, 41 * Tile::TILESIZE, 63 * Tile::TILESIZE);
+}
+
+void World1_World5Interact(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(5, 47 * Tile::TILESIZE, 13 * Tile::TILESIZE);
+}
+
+void World5_World1Interact(World* worldPtr)
+{
+	worldPtr->getUniverse()->switchWorld(1, 56 * Tile::TILESIZE, 53 * Tile::TILESIZE);
 }
 
 void World2_World1Interact(World* worldPtr)
