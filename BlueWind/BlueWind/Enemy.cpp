@@ -6,8 +6,8 @@
 
 using namespace std;
 
-Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture)
-	: Entity(level,health,damage,ID,name,position,worldPtr, texture), startPosition_{position}
+Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, std::function<void(Enemy*)> callbackFunc)
+	: Entity(level,health,damage,ID,name,position,worldPtr, texture), startPosition_{position}, callback_{ callbackFunc }
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite_.setTexture(texture);
@@ -29,11 +29,16 @@ void Enemy::render(GameWindow & window)
 	window.draw(hpBar);
 }
 
+//void Enemy::die()
+//{
+//	cout << "Enemy died!" << endl;
+//	worldPointer_->getUniverse()->getGame()->getPlayer()->addExperience(20);
+//	worldPointer_->removeEnemy(this);
+//}
+
 void Enemy::die()
 {
-	cout << "Enemy died!" << endl;
-	worldPointer_->getUniverse()->getGame()->getPlayer()->addExperience(20);
-	worldPointer_->removeEnemy(this);
+	callback_(this);
 }
 
 void Enemy::updateState()

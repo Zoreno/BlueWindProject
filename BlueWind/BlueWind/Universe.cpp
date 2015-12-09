@@ -159,6 +159,9 @@ void Universe::populateWorlds()
 	void World2_World3Interact(World*);
 	void World3_World2Interact(World*);
 
+	void defaultDeath(Enemy*);
+	void badAllocDeath(Enemy*);
+
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
 
@@ -182,9 +185,9 @@ void Universe::populateWorlds()
 	addNPC(0, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
 	
 	//Enemies
-	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(22 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4")));
-	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4")));
-	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(38 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4")));
+	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(22 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(38 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
 
 	//Sensorer
 	addSensor(0, new Sensor(0, "World0_World1", sf::Vector2f(66 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), World0_World1Interact, gamePointer_->getTexture("enemy")));
@@ -209,7 +212,7 @@ void Universe::populateWorlds()
 	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(53 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
 
 	//Enemy
-	addEnemy(4, new Enemy(1, 300, 30, 0, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("enemy7")));
+	addEnemy(4, new Enemy(1, 300, 30, 0, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("enemy7"), badAllocDeath));
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
@@ -351,4 +354,21 @@ void World2_World3Interact(World* worldPtr)
 void World3_World2Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(2, 69 * Tile::TILESIZE, 17 * Tile::TILESIZE);
+}
+
+void defaultDeath(Enemy* enemyPtr)
+{
+	cout << "Enemy died!" << endl;
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(20);
+	enemyPtr->getWorld()->removeEnemy(enemyPtr);
+}
+
+void badAllocDeath(Enemy* enemyPtr)
+{
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(20);
+	enemyPtr->getWorld()->removeEnemy(enemyPtr);
+	cout << "Bad-Alloc is dead!" << endl;
+	Application* AppPtr{ enemyPtr->getWorld()->getUniverse()->getGame()->getApp() };
+	AppPtr->setNextFrame(new GameWon(AppPtr));
+	//enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(12, 100, 10, 1, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "I AM CTHULU", CthuluInteract));
 }

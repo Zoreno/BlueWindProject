@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "GameWindow.h"
+#include <functional>
 
 float getDistance(sf::Vector2f, sf::Vector2f);
 sf::Vector2f normalize(sf::Vector2f);
@@ -11,7 +12,7 @@ class Enemy : public Entity
 public:
 	enum STATES { ATTACK, MOVETOPLAYER, IDLE, RESET };
 
-	Enemy(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&);
+	Enemy(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::function<void(Enemy*)>);
 	Enemy() = delete;
 	Enemy(const Enemy&) = delete;
 	Enemy& operator=(const Enemy&) = delete;
@@ -30,6 +31,6 @@ private:
 
 	void updateState();
 	void executeState();
-
+	std::function<void(Enemy*)> callback_;
 	void attackPlayer();
 };
