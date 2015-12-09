@@ -119,4 +119,6 @@ void Inventory::populateItemList()
 	allItems_.push_back(new Item{ 0,"Tree",gamePointer_->getTexture("grassTreeChoppable") });
 	allItems_.push_back(new Item{ 1,"Axe",gamePointer_->getTexture("pickAxe") });
 	allItems_.push_back(new Item{ 2,"Energy Ring",gamePointer_->getTexture("energyRing") });
+	allItems_.push_back(new Item{ 4,"Sword of Might",gamePointer_->getTexture("sword") });
+
 }

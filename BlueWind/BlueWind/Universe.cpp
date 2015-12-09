@@ -153,6 +153,7 @@ void Universe::populateWorlds()
 	void GirlInteract(NPC*);
 	void citizenInteract(NPC*);
 	void energyPowerupInteract(NPC*);
+	void snowChestInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -221,6 +222,7 @@ void Universe::populateWorlds()
 	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f(41* Tile::TILESIZE, 64 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
 	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(70 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
 	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(55 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
+	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
 
 	//Enemy
 	addEnemy(2, new Enemy(1, 100, 15, 0, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
@@ -526,5 +528,22 @@ void energyPowerupInteract(NPC* NPCPtr)
 	else
 	{
 		UI->addStringToChatBox("I need to get over the bridge.");
+	}
+}
+
+void snowChestInteract(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
+	if (!inv->isFull() && !inv->hasItem(4))
+	{
+		inv->addItem(4);
+		Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
+		player->setDamage(player->getDamage() + 10);
+		UI->addStringToChatBox("You find a sword in the chest.");
+	}
+	else
+	{
+		UI->addStringToChatBox("The chest is empty.");
 	}
 }
