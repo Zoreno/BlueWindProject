@@ -477,7 +477,7 @@ void thankfulCitizen(NPC* NPCPtr)
 			UI->addStringToChatBox("to protect you!");
 			inv->addItem(3);
 			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
-			player->setMaxMana(player->getHealth() + 10);
+			player->setMaxHealth(player->getMaxHealth() + 10);
 		}
 }
 
