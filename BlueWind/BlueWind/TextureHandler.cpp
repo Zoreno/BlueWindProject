@@ -49,6 +49,7 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC3", "res/textures/NPC3.png");
 	loadTexture("NPC4", "res/textures/NPC4.png");
 	loadTexture("NPC5", "res/textures/NPC5.png");
+	loadTexture("NPC8", "res/textures/NPC8.png");
 
 	loadTexture("house00", "res/textures/house00.png");
 	loadTexture("house01", "res/textures/house01.png");

@@ -148,6 +148,7 @@ void Universe::populateWorlds()
 {
 	void BridgeGuardInteract(NPC*);
 	void CthuluInteract(NPC*);
+	void GirlInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -170,7 +171,7 @@ void Universe::populateWorlds()
 	//-----------------WORLD 0------------------------------------
 	//NPC
 	addNPC(0, new NPC(1, 100, 10, 0, "Bridge Guard", sf::Vector2f(38 * Tile::TILESIZE, 15 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "", BridgeGuardInteract));
-	
+	addNPC(0, new NPC(1, 100, 10, 1, "Girl", sf::Vector2f(20 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC8"), "", GirlInteract));
 	//Träd
 	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(18 * Tile::TILESIZE, 36 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
 	addNPC(0, new NPC(1, 100, 10, 4, "Tree", sf::Vector2f(41 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
@@ -321,6 +322,15 @@ void treeInteract(NPC* NPCPtr)
 void CthuluInteract(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
+}
+
+void GirlInteract(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };	
+	UI->addStringToChatBox("Faranos? Thank god you're here!");
+	UI->addStringToChatBox("You must defeat Bad Alloc, his dark");
+	UI->addStringToChatBox("minions are destroying the"); 
+	UI->addStringToChatBox("beautiful land of MaroWind!");
 }
 
 void CthuluInteract2(NPC* NPCPtr)
