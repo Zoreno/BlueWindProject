@@ -147,9 +147,9 @@ void Universe::loadWorlds()
 void Universe::populateWorlds() 
 {
 	void BridgeGuardInteract(NPC*);
-	void ErwinInteract(NPC*);
-	void JamesClerkInteract(NPC*);
 	void CthuluInteract(NPC*);
+
+	void saveGame(NPC*);
 
 	void treeInteract(NPC*);
 	void World0_World1Interact(World*);
@@ -161,6 +161,8 @@ void Universe::populateWorlds()
 
 	void defaultDeath(Enemy*);
 	void badAllocDeath(Enemy*);
+	void blueWindDeath(Enemy*);
+	void isgolathDeath(Enemy*);
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
@@ -168,7 +170,6 @@ void Universe::populateWorlds()
 	//-----------------WORLD 0------------------------------------
 	//NPC
 	addNPC(0, new NPC(1, 100, 10, 0, "Bridge Guard", sf::Vector2f(38 * Tile::TILESIZE, 15 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "", BridgeGuardInteract));
-	addNPC(0, new NPC(1, 100, 10, 2, "James Clerk", sf::Vector2f(10 * Tile::TILESIZE, 3 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "Hej, jag heter James Clerk!", JamesClerkInteract));
 	
 	//Träd
 	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(18 * Tile::TILESIZE, 36 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
@@ -193,24 +194,40 @@ void Universe::populateWorlds()
 	//----------------------------WORLD 1-------------------------
 	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("enemy")));
 	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(58 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
+	addNPC(1, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 35 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
 	//----------------------------WORLD2--------------------------
 	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f(41* Tile::TILESIZE, 64 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
 	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(70 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
+	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(59 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
+	//Enemy
+	addEnemy(2, new Enemy(1, 100, 15, 0, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 1, "snowWolf", sf::Vector2f(32 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 2, "snowWolf", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 3, "snowWolf", sf::Vector2f(23 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 4, "snowWolf", sf::Vector2f(43 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 5, "snowWolf", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 6, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 7, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 8, "snowWolf", sf::Vector2f(15 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 9, "snowWolf", sf::Vector2f(22 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+
+	addEnemy(2, new Enemy(1, 200, 30, 10, "isgolath", sf::Vector2f(19 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("blueWizard"), isgolathDeath));
 	//----------------------------WORLD3--------------------------
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
-
 	//NPC
 	addNPC(3, new NPC(1, 100, 10, 1, "Cthulu", sf::Vector2f(58 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("NPC5"), "I AM CTHULU", CthuluInteract));
+	addNPC(3, new NPC(1, 100, 10, 2, "Gandalf", sf::Vector2f(56 * Tile::TILESIZE, 46 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
 	//----------------------------WORLD4--------------------------
 	
-	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(49 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
-	addNPC(4, new NPC(1, 100, 10, 1, "Erwin", sf::Vector2f(53 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("NPC"), "Hej, jag heter Erwin!", ErwinInteract));
-
 	//Enemy
-	addEnemy(4, new Enemy(1, 300, 30, 0, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("enemy7"), badAllocDeath));
+	addEnemy(4, new Enemy(1, 150, 30, 4, "Wizzzard", sf::Vector2f(16 * Tile::TILESIZE, 38 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 150, 30, 5, "Wizzzard", sf::Vector2f(24 * Tile::TILESIZE, 43 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 150, 30, 6, "Wizzzard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 300, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
+	addEnemy(4, new Enemy(10, 300, 50, 3, "BlueWind", sf::Vector2f(46 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
 }
 
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
@@ -286,16 +303,6 @@ void BridgeGuardInteract(NPC* NPCPtr)
 	
 }
 
-void ErwinInteract(NPC* NPCPtr)
-{
-	Application* AppPtr{ NPCPtr->getWorld()->getUniverse()->getGame()->getApp() };
-	AppPtr->setNextFrame(new GameWon(AppPtr));
-}
-
-void JamesClerkInteract(NPC* NPCPtr)
-{
-	NPCPtr->getWorld()->getUniverse()->switchWorld(1, 64, 64);
-}
 
 void treeInteract(NPC* NPCPtr) 
 {
@@ -314,6 +321,12 @@ void treeInteract(NPC* NPCPtr)
 void CthuluInteract(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
+}
+
+void CthuluInteract2(NPC* NPCPtr)
+{
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("There is another one!");
+	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 12 * Tile::TILESIZE, 15 * Tile::TILESIZE);
 }
 
 void World0_World1Interact(World* worldPtr)
@@ -353,12 +366,34 @@ void defaultDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
 
+void isgolathDeath(Enemy* enemyPtr)
+{
+	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("Oh no, you defeated me!");
+	UI->addStringToChatBox("Bluewind will revenge me!");
+	cout << "Enemy died!" << endl;
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(50);
+	enemyPtr->getWorld()->removeEnemy(enemyPtr);
+}
+
+
 void badAllocDeath(Enemy* enemyPtr)
 {
-	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(20);
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(2000);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 	cout << "Bad-Alloc is dead!" << endl;
+	enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(1, 100, 10, 3, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "I AM CTHULU", CthuluInteract2));
+}
+
+void blueWindDeath(Enemy* enemyPtr)
+{
+	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 	Application* AppPtr{ enemyPtr->getWorld()->getUniverse()->getGame()->getApp() };
 	AppPtr->setNextFrame(new GameWon(AppPtr));
-	//enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(12, 100, 10, 1, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "I AM CTHULU", CthuluInteract));
+}
+
+void saveGame(NPC* NPCPtr)
+{
+	NPCPtr->getWorld()->getUniverse()->getGame()->saveGame();
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Game saved!");
 }

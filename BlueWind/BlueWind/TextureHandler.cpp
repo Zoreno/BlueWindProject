@@ -27,12 +27,20 @@ TextureHandler::TextureHandler()
 	loadTexture("enemy", "res/textures/enemy7.png"); 
 	loadTexture("NPC", "res/textures/NPC1.png");
 	loadTexture("NPC5", "res/textures/NPC5.png");
+	loadTexture("saveNPC", "res/textures/saveNPC.png");
 
 	loadTexture("enemy1", "res/textures/enemy1.png"); 
 	loadTexture("enemy2", "res/textures/enemy2.png");
 	loadTexture("enemy3", "res/textures/enemy3.png");
 	loadTexture("enemy4", "res/textures/enemy4.png");
 	loadTexture("enemy7", "res/textures/enemy7.png");
+	loadTexture("blueWind", "res/textures/blueWind.png");
+	loadTexture("wizzzard", "res/textures/figur5.png");
+	loadTexture("blueWizard", "res/textures/blueWizard.png");
+	loadTexture("badAlloc", "res/textures/badAlloc.png");
+	loadTexture("snowWolf", "res/textures/snowWolf.png");
+
+
 	loadTexture("sand", "res/textures/sand.png");
 	loadTexture("palmtree", "res/textures/palmtree.png");
 	loadTexture("cactus", "res/textures/cactus.png");
