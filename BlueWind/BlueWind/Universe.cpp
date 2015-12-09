@@ -149,6 +149,7 @@ void Universe::populateWorlds()
 	void BridgeGuardInteract(NPC*);
 	void CthuluInteract(NPC*);
 	void GirlInteract(NPC*);
+	void citizenInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -164,6 +165,9 @@ void Universe::populateWorlds()
 	void badAllocDeath(Enemy*);
 	void blueWindDeath(Enemy*);
 	void isgolathDeath(Enemy*);
+	void minotaurDeath(Enemy*);
+
+	void voidFkn(NPC*);
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
@@ -196,7 +200,10 @@ void Universe::populateWorlds()
 	//----------------------------WORLD 1-------------------------
 	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("enemy")));
 	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(58 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
-	addNPC(1, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 35 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("saveNPC"), "", saveGame));
+
+	addEnemy(1, new Enemy(1, 10, 1, 2, "Pelle", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("enemy1"), minotaurDeath));
+
+	addNPC(1, new NPC(1, 100, 10, 0, "Olle", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC5"), "Please save us from the minotaur!", voidFkn));
 
 	//----------------------------WORLD2--------------------------
 	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f(41* Tile::TILESIZE, 64 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
@@ -317,6 +324,10 @@ void BridgeGuardInteract(NPC* NPCPtr)
 	
 }
 
+void voidFkn(NPC*)
+{
+	;
+}
 
 void treeInteract(NPC* NPCPtr) 
 {
@@ -335,6 +346,11 @@ void treeInteract(NPC* NPCPtr)
 void CthuluInteract(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
+}
+
+void citizenInteract(NPC* NPCPtr)
+{
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Thank you for saving us!");
 }
 
 void GirlInteract(NPC* NPCPtr)
@@ -389,12 +405,42 @@ void defaultDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
 
+void saveGame(NPC* NPCPtr)
+{
+	NPCPtr->getWorld()->getUniverse()->getGame()->saveGame();
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Game saved!");
+}
+
+void minotaurDeath(Enemy* enemyPtr)
+{
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(30);
+	enemyPtr->getWorld()->removeEnemy(enemyPtr);
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(35 * Tile::TILESIZE, 21 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 1, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 21 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 2, "Citizen", sf::Vector2f(44 * Tile::TILESIZE, 36 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 3, "Citizen", sf::Vector2f(64 * Tile::TILESIZE, 39 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 4, "Citizen", sf::Vector2f(48 * Tile::TILESIZE, 21 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 5, "Citizen", sf::Vector2f(36 * Tile::TILESIZE, 47 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 6, "Citizen", sf::Vector2f(31 * Tile::TILESIZE, 30 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 7, "Citizen", sf::Vector2f(29 * Tile::TILESIZE, 45 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC"), "", citizenInteract));
+	enemyPtr->getWorld()->getUniverse()->addNPC(1, new NPC(1, 100, 10, 8, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(1), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("saveNPC"), "", saveGame));
+
+}
 void isgolathDeath(Enemy* enemyPtr)
 {
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("Oh no, you defeated me!");
 	UI->addStringToChatBox("Bluewind will revenge me!");
-	cout << "Enemy died!" << endl;
+
+	int startposition{ 17 * enemyPtr->getWorld()->getMapWidth() + 63 };
+
+	for (int i{ 0 }; i < 2; ++i)
+	{
+		enemyPtr->getWorld()->changeTile(startposition + i, 2);
+	}
+
+	//cout << "Enemy died!" << endl;
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(50);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
@@ -415,8 +461,3 @@ void blueWindDeath(Enemy* enemyPtr)
 	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
-void saveGame(NPC* NPCPtr)
-{
-	NPCPtr->getWorld()->getUniverse()->getGame()->saveGame();
-	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Game saved!");
-}
