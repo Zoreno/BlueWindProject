@@ -71,6 +71,8 @@ TextureHandler::TextureHandler()
 	loadTexture("burnedTree", "res/textures/burnedTree.png");
 	loadTexture("lavastone", "res/textures/lavastone.png");
 
+	loadTexture("energyRing", "res/textures/energyRing.png");
+
 	cout << "Laddar texturer klart" << endl;
 }
 

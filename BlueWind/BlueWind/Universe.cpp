@@ -6,6 +6,7 @@
 #include "GameWon.h"
 #include "NPC.h"
 #include <iostream>
+#include "Inventory.h"
 
 using namespace std;
 
@@ -150,6 +151,7 @@ void Universe::populateWorlds()
 	void CthuluInteract(NPC*);
 	void GirlInteract(NPC*);
 	void citizenInteract(NPC*);
+	void energyPowerupInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -176,6 +178,7 @@ void Universe::populateWorlds()
 	//NPC
 	addNPC(0, new NPC(1, 100, 10, 0, "Bridge Guard", sf::Vector2f(38 * Tile::TILESIZE, 15 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "", BridgeGuardInteract));
 	addNPC(0, new NPC(1, 100, 10, 1, "Girl", sf::Vector2f(20 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC8"), "", GirlInteract));
+	addNPC(0, new NPC(1, 100, 10, 2, "Dude", sf::Vector2f(39 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC8"), "", energyPowerupInteract));
 	//Träd
 	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(18 * Tile::TILESIZE, 36 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
 	addNPC(0, new NPC(1, 100, 10, 4, "Tree", sf::Vector2f(41 * Tile::TILESIZE, 28 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
@@ -299,7 +302,7 @@ void BridgeGuardInteract(NPC* NPCPtr)
 		++bridgeLength;
 	}
 
-	while (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(0))
+	while (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(0) && bridgeLength < 10)
 	{
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(0);
 		NPCPtr->getWorld()->changeTile(startposition, 2);
@@ -461,3 +464,23 @@ void blueWindDeath(Enemy* enemyPtr)
 	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
+void energyPowerupInteract(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	if (NPCPtr->getWorld()->getTileVector().at(13 * NPCPtr->getWorld()->getMapWidth() + 49) == 2)
+	{
+		UI->addStringToChatBox("Thanks for repairing the bridge.");
+
+		Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
+		if (!inv->isFull() && !inv->hasItem(2))
+		{
+			inv->addItem(2);
+			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
+			player->setMaxMana(player->getMana() + 10);
+		}
+	}
+	else
+	{
+		UI->addStringToChatBox("I need to get over the bridge.");
+	}
+}
