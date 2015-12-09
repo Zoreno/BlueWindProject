@@ -146,7 +146,7 @@ void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 64)
 		{
-			it.second->removeHealth(damage_);
+			it.second->removeHealth(2*damage_);
 		}
 	}
 }
@@ -176,9 +176,6 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 			{
 				it.second->interact();
 				break;
-			}
-			else
-			{
 			}
 		}
 	}
