@@ -30,7 +30,6 @@ TextureHandler::TextureHandler()
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
 
 	loadTexture("enemy1", "res/textures/enemy1.png"); 
-	loadTexture("enemy2", "res/textures/enemy2.png");
 	loadTexture("enemy3", "res/textures/enemy3.png");
 	loadTexture("enemy4", "res/textures/enemy4.png");
 	loadTexture("enemy7", "res/textures/enemy7.png");
