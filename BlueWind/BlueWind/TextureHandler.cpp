@@ -29,6 +29,7 @@ TextureHandler::TextureHandler()
 	loadTexture("enemy1", "res/textures/enemy1.png"); 
 	loadTexture("enemy2", "res/textures/enemy2.png");
 	loadTexture("enemy3", "res/textures/enemy3.png");
+	loadTexture("enemy4", "res/textures/enemy4.png");
 	loadTexture("sand", "res/textures/sand.png");
 	loadTexture("palmtree", "res/textures/palmtree.png");
 	loadTexture("cactus", "res/textures/cactus.png");
