@@ -192,10 +192,10 @@ void Universe::populateWorlds()
 
 	//----------------------------WORLD 1-------------------------
 	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("enemy")));
-	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(59 * Tile::TILESIZE, 11 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
+	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(58 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("NPC")));
 
 	//----------------------------WORLD2--------------------------
-	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f(42* Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
+	addSensor(2, new Sensor(0, "World2_World1", sf::Vector2f(41* Tile::TILESIZE, 64 * Tile::TILESIZE), getWorld(2), World2_World1Interact, gamePointer_->getTexture("enemy")));
 	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(52 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
 
 	//----------------------------WORLD3--------------------------
@@ -326,12 +326,12 @@ void World1_World0Interact(World* worldPtr)
 
 void World1_World2Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(2, 42 * Tile::TILESIZE, 45 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(2, 41 * Tile::TILESIZE, 63 * Tile::TILESIZE);
 }
 
 void World2_World1Interact(World* worldPtr)
 {
-	worldPtr->getUniverse()->switchWorld(1, 59 * Tile::TILESIZE, 12 * Tile::TILESIZE);
+	worldPtr->getUniverse()->switchWorld(1, 58 * Tile::TILESIZE, 10 * Tile::TILESIZE);
 }
 
 void World2_World3Interact(World* worldPtr)
