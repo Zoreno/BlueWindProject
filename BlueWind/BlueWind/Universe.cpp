@@ -188,6 +188,7 @@ void Universe::populateWorlds()
 	addEnemy(0, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(22 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
 	addEnemy(0, new Enemy(1, 100, 10, 1, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
 	addEnemy(0, new Enemy(1, 100, 10, 2, "Pelle", sf::Vector2f(38 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
+	addEnemy(0, new Enemy(1, 100, 10, 3, "Pelle", sf::Vector2f(27 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("enemy4"), defaultDeath));
 
 	//Sensorer
 	addSensor(0, new Sensor(0, "World0_World1", sf::Vector2f(66 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), World0_World1Interact, gamePointer_->getTexture("enemy")));
