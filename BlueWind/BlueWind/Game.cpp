@@ -47,6 +47,9 @@ void Game::handleKeyEvent(sf::Event event)
 	case sf::Keyboard::Space:
 		player_.swordAttack(universe_.getCurrentWorld()->getEnemyVector());
 		break;
+	case sf::Keyboard::M:
+		player_.fireballAttack(universe_.getCurrentWorld()->getEnemyVector());
+		break;
 	case sf::Keyboard::I:
 		player_.interact(universe_.getCurrentWorld()->getNPCVector());
 		break;
