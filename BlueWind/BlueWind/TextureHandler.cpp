@@ -33,6 +33,11 @@ TextureHandler::TextureHandler()
 	loadTexture("enemy3", "res/textures/enemy3.png");
 	loadTexture("enemy4", "res/textures/enemy4.png");
 	loadTexture("enemy7", "res/textures/enemy7.png");
+	loadTexture("blueWind", "res/textures/blueWind.png");
+	loadTexture("wizzzard", "res/textures/figur5.png");
+	loadTexture("badAlloc", "res/textures/superMario.png");
+
+
 	loadTexture("sand", "res/textures/sand.png");
 	loadTexture("palmtree", "res/textures/palmtree.png");
 	loadTexture("cactus", "res/textures/cactus.png");
