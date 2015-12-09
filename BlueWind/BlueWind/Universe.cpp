@@ -162,6 +162,7 @@ void Universe::populateWorlds()
 	void defaultDeath(Enemy*);
 	void badAllocDeath(Enemy*);
 	void blueWindDeath(Enemy*);
+	void isgolathDeath(Enemy*);
 
 	//OBS!!!!!!
 	//UNIKA ID KRÄVS
@@ -200,6 +201,19 @@ void Universe::populateWorlds()
 	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(70 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
 	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(59 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
+	//Enemy
+	addEnemy(2, new Enemy(1, 100, 15, 0, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 1, "snowWolf", sf::Vector2f(32 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 2, "snowWolf", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 3, "snowWolf", sf::Vector2f(23 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 4, "snowWolf", sf::Vector2f(43 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 5, "snowWolf", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 6, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 7, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 8, "snowWolf", sf::Vector2f(15 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 100, 15, 9, "snowWolf", sf::Vector2f(22 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+
+	addEnemy(2, new Enemy(1, 200, 30, 10, "isgolath", sf::Vector2f(19 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("blueWizard"), isgolathDeath));
 	//----------------------------WORLD3--------------------------
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
 	//NPC
@@ -351,6 +365,17 @@ void defaultDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(20);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
+
+void isgolathDeath(Enemy* enemyPtr)
+{
+	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("Oh no, you defeated me!");
+	UI->addStringToChatBox("Bluewind will revenge me!");
+	cout << "Enemy died!" << endl;
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(50);
+	enemyPtr->getWorld()->removeEnemy(enemyPtr);
+}
+
 
 void badAllocDeath(Enemy* enemyPtr)
 {
