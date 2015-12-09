@@ -104,7 +104,7 @@ Inventory* Player::getInventory()
 }
 
 
-void Player::attack(const map<int, Enemy*>& enemies)
+void Player::swordAttack(const map<int, Enemy*>& enemies)
 {
 	if (mana_ < 5) return;
 	mana_ -= 5;
@@ -116,26 +116,34 @@ void Player::attack(const map<int, Enemy*>& enemies)
 			if (dir_ == north && it.second->getPosition().y <= position_.y)
 			{
 				it.second->removeHealth(damage_);
-				//break;
+				break;
 			}
 			else if (dir_ == west && it.second->getPosition().x <= position_.x)
 			{
 				it.second->removeHealth(damage_);
-				//break;
+				break;
 			}
 			else if (dir_ == east && it.second->getPosition().x >= position_.x)
 			{
 				it.second->removeHealth(damage_);
-				//break;
+				break;
 			}
 			else if (dir_ == south && it.second->getPosition().y >= position_.y)
 			{
 				it.second->removeHealth(damage_);
-				//break;
+				break;
 			}
-			else
-			{ }
-				//break;
+		}
+	}
+}
+
+void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
+{
+	for (auto it : enemies)
+	{
+		if (getDistance(position_, it.second->getPosition()) <= 64)
+		{
+			it.second->removeHealth(damage_);
 		}
 	}
 }

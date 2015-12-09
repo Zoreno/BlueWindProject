@@ -35,7 +35,8 @@ public:
 
 	Inventory* getInventory();
 
-	void attack(const std::map<int, Enemy*>&);
+	void swordAttack(const std::map<int, Enemy*>&);
+	void fireballAttack(const std::map<int, Enemy*>&);
 	void interact(const std::map<int, NPC*>&);
 
 	int getXpToLevel();

@@ -45,7 +45,7 @@ void Game::handleKeyEvent(sf::Event event)
 	switch (event.key.code)
 	{
 	case sf::Keyboard::Space:
-		player_.attack(universe_.getCurrentWorld()->getEnemyVector());
+		player_.swordAttack(universe_.getCurrentWorld()->getEnemyVector());
 		break;
 	case sf::Keyboard::I:
 		player_.interact(universe_.getCurrentWorld()->getNPCVector());
