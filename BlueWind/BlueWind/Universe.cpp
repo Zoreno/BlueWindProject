@@ -478,7 +478,7 @@ void isgolathDeath(Enemy* enemyPtr)
 {
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("Oh no, you defeated me!");
-	UI->addStringToChatBox("Bluewind will revenge me!");
+	UI->addStringToChatBox("Bluewind will avenge me!");
 
 	int startposition{ 17 * enemyPtr->getWorld()->getMapWidth() + 63 };
 
@@ -497,7 +497,7 @@ void badAllocDeath(Enemy* enemyPtr)
 {
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(2000);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
-	cout << "Bad-Alloc is dead!" << endl;
+	cout << "Bad Alloc is dead!" << endl;
 	enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(1, 100, 10, 3, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "I AM CTHULU", CthuluInteract2));
 }
 
