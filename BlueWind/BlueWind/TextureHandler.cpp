@@ -43,6 +43,7 @@ TextureHandler::TextureHandler()
 	loadTexture("blueWizard", "res/textures/blueWizard.png");
 	loadTexture("badAlloc", "res/textures/badAlloc.png");
 	loadTexture("snowWolf", "res/textures/snowWolf.png");
+	loadTexture("fire", "res/textures/fire.png");
 
 	//NPC
 	loadTexture("NPC", "res/textures/NPC1.png");
