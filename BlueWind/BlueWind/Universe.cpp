@@ -221,6 +221,18 @@ void Universe::populateWorlds()
 	addNPC(3, new NPC(1, 100, 10, 1, "Cthulu", sf::Vector2f(58 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("NPC5"), "I AM CTHULU", CthuluInteract));
 	addNPC(3, new NPC(1, 100, 10, 2, "Gandalf", sf::Vector2f(56 * Tile::TILESIZE, 46 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
+	//Enemy
+	addEnemy(3, new Enemy(1, 200, 30, 0, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 1, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 2100, 30, 2, "ghost", sf::Vector2f(40 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 3, "ghost", sf::Vector2f(31 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 4, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 5, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 6, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 7, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 8, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 200, 30, 9, "ghost", sf::Vector2f(55 * Tile::TILESIZE, 19 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+
 	//----------------------------WORLD4--------------------------
 	
 	//Enemy
