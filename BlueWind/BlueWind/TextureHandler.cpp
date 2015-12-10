@@ -26,6 +26,7 @@ TextureHandler::TextureHandler()
 	loadTexture("burnedTree", "res/textures/burnedTree.png");
 	loadTexture("lavastone", "res/textures/lavastone.png");
 	loadTexture("grassBurnedTree", "res/textures/grassBurnedTree.png");
+	loadTexture("burnedGround", "res/textures/burnedGround.png");
 
 
 	//Items

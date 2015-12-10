@@ -128,6 +128,7 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(101, new Tile(gamePointer_->getTexture("lavastone"), true));
 	tileAtlas_.emplace(102, new Tile(gamePointer_->getTexture("burnedTree"), false));
 	tileAtlas_.emplace(900, new Tile(gamePointer_->getTexture("grassBurnedTree"), false));
+	tileAtlas_.emplace(901, new Tile(gamePointer_->getTexture("burnedGround"), false));
 	
 	cout << "Laddning av tiles klart" << endl;
 }
@@ -655,7 +656,7 @@ void FirimaniumsInteract(NPC* NPCPtr)
 void houseFireInteract(World* worldPtr)
 {
 	Inventory* inv{ worldPtr->getUniverse()->getGame()->getPlayer()->getInventory() };
-	if (inv->hasItem(5) && !(worldPtr->getTileVector().at(28 * worldPtr->getMapWidth() + 15) == 900))
+	if (inv->hasItem(5) && !(worldPtr->getTileVector().at(28 * worldPtr->getMapWidth() + 15) == 901))
 	{
 		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 11, "Pelle", sf::Vector2f(15 * Tile::TILESIZE, 28 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
 		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 12, "Pelle", sf::Vector2f(16 * Tile::TILESIZE, 28 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
@@ -674,22 +675,22 @@ void houseFireInteract(World* worldPtr)
 		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 25, "Pelle", sf::Vector2f(17 * Tile::TILESIZE, 31 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
 		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 26, "Pelle", sf::Vector2f(18 * Tile::TILESIZE, 31 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
 
-		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 15, 900);
-		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 16, 900);
-		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 17, 900);
-		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 18, 900);
-		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 15, 900);
-		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 16, 900);
-		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 17, 900);
-		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 18, 900);
-		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 15, 900);
-		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 16, 900);
-		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 17, 900);
-		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 18, 900);
-		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 15, 900);
-		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 16, 900);
-		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 17, 900);
-		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 18, 900);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 15, 901);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 16, 901);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 17, 901);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 18, 901);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 15, 901);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 16, 901);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 17, 901);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 18, 901);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 15, 901);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 16, 901);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 17, 901);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 18, 901);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 15, 901);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 16, 901);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 17, 901);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 18, 901);
 	}
 }
 
