@@ -169,9 +169,9 @@ void Universe::populateWorlds()
 	void World2_World1Interact(World*);
 	void World2_World3Interact(World*);
 	void World3_World2Interact(World*);
-
 	void World1_World5Interact(World*);
 	void World5_World1Interact(World*);
+	void houseFireInteract(World*);
 
 	void defaultDeath(Enemy*);
 	void badAllocDeath(Enemy*);
@@ -271,6 +271,7 @@ void Universe::populateWorlds()
     //------------------------WORLD5-----------------------------
 
 	addSensor(5, new Sensor(0, "World5_World1", sf::Vector2f(31 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(5), World5_World1Interact, gamePointer_->getTexture("NPC")));
+	addSensor(5, new Sensor(1, "houseFireSensor", sf::Vector2f(20 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(5), houseFireInteract, gamePointer_->getTexture("NPC")));
 
 	// Enemies
 	addEnemy(5, new Enemy(1, 100, 10, 0, "Pelle", sf::Vector2f(30 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("enemy4"), defaultDeath));
@@ -612,20 +613,71 @@ void world5GuyInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("Be careful!");	
 }
 
-// TODO Fixa rätt funtkion!
+
 void FirimaniumsInteract(NPC* NPCPtr)
 {
-	/*UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
-	if (!inv->isFull() && !inv->hasItem(4))
+	if (!inv->isFull() && !inv->hasItem(5))
 	{
-		inv->addItem(4);
-		Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
-		player->setDamage(player->getDamage() + 10);
-		UI->addStringToChatBox("You find a sword in the chest.");
+		inv->addItem(5);
+		UI->addStringToChatBox("I am the mighty wizard Firimaniums!");
+		UI->addStringToChatBox("I hear you are fighting Bad Alloc,");
+		UI->addStringToChatBox("have a Magic Orb of Fire! See you!");
+		UI->addStringToChatBox("(Press 'M' to use your new power)");
+
+		NPCPtr->teleport(25*Tile::TILESIZE ,26* Tile::TILESIZE);
+		NPCPtr->getWorld()->changeTile(25 * NPCPtr->getWorld()->getMapWidth() + 27, 0);
 	}
 	else
 	{
-		UI->addStringToChatBox("The chest is empty.");
-	}*/
+	
+		UI->addStringToChatBox("I turn my back on you for two");
+		UI->addStringToChatBox("seconds and you burn down my");
+		UI->addStringToChatBox("house, nice to see you're putting");
+		UI->addStringToChatBox("your Orb of Fire to good use!");
+	}
 }
+
+
+void houseFireInteract(World* worldPtr)
+{
+	Inventory* inv{ worldPtr->getUniverse()->getGame()->getPlayer()->getInventory() };
+	if (inv->hasItem(5) && !(worldPtr->getTileVector().at(28 * worldPtr->getMapWidth() + 15) == 900))
+	{
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 11, "Pelle", sf::Vector2f(15 * Tile::TILESIZE, 28 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 12, "Pelle", sf::Vector2f(16 * Tile::TILESIZE, 28 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 13, "Pelle", sf::Vector2f(17 * Tile::TILESIZE, 28 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 14, "Pelle", sf::Vector2f(18 * Tile::TILESIZE, 28 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 15, "Pelle", sf::Vector2f(15 * Tile::TILESIZE, 29 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 16, "Pelle", sf::Vector2f(16 * Tile::TILESIZE, 29 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 17, "Pelle", sf::Vector2f(17 * Tile::TILESIZE, 29 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 18, "Pelle", sf::Vector2f(18 * Tile::TILESIZE, 29 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 19, "Pelle", sf::Vector2f(15 * Tile::TILESIZE, 30 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 20, "Pelle", sf::Vector2f(16 * Tile::TILESIZE, 30 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 21, "Pelle", sf::Vector2f(17 * Tile::TILESIZE, 30 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 22, "Pelle", sf::Vector2f(18 * Tile::TILESIZE, 30 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 23, "Pelle", sf::Vector2f(15 * Tile::TILESIZE, 31 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 24, "Pelle", sf::Vector2f(16 * Tile::TILESIZE, 31 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 25, "Pelle", sf::Vector2f(17 * Tile::TILESIZE, 31 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+		worldPtr->getUniverse()->addEnemy(5, new Enemy(1, 0, 0, 26, "Pelle", sf::Vector2f(18 * Tile::TILESIZE, 31 * Tile::TILESIZE), worldPtr, worldPtr->getUniverse()->getGame()->getTexture("fire"), fireDeath));
+
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 15, 900);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 16, 900);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 17, 900);
+		worldPtr->changeTile(28 * worldPtr->getMapWidth() + 18, 900);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 15, 900);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 16, 900);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 17, 900);
+		worldPtr->changeTile(29 * worldPtr->getMapWidth() + 18, 900);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 15, 900);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 16, 900);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 17, 900);
+		worldPtr->changeTile(30 * worldPtr->getMapWidth() + 18, 900);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 15, 900);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 16, 900);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 17, 900);
+		worldPtr->changeTile(31 * worldPtr->getMapWidth() + 18, 900);
+	}
+}
+

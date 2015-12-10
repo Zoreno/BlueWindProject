@@ -139,7 +139,7 @@ void Player::swordAttack(const map<int, Enemy*>& enemies)
 
 void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 {
-	if (mana_ < 10) return;
+	if (mana_ < 10 || !getInventory()->hasItem(5)) return;
 	mana_ -= 10;
 	animState_ = spell;
 	for (auto it : enemies)
