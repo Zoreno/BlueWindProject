@@ -239,10 +239,10 @@ void Universe::populateWorlds()
 	addEnemy(2, new Enemy(1, 400, 40, 5, "snowWolf", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 400, 40, 6, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 400, 40, 7, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 40, 8, "snowWolf", sf::Vector2f(15 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 40, 9, "snowWolf", sf::Vector2f(22 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 450, 40, 8, "snowWolf", sf::Vector2f(15 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 450, 40, 9, "snowWolf", sf::Vector2f(22 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 
-	addEnemy(2, new Enemy(1, 600, 30, 10, "isgolath", sf::Vector2f(19 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("blueWizard"), isgolathDeath));
+	addEnemy(2, new Enemy(1, 650, 30, 10, "isgolath", sf::Vector2f(19 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("blueWizard"), isgolathDeath));
 	//----------------------------WORLD3--------------------------
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("enemy")));
 	//NPC
@@ -250,24 +250,25 @@ void Universe::populateWorlds()
 	addNPC(3, new NPC(1, 100, 10, 2, "Gandalf", sf::Vector2f(56 * Tile::TILESIZE, 46 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
 	//Enemy
-	addEnemy(3, new Enemy(1, 200, 30, 0, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 1, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 2100, 30, 2, "ghost", sf::Vector2f(40 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 3, "ghost", sf::Vector2f(31 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 4, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 5, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 6, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 7, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 8, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
-	addEnemy(3, new Enemy(1, 200, 30, 9, "ghost", sf::Vector2f(55 * Tile::TILESIZE, 19 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 0, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 1, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 24 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 2, "ghost", sf::Vector2f(40 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 3, "ghost", sf::Vector2f(31 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 4, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 44 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 5, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 6, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 7, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 8, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 9, "ghost", sf::Vector2f(55 * Tile::TILESIZE, 19 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
 
 	//----------------------------WORLD4--------------------------
 	
 	//Enemy
-	addEnemy(4, new Enemy(1, 150, 30, 4, "Wizzzard", sf::Vector2f(16 * Tile::TILESIZE, 38 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
-	addEnemy(4, new Enemy(1, 150, 30, 5, "Wizzzard", sf::Vector2f(24 * Tile::TILESIZE, 43 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
-	addEnemy(4, new Enemy(1, 150, 30, 6, "Wizzzard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
-	addEnemy(4, new Enemy(1, 300, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
+	addEnemy(4, new Enemy(1, 1500, 50, 4, "Wizzzard", sf::Vector2f(16 * Tile::TILESIZE, 38 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 1500, 50, 5, "Wizzzard", sf::Vector2f(24 * Tile::TILESIZE, 43 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 1500, 50, 6, "Wizzzard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 1500, 50, 7, "Wizzzard", sf::Vector2f(32 * Tile::TILESIZE, 48 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("wizzzard"), defaultDeath));
+	addEnemy(4, new Enemy(1, 10000, 10, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
 	addEnemy(4, new Enemy(10, 300, 50, 3, "BlueWind", sf::Vector2f(46 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
 
     //------------------------WORLD5-----------------------------
