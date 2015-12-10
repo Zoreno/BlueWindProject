@@ -552,6 +552,8 @@ void energyPowerupInteract(NPC* NPCPtr)
 	if (NPCPtr->getWorld()->getTileVector().at(13 * NPCPtr->getWorld()->getMapWidth() + 49) == 2)
 	{
 		UI->addStringToChatBox("Thanks for repairing the bridge.");
+		UI->addStringToChatBox("Take my magic ring as a token of");
+		UI->addStringToChatBox("my gratitude.");
 
 		Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
 		if (!inv->isFull() && !inv->hasItem(2))
