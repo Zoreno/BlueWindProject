@@ -34,6 +34,7 @@ TextureHandler::TextureHandler()
 	loadTexture("energyRing", "res/textures/energyRing.png");
 	loadTexture("armour", "res/textures/armour.png");
 	loadTexture("sword", "res/textures/sword.png");
+	loadTexture("magicFireOrb", "res/textures/magicFireOrb.png");
 
 	//Player
 	loadTexture("player", "res/textures/player.png");
