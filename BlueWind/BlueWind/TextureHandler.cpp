@@ -59,6 +59,7 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC4", "res/textures/NPC4.png");
 	loadTexture("NPC5", "res/textures/NPC5.png");
 	loadTexture("NPC6", "res/textures/NPC6.png");
+	loadTexture("NPC7", "res/textures/NPC7.png");
 	loadTexture("NPC8", "res/textures/NPC8.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
 	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 

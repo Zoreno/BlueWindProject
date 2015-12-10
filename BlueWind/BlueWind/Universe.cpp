@@ -157,6 +157,7 @@ void Universe::populateWorlds()
 	void snowChestInteract(NPC*);
 	void world5GuyInteract(NPC*);
 	void FirimaniumsInteract(NPC*);
+	void manInValleyInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -227,6 +228,7 @@ void Universe::populateWorlds()
 	addSensor(2, new Sensor(1, "World2_World3", sf::Vector2f(70 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), World2_World3Interact, gamePointer_->getTexture("enemy")));
 	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(55 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
 	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
+	addNPC(2, new NPC(1, 100, 10, 2, "Valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("NPC7"), "", manInValleyInteract));
 
 	//Enemy
 	addEnemy(2, new Enemy(1, 100, 15, 0, "snowWolf", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
@@ -405,6 +407,14 @@ void GirlInteract(NPC* NPCPtr)
 	UI->addStringToChatBox("You must defeat Bad Alloc, his dark");
 	UI->addStringToChatBox("minions are destroying the"); 
 	UI->addStringToChatBox("beautiful land of MaroWind!");
+}
+
+void manInValleyInteract(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("The bridge on the other side of the");
+	UI->addStringToChatBox("valley is destroyed. Clear the pass");
+	UI->addStringToChatBox("of enemies so we can repair it!");
 }
 
 void CthuluInteract2(NPC* NPCPtr)
