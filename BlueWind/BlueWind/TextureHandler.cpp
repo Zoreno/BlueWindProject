@@ -30,6 +30,7 @@ TextureHandler::TextureHandler()
 	loadTexture("fountain", "res/textures/fountain.png");
 	loadTexture("grassStone", "res/textures/grassStone.png");
 
+	loadTexture("noneWalkableSand", "res/textures/noneWalkableSand.png");
 
 	//Items
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
@@ -46,6 +47,7 @@ TextureHandler::TextureHandler()
 	//Enemies
 	loadTexture("minotaur", "res/textures/minotaurEnemy.png");
 	loadTexture("ghost", "res/textures/ghostEnemy.png");
+	loadTexture("superGhost", "res/textures/SuperGhostEnemy.png");
 	loadTexture("demon", "res/textures/woodEnemy.png");
 	loadTexture("blueWind", "res/textures/blueWind.png");
 	loadTexture("redWizard", "res/textures/redWizardEnemy.png");
