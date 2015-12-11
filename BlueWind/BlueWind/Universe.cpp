@@ -648,7 +648,7 @@ void FirimaniumsInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("I am the mighty wizard Firimaniums!");
 		UI->addStringToChatBox("I hear you are fighting Bad Alloc,");
 		UI->addStringToChatBox("have a Magic Orb of Fire! See you!");
-		UI->addStringToChatBox("(Press 'M' to use your new power)");
+		UI->addStringToChatBox("(Press 'J' to use your new power)");
 
 		NPCPtr->teleport(25*Tile::TILESIZE ,26* Tile::TILESIZE);
 		NPCPtr->getWorld()->changeTile(25 * NPCPtr->getWorld()->getMapWidth() + 27, 0);
