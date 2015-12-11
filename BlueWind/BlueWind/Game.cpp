@@ -47,23 +47,20 @@ void Game::handleKeyEvent(sf::Event event)
 	case sf::Keyboard::Space:
 		player_.swordAttack(universe_.getCurrentWorld()->getEnemyVector());
 		break;
-	case sf::Keyboard::M:
+	case sf::Keyboard::J:
 		player_.fireballAttack(universe_.getCurrentWorld()->getEnemyVector());
 		break;
-	case sf::Keyboard::I:
+	case sf::Keyboard::K:
 		player_.interact(universe_.getCurrentWorld()->getNPCVector());
 		break;
 	case sf::Keyboard::U:
 		cout << (int) player_.getPosition().x / 32 << "," << (int) player_.getPosition().y / 32 << endl;
 		break;
-	case sf::Keyboard::L:
-		ui_.addStringToChatBox("Hejsan.!");
-		break;
 	case sf::Keyboard::F:
 		player_.getInventory()->addItem(0);
 		cout << player_.getInventory()->toString() << endl;
 		break;
-	case sf::Keyboard::T:
+	case sf::Keyboard::L:
 		ui_.handleKeyEvent(event);
 		break;
 	default:
