@@ -7,6 +7,15 @@
 
 using namespace std;
 
+string GameState::toString()
+{
+	string s;
+	s.append(to_string(bridge1Built) + " ");
+	s.append(to_string(minotaurDead) + " ");
+	s.append(to_string(bridge2Built));
+	return s;
+}
+
 Game::Game(Application * appPtr, bool loadSave)
 	:Frame{appPtr}, 
 	universe_{this}, 
@@ -99,6 +108,7 @@ void Game::saveGame()
 		saveStream << player_.getPosition().x << endl;
 		saveStream << player_.getPosition().y << endl;
 		saveStream << player_.getInventory()->toString() << endl;
+		saveStream << gameState_.toString() << endl;
 		saveStream.close();
 		cout << "Game saved!" << endl;
 	}
@@ -137,6 +147,33 @@ void Game::loadGame()
 		{
 			player_.getInventory()->addItem(it);
 		}
+		getline(saveStream, line); //Gamestate
+		if (line.at(0) == '1') //Bridge1
+		{
+			int startposition{ 13 * universe_.getWorld(0)->getMapWidth() + 40 };
+			for (int i{ 0 }; i < 10; ++i)
+			{
+				universe_.getWorld(0)->changeTile(startposition + i, 2);
+			}
+			gameState_.bridge1Built = true;
+		}
+
+		if (line.at(2) == '1') //Minotaur
+		{
+			universe_.populateCity();
+			gameState_.minotaurDead = true;
+		}
+
+		if (line.at(4) == '1') // Bridge2
+		{
+			int startposition{ 17 * universe_.getWorld(2)->getMapWidth() + 63 };
+
+			for (int i{ 0 }; i < 2; ++i)
+			{
+				universe_.getWorld(2)->changeTile(startposition + i, 2);
+			}
+			gameState_.bridge2Built = true;
+		}
 		saveStream.close();
 	}
 	else
@@ -156,6 +193,11 @@ Application * Game::getApp()
 UserInterface * Game::getUserInterface()
 {
 	return &ui_;
+}
+
+GameState * Game::getGameState()
+{
+	return &gameState_;
 }
 
 sf::Texture & Game::getTexture(const std::string& ref)

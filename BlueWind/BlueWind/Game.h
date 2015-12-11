@@ -8,6 +8,16 @@
 #include "Player.h"
 #include "UserInterface.h"
 
+class GameState
+{
+public:
+	bool bridge1Built{ false };
+	bool minotaurDead{ false };
+	bool bridge2Built{ false };
+
+	std::string toString();
+};
+
 class Game : public Frame
 {
 public:
@@ -27,10 +37,12 @@ public:
 	Player* getPlayer();
 	Application* getApp();
 	UserInterface* getUserInterface();
+	GameState* getGameState();
 	sf::Texture& getTexture(const std::string&);
 private:
 	TextureHandler textureHandler_;
 	Universe universe_;
 	Player player_;
 	UserInterface ui_;
+	GameState gameState_;
 };

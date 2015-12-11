@@ -42,6 +42,8 @@ public:
 	void addNPC(int, NPC*);
 	void addSensor(int, Sensor*);
 
+	void populateCity();
+
 private:
 	Game* gamePointer_;
 	World* currentWorld_;
@@ -51,7 +53,5 @@ private:
 	void loadTiles();
 	void loadWorlds();
 	void populateWorlds();
-
-
 	
 };
