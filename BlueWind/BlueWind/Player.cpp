@@ -106,8 +106,8 @@ Inventory* Player::getInventory()
 
 void Player::swordAttack(const map<int, Enemy*>& enemies)
 {
-	if (mana_ < 5) return;
-	mana_ -= 5;
+	if (mana_ < 4) return;
+	mana_ -= 4;
 	animState_ = attacking;
 	for (auto it : enemies)
 	{
@@ -139,8 +139,8 @@ void Player::swordAttack(const map<int, Enemy*>& enemies)
 
 void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 {
-	if (mana_ < 10 || !getInventory()->hasItem(5)) return;
-	mana_ -= 10;
+	if (mana_ < 12 || !getInventory()->hasItem(5)) return;
+	mana_ -= 12;
 	animState_ = spell;
 	for (auto it : enemies)
 	{
@@ -204,7 +204,7 @@ void Player::update()
 
 	if(healthCounter_ % 15 == 0)
 	{ 
-		addHealth(1);
+		addHealth(level_);
 		healthCounter_ = 0;
 	}
 	if (manaCounter_ % 5 == 0)
