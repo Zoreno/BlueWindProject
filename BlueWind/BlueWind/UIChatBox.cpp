@@ -40,19 +40,10 @@ void UIChatBox::render(GameWindow & window)
 
 void UIChatBox::setConversation(std::string newConversation)
 {
-	/*if (newConversation.length() > 40)
+	if (newConversation.at(0) == '*')
 	{
-	for (int i = 0; i < newConversation.length(); i = i + 40)
-		{
-			inputBuffer_.push_front(newConversation.substr(i, 40));
-		}
+		inputBuffer_.clear();
+		newConversation = newConversation.substr(1, newConversation.length() - 1);
 	}
-	else
-	{
-		inputBuffer_.push_front(newConversation);
-	} */
-
-	// Vill vi hantera radbyte automatisk (och kanske fult) i kod eller manuellt i storlek på string vi skickar in?
-
 	inputBuffer_.push_front(newConversation);
 }

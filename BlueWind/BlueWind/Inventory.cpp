@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <iostream>
 #include "Game.h"
+#include "Application.h"
 
 using namespace std;
 
@@ -41,15 +42,18 @@ void Inventory::addItem(int ID)
 
 void Inventory::removeItem(int ID)
 {
+	cout << "Removing item :" + ID << endl;
 	auto it = items_.begin();
 
 	while (it != items_.end())
 	{
+		cout << "Iterating :" + ID << endl;
 		if ((*it)->getID() == ID)
 		{
 			items_.erase(it);
 			break;
 		}
+		++it;
 	}
 }
 
@@ -120,7 +124,8 @@ void Inventory::populateItemList()
 	allItems_.push_back(new Item{ 1,"Axe",gamePointer_->getTexture("pickAxe") });
 	allItems_.push_back(new Item{ 2,"Energy Ring",gamePointer_->getTexture("energyRing") });
 	allItems_.push_back(new Item{ 3,"Armour",gamePointer_->getTexture("armour") });
-	allItems_.push_back(new Item{ 4,"Sword of Might",gamePointer_->getTexture("sword") });
+	allItems_.push_back(new Item{ 4,"Amulet of Power",gamePointer_->getTexture("amulet") });
 	allItems_.push_back(new Item{ 5,"Magic Orb of Fire",gamePointer_->getTexture("magicFireOrb") });
+	allItems_.push_back(new Item{ 6,"Magic Wet Calice",gamePointer_->getTexture("magicWaterCalice") });
 
 }

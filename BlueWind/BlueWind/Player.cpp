@@ -12,9 +12,9 @@
 
 using namespace std;
 
-
+//TODO HP och Damage just nu för debug
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "L!NK", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
+	: Entity(1, 1000, 1000, 0, "L!NK", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
 	mana_{ 20 }, 
 	maxMana_{ 20 }, 
 	gamePointer_{ game }, 
@@ -106,8 +106,8 @@ Inventory* Player::getInventory()
 
 void Player::swordAttack(const map<int, Enemy*>& enemies)
 {
-	if (mana_ < 5) return;
-	mana_ -= 5;
+	if (mana_ < 4) return;
+	mana_ -= 4;
 	animState_ = attacking;
 	for (auto it : enemies)
 	{
@@ -139,8 +139,8 @@ void Player::swordAttack(const map<int, Enemy*>& enemies)
 
 void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 {
-	if (mana_ < 10 || !getInventory()->hasItem(5)) return;
-	mana_ -= 10;
+	if (mana_ < 12 || !getInventory()->hasItem(5)) return;
+	mana_ -= 12;
 	animState_ = spell;
 	for (auto it : enemies)
 	{
@@ -155,7 +155,7 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 {
 	for (auto it : NPCs)
 	{
-		if (getDistance(position_, it.second->getPosition()) <= 33)
+		if (getDistance(position_, it.second->getPosition()) <= 48)
 		{
 			if (dir_ == north && it.second->getPosition().y <= position_.y)
 			{
@@ -204,7 +204,7 @@ void Player::update()
 
 	if(healthCounter_ % 15 == 0)
 	{ 
-		addHealth(1);
+		addHealth(level_);
 		healthCounter_ = 0;
 	}
 	if (manaCounter_ % 5 == 0)

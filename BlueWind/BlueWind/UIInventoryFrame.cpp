@@ -45,7 +45,7 @@ void UIInventoryFrame::handleKeyEvent(sf::Event ev)
 {
 	switch (ev.key.code)
 	{
-	case sf::Keyboard::T:
+	case sf::Keyboard::L:
 		toggleVisible();
 		break;
 	}
