@@ -197,8 +197,8 @@ void Universe::populateWorlds()
 	//-----------------WORLD 0------------------------------------
 	//NPC
 	addNPC(0, new NPC(1, 100, 10, 0, "bridge guard", sf::Vector2f(38 * Tile::TILESIZE, 15 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "", BridgeGuardInteract));
-	addNPC(0, new NPC(1, 100, 10, 1, "first one", sf::Vector2f(20 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC8"), "", GirlInteract));
-	addNPC(0, new NPC(1, 100, 10, 2, "ringgiver", sf::Vector2f(39 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC8"), "", energyPowerupInteract));
+	addNPC(0, new NPC(1, 100, 10, 1, "first one", sf::Vector2f(20 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("citizenWoman1"), "", GirlInteract));
+	addNPC(0, new NPC(1, 100, 10, 2, "ringgiver", sf::Vector2f(39 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("citizenWoman2"), "", energyPowerupInteract));
 
 	//Träd
 	addNPC(0, new NPC(1, 100, 10, 3, "Tree", sf::Vector2f(18 * Tile::TILESIZE, 36 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
@@ -224,8 +224,8 @@ void Universe::populateWorlds()
 	//----------------------------WORLD 1-------------------------
 	//NPC
 	addNPC(1, new NPC(1, 100, 10, 11, "Stone", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("grassStone"), "", stoneInteract));
-	addNPC(1, new NPC(1, 100, 10, 12, "Citizen1", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC5"), "Please save us from the minotaur!", voidFkn));
-	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("NPC5"), "This is where the wizard lives", voidFkn));
+	addNPC(1, new NPC(1, 100, 10, 12, "Citizen1", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "Please save us from the minotaur!", voidFkn));
+	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenGirl2"), "This is where the wizard lives", voidFkn));
 
 	//Enemies
 	addEnemy(1, new Enemy(1, 150, 20, 2, "Minotaur", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("minotaur"), minotaurDeath));
@@ -297,9 +297,9 @@ void Universe::populateWorlds()
 
 	//------------------------WORLD5-----------------------------
 	// NPC
-	addNPC(5, new NPC(1, 100, 10, 0, "Guy", sf::Vector2f(25 * Tile::TILESIZE, 48 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("NPC8"), "", world5GuyInteract));
+	addNPC(5, new NPC(1, 100, 10, 0, "Guy", sf::Vector2f(25 * Tile::TILESIZE, 48 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenWoman1"), "", world5GuyInteract));
 	addNPC(5, new NPC(1, 100, 10, 1, "Firimaniums", sf::Vector2f(18 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("Firimaniums"), "", FirimaniumsInteract));
-	addNPC(5, new NPC(1, 100, 10, 2, "CitizenInWorld1", sf::Vector2f(29 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("NPC5"), "", voidFkn));
+	addNPC(5, new NPC(1, 100, 10, 2, "CitizenInWorld1", sf::Vector2f(29 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenGirl2"), "", voidFkn));
 
 	// Enemies
 	addEnemy(5, new Enemy(1, 200, 20, 0, "demon1", sf::Vector2f(30 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("demon"), defaultDeath));
