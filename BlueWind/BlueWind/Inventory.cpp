@@ -42,15 +42,18 @@ void Inventory::addItem(int ID)
 
 void Inventory::removeItem(int ID)
 {
+	cout << "Removing item :" + ID << endl;
 	auto it = items_.begin();
 
 	while (it != items_.end())
 	{
+		cout << "Iterating :" + ID << endl;
 		if ((*it)->getID() == ID)
 		{
 			items_.erase(it);
 			break;
 		}
+		++it;
 	}
 }
 

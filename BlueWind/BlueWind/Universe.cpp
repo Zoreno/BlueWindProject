@@ -695,7 +695,7 @@ void brokenFountainInteract1(NPC* NPCPtr)
 {
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
-		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
+		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("You have repared a fountain!");
@@ -708,7 +708,7 @@ void brokenFountainInteract2(NPC* NPCPtr)
 {
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
-		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
+		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
@@ -722,7 +722,7 @@ void brokenFountainInteract3(NPC* NPCPtr)
 {
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
-		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
+		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("You have repared a fountain!");
@@ -733,9 +733,10 @@ void brokenFountainInteract3(NPC* NPCPtr)
 }
 void brokenFountainInteract4(NPC* NPCPtr)
 {
-	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
+	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
+	if (inv->hasItem(6))
 	{
-		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
+		inv->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("You have repared a fountain!");
