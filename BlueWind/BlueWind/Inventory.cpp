@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <iostream>
 #include "Game.h"
+#include "Application.h"
 
 using namespace std;
 
@@ -34,6 +35,7 @@ void Inventory::addItem(int ID)
 	{
 		if (it->getID() == ID)
 		{
+			gamePointer_->getApp()->getSoundHandler().playSound("itemAdded");
 			items_.push_back(it);
 		}
 	}
