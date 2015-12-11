@@ -644,7 +644,7 @@ void snowChestInteract(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 		Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
 		player->setDamage(player->getDamage() + 10);
-		UI->addStringToChatBox("You find a sword in the chest.");
+		UI->addStringToChatBox("You find an amulet in the chest.");
 	}
 	else
 	{
