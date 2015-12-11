@@ -155,7 +155,7 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 {
 	for (auto it : NPCs)
 	{
-		if (getDistance(position_, it.second->getPosition()) <= 33)
+		if (getDistance(position_, it.second->getPosition()) <= 48)
 		{
 			if (dir_ == north && it.second->getPosition().y <= position_.y)
 			{

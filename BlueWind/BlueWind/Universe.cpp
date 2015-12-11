@@ -524,7 +524,7 @@ void defaultDeath(Enemy* enemyPtr)
 void saveGame(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->getGame()->saveGame();
-	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Game saved!");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*Game saved!");
 }
 
 void thankfulManInteract(NPC* NPCPtr)
