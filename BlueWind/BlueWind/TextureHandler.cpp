@@ -28,6 +28,7 @@ TextureHandler::TextureHandler()
 	loadTexture("grassBurnedTree", "res/textures/grassBurnedTree.png");
 	loadTexture("burnedGround", "res/textures/burnedGround.png");
 	loadTexture("fountain", "res/textures/fountain.png");
+	loadTexture("grassStone", "res/textures/grassStone.png");
 
 
 	//Items

@@ -130,6 +130,7 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(200, new Tile(gamePointer_->getTexture("fountain"), false));
 	tileAtlas_.emplace(900, new Tile(gamePointer_->getTexture("grassBurnedTree"), false));
 	tileAtlas_.emplace(901, new Tile(gamePointer_->getTexture("burnedGround"), false));
+	tileAtlas_.emplace(902, new Tile(gamePointer_->getTexture("grassStone"), false));
 
 	cout << "Laddning av tiles klart" << endl;
 }
@@ -222,7 +223,7 @@ void Universe::populateWorlds()
 
 	//----------------------------WORLD 1-------------------------
 	//NPC
-	addNPC(1, new NPC(1, 100, 10, 11, "Stone", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("mountainGrass"), "", stoneInteract));
+	addNPC(1, new NPC(1, 100, 10, 11, "Stone", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("grassStone"), "", stoneInteract));
 	addNPC(1, new NPC(1, 100, 10, 12, "Citizen1", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("NPC5"), "Please save us from the minotaur!", voidFkn));
 	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("NPC5"), "This is where the wizard lives", voidFkn));
 
