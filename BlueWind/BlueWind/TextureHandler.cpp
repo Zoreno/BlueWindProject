@@ -30,6 +30,7 @@ TextureHandler::TextureHandler()
 	loadTexture("fountain", "res/textures/fountain.png");
 	loadTexture("grassStone", "res/textures/grassStone.png");
 
+	loadTexture("noneWalkableSand", "res/textures/noneWalkableSand.png");
 
 	//Items
 	loadTexture("grassTreeChoppable", "res/textures/grassTreeChoppable.png");
@@ -46,6 +47,7 @@ TextureHandler::TextureHandler()
 	//Enemies
 	loadTexture("minotaur", "res/textures/minotaurEnemy.png");
 	loadTexture("ghost", "res/textures/ghostEnemy.png");
+	loadTexture("superGhost", "res/textures/SuperGhostEnemy.png");
 	loadTexture("demon", "res/textures/woodEnemy.png");
 	loadTexture("blueWind", "res/textures/blueWind.png");
 	loadTexture("redWizard", "res/textures/redWizardEnemy.png");
@@ -64,12 +66,17 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC5", "res/textures/NPC5.png");
 	loadTexture("NPC6", "res/textures/NPC6.png");
 	loadTexture("NPC7", "res/textures/NPC7.png");
-	loadTexture("NPC8", "res/textures/NPC8.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
 	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 
 	loadTexture("brokenFountain", "res/textures/brokenFountain.png");
-
-
+	loadTexture("citizenWoman1", "res/textures/citizenWoman1.png");
+	loadTexture("citizenWoman2", "res/textures/citizenWoman2.png");
+	loadTexture("citizenMan1", "res/textures/citizenMan1.png");
+	loadTexture("citizenMan2", "res/textures/citizenMan2.png");
+	loadTexture("citizenBoy1", "res/textures/citizenBoy1.png");
+	loadTexture("citizenBoy2", "res/textures/citizenBoy2.png");
+	loadTexture("citizenGirl1", "res/textures/citizenGirl1.png");
+	loadTexture("citizenGirl2", "res/textures/citizenGirl2.png");
 
 	//House
 	loadTexture("house00", "res/textures/house00.png");
