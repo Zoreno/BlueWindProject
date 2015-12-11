@@ -270,6 +270,8 @@ int World::getIntFromColor(sf::Color color)
 		return 900;
 	case 0x123456FF: //foutain
 		return 200;
+	case 0xFF1000FF: //noneWalkableSand
+		return 201;
 
 	default:
 		cout << "Fel färg!" << endl;

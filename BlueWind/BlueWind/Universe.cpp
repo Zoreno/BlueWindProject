@@ -128,6 +128,7 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(101, new Tile(gamePointer_->getTexture("lavastone"), true));
 	tileAtlas_.emplace(102, new Tile(gamePointer_->getTexture("burnedTree"), false));
 	tileAtlas_.emplace(200, new Tile(gamePointer_->getTexture("fountain"), false));
+	tileAtlas_.emplace(201, new Tile(gamePointer_->getTexture("noneWalkableSand"), false));
 	tileAtlas_.emplace(900, new Tile(gamePointer_->getTexture("grassBurnedTree"), false));
 	tileAtlas_.emplace(901, new Tile(gamePointer_->getTexture("burnedGround"), false));
 	
@@ -186,7 +187,7 @@ void Universe::populateWorlds()
 	void isgolathDeath(Enemy*);
 	void minotaurDeath(Enemy*);
 	void fireDeath(Enemy*); //
-	void superGhost1Death(Enemy*);
+	void superGhostDeath(Enemy*);
 
 	void voidFkn(NPC*);
 
@@ -278,7 +279,7 @@ void Universe::populateWorlds()
 	addEnemy(3, new Enemy(1, 1000, 30, 7, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
 	addEnemy(3, new Enemy(1, 1000, 30, 8, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
 
-	addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost1", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), superGhost1Death));
+	addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("superGhost"), superGhostDeath));
 
 	// Sensor
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("void")));
@@ -417,7 +418,10 @@ void stoneInteract(NPC* NPCPtr)
 
 void CthuluInteract(NPC* NPCPtr)
 {
-	if (NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 43) == 200)
+	if ((NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 33) == 200)&&
+		(NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 43) == 200)&&
+		(NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 33) == 200)&&
+		(NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 43) == 200))
 	{
 			
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
@@ -668,8 +672,11 @@ void world5GuyInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("Be careful!");	
 }
 
-void superGhost1Death(Enemy * enemyPtr)
+void superGhostDeath(Enemy * enemyPtr)
 {
+	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("You slayed the ghost and it");
+	UI->addStringToChatBox("dropped a Magic Wet Calice");
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(6);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
@@ -683,56 +690,49 @@ void brokenFountainInteract1(NPC* NPCPtr)
 		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repared the first fountain!");
+		UI->addStringToChatBox("You have repared a fountain!");
 		NPCPtr->getWorld()->changeTile(23 * NPCPtr->getWorld()->getMapWidth() + 33, 200);
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost1", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("ghost"), superGhost1Death));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
 void brokenFountainInteract2(NPC* NPCPtr)
 {
-	if ((NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 33) == 200)&&(NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6)))
+	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
 		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("Second fountain repared!");
+		UI->addStringToChatBox("You have repared a fountain!");
 		NPCPtr->getWorld()->changeTile(23 * NPCPtr->getWorld()->getMapWidth() + 43, 200);
-
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost1", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("ghost"), superGhost1Death));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
 void brokenFountainInteract3(NPC* NPCPtr)
 {
-	if ((NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 43) == 200)&&(NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6)))
+	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
 		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
-
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("Third fountain repared!");
+		UI->addStringToChatBox("You have repared a fountain!");
 		NPCPtr->getWorld()->changeTile(33 * NPCPtr->getWorld()->getMapWidth() + 33, 200);
-
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost1", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("ghost"), superGhost1Death));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
 void brokenFountainInteract4(NPC* NPCPtr)
 {
-	if ((NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 33) == 200)&&(NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6)))
+	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
 		//NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
-
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repared all fountains!");
-		UI->addStringToChatBox("Cthulu will have the power to");
-		UI->addStringToChatBox("teleport you now");
-
+		UI->addStringToChatBox("You have repared a fountain!");
 		NPCPtr->getWorld()->changeTile(33 * NPCPtr->getWorld()->getMapWidth() + 43, 200);
-	
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
