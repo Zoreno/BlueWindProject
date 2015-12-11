@@ -53,6 +53,7 @@ TextureHandler::TextureHandler()
 	loadTexture("badAlloc", "res/textures/badAlloc.png");
 	loadTexture("snowWolf", "res/textures/snowWolfEnemy.png");
 	loadTexture("fire", "res/textures/fire.png");
+	loadTexture("yourEx", "res/textures/girlEnemy.png");
 
 	//NPC
 	loadTexture("NPC", "res/textures/NPC1.png");
