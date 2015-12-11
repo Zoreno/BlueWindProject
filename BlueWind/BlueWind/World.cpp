@@ -268,6 +268,8 @@ int World::getIntFromColor(sf::Color color)
 		return 102;
 	case 0x7F1C00FF: //burnedTree
 		return 900;
+	case 0x77617CFF: //grassStone
+		return 902;
 	case 0x123456FF: //foutain
 		return 200;
 
