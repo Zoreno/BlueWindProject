@@ -27,6 +27,7 @@ TextureHandler::TextureHandler()
 	loadTexture("lavastone", "res/textures/lavastone.png");
 	loadTexture("grassBurnedTree", "res/textures/grassBurnedTree.png");
 	loadTexture("burnedGround", "res/textures/burnedGround.png");
+	loadTexture("fountain", "res/textures/fountain.png");
 
 
 	//Items
@@ -36,6 +37,7 @@ TextureHandler::TextureHandler()
 	loadTexture("armour", "res/textures/armour.png");
 	loadTexture("sword", "res/textures/sword.png");
 	loadTexture("magicFireOrb", "res/textures/magicFireOrb.png");
+	loadTexture("magicWaterCalice", "res/textures/magicWaterCalice.png");
 
 	//Player
 	loadTexture("player", "res/textures/player.png");
@@ -63,6 +65,8 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC8", "res/textures/NPC8.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
 	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 
+	loadTexture("brokenFountain", "res/textures/brokenFountain.png");
+
 
 
 	//House

@@ -123,5 +123,6 @@ void Inventory::populateItemList()
 	allItems_.push_back(new Item{ 3,"Armour",gamePointer_->getTexture("armour") });
 	allItems_.push_back(new Item{ 4,"Sword of Might",gamePointer_->getTexture("sword") });
 	allItems_.push_back(new Item{ 5,"Magic Orb of Fire",gamePointer_->getTexture("magicFireOrb") });
+	allItems_.push_back(new Item{ 6,"Magic Wet Calice",gamePointer_->getTexture("magicWaterCalice") });
 
 }
