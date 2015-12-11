@@ -35,7 +35,6 @@ void Inventory::addItem(int ID)
 	{
 		if (it->getID() == ID)
 		{
-			gamePointer_->getApp()->getSoundHandler().playSound("itemAdded");
 			items_.push_back(it);
 		}
 	}
