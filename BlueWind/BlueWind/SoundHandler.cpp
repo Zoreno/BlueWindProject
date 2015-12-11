@@ -15,6 +15,7 @@ SoundHandler::SoundHandler()
 	loadMusic("world3Music", "res/sounds/world3Music.ogg");
 	loadMusic("world4Music", "res/sounds/world4Music.ogg");
 
+	loadSound("itemAdded", "res/sounds/itemAdded.ogg");
 	loadSound("menuClick", "res/sounds/menuClick.ogg");
 	cout << "Laddar ljud klart" << endl;
 }

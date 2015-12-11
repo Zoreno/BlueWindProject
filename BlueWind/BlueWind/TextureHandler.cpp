@@ -43,16 +43,14 @@ TextureHandler::TextureHandler()
 	loadTexture("player", "res/textures/player.png");
 
 	//Enemies
-	loadTexture("enemy", "res/textures/enemy7.png"); 
-	loadTexture("enemy1", "res/textures/enemy1.png");
-	loadTexture("ghost", "res/textures/enemy3.png");
-	loadTexture("enemy4", "res/textures/enemy4.png");
-	loadTexture("enemy7", "res/textures/enemy7.png");
+	loadTexture("minotaur", "res/textures/minotaurEnemy.png");
+	loadTexture("ghost", "res/textures/ghostEnemy.png");
+	loadTexture("demon", "res/textures/woodEnemy.png");
 	loadTexture("blueWind", "res/textures/blueWind.png");
-	loadTexture("wizzzard", "res/textures/figur5.png");
-	loadTexture("blueWizard", "res/textures/blueWizard.png");
+	loadTexture("redWizard", "res/textures/redWizardEnemy.png");
+	loadTexture("blueWizard", "res/textures/blueWizardEnemy.png");
 	loadTexture("badAlloc", "res/textures/badAlloc.png");
-	loadTexture("snowWolf", "res/textures/snowWolf.png");
+	loadTexture("snowWolf", "res/textures/snowWolfEnemy.png");
 	loadTexture("fire", "res/textures/fire.png");
 
 	//NPC
