@@ -461,8 +461,8 @@ void CthuluInteract(NPC* NPCPtr)
 	{
 			
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("Well done! You have repared my");
-		UI->addStringToChatBox("fabolous fountains, many thanks.");
+		UI->addStringToChatBox("Well done! You have repaired my");
+		UI->addStringToChatBox("fabulous fountains, many thanks.");
 		UI->addStringToChatBox("Good luck almighty, potent,");
 		UI->addStringToChatBox("invincible, awesome Faranos!");
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
@@ -472,9 +472,9 @@ void CthuluInteract(NPC* NPCPtr)
 	{
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("Greetings Faranos! I want to teleport");
-		UI->addStringToChatBox("you to Bad Allocs damned Citadell.");
-		UI->addStringToChatBox("But i need the might of my four great");
-		UI->addStringToChatBox("fountains to do so. Repare them!");
+		UI->addStringToChatBox("you to Bad Allocs damned Citadel,");
+		UI->addStringToChatBox("but I need the might of my four great");
+		UI->addStringToChatBox("fountains to do so. Repair them!");
 	}
 }
 
@@ -715,8 +715,8 @@ void world5GuyInteract(NPC* NPCPtr)
 void superGhostDeath(Enemy * enemyPtr)
 {
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-	UI->addStringToChatBox("You slayed the ghost and it");
-	UI->addStringToChatBox("dropped a Magic Wet Calice");
+	UI->addStringToChatBox("*You slayed the ghost and it");
+	UI->addStringToChatBox("dropped a Magic Wet Chalice");
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(6);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
@@ -730,7 +730,7 @@ void brokenFountainInteract1(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repared a fountain!");
+		UI->addStringToChatBox("You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(23 * NPCPtr->getWorld()->getMapWidth() + 33, 200);
 		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
@@ -744,7 +744,7 @@ void brokenFountainInteract2(NPC* NPCPtr)
 
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repared a fountain!");
+		UI->addStringToChatBox("You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(23 * NPCPtr->getWorld()->getMapWidth() + 43, 200);
 		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
@@ -757,7 +757,7 @@ void brokenFountainInteract3(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repared a fountain!");
+		UI->addStringToChatBox("You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(33 * NPCPtr->getWorld()->getMapWidth() + 33, 200);
 		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
@@ -771,7 +771,7 @@ void brokenFountainInteract4(NPC* NPCPtr)
 		inv->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repared a fountain!");
+		UI->addStringToChatBox("You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(33 * NPCPtr->getWorld()->getMapWidth() + 43, 200);
 		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
