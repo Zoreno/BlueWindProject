@@ -160,15 +160,15 @@ void Universe::populateCity()
 
 	addNPC(1, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(35 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenMan1"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 1, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenMan2"), "", citizenInteract));
-	addNPC(1, new NPC(1, 100, 10, 2, "Citizen", sf::Vector2f(44 * Tile::TILESIZE, 36 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman1"), "", citizenInteract));
+	addNPC(1, new NPC(1, 100, 10, 2, "Citizen", sf::Vector2f(44 * Tile::TILESIZE, 36 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("cityPriest"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 3, "Citizen", sf::Vector2f(64 * Tile::TILESIZE, 39 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman2"), "", citizenInteract));
-	addNPC(1, new NPC(1, 100, 10, 4, "Citizen", sf::Vector2f(48 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenMan1"), "", citizenInteract));
-	addNPC(1, new NPC(1, 100, 10, 5, "Citizen", sf::Vector2f(36 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenMan2"), "", citizenInteract));
+	addNPC(1, new NPC(1, 100, 10, 4, "Citizen", sf::Vector2f(48 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("bridgeguard"), "", citizenInteract));
+	addNPC(1, new NPC(1, 100, 10, 5, "Citizen", sf::Vector2f(36 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("warrior"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 6, "Citizen", sf::Vector2f(31 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman1"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 7, "Citizen", sf::Vector2f(29 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenGirl1"), "Thank you for saving us!", thankfulManInteract));
 	addNPC(1, new NPC(1, 100, 10, 9, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("saveNPC"), "", saveGame));
-	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenMan1"), "Thank you for saving us!", thankfulCitizen));
+	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman3"), "Thank you for saving us!", thankfulCitizen));
 }
 
 void Universe::populateWorlds() 
@@ -217,7 +217,7 @@ void Universe::populateWorlds()
 
 	//-----------------WORLD 0------------------------------------
 	//NPC
-	addNPC(0, new NPC(1, 100, 10, 0, "bridge guard", sf::Vector2f(38 * Tile::TILESIZE, 15 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("NPC"), "", BridgeGuardInteract));
+	addNPC(0, new NPC(1, 100, 10, 0, "bridge guard", sf::Vector2f(38 * Tile::TILESIZE, 15 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("bridgeguard"), "", BridgeGuardInteract));
 	addNPC(0, new NPC(1, 100, 10, 1, "first one", sf::Vector2f(20 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("citizenWoman1"), "", GirlInteract));
 	addNPC(0, new NPC(1, 100, 10, 2, "ringgiver", sf::Vector2f(39 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("citizenWoman2"), "", energyPowerupInteract));
 
@@ -261,7 +261,7 @@ void Universe::populateWorlds()
 	// NPC
 	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(55 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
 	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
-	addNPC(2, new NPC(1, 100, 10, 2, "valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("NPC7"), "", manInValleyInteract));
+	addNPC(2, new NPC(1, 100, 10, 2, "valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("warrior"), "", manInValleyInteract));
 
 	//Enemies
 	addEnemy(2, new Enemy(1, 350, 30, 0, "snowWolf1", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
@@ -496,8 +496,9 @@ void manInValleyInteract(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("The bridge on the other side of the");
-	UI->addStringToChatBox("valley has been destroyed. Clear the pass");
-	UI->addStringToChatBox("of enemies for us and we shall fix it!");
+	UI->addStringToChatBox("valley has been destroyed. Clear the");
+	UI->addStringToChatBox("mountain pass of Bad Allocs minions");
+	UI->addStringToChatBox("for us and we shall fix it!");
 }
 
 void CthuluInteract2(NPC* NPCPtr)

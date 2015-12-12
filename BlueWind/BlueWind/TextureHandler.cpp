@@ -58,14 +58,14 @@ TextureHandler::TextureHandler()
 	loadTexture("yourEx", "res/textures/girlEnemy.png");
 
 	//NPC
-	loadTexture("NPC", "res/textures/NPC1.png");
+	loadTexture("bridgeguard", "res/textures/NPC1.png");
 	loadTexture("NPC1", "res/textures/NPC1.png");
-	loadTexture("NPC2", "res/textures/NPC2.png");
-	loadTexture("NPC3", "res/textures/NPC3.png");
+	loadTexture("warrior", "res/textures/NPC2.png");
+	loadTexture("citizenWoman3", "res/textures/NPC3.png");
 	loadTexture("NPC4", "res/textures/NPC4.png");
 	loadTexture("NPC5", "res/textures/NPC5.png");
 	loadTexture("NPC6", "res/textures/NPC6.png");
-	loadTexture("NPC7", "res/textures/NPC7.png");
+	loadTexture("cityPriest", "res/textures/NPC7.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
 	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 
 	loadTexture("brokenFountain", "res/textures/brokenFountain.png");
