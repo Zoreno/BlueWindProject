@@ -471,10 +471,10 @@ void CthuluInteract(NPC* NPCPtr)
 	else
 	{
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("Greetings Faranos! I want to teleport");
-		UI->addStringToChatBox("you to Bad Allocs damned Citadel,");
-		UI->addStringToChatBox("but I need the might of my four great");
-		UI->addStringToChatBox("fountains to do so. Repair them!");
+		UI->addStringToChatBox("Greetings Faranos! I can teleport you");
+		UI->addStringToChatBox("to the dreadful realm of Bad Alloc,");
+		UI->addStringToChatBox("but I need the power of my four magic");
+		UI->addStringToChatBox("fountains. Repair them for me!");
 	}
 }
 
