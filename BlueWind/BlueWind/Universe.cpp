@@ -166,9 +166,9 @@ void Universe::populateCity()
 	addNPC(1, new NPC(1, 100, 10, 5, "Citizen", sf::Vector2f(36 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("warrior"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 6, "Citizen", sf::Vector2f(31 * Tile::TILESIZE, 30 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman1"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 7, "Citizen", sf::Vector2f(29 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "", citizenInteract));
-	addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenGirl1"), "Thank you for saving us!", thankfulManInteract));
+	addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenGirl1"), "*Thank you for saving us!", thankfulManInteract));
 	addNPC(1, new NPC(1, 100, 10, 9, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("saveNPC"), "", saveGame));
-	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman3"), "Thank you for saving us!", thankfulCitizen));
+	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman3"), "T*hank you for saving us!", thankfulCitizen));
 }
 
 void Universe::populateWorlds() 
@@ -246,8 +246,8 @@ void Universe::populateWorlds()
 	//----------------------------WORLD 1-------------------------
 	//NPC
 	addNPC(1, new NPC(1, 100, 10, 11, "Stone", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("grassStone"), "", stoneInteract));
-	addNPC(1, new NPC(1, 100, 10, 12, "Citizen1", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "Please save us from the minotaur!", voidFkn));
-	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenGirl2"), "This is where the wizard lives", voidFkn));
+	addNPC(1, new NPC(1, 100, 10, 12, "Citizen1", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "*Please save us from the minotaur!", voidFkn));
+	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenGirl2"), "*This is where the wizard lives", voidFkn));
 
 	//Enemies
 	addEnemy(1, new Enemy(1, 150, 20, 2, "Minotaur", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("minotaur"), minotaurDeath));
@@ -282,7 +282,7 @@ void Universe::populateWorlds()
 
 	//----------------------------WORLD3--------------------------
 	//NPC
-	addNPC(3, new NPC(1, 100, 10, 1, "Cthulu", sf::Vector2f(38 * Tile::TILESIZE, 34 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("NPC5"), "I AM CTHULU!", CthuluInteract));
+	addNPC(3, new NPC(1, 100, 10, 1, "Cthulu", sf::Vector2f(38 * Tile::TILESIZE, 34 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("NPC5"), "*I AM CTHULU!", CthuluInteract));
 
 	addNPC(3, new NPC(1, 100, 10, 3, "Broken Fountain1", sf::Vector2f(33 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract1));
 	addNPC(3, new NPC(1, 100, 10, 4, "Broken Fountain2", sf::Vector2f(43 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract2));
@@ -316,7 +316,7 @@ void Universe::populateWorlds()
 	addEnemy(4, new Enemy(1, 1500, 50, 5, "redWizard", sf::Vector2f(24 * Tile::TILESIZE, 43 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("redWizard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 1500, 50, 6, "redWizard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("redWizard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 2800, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
-	addEnemy(4, new Enemy(10, 10000, 200, 3, "BlueWind", sf::Vector2f(46 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
+	addEnemy(4, new Enemy(10, 6000, 60, 3, "BlueWind", sf::Vector2f(46 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
 
     //------------------------WORLD5-----------------------------
 	// NPC
@@ -397,14 +397,14 @@ void BridgeGuardInteract(NPC* NPCPtr)
 
 		if (bridgeLength == 0)
 		{
-			UI->addStringToChatBox("Bring me some wood and I can");
+			UI->addStringToChatBox("*Bring me some wood and I can");
 			UI->addStringToChatBox("help you repair the bridge!");
 			return;
 		}
 
 		if (bridgeLength > 0 && bridgeLength < 10)
 		{
-			UI->addStringToChatBox("I still need some more wood in");
+			UI->addStringToChatBox("*I still need some more wood in");
 			UI->addStringToChatBox("order to finish the bridge!");
 			return;
 		}
@@ -415,7 +415,7 @@ void BridgeGuardInteract(NPC* NPCPtr)
 		}
 
 	}
-	UI->addStringToChatBox("The bridge is finished! You may");
+	UI->addStringToChatBox("*The bridge is finished! You may");
 	UI->addStringToChatBox("proceed to the town.");
 	
 }
@@ -436,7 +436,7 @@ void treeInteract(NPC* NPCPtr)
 	}
 	else
 	{
-		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Inventory is full.");
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*Inventory is full.");
 	}
 }
 
@@ -461,7 +461,7 @@ void CthuluInteract(NPC* NPCPtr)
 	{
 			
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("Well done! You have repaired my");
+		UI->addStringToChatBox("*Well done! You have repaired my");
 		UI->addStringToChatBox("fabulous fountains, many thanks.");
 		UI->addStringToChatBox("Good luck almighty, potent,");
 		UI->addStringToChatBox("invincible, awesome Faranos!");
@@ -471,7 +471,7 @@ void CthuluInteract(NPC* NPCPtr)
 	else
 	{
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("Greetings Faranos! I can teleport you");
+		UI->addStringToChatBox("*Greetings Faranos! I can teleport you");
 		UI->addStringToChatBox("to the dreadful realm of Bad Alloc,");
 		UI->addStringToChatBox("but I need the power of my four magic");
 		UI->addStringToChatBox("fountains. Repair them for me!");
@@ -480,13 +480,13 @@ void CthuluInteract(NPC* NPCPtr)
 
 void citizenInteract(NPC* NPCPtr)
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("Thank you for saving us!");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*Thank you for saving us!");
 }
 
 void GirlInteract(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };	
-	UI->addStringToChatBox("Faranos? Thank god you are here!");
+	UI->addStringToChatBox("*Faranos? Thank god you are here!");
 	UI->addStringToChatBox("You must defeat Bad Alloc, his dark");
 	UI->addStringToChatBox("minions are destroying the"); 
 	UI->addStringToChatBox("beautiful land of MaroWind!");
@@ -495,7 +495,7 @@ void GirlInteract(NPC* NPCPtr)
 void manInValleyInteract(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-	UI->addStringToChatBox("The bridge on the other side of the");
+	UI->addStringToChatBox("*The bridge on the other side of the");
 	UI->addStringToChatBox("valley has been destroyed. Clear the");
 	UI->addStringToChatBox("mountain pass of Bad Allocs minions");
 	UI->addStringToChatBox("for us and we shall fix it!");
@@ -503,7 +503,7 @@ void manInValleyInteract(NPC* NPCPtr)
 
 void CthuluInteract2(NPC* NPCPtr)
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("There is another one!");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*There is another one!");
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 12 * Tile::TILESIZE, 15 * Tile::TILESIZE);
 }
 
@@ -565,7 +565,7 @@ void thankfulManInteract(NPC* NPCPtr)
 	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
 	if (!inv->isFull() && !inv->hasItem(1))
 	{
-		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("I give you my pickaxe!");
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*I give you my pickaxe!");
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(1);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 	}
@@ -578,7 +578,7 @@ void thankfulCitizen(NPC* NPCPtr)
 		
 	if (!inv->isFull() && !inv->hasItem(3))
 		{
-			UI->addStringToChatBox("Here you get an armour ");
+			UI->addStringToChatBox("*Here you get an armour ");
 			UI->addStringToChatBox("to protect you!");
 			inv->addItem(3);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
@@ -602,7 +602,7 @@ void minotaurDeath(Enemy* enemyPtr)
 void isgolathDeath(Enemy* enemyPtr)
 {
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-	UI->addStringToChatBox("Oh no, you defeated me!");
+	UI->addStringToChatBox("*Oh no, you defeated me!");
 	UI->addStringToChatBox("Bluewind will avenge me!");
 
 	if (!enemyPtr->getWorld()->getUniverse()->getGame()->getGameState()->bridge2Built)
@@ -627,7 +627,7 @@ void badAllocDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(2000);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 	cout << "Bad Alloc is dead!" << endl;
-	enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(1, 100, 10, 3, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "I AM CTHULU", CthuluInteract2));
+	enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(1, 100, 10, 3, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "*I AM CTHULU", CthuluInteract2));
 }
 
 void blueWindDeath(Enemy* enemyPtr)
@@ -647,7 +647,7 @@ void energyPowerupInteract(NPC* NPCPtr)
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	if (NPCPtr->getWorld()->getTileVector().at(13 * NPCPtr->getWorld()->getMapWidth() + 49) == 2)
 	{
-		UI->addStringToChatBox("Thanks for repairing the bridge.");
+		UI->addStringToChatBox("*Thanks for repairing the bridge.");
 		UI->addStringToChatBox("Take my magic ring as a token of");
 		UI->addStringToChatBox("my gratitude.");
 
@@ -662,7 +662,7 @@ void energyPowerupInteract(NPC* NPCPtr)
 	}
 	else
 	{
-		UI->addStringToChatBox("I need to get over the bridge.");
+		UI->addStringToChatBox("*I need to get over the bridge.");
 		UI->addStringToChatBox("It is not safe in these woods.");
 	}
 }
@@ -677,11 +677,11 @@ void snowChestInteract(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 		Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
 		player->setDamage(player->getDamage() + 10);
-		UI->addStringToChatBox("You find an amulet in the chest.");
+		UI->addStringToChatBox("*You find an amulet in the chest.");
 	}
 	else
 	{
-		UI->addStringToChatBox("The chest is empty.");
+		UI->addStringToChatBox("*The chest is empty.");
 	}
 }
 
@@ -691,7 +691,7 @@ void world5GuyInteract(NPC* NPCPtr)
 
 	if (!(NPCPtr->getWorld()->getTileVector().at(51 * NPCPtr->getWorld()->getMapWidth() + 26) == 900))
 	{
-		UI->addStringToChatBox("The wizard gave me a fireball,");
+		UI->addStringToChatBox("*The wizard gave me a fireball,");
 		UI->addStringToChatBox("look what I can do!");
 
 		NPCPtr->getWorld()->changeTile(51 * NPCPtr->getWorld()->getMapWidth() + 26, 900);
@@ -710,7 +710,7 @@ void world5GuyInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("Woops, I guess you must be careful!");
 	}
 	else
-		UI->addStringToChatBox("Be careful!");	
+		UI->addStringToChatBox("*Be careful!");	
 }
 
 void superGhostDeath(Enemy * enemyPtr)
@@ -731,9 +731,9 @@ void brokenFountainInteract1(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repaired a fountain!");
+		UI->addStringToChatBox("*You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(23 * NPCPtr->getWorld()->getMapWidth() + 33, 200);
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 1000, 25, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
@@ -745,9 +745,9 @@ void brokenFountainInteract2(NPC* NPCPtr)
 
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repaired a fountain!");
+		UI->addStringToChatBox("*You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(23 * NPCPtr->getWorld()->getMapWidth() + 43, 200);
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 1000, 25, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
@@ -758,9 +758,9 @@ void brokenFountainInteract3(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repaired a fountain!");
+		UI->addStringToChatBox("*You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(33 * NPCPtr->getWorld()->getMapWidth() + 33, 200);
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 1000, 25, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
@@ -772,9 +772,9 @@ void brokenFountainInteract4(NPC* NPCPtr)
 		inv->removeItem(6);
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-		UI->addStringToChatBox("You have repaired a fountain!");
+		UI->addStringToChatBox("*You have repaired a fountain!");
 		NPCPtr->getWorld()->changeTile(33 * NPCPtr->getWorld()->getMapWidth() + 43, 200);
-		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 50, 30, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
+		NPCPtr->getWorld()->getUniverse()->addEnemy(3, new Enemy(1, 1000, 25, 9, "superGhost", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), NPCPtr->getWorld()->getUniverse()->getWorld(3), NPCPtr->getWorld()->getUniverse()->getGame()->getTexture("superGhost"), superGhostDeath));
 		NPCPtr->die();
 	}
 }
@@ -787,7 +787,7 @@ void FirimaniumsInteract(NPC* NPCPtr)
 	{
 		inv->addItem(5);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
-		UI->addStringToChatBox("I am the mighty wizard Firimaniums!");
+		UI->addStringToChatBox("*I am the mighty wizard Firimaniums!");
 		UI->addStringToChatBox("I hear you are fighting Bad Alloc,");
 		UI->addStringToChatBox("have a Magic Orb of Fire! See you!");
 		UI->addStringToChatBox("(Press 'J' to use your new power)");
@@ -798,7 +798,7 @@ void FirimaniumsInteract(NPC* NPCPtr)
 	else
 	{
 	
-		UI->addStringToChatBox("I turn my back on you for two");
+		UI->addStringToChatBox("*I turn my back on you for two");
 		UI->addStringToChatBox("seconds and you burn down my");
 		UI->addStringToChatBox("house, nice to see you're putting");
 		UI->addStringToChatBox("your Orb of Fire to good use!");

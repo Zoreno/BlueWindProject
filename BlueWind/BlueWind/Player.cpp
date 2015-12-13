@@ -14,7 +14,7 @@ using namespace std;
 
 //TODO HP och Damage just nu för debug
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 1000, 1000, 0, "L!NK", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
+	: Entity(1, 100, 10, 0, "L!NK", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
 	mana_{ 20 }, 
 	maxMana_{ 20 }, 
 	gamePointer_{ game }, 
