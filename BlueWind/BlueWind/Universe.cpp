@@ -309,14 +309,14 @@ void Universe::populateWorlds()
 	//----------------------------WORLD4--------------------------
 	
 	//NPC
-	addNPC(4, new NPC(1, 100, 10, 2, "Gandalf", sf::Vector2f(14 * Tile::TILESIZE, 37 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("saveNPC"), "", saveGame));
+	addNPC(4, new NPC(1, 100, 10, 2, "Gandalf", sf::Vector2f(13 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
 	//Enemy
 	addEnemy(4, new Enemy(1, 1500, 50, 4, "redWizard", sf::Vector2f(16 * Tile::TILESIZE, 38 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("redWizard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 1500, 50, 5, "redWizard", sf::Vector2f(24 * Tile::TILESIZE, 43 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("redWizard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 1500, 50, 6, "redWizard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("redWizard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 2800, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
-	addEnemy(4, new Enemy(10, 6000, 60, 3, "BlueWind", sf::Vector2f(46 * Tile::TILESIZE, 21 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
+	addEnemy(4, new Enemy(10, 7000, 70, 3, "BlueWind", sf::Vector2f(49 * Tile::TILESIZE, 22 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
 
     //------------------------WORLD5-----------------------------
 	// NPC
@@ -504,7 +504,7 @@ void manInValleyInteract(NPC* NPCPtr)
 void CthuluInteract2(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*There is another one!");
-	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 12 * Tile::TILESIZE, 15 * Tile::TILESIZE);
+	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 14 * Tile::TILESIZE, 15 * Tile::TILESIZE);
 }
 
 void World0_World1Interact(World* worldPtr)
@@ -565,7 +565,8 @@ void thankfulManInteract(NPC* NPCPtr)
 	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
 	if (!inv->isFull() && !inv->hasItem(1))
 	{
-		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*I give you my pickaxe!");
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*I give you my pickaxe! It might");
+		NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("come in handy on your journey.");
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(1);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 	}
@@ -578,8 +579,8 @@ void thankfulCitizen(NPC* NPCPtr)
 		
 	if (!inv->isFull() && !inv->hasItem(3))
 		{
-			UI->addStringToChatBox("*Here you get an armour ");
-			UI->addStringToChatBox("to protect you!");
+			UI->addStringToChatBox("*Take this armour as protection");
+			UI->addStringToChatBox("from Bad Allocs servants!");
 			inv->addItem(3);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
@@ -602,7 +603,7 @@ void minotaurDeath(Enemy* enemyPtr)
 void isgolathDeath(Enemy* enemyPtr)
 {
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
-	UI->addStringToChatBox("*Oh no, you defeated me!");
+	UI->addStringToChatBox("*Oh no, I have been defeated!");
 	UI->addStringToChatBox("Bluewind will avenge me!");
 
 	if (!enemyPtr->getWorld()->getUniverse()->getGame()->getGameState()->bridge2Built)
@@ -691,7 +692,7 @@ void world5GuyInteract(NPC* NPCPtr)
 
 	if (!(NPCPtr->getWorld()->getTileVector().at(51 * NPCPtr->getWorld()->getMapWidth() + 26) == 900))
 	{
-		UI->addStringToChatBox("*The wizard gave me a fireball,");
+		UI->addStringToChatBox("*The wizard gave me a Magic Orb,");
 		UI->addStringToChatBox("look what I can do!");
 
 		NPCPtr->getWorld()->changeTile(51 * NPCPtr->getWorld()->getMapWidth() + 26, 900);
@@ -789,7 +790,7 @@ void FirimaniumsInteract(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 		UI->addStringToChatBox("*I am the mighty wizard Firimaniums!");
 		UI->addStringToChatBox("I hear you are fighting Bad Alloc,");
-		UI->addStringToChatBox("have a Magic Orb of Fire! See you!");
+		UI->addStringToChatBox("take this Magic Orb of Fire! See you!");
 		UI->addStringToChatBox("(Press 'J' to use your new power)");
 
 		NPCPtr->teleport(25 * Tile::TILESIZE, 26 * Tile::TILESIZE);
