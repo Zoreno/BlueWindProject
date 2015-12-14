@@ -55,7 +55,7 @@ void creditsMenuCallback(Application*);		// Funktionen som körs då man klickar p
 *
 * UTNYTTJAR
 *
-* - 
+* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -139,6 +139,7 @@ void Credits::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
+
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
@@ -152,6 +153,7 @@ void Credits::handleMouseEvent(sf::Event event)
 			}
 		}
 	}
+
 	default:
 		break;
 	}
@@ -279,5 +281,5 @@ void creditsMenuCallback(Application* ptr)
 }
 
 /*
-* SLUT PÅ FILEN Help.cpp
+* SLUT PÅ FILEN Credits.cpp
 */

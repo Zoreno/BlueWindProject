@@ -123,7 +123,7 @@ public:
 class FrameButton
 {
 public:
-	FrameButton(Application*,sf::Vector2f, sf::Vector2f, std::string, std::string, std::function<void (Application*)>);
+	FrameButton(Application*, sf::Vector2f, sf::Vector2f, std::string, std::string, std::function<void(Application*)>);
 	FrameButton(const FrameButton&) = delete;
 	FrameButton& operator=(const FrameButton&) = delete;
 

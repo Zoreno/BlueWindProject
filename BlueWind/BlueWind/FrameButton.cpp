@@ -66,10 +66,10 @@ using namespace std;
 */
 
 FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f size, std::string normalFile, std::string hoverFile, std::function<void(Application*)> callbackFunc)
-	: appPointer_{ appPtr }, 
-	position_{ pos }, 
-	size_{ size }, 
-	callback_{callbackFunc}
+	: appPointer_{ appPtr },
+	position_{ pos },
+	size_{ size },
+	callback_{ callbackFunc }
 {
 	if (!normalTexture_.loadFromFile(normalFile))
 		throw FrameButtonException("Kunde inte läsa in textur för knapp från fil:" + normalFile);
@@ -78,7 +78,7 @@ FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f siz
 }
 
 /*
-* FUNKTION FrameButton::getPosition() 
+* FUNKTION FrameButton::getPosition()
 *
 * BESKRIVNING
 *
@@ -183,11 +183,11 @@ sf::Vector2f FrameButton::getSize() const
 void FrameButton::update()
 {
 	sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
-		
+
 	if (mouseOnButton(mousePosition))
 		sprite_.setTexture(hoverTexture_);
 	else
-		sprite_.setTexture(normalTexture_);	
+		sprite_.setTexture(normalTexture_);
 }
 
 /*

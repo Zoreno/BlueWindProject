@@ -79,7 +79,7 @@ class WorldException : public std::logic_error
 {
 public:
 	using std::logic_error::logic_error;
-}; 
+};
 
 /*
 * KLASS World
@@ -155,8 +155,8 @@ public:
 	const int getMapWidth() const;
 	const int getMapHeight() const;
 	const std::vector<int> getTileVector() const;
-	const std::map<int,Enemy*> getEnemyVector() const;
-	const std::map<int,NPC*> getNPCVector() const;
+	const std::map<int, Enemy*> getEnemyVector() const;
+	const std::map<int, NPC*> getNPCVector() const;
 	const std::map<int, Sensor*> getSensorVector() const;
 private:
 	std::vector<int> tileVector_;
@@ -164,10 +164,10 @@ private:
 	Universe* universePointer_;
 	std::string music_;
 
-	std::map<int,Enemy*> enemyVector_;
+	std::map<int, Enemy*> enemyVector_;
 	std::vector<int> removeEnemyVector_;
-	std::map<int,NPC*> NPCVector_;
-	std::vector<int> removeNPCVector_; 
+	std::map<int, NPC*> NPCVector_;
+	std::vector<int> removeNPCVector_;
 	std::map<int, Sensor*> sensorVector_;
 	std::vector<int> removeSensorVector_;
 

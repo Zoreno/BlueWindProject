@@ -56,7 +56,7 @@ void menuCallback(Application*);	// Funktionen som körs då man klickar på knappe
 *
 * UTNYTTJAR
 *
-* - 
+* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -141,6 +141,7 @@ void GameOver::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
+
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
@@ -154,6 +155,7 @@ void GameOver::handleMouseEvent(sf::Event event)
 			}
 		}
 	}
+
 	default:
 		break;
 	}

@@ -73,9 +73,9 @@ void creditsCallback(Application*);		// Funktionen som körs då man klickar på kn
 */
 
 Menu::Menu(Application* appPtr)
-	: Frame{appPtr} 
+	: Frame{ appPtr }
 {
-	addButton(sf::Vector2f(400-175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
+	addButton(sf::Vector2f(400 - 175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
 	addButton(sf::Vector2f(400 - 175, 275), sf::Vector2f(350, 100), "res/textures/loadgameButton.png", "res/textures/loadgameButtonHover.png", loadGameCallback);
 	addButton(sf::Vector2f(400 - 175, 400), sf::Vector2f(350, 100), "res/textures/quitButton.png", "res/textures/quitButtonHover.png", quitCallback);
 	addButton(sf::Vector2f(800 - 155, 600 - 65), sf::Vector2f(130, 50), "res/textures/helpButton.png", "res/textures/helpButtonHover.png", helpCallback);
@@ -151,9 +151,11 @@ void Menu::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
+	
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
+		
 		for (auto it : buttons_)
 		{
 			if (it->mouseOnButton(mousePosition))
@@ -163,6 +165,7 @@ void Menu::handleMouseEvent(sf::Event event)
 			}
 		}
 	}
+
 	default:
 		break;
 	}
@@ -394,7 +397,7 @@ void quitCallback(Application* ptr)
 
 void helpCallback(Application* ptr)
 {
-	ptr->setNextFrame(new Help(ptr)); 
+	ptr->setNextFrame(new Help(ptr));
 }
 
 /*
@@ -402,7 +405,7 @@ void helpCallback(Application* ptr)
 *
 * BESKRIVNING
 *
-* Funktionen som körs då man klickar på knappen "Credtis". Går ur startmenyn och öppnar en undermeny med en lista över i spelet använt material. 
+* Funktionen som körs då man klickar på knappen "Credtis". Går ur startmenyn och öppnar en undermeny med en lista över i spelet använt material.
 *
 * INDATA
 *
