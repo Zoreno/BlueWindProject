@@ -1,4 +1,5 @@
-/* IDENTIFIERING
+/* 
+* IDENTIFIERING
 *
 * Filnamn:    SoundHandler.cpp
 * Enhetsnamn: SoundHandler
@@ -31,7 +32,7 @@ using namespace std;
 *
 * BESKRIVNING
 *
-* Denna konstruktor konstruerar en ljudhanterare genom anrop av loadMusic och loadSound.
+* Denna konstruktor skapar en ljudhanterare genom anrop av loadMusic och loadSound.
 *
 * INDATA
 *
@@ -263,7 +264,7 @@ void SoundHandler::stopMusic()
 *
 * modul: std::string
 * modul: sf::SoundBuffer
-* modul: std::logic_error
+* modul: SoundException
 *
 * REVISIONSBERÄTTELSE
 *
@@ -305,8 +306,9 @@ void SoundHandler::loadSound(const std::string& soundName, const std::string& fi
 *
 * UTNYTTJAR
 *
-* modul: std::string
-* modul: sf::Music
+* modul:	std::string
+* modul:	sf::Music
+* modul:	SoundException
 *
 * REVISIONSBERÄTTELSE
 *

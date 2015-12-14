@@ -1,4 +1,5 @@
-/* IDENTIFIERING
+/* 
+* IDENTIFIERING
 *
 * Filnamn:    Sensor.cpp
 * Enhetsnamn: Sensor
@@ -26,7 +27,6 @@
 #include "World.h"
 #include "Universe.h"
 #include "Game.h"
-#include <iostream>
 
 using namespace std;
 
@@ -35,7 +35,7 @@ using namespace std;
 *
 * BESKRIVNING
 *
-* Denna konstruktor konstruerar en sensor.
+* Denna konstruktor skapar en sensor.
 *
 * INDATA
 *
@@ -77,7 +77,7 @@ Sensor::Sensor(int ID, std::string name, sf::Vector2f position, World * worldPtr
 *
 * BESKRIVNING
 *
-* Uppdaterar Sensorn.
+* Sensors update-funktion är tom. Sensorn uppdateras inte.
 *
 * INDATA
 *
@@ -111,7 +111,7 @@ void Sensor::update()
 *
 * BESKRIVNING
 *
-* render-funktionen är tom, sensorer ritas inte upp.
+* Sensors render-funktion är tom, sensorer ritas inte upp.
 *
 * INDATA
 *
@@ -168,17 +168,18 @@ void Sensor::render(GameWindow & window)
 * 1                    151214          Ursprungsversion
 *
 */
+
 void Sensor::trigger()
 {
 	callback_(worldPointer_);
 }
 
 /*
-* FUNKTION NPC::update()
+* FUNKTION NPC::die()
 *
 * BESKRIVNING
 *
-* Die-funktionen är tom, sensorer skall inte gå att döda.
+* Sensors die-funktion är tom, sensorer skall inte gå att ta bort.
 *
 * INDATA
 *
