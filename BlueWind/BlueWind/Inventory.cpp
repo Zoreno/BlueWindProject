@@ -364,7 +364,7 @@ const int Inventory::getCount(int ID)
 
 Item * Inventory::at(int pos)
 {
-	if (pos >= 0 && pos <= items_.size())
+	if (pos >= 0 && pos <= static_cast<int>(items_.size()))
 		return items_.at(pos);
 	else
 		throw InventoryException("Kan ej hämta element på angiven position:" + pos);

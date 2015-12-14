@@ -78,7 +78,7 @@ void Universe::setCurrentWorld(int ID)
 void Universe::switchWorld(int ID, int x, int y)
 {
 	setCurrentWorld(ID);
-	gamePointer_->getPlayer()->teleport(x, y);
+	gamePointer_->getPlayer()->teleport(static_cast<float>(x), static_cast<float>(y));
 	gamePointer_->getPlayer()->setCurrentWorld(currentWorld_);
 	gamePointer_->getApp()->getSoundHandler().playMusic(currentWorld_->getMusic());
 }
@@ -428,7 +428,7 @@ void treeInteract(NPC* NPCPtr)
 {
 	if (!NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->isFull())
 	{
-		NPCPtr->getWorld()->changeTile(((NPCPtr->getPosition().y / 32) * NPCPtr->getWorld()->getMapWidth() + NPCPtr->getPosition().x / 32), 21);
+		NPCPtr->getWorld()->changeTile(((static_cast<int>(NPCPtr->getPosition().y) / 32) * NPCPtr->getWorld()->getMapWidth() + static_cast<int>(NPCPtr->getPosition().x) / 32), 21);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(0);
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 		NPCPtr->die();

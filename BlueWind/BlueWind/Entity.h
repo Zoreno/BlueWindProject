@@ -23,8 +23,8 @@ public:
 	virtual void update() = 0;
 	virtual void render(GameWindow&) = 0;
 
-	void move(int, int);
-	void teleport(int, int);
+	void move(float, float);
+	void teleport(float, float);
 	
 	int getLevel() const;
 	int getHealth() const;
