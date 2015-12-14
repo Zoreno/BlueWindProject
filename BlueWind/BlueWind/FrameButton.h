@@ -145,6 +145,6 @@ private:
 	std::function<void(Application*)> callback_;
 }; // class FrameButton
 
-   /*
-   * SLUT PÅ FILEN FrameButton.h
-   */
+/*
+* SLUT PÅ FILEN FrameButton.h
+*/

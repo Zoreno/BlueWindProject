@@ -179,6 +179,6 @@ private:
 	void updateLists();
 }; // class World
 
-   /*
-   * SLUT PÅ FILEN World.h
-   */
+/*
+* SLUT PÅ FILEN World.h
+*/

@@ -87,6 +87,6 @@ private:
 	sf::Sprite background_;
 }; // class Menu
 
-   /*
-   * SLUT PÅ FILEN Menu.h
-   */
+/*
+* SLUT PÅ FILEN Menu.h
+*/
