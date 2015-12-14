@@ -30,7 +30,7 @@
 #include <functional>
 
 /*
-* KLASS SoundHandler
+* KLASS Sensor
 *
 * BASKLASSER
 *
