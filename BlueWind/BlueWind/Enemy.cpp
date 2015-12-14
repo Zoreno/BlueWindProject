@@ -110,7 +110,7 @@ void Enemy::executeState()
 		{
 			resetTimer_++;
 			toStartVector = normalize(startPosition_ - position_);
-			move(static_cast<int>(2*toStartVector.x), static_cast<int>(2*toStartVector.y));
+			move(2.0f*toStartVector.x, 2.0f*toStartVector.y);
 		}
 			break;
 	case ATTACK:
@@ -118,7 +118,7 @@ void Enemy::executeState()
 		break;
 	case MOVETOPLAYER:
 		toPlayerVector = normalize(playerPos - position_);
-		move(static_cast<int>(toPlayerVector.x), static_cast<int>(toPlayerVector.y));
+		move(toPlayerVector.x, toPlayerVector.y);
 		break;
 	}
 }
@@ -157,5 +157,5 @@ sf::Vector2f normalize(sf::Vector2f vec)
 		y /= abs(y);
 	}
 
-	return sf::Vector2f(x,y);
+	return sf::Vector2f(static_cast<float>(x),static_cast<float>(y));
 }

@@ -75,7 +75,7 @@ public:
 	Item(const Item&) = delete;
 	Item& operator=(const Item&) = delete;
 
-	const std::string getName();
+	const std::string& getName();
 	const int getID();
 	const sf::Sprite& getSprite() const;
 

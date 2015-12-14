@@ -102,7 +102,7 @@ Item::Item(int ID, string name, sf::Texture& texture)
 *
 */
 
-const string Item::getName()
+const string& Item::getName()
 {
 	return name_;
 }
