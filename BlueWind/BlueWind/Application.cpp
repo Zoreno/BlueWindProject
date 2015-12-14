@@ -460,3 +460,7 @@ void Application::setNextFrame(Frame* framePtr)
 {
 	nextFrame_ = framePtr;
 }
+
+/*
+* SLUT PÅ FILEN Application.cpp
+*/

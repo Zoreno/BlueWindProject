@@ -71,7 +71,7 @@ Animation::Animation(Entity* entityPointer, sf::Texture& tex)
 }
 
 /*
-* update(int state, int dir, bool walking)
+* FUNKTION update(int state, int dir, bool walking)
 *
 * BESKRIVNING
 *
@@ -144,7 +144,7 @@ void Animation::update(int state, int dir, bool walking)
 }
 
 /*
-* render(GameWindow& window)
+* FUNKTION render(GameWindow& window)
 *
 * BESKRIVNING
 *
@@ -181,3 +181,7 @@ void Animation::render(GameWindow& window)
 	currentSprite_.setPosition(entityPtr_->getPosition());
 	window.draw(currentSprite_);
 }
+
+/*
+* SLUT PÅ FILEN Animation.cpp
+*/

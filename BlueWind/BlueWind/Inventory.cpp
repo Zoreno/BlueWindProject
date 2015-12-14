@@ -35,7 +35,7 @@ using namespace std;
 *
 * BESKRIVNING
 *
-* Denna konstruktor konstruerar ett föremål.
+* Denna konstruktor konstruerar ett Inventory
 *
 * INDATA
 *
@@ -75,7 +75,7 @@ Inventory::Inventory(Player * playerPtr, Game* gamePtr)
 *
 * BESKRIVNING
 *
-* Denna destruktor destrukterar ett föremål.
+* Denna destruktor destrukterar ett Inventory-objekt
 *
 * INDATA
 *
@@ -258,7 +258,7 @@ bool Inventory::hasItem(int ID)
 *
 * INDATA
 *
-* ID: ID på föremålet som ska tas bort.
+* -
 *
 * UTDATA
 *
@@ -336,7 +336,7 @@ const int Inventory::getCount(int ID)
 *
 * BESKRIVNING
 *
-* Returnerar föremålet på en plats i inventory.
+* Returnerar föremålet på plats pos i inventory.
 *
 * INDATA
 *
