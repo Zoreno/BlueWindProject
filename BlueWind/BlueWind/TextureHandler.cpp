@@ -1,12 +1,65 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    TextureHandler.cpp
+* Enhetsnamn: NPC
+* Typ:        Definitioner hörande till klass TextureHandler
+* Revision:   1
+* Skriven av: Simon Arkeholt, Fredrik Gustafsson
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen TextureHandler.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "TextureHandler.h"
-#include <iostream>
 
 using namespace std;
 
+/*
+* KONSTRUKTOR TextureHandler()
+*
+* BESKRIVNING
+*
+* Denna konstruktor skapar en texturhanterare genom anrop av loadTexture.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul:	std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 TextureHandler::TextureHandler()
 {
-	cout << "Laddar texturer" << endl;
-
 	loadTexture("void", "res/textures/voidtile.png");
 
 	//Tiles
@@ -95,10 +148,38 @@ TextureHandler::TextureHandler()
 	loadTexture("house31", "res/textures/house31.png");
 	loadTexture("house32", "res/textures/house32.png");
 	loadTexture("house33", "res/textures/house33.png");
-
-
-	cout << "Laddar texturer klart" << endl;
 }
+
+/*
+* DESTRUKTOR ~TextureHandler()
+*
+* BESKRIVNING
+*
+* Denna destruktor tar bort texturhanteraren samt alla sparade texturer.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 TextureHandler::~TextureHandler()
 {
@@ -110,10 +191,74 @@ TextureHandler::~TextureHandler()
 	}
 }
 
+/*
+* FUNKTION TextureHandler::getTextureRef(const std::string& ref)
+*
+* BESKRIVNING
+*
+* Uppdaterar NPC:n.
+*
+* INDATA
+*
+* ref:		Sträng motsvarande texturen vi vill ha.
+*
+* UTDATA
+*
+* Texture&:	Referens till textur.
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 sf::Texture & TextureHandler::getTextureRef(const std::string& ref)
 {
 	return (*textures_.find(ref)->second);
 }
+
+/*
+* FUNKTION TextureHandler::loadTexture(const std::string& texName, const std::string& fileName)
+*
+* BESKRIVNING
+*
+* Laddar in texturer från fil och lagrar i TextureTablen.
+*
+* INDATA
+*
+* ref:		Sträng motsvarande texturen vi vill ha.
+*
+* UTDATA
+*
+* Texture&:	Referens till texturen.
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul:	std::string
+* modul:	sfml-grafik
+* modul:	TextureException
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void TextureHandler::loadTexture(const std::string& texName, const std::string& fileName)
 {
@@ -124,3 +269,7 @@ void TextureHandler::loadTexture(const std::string& texName, const std::string& 
 	}
 	textures_.emplace(texName, tex);
 }
+
+/*
+* SLUT PÅ FILEN TextureException.cpp
+*/

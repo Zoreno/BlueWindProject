@@ -1,4 +1,5 @@
-/* IDENTIFIERING
+/* 
+* IDENTIFIERING
 *
 * Filnamn:    NPC.cpp
 * Enhetsnamn: NPC
@@ -34,7 +35,7 @@ using namespace std;
 *
 * BESKRIVNING
 *
-* Denna konstruktor konstruerar en NPC.
+* Denna konstruktor skapar en NPC.
 *
 * INDATA
 *
@@ -84,10 +85,11 @@ NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector
 *
 * BESKRIVNING
 *
-* Uppdaterar NPC:n.
+* NPC:ns update-funktion är tom. NPC:erna uppdateras ej.
 *
 * INDATA
 *
+* -
 *
 * UTDATA
 *
@@ -118,11 +120,11 @@ void NPC::update()
 *
 * BESKRIVNING
 *
-* Ritar NPC:n.
+* Ritar NPC:n i spelvärlden.
 *
 * INDATA
 *
-* window:		Fönster som NPC:n ska ritas på.
+* window:	Fönster som NPC:n ska ritas på.
 *
 * UTDATA
 *
@@ -155,7 +157,7 @@ void NPC::render(GameWindow & window)
 *
 * BESKRIVNING
 *
-* Lägger till NPC:ns konversation till chatboxen.
+* Lägger till NPC:ns konversationssträng till chatboxen.
 *
 * INDATA
 *

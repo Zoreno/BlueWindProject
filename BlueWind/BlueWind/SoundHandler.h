@@ -42,7 +42,7 @@ using musicTable = std::map<const std::string, sf::Music*>;
 *
 * BESKRIVNING
 *
-* Klassen kastar undantag för ljudhanterare.
+* Klassen kastar undantag för SoundHandler.
 *
 * TILLSTÅND
 *
@@ -133,8 +133,8 @@ private:
 
 	void loadSound(const std::string&, const std::string&);
 	void loadMusic(const std::string&, const std::string&);
-};//class NPC
+};//class SoundHandler
 
    /*
-   * SLUT PÅ FILEN NPC.h
+   * SLUT PÅ FILEN SoundHandler.h
    */
