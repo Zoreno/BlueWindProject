@@ -24,7 +24,7 @@ public:
 	virtual void render(GameWindow&) = 0;
 
 	void move(float, float);
-	void teleport(int, int);
+	void teleport(float, float);
 	
 	int getLevel() const;
 	int getHealth() const;

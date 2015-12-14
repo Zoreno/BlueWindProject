@@ -104,7 +104,7 @@ void Enemy::executeState()
 		health_ = maxHealth_;
 		if (resetTimer_ >= 300)
 		{
-			teleport(static_cast<int>(startPosition_.x), static_cast<int>(startPosition_.y));
+			teleport((startPosition_.x), (startPosition_.y));
 		}
 		else
 		{

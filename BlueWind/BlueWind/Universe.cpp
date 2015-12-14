@@ -78,7 +78,7 @@ void Universe::setCurrentWorld(int ID)
 void Universe::switchWorld(int ID, int x, int y)
 {
 	setCurrentWorld(ID);
-	gamePointer_->getPlayer()->teleport(x, y);
+	gamePointer_->getPlayer()->teleport(static_cast<float>(x), static_cast<float>(y));
 	gamePointer_->getPlayer()->setCurrentWorld(currentWorld_);
 	gamePointer_->getApp()->getSoundHandler().playMusic(currentWorld_->getMusic());
 }
