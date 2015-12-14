@@ -28,7 +28,6 @@
 #include "GameOver.h"
 #include "Help.h"
 #include "Credits.h"
-#include <iostream>
 
 using namespace std;
 
