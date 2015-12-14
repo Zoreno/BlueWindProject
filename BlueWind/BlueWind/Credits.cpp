@@ -197,7 +197,7 @@ void Credits::update()
 }
 
 /*
-* FUNKTION Credits::render(GameWindow & window)
+* FUNKTION Credits::render(GameWindow& window)
 *
 * BESKRIVNING
 *

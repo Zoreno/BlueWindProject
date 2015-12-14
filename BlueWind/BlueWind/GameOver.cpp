@@ -1,22 +1,141 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    GameOver.cpp
+* Enhetsnamn:
+* Typ:        Definitioner hörande till klassen GameOver
+* Revision:   1
+* Skriven av: Simon Arkholt, Fredrik Gustafsson
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen GameOver.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "GameOver.h"
 #include "Application.h"
 #include <iostream>
 
 using namespace std;
 
-GameOver::GameOver(Application * appPtr)
+/*
+* CALLBACK-FUNKTIONER (DEKLARATIONER)
+*/
+
+void menuCallback(Application*);	// Funktionen som körs då man klickar på knappen "Main Menu"
+
+/*
+* KONSTRUKTOR GameOver(Application* appPtr)
+*
+* BESKRIVNING
+*
+* Denna konstruktor skapar ett GameOver-objekt.
+*
+* INDATA
+*
+* appPtr:		Pekare till applikationen som GameOver-objektet är en del av.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* - 
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
+GameOver::GameOver(Application* appPtr)
 	: Frame{ appPtr }
 {
-	void menuCallback(Application*);
 	addButton(sf::Vector2f(400 - 175, 365), sf::Vector2f(350, 100), "res/textures/menuButton.png", "res/textures/menuButtonHover.png", menuCallback);
 	appPtr->getSoundHandler().playMusic("gameOverMusic");
 }
 
+/*
+* FUNKTION GameOver::handleKeyEvent(sf::Event event)
+*
+* BESKRIVNING
+*
+* Hanterar ett tangenttryck genom att inte göra något med det.
+*
+* INDATA
+*
+* event:		Ett tangenttryck
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
+void GameOver::handleKeyEvent(sf::Event event) {}
 
-void GameOver::handleKeyEvent(sf::Event event)
-{
-}
+/*
+* FUNKTION GameOver::handleMouseEvent(sf::Event event)
+*
+* BESKRIVNING
+*
+* Hanterar musklick (vänster) på menyns knappar.
+*
+* INDATA
+*
+* event:		Ett musklick
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void GameOver::handleMouseEvent(sf::Event event)
 {
@@ -40,6 +159,37 @@ void GameOver::handleMouseEvent(sf::Event event)
 	}
 }
 
+/*
+* FUNKTION GameOver::update()
+*
+* BESKRIVNING
+*
+* Uppdaterar menyns knappar.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void GameOver::update()
 {
 	for (auto it : buttons_)
@@ -48,7 +198,38 @@ void GameOver::update()
 	}
 }
 
-void GameOver::render(GameWindow & window)
+/*
+* FUNKTION GameOver::render(GameWindow& window)
+*
+* BESKRIVNING
+*
+* Ritar upp menyn.
+*
+* INDATA
+*
+* window:			Fönster som menyn ska ritas upp i.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
+void GameOver::render(GameWindow& window)
 {
 	sf::Texture bTexture;
 	if (!bTexture.loadFromFile("res/textures/GameOver.png"))
@@ -63,8 +244,42 @@ void GameOver::render(GameWindow & window)
 	}
 }
 
+/*
+* FUNKTION menuCallback(Application* ptr)
+*
+* BESKRIVNING
+*
+* Funktionen som körs då man klickar på knappen "Main Menu". Går ur menyn och öppnar startmenyn.
+*
+* INDATA
+*
+* ptr:			Pekare till applikationen som menyn är en del av.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void menuCallback(Application* ptr)
 {
 	ptr->setNextFrame(new Menu(ptr));
 }
 
+/*
+* SLUT PÅ FILEN GameOver.cpp
+*/
