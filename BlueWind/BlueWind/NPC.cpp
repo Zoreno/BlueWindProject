@@ -1,6 +1,4 @@
-/* IDA-Rebecka
-
-* IDENTIFIERING
+/* IDENTIFIERING
 *
 * Filnamn:    NPC.cpp
 * Enhetsnamn: NPC
@@ -17,7 +15,7 @@
 *
 * Revision     Datum   Förändringar
 *
-* 1            151206  Ursprungsversion
+* 1            151214  Ursprungsversion
 */
 
 /*
@@ -32,9 +30,7 @@
 using namespace std;
 
 /*
-* KONSTRUKTOR NPC(int level, int health, int damage, int ID, std::string name,
-	sf::Vector2f position, World * worldPtr, sf::Texture& texture,
-	string conversation, std::function<void(NPC*)> callbackFunc)
+* KONSTRUKTOR NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation, std::function<void(NPC*)> callbackFunc)
 *
 * BESKRIVNING
 *
@@ -69,13 +65,11 @@ using namespace std;
 *
 * Revision             Datum           Förändringar
 *
-* 1                    151206          Ursprungsversion
+* 1                    151214          Ursprungsversion
 *
 */
 
-NPC::NPC(int level, int health, int damage, int ID, std::string name, 
-	sf::Vector2f position, World * worldPtr, sf::Texture& texture, 
-	string conversation, std::function<void(NPC*)> callbackFunc)
+NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation, std::function<void(NPC*)> callbackFunc)
 	: Entity(level, health, damage, ID, name, position, worldPtr, texture), 
 	conversation_{ conversation }, 
 	callback_{ callbackFunc }
@@ -111,7 +105,7 @@ NPC::NPC(int level, int health, int damage, int ID, std::string name,
 *
 * Revision             Datum           Förändringar
 *
-* 1                    151206          Ursprungsversion
+* 1                    151214          Ursprungsversion
 *
 */
 
@@ -146,7 +140,7 @@ void NPC::update()
 *
 * Revision             Datum           Förändringar
 *
-* 1                    151206          Ursprungsversion
+* 1                    151214          Ursprungsversion
 *
 */
 
@@ -182,7 +176,7 @@ void NPC::render(GameWindow & window)
 *
 * Revision             Datum           Förändringar
 *
-* 1                    151206          Ursprungsversion
+* 1                    151214          Ursprungsversion
 *
 */
 
@@ -218,7 +212,7 @@ void NPC::talk() const
 *
 * Revision             Datum           Förändringar
 *
-* 1                    151206          Ursprungsversion
+* 1                    151214          Ursprungsversion
 *
 */
 
@@ -254,7 +248,7 @@ void NPC::interact()
 *
 * Revision             Datum           Förändringar
 *
-* 1                    151206          Ursprungsversion
+* 1                    151214          Ursprungsversion
 *
 */
 
@@ -262,3 +256,7 @@ void NPC::die()
 {
 	worldPointer_->removeNPC(this);
 }
+
+/*
+* SLUT PÅ FILEN NPC.cpp
+*/

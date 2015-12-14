@@ -1,11 +1,64 @@
+/* IDENTIFIERING
+*
+* Filnamn:    SoundHandler.cpp
+* Enhetsnamn: SoundHandler
+* Typ:        Definitioner hörande till klass SoundHandler
+* Revision:   1
+* Skriven av: Simon Arkeholt, Fredrik Gustafsson
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen SoundHandler.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "SoundHandler.h"
-#include <iostream>
 
 using namespace std;
 
+/*
+* KONSTRUKTOR SoundHandler()
+*
+* BESKRIVNING
+*
+* Denna konstruktor konstruerar en ljudhanterare genom anrop av loadMusic och loadSound.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 SoundHandler::SoundHandler()
 {
-	cout << "Laddar ljud" << endl;
 	loadMusic("menuMusic", "res/sounds/menuMusic.ogg");
 	loadMusic("gameOverMusic", "res/sounds/gameOverMusic.ogg");
 	loadMusic("gameWonMusic", "res/sounds/gameWonMusic.ogg");
@@ -17,8 +70,38 @@ SoundHandler::SoundHandler()
 
 	loadSound("itemAdded", "res/sounds/itemAdded.ogg");
 	loadSound("menuClick", "res/sounds/menuClick.ogg");
-	cout << "Laddar ljud klart" << endl;
 }
+
+/*
+* DESTRUKTOR SoundHandler::~SoundHandler()
+*
+* BESKRIVNING
+*
+* Destruerar ljudhanteraren.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 SoundHandler::~SoundHandler()
 {
@@ -37,11 +120,73 @@ SoundHandler::~SoundHandler()
 	}
 }
 
+/*
+* FUNKTION SoundHandler::playSound(const std::string& soundName)
+*
+* BESKRIVNING
+*
+* Spelar upp aktuell ljudeffekt.
+*
+* INDATA
+*
+* soundName:	Namn på ljudet som ska spelas upp.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void SoundHandler::playSound(const std::string& soundName)
 {
 	currentSound_.setBuffer(*sounds_.find(soundName)->second);
 	currentSound_.play();
 }
+
+/*
+* FUNKTION SoundHandler::playMusic(const std::string& musicName)
+*
+* BESKRIVNING
+*
+* Spelar upp aktuellt musikspår.
+*
+* INDATA
+*
+* musicName:	Namn på musikslingan som ska spelas upp.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void SoundHandler::playMusic(const std::string& musicName)
 {
@@ -54,6 +199,37 @@ void SoundHandler::playMusic(const std::string& musicName)
 	}
 }
 
+/*
+* FUNKTION SoundHandler::stopMusic()
+*
+* BESKRIVNING
+*
+* Stoppar uppspelning av aktuell musikspår.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void SoundHandler::stopMusic()
 {
 	for (auto it : music_)
@@ -62,6 +238,40 @@ void SoundHandler::stopMusic()
 	}
 	
 }
+
+/*
+* FUNKTION SoundHandler::loadSound(const std::string& soundName, const std::string& fileName)
+*
+* BESKRIVNING
+*
+* Laddar in en ljudeffekt från fil.
+*
+* INDATA
+*
+* soundName:	Namn på ljudeffekten som ska laddas in.
+* fileName:		Namn på filen som slingan ska läsas in från.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: std::string
+* modul: sf::SoundBuffer
+* modul: std::logic_error
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void SoundHandler::loadSound(const std::string& soundName, const std::string& fileName)
 {
@@ -73,6 +283,39 @@ void SoundHandler::loadSound(const std::string& soundName, const std::string& fi
 	sounds_.emplace(soundName, soundBuffer);
 }
 
+/*
+* FUNKTION SoundHandler::loadMusic(const std::string& musicName, const std::string& fileName)
+*
+* BESKRIVNING
+*
+* Laddar in en ljudslinga från fil.
+*
+* INDATA
+*
+* musikName:	Namn på musikslingan som ska laddas in.
+* fileName:		Namn på filen som slingan ska läsas in från.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: std::string
+* modul: sf::Music
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void SoundHandler::loadMusic(const std::string& musicName, const std::string& fileName)
 {
 	sf::Music* music = new sf::Music;
@@ -83,3 +326,6 @@ void SoundHandler::loadMusic(const std::string& musicName, const std::string& fi
 	music_.emplace(musicName, music);
 }
 
+/*
+* SLUT PÅ FILEN SoundHandler.cpp
+*/
