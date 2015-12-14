@@ -1,7 +1,7 @@
 /* IDENTIFIERING
 *
-* Filnamn:    SoundHandler.h
-* Enhetsnamn: SoundHandler
+* Filnamn:    Sensor.h
+* Enhetsnamn: Sensor
 * Typ:        Moduldeklaration
 * Revision:   1
 * Skriven av: Simon Arkeholt, Fredrik Gustafsson
@@ -9,7 +9,7 @@
 *
 * BESKRIVNING
 *
-* Denna modul representerar en ljudhanterare i spelet.
+* Denna modul representerar en sensor i spelet.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -38,7 +38,7 @@
 *
 * BESKRIVNING
 *
-* Klassen representerar sensorer i spelet. Sensorer triggar händelser när spelaren närmar sig.
+* Klassen representerar sensorer i spelet. Sensorer triggar callbackfunktioner när spelaren närmar sig.
 *
 * TILLSTÅND
 *
@@ -46,7 +46,7 @@
 *
 * KONSTRUKTORER
 *
-* SoundHandler()
+* Sensor(int, std::string, sf::Vector2f, World*, std::function<void(World*)>, sf::Texture&)
 *
 * OPERATIONER
 *
@@ -54,10 +54,7 @@
 *
 * DATAMEDLEMMAR
 *
-* sounds_:			map innehållande namn på ljud och motavarande SoundBuffer.
-* music_:			map innehållande namn på musik och motsvarande Music.
-* currentSound_:	Nuvarande ljud som ska spalas upp.
-* currentMusic_:	Nuvarnde musikslinga som ska spelas upp.
+* callback_:		Callbackfunktion som triggas av sensorn.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -84,4 +81,8 @@ public:
 	void die() override;
 private:
 	std::function<void(World*)> callback_;
-};
+};//class Sensor
+
+   /*
+   * SLUT PÅ FILEN Sensor.h
+   */
