@@ -422,7 +422,6 @@ void BridgeGuardInteract(NPC* NPCPtr)
 
 void voidFkn(NPC*)
 {
-
 }
 
 void treeInteract(NPC* NPCPtr) 
@@ -582,7 +581,7 @@ void thankfulCitizen(NPC* NPCPtr)
 			UI->addStringToChatBox("*Take this armour as protection");
 			UI->addStringToChatBox("from Bad Allocs servants!");
 			inv->addItem(3);
-		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
+			NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
 			player->setMaxHealth(player->getMaxHealth() + 10);
 		}
@@ -640,7 +639,6 @@ void blueWindDeath(Enemy* enemyPtr)
 
 void fireDeath(Enemy* enemyPtr)
 {
-
 }
 
 void energyPowerupInteract(NPC* NPCPtr)
@@ -720,6 +718,7 @@ void superGhostDeath(Enemy * enemyPtr)
 	UI->addStringToChatBox("*You slayed the ghost and it");
 	UI->addStringToChatBox("dropped a Magic Wet Chalice");
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->addItem(6);
+	enemyPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
 
@@ -743,7 +742,6 @@ void brokenFountainInteract2(NPC* NPCPtr)
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
 	{
 		NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->removeItem(6);
-
 
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("*You have repaired a fountain!");
