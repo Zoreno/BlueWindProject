@@ -1,3 +1,28 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    Universe.cpp
+* Enhetsnamn: Universe
+* Typ:        Definitioner hörande till klass TextureHandler
+* Revision:   1
+* Skriven av: Simon Arkeholt, Fredrik Gustafsson, Jonas Ehn, Olle Andersson, Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen TextureHandler.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "Universe.h"
 #include "Game.h"
 #include "World.h" 
@@ -5,10 +30,40 @@
 #include "Application.h"
 #include "GameWon.h"
 #include "NPC.h"
-#include <iostream>
 #include "Inventory.h"
 
 using namespace std;
+
+/*
+* KONSTRUKTOR Universe(Game * gamePtr)
+*
+* BESKRIVNING
+*
+* Denna konstruktor skapar ett speluniversum genom anrop av loadTiles, loadWorlds och populateWorlds.
+*
+* INDATA
+*
+* gamePtr:		Pekare till Game.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 Universe::Universe(Game * gamePtr)
 	: gamePointer_{ gamePtr }
@@ -17,6 +72,37 @@ Universe::Universe(Game * gamePtr)
 	loadWorlds();
 	populateWorlds();
 }
+
+/*
+* DESTRUKTOR Universe::~Universe()
+*
+* BESKRIVNING
+*
+* Destruerar speluniversumet, inklusive alla spelvärldar och Tiles.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 Universe::~Universe()
 {
@@ -37,10 +123,42 @@ Universe::~Universe()
 	}
 }
 
+/*
+* FUNKTION Universe::update()
+*
+* BESKRIVNING
+*
+* Uppdaterar speluniversumet genom att kalla på nuvarnade världens update.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void Universe::update()
 {
 	currentWorld_->update();
 }
+
 
 void Universe::render(GameWindow & window)
 {
@@ -95,7 +213,6 @@ Game * Universe::getGame() const
 
 void Universe::loadTiles()
 {
-	cout << "Laddar in Tiles" << endl;
 	tileAtlas_.emplace(-1, new Tile(gamePointer_->getTexture("void"), true));
 	tileAtlas_.emplace(0, new Tile(gamePointer_->getTexture("grass"), true));
 	tileAtlas_.emplace(1, new Tile(gamePointer_->getTexture("grassTree"), false));
@@ -132,21 +249,16 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(900, new Tile(gamePointer_->getTexture("grassBurnedTree"), false));
 	tileAtlas_.emplace(901, new Tile(gamePointer_->getTexture("burnedGround"), false));
 	tileAtlas_.emplace(902, new Tile(gamePointer_->getTexture("grassStone"), false));
-	
-	cout << "Laddning av tiles klart" << endl;
 }
 
 void Universe::loadWorlds()
 {
-	cout << "Laddar in världar" << endl;
 	worlds_.push_back(new World(0, this, "res/worlds/world0.bmp", "world0Music"));
 	worlds_.push_back(new World(1, this, "res/worlds/world1.bmp", "world1Music"));
 	worlds_.push_back(new World(2, this, "res/worlds/world2.bmp", "world2Music"));
 	worlds_.push_back(new World(3, this, "res/worlds/world3.bmp", "world3Music"));
 	worlds_.push_back(new World(4, this, "res/worlds/world4.bmp", "world4Music"));
 	worlds_.push_back(new World(5, this, "res/worlds/world5.bmp", "world1Music"));
-
-	cout << "Laddning av världar klart" << endl;
 
 	setCurrentWorld(0);
 }
@@ -168,7 +280,7 @@ void Universe::populateCity()
 	addNPC(1, new NPC(1, 100, 10, 7, "Citizen", sf::Vector2f(29 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "", citizenInteract));
 	addNPC(1, new NPC(1, 100, 10, 8, "Citizen", sf::Vector2f(54 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenGirl1"), "*Thank you for saving us!", thankfulManInteract));
 	addNPC(1, new NPC(1, 100, 10, 9, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("saveNPC"), "", saveGame));
-	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman3"), "T*hank you for saving us!", thankfulCitizen));
+	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman3"), "*Thank you for saving us!", thankfulCitizen));
 }
 
 void Universe::populateWorlds() 
@@ -283,7 +395,6 @@ void Universe::populateWorlds()
 	//----------------------------WORLD3--------------------------
 	//NPC
 	addNPC(3, new NPC(1, 100, 10, 1, "Cthulu", sf::Vector2f(38 * Tile::TILESIZE, 34 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("NPC5"), "*I AM CTHULU!", CthuluInteract));
-
 	addNPC(3, new NPC(1, 100, 10, 3, "Broken Fountain1", sf::Vector2f(33 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract1));
 	addNPC(3, new NPC(1, 100, 10, 4, "Broken Fountain2", sf::Vector2f(43 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract2));
 	addNPC(3, new NPC(1, 100, 10, 5, "Broken Fountain3", sf::Vector2f(33 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract3));
@@ -301,7 +412,7 @@ void Universe::populateWorlds()
 	addEnemy(3, new Enemy(1, 1000, 25, 7, "ghost", sf::Vector2f(46 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
 	addEnemy(3, new Enemy(1, 1000, 25, 8, "ghost", sf::Vector2f(47 * Tile::TILESIZE, 40 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
 
-	addEnemy(3, new Enemy(1, 1000, 30, 9, "superGhost1", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), superGhostDeath));
+	addEnemy(3, new Enemy(1, 1000, 30, 9, "superGhost1", sf::Vector2f(37 * Tile::TILESIZE, 27 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("superGhost"), superGhostDeath));
 
 	// Sensor
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("void")));
@@ -502,7 +613,10 @@ void manInValleyInteract(NPC* NPCPtr)
 
 void CthuluInteract2(NPC* NPCPtr)
 {
-	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*There is another one!");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*Well done! The forces of darkness");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("are scattered and Marowind is safe!");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("You only have to destroy one more");
+	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("foe, the mighty dragon Bluewind!");
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 14 * Tile::TILESIZE, 15 * Tile::TILESIZE);
 }
 
@@ -548,7 +662,6 @@ void World3_World2Interact(World* worldPtr)
 
 void defaultDeath(Enemy* enemyPtr)
 {
-	cout << "Enemy died!" << endl;
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(20);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
@@ -578,8 +691,8 @@ void thankfulCitizen(NPC* NPCPtr)
 		
 	if (!inv->isFull() && !inv->hasItem(3))
 		{
-			UI->addStringToChatBox("*Take this armour as protection");
-			UI->addStringToChatBox("from Bad Allocs servants!");
+			UI->addStringToChatBox("*Take this armour for protection");
+			UI->addStringToChatBox("against Bad Allocs servants!");
 			inv->addItem(3);
 			NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
@@ -626,7 +739,10 @@ void badAllocDeath(Enemy* enemyPtr)
 {
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(2000);
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
-	cout << "Bad Alloc is dead!" << endl;
+	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("*You may have defeated me, but I");
+	UI->addStringToChatBox("was just following the orders of");
+	UI->addStringToChatBox("the almighty Bluewind! BWAHAHAH!");
 	enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(1, 100, 10, 3, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "*I AM CTHULU", CthuluInteract2));
 }
 
