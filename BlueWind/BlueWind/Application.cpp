@@ -1,6 +1,61 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    Application.cpp
+* Enhetsnamn: Application
+* Typ:        Definitioner hörande till klass Application
+* Revision:   1
+* Skriven av: Joakim Bertils
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen Application.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "Application.h"
 
 using namespace std;
+
+/*
+* KONSTRUKTOR Application()
+*
+* BESKRIVNING
+*
+* Denna konstruktor konstruerar en applikation.
+*
+* INDATA
+*
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 Application::Application()
 	: input_{ this }
@@ -15,10 +70,71 @@ Application::Application()
 	nextFrame_ = currentFrame_; 
 }
 
+/*
+* DESTRUKTOR ~Application()
+*
+* BESKRIVNING
+*
+* Denna destruktor destruerar en applikation.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 Application::~Application()
 {
 	delete currentFrame_;
 }
+
+/*
+* FUNKTION run()
+*
+* BESKRIVNING
+*
+* Denna funktion kör en applikation.
+*
+* INDATA
+*
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Application::run()
 {
@@ -51,10 +167,72 @@ void Application::run()
 	}
 }
 
+/*
+* FUNKTION render(GameWindow & window)
+*
+* BESKRIVNING
+*
+* Denna funktion ritar upp hela spelet.
+*
+* INDATA
+*
+* window : Det fönster i vilket vi vill rita upp applikationen
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void Application::render(GameWindow & window)
 {
 	currentFrame_->render(window);
 }
+
+/*
+* FUNKTION update()
+*
+* BESKRIVNING
+*
+* Denna funktion uppdaterar applikationen
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Application::update()
 {
@@ -62,15 +240,108 @@ void Application::update()
 	input_.update();
 }
 
+/*
+* FUNKTION getInput()
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar applikationens Input-objekt
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* const Input& : Applikationens Input-objekt
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 const Input& Application::getInput()
 {
 	return input_;
 }
 
+/*
+* FUNKTION getCurrentFrame()
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar den nuvarande framen
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* Frame* : En pekare till den nuvarande framen
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 Frame * Application::getCurrentFrame()
 {
 	return currentFrame_;
 }
+
+/*
+* FUNKTION changeCurrentFrame()
+*
+* BESKRIVNING
+*
+* Denna funktion ändrar den nuvarande framen
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Application::changeCurrentFrame()
 {
@@ -82,23 +353,110 @@ void Application::changeCurrentFrame()
 	window_.setView(view);
 }
 
-const sf::Font& Application::getFont() const
-{
-	return font_;
-}
+/*
+* FUNKTION getGameWindow()
+*
+* BESKRIVNING
+*
+* Denna funktion ändrar det nuvarande fönstret
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* GameWindow& : En GameWindow-referens som innehåller det nuvarande fönstret
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 GameWindow& Application::getGameWindow()
 {
 	return window_;
 }
 
+/*
+* FUNKTION getSoundHandler()
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar ett soundhandler-objekt
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* SoundHandler : Applikationens SoundHandler-objekt
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 SoundHandler & Application::getSoundHandler()
 {
 	return soundHandler_;
 }
 
+/*
+* FUNKTION getSoundHandler()
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar ett soundhandler-objekt
+*
+* INDATA
+*
+* framePtr : En frame-pekare till nästa frame
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void Application::setNextFrame(Frame* framePtr)
 {
 	nextFrame_ = framePtr;
 }
-

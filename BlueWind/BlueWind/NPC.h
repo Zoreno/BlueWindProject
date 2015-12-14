@@ -1,6 +1,4 @@
-/* IDA-Rebecka
-
-* IDENTIFIERING
+/* IDENTIFIERING
 *
 * Filnamn:    NPC.h
 * Enhetsnamn: NPC
@@ -17,7 +15,7 @@
 *
 * Revision     Datum   Förändringar
 *
-* 1            151206  Ursprungsversion
+* 1            151214  Ursprungsversion
 *
 */
 
@@ -69,10 +67,9 @@
 *
 * Revision     Datum   Förändringar
 *
-* 1            151206  Ursprungsversion
+* 1            151214  Ursprungsversion
 *
 */
-
 
 class NPC : public Entity
 {

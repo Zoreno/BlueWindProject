@@ -74,7 +74,7 @@
 class UIBar
 {
 public:
-	UIBar(sf::Vector2f, sf::Vector2f, sf::Color, std::string, UserInterface*);
+	UIBar(sf::Vector2f, sf::Vector2f, sf::Color, const std::string&, UserInterface*);
 	UIBar() = delete;
 	UIBar(UIBar&) = delete;
 	UIBar& operator=(const UIBar&) = delete;
