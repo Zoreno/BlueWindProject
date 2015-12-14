@@ -109,7 +109,7 @@ public:
 * size_:			Knappens storlek.
 * normalTexture_:	Den textur som ska ritas upp på knappen då man EJ håller musen över den.
 * hoverTexture_:	Den textur som ska ritas upp på knappen då man håller musen över den.
-* sprite_:			Den bild som ska ritas upp på knappen.
+* sprite_:			Den bild som ritas upp på knappen.
 * callback_:		Den funktion som anropas då knappen klickas på.
 *
 * REVISIONSBERÄTTELSE
@@ -145,6 +145,6 @@ private:
 	std::function<void(Application*)> callback_;
 }; // class FrameButton
 
-   /*
-   * SLUT PÅ FILEN FrameButton.h
-   */
+/*
+* SLUT PÅ FILEN FrameButton.h
+*/

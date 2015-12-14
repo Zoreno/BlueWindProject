@@ -76,7 +76,7 @@ World::World(int ID, Universe* universePtr, std::string mapFile, string music)
 *
 * BESKRIVNING
 *
-* Denna destruktor destrukterar ett World-objekt
+* Denna destruktor destruerar ett World-objekt
 *
 * INDATA
 *

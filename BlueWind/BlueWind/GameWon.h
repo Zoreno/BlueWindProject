@@ -87,6 +87,6 @@ private:
 	sf::Sprite background_;
 }; // class GameWon
 
-   /*
-   * SLUT PÅ FILEN GameWon.h
-   */
+/*
+* SLUT PÅ FILEN GameWon.h
+*/

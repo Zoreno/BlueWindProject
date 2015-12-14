@@ -87,6 +87,6 @@ private:
 	sf::Sprite background_;
 }; // class Credits
 
-   /*
-   * SLUT PÅ FILEN Credits.h
-   */
+/*
+* SLUT PÅ FILEN Credits.h
+*/
