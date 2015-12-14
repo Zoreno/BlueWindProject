@@ -35,7 +35,7 @@ using namespace std;
 void helpMenuCallback(Application*);	// Funktionen som körs då man klickar på knappen "Main Menu"
 
 /*
-* KONSTRUKTOR Help(Application* appPtr)
+* KONSTRUKTOR Help::Help(Application* appPtr)
 *
 * BESKRIVNING
 *

@@ -35,7 +35,7 @@ using namespace std;
 void mainMenuCallback(Application*);	// Funktionen som körs då man klickar på knappen "Main Menu"
 
 /*
-* KONSTRUKTOR GameWon(Application* appPtr)
+* KONSTRUKTOR GameWon::GameWon(Application* appPtr)
 *
 * BESKRIVNING
 *

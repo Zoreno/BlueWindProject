@@ -35,7 +35,7 @@ using namespace std;
 void creditsMenuCallback(Application*);		// Funktionen som körs då man klickar på knappen "Menu"
 
 /*
-* KONSTRUKTOR Credits(Application* appPtr)
+* KONSTRUKTOR Credtis::Credits(Application* appPtr)
 *
 * BESKRIVNING
 *

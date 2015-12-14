@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    FrameButton.cpp
-* Enhetsnamn:
+* Enhetsnamn: FrameButton
 * Typ:        Definitioner hörande till klassen FrameButton
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -30,7 +30,7 @@ using namespace std;
 
 
 /*
-* KONSTRUKTOR FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f size, std::string normalFile, std::string hoverFile, std::function<void(Application*)> callbackFunc)
+* KONSTRUKTOR FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f size, std::string normalFile, std::string hoverFile, std::function<void(Application*)> callbackFunc)
 *
 * BESKRIVNING
 *
@@ -41,8 +41,8 @@ using namespace std;
 * appPtr:		Pekare till applikationen som knappen ska vara en del av.
 * pos:			Knappens position.
 * size:			Knappens storlek.
-* normalFile:	Filen som innehåller knappens "normalTexture_".
-* hoverFile:	Filen som innehåller knappens "hoverTexture_".
+* normalFile:	Fil som innehåller knappens "normalTexture_".
+* hoverFile:	Fil som innehåller knappens "hoverTexture_".
 * callbackFunc	Funktionen som anropas då knappen klickas på.
 *
 * UTDATA

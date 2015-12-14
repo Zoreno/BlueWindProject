@@ -1,32 +1,125 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    World.cpp
+* Enhetsnamn: World
+* Typ:        Definitioner hörande till klassen World
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell TODO Fler?
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen World.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "World.h"
 #include "Universe.h"
 #include <iostream>
 
 using namespace std;
 
-World::World(int ID, Universe * universePtr, std::string mapFile, string music)
+/*
+* KONSTRUKTOR World::World(int ID, Universe* universePtr, std::string mapFile, string music)
+*
+* BESKRIVNING
+*
+* Denna konstruktor skapar en spelvärld.
+*
+* INDATA
+*
+* ID:			Spelvärldens ID.
+* universePtr:	Pekare till speluniversum.
+* mapFile:		Fil som innehåller spelvärldens karta (hur världen ska se ut).
+* music:		Musiken som ska spelas i spelvärlden.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
+World::World(int ID, Universe* universePtr, std::string mapFile, string music)
 	: ID_{ ID },
 	universePointer_{ universePtr },
-	music_{music}
+	music_{ music }
 {
 	loadWorld(mapFile);
 }
 
+/*
+* DESTRUKTOR World::~World()
+*
+* BESKRIVNING
+*
+* Denna destruktor destrukterar ett World-objekt
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 World::~World()
 {
 	universePointer_ = nullptr;
+
 	while (!enemyVector_.empty())
 	{
 		auto it = enemyVector_.begin();
 		delete it->second;
 		enemyVector_.erase(it);
 	}
+
 	while (!NPCVector_.empty())
 	{
 		auto it = NPCVector_.begin();
 		delete it->second;
 		NPCVector_.erase(it);
 	}
+
 	while (!sensorVector_.empty())
 	{
 		auto it = sensorVector_.begin();
@@ -34,6 +127,37 @@ World::~World()
 		sensorVector_.erase(it);
 	}
 }
+
+/*
+* FUNKTION World::update()
+*
+* BESKRIVNING
+*
+* Uppdaterar spelvärldens beståndsdelar.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void World::update()
 {
@@ -44,7 +168,38 @@ void World::update()
 	updateLists();
 }
 
-void World::render(GameWindow & window)
+/*
+* FUNKTION World::render(GameWindow& window)
+*
+* BESKRIVNING
+*
+* Ritar upp tiles runt spelkaraktären, samt spelvärldens samtliga fiender och NPC:er.
+*
+* INDATA
+*
+* window: Fönster som spelvärlden ska ritas upp i.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
+void World::render(GameWindow& window)
 {
 	sf::View view = window.getView();
 	int startX = (static_cast<int>(view.getCenter().x) - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
@@ -52,30 +207,30 @@ void World::render(GameWindow & window)
 	int startY = (static_cast<int>(view.getCenter().y) - (20 * Tile::TILESIZE)) / Tile::TILESIZE;
 	int endY = (static_cast<int>(view.getCenter().y) + (20 * Tile::TILESIZE)) / Tile::TILESIZE;
 
-	if (startX > mapWidth)
-		startX = mapWidth;
+	if (startX > mapWidth_)
+		startX = mapWidth_;
 	if (startX < 0)
 		startX = 0;
 
-	if (endX > mapWidth)
-		endX = mapWidth;
+	if (endX > mapWidth_)
+		endX = mapWidth_;
 	if (endX < 0)
 		endX = 0;
 
-	if (startY > mapHeight)
-		startY = mapHeight;
+	if (startY > mapHeight_)
+		startY = mapHeight_;
 	if (startY < 0)
 		startY = 0;
 
-	if (endY > mapHeight)
-		endY = mapHeight;
+	if (endY > mapHeight_)
+		endY = mapHeight_;
 	if (endY < 0)
 		endY = 0;
 	for (int y = startY; y < endY; ++y)
 	{
 		for (int x = startX; x < endX; ++x)
 		{
-			universePointer_->getTile(tileVector_.at(x + mapWidth*y)).render(window, x, y);
+			universePointer_->getTile(tileVector_.at(x + mapWidth_*y)).render(window, x, y);
 		}
 	}
 
@@ -91,6 +246,8 @@ void World::render(GameWindow & window)
 
 }
 
+// FORTSÄTT HÄR FREDRIK!
+
 void World::loadWorld(std::string mapFile)
 {
 	sf::Image image;
@@ -99,11 +256,11 @@ void World::loadWorld(std::string mapFile)
 		throw WorldException("Kunde inte läsa världsfil:" + mapFile);
 	}
 
-	mapWidth = image.getSize().x;
-	mapHeight = image.getSize().y;
-	for (int y{ 0 }; y < mapHeight; ++y)
+	mapWidth_ = image.getSize().x;
+	mapHeight_ = image.getSize().y;
+	for (int y{ 0 }; y < mapHeight_; ++y)
 	{
-		for (int x{ 0 }; x < mapWidth; ++x)
+		for (int x{ 0 }; x < mapWidth_; ++x)
 		{
 			tileVector_.push_back(getIntFromColor(image.getPixel(x, y)));
 		}
@@ -173,12 +330,12 @@ const std::string World::getMusic()
 
 const int World::getMapWidth() const
 {
-	return mapWidth;
+	return mapWidth_;
 }
 
 const int World::getMapHeight() const
 {
-	return mapHeight;
+	return mapHeight_;
 }
 
 const std::vector<int> World::getTileVector() const
@@ -286,34 +443,36 @@ void World::updateLists()
 	for (auto iter : removeEnemyVector_)
 	{
 		auto it = enemyVector_.find(iter);
+		
 		if (it != enemyVector_.end())
 		{
-		delete (it->second);
-		enemyVector_.erase(it);
-	}
+			delete (it->second);
+			enemyVector_.erase(it);
+		}
 	}
 	removeEnemyVector_.clear();
 
 	for (auto iter : removeNPCVector_)
 	{
 		auto it = NPCVector_.find(iter);
+		
 		if (it != NPCVector_.end())
 		{
-		delete (it->second);
-		NPCVector_.erase(it);
-	}
+			delete (it->second);
+			NPCVector_.erase(it);
+		}
 	}
 	removeNPCVector_.clear();
 
 	for (auto iter : removeSensorVector_)
 	{
 		auto it = sensorVector_.find(iter);
+		
 		if (it != sensorVector_.end())
 		{
-		delete (it->second);
-		sensorVector_.erase(it);
-	}
+			delete (it->second);
+			sensorVector_.erase(it);
+		}
 	}
 	removeSensorVector_.clear();
-	
 }

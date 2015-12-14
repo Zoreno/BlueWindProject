@@ -42,7 +42,7 @@ void helpCallback(Application*);		// Funktionen som körs då man klickar på knapp
 void creditsCallback(Application*);		// Funktionen som körs då man klickar på knappen "Credits"
 
 /*
-* KONSTRUKTOR Menu(Application* appPtr)
+* KONSTRUKTOR Menu::Menu(Application* appPtr)
 *
 * BESKRIVNING
 *

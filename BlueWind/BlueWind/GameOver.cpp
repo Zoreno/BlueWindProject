@@ -36,7 +36,7 @@ using namespace std;
 void menuCallback(Application*);	// Funktionen som körs då man klickar på knappen "Main Menu"
 
 /*
-* KONSTRUKTOR GameOver(Application* appPtr)
+* KONSTRUKTOR GameOver::GameOver(Application* appPtr)
 *
 * BESKRIVNING
 *
