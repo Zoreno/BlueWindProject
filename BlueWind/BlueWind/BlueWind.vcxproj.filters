@@ -306,9 +306,6 @@
     <None Include="res\sounds\menuMusic.ogg">
       <Filter>Resource Files\sounds</Filter>
     </None>
-    <None Include="res\sounds\diracTrain.ogg">
-      <Filter>Resource Files\sounds</Filter>
-    </None>
     <None Include="res\sounds\gameOverMusic.ogg">
       <Filter>Resource Files\sounds</Filter>
     </None>
