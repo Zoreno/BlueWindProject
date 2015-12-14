@@ -22,7 +22,7 @@ Entity::Entity(int level, int health, int damage, int ID, std::string name, sf::
 	anim_{ this, tex }
 {}
 
-void Entity::move(int dx, int dy)
+void Entity::move(float dx, float dy)
 {
 	sf::Vector2f upper_left = sf::Vector2f(position_) + sf::Vector2f(dx, dy);
 	sf::Vector2f bottom_left = sf::Vector2f(position_.x, position_.y + Tile::TILESIZE-1) + sf::Vector2f(dx, dy);
@@ -32,10 +32,15 @@ void Entity::move(int dx, int dy)
 	int mapWidth = worldPointer_->getMapWidth();
 	int mapHeight = worldPointer_->getMapHeight();
 
-	bool upper_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_left.x / Tile::TILESIZE) + mapWidth*floor(upper_left.y / Tile::TILESIZE))).isWalkable();
-	bool bottom_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_left.x / Tile::TILESIZE) + mapWidth*floor(bottom_left.y / Tile::TILESIZE))).isWalkable();
-	bool upper_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(upper_right.x / Tile::TILESIZE) + mapWidth*floor(upper_right.y / Tile::TILESIZE))).isWalkable();
-	bool bottom_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(floor(bottom_right.x / Tile::TILESIZE) + mapWidth*floor(bottom_right.y / Tile::TILESIZE))).isWalkable();
+	unsigned int cornerTopLeft = static_cast<unsigned int>(floor(upper_left.x / Tile::TILESIZE) + mapWidth*floor(upper_left.y / Tile::TILESIZE));
+	unsigned int cornerTopRight = static_cast<unsigned int>(floor(bottom_left.x / Tile::TILESIZE) + mapWidth*floor(bottom_left.y / Tile::TILESIZE));
+	unsigned int cornerBottomLeft = static_cast<unsigned int>(floor(upper_right.x / Tile::TILESIZE) + mapWidth*floor(upper_right.y / Tile::TILESIZE));
+	unsigned int cornerBottomRight = static_cast<unsigned int>(floor(bottom_right.x / Tile::TILESIZE) + mapWidth*floor(bottom_right.y / Tile::TILESIZE));
+
+	bool upper_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(cornerTopLeft)).isWalkable();
+	bool bottom_left_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(cornerTopRight)).isWalkable();
+	bool upper_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(cornerBottomLeft)).isWalkable();
+	bool bottom_right_walkable = worldPointer_->getUniverse()->getTile(worldPointer_->getTileVector().at(cornerBottomRight)).isWalkable();
 	
 	if(upper_left_walkable && bottom_left_walkable && upper_right_walkable && bottom_right_walkable)
 	position_ += sf::Vector2f(dx, dy);
@@ -62,9 +67,9 @@ void Entity::move(int dx, int dy)
 	}
 }
 
-void Entity::teleport(int x, int y)
+void Entity::teleport(float x, float y)
 {
-	position_ = sf::Vector2f(static_cast<float>(x), static_cast<float>(y));
+	position_ = sf::Vector2f(x, y);
 }
 
 int Entity::getLevel() const

@@ -1,6 +1,4 @@
-/* IDA-Rebecka
-
-* IDENTIFIERING
+/* IDENTIFIERING
 *
 * Filnamn:    NPC.h
 * Enhetsnamn: NPC
@@ -17,7 +15,7 @@
 *
 * Revision     Datum   Förändringar
 *
-* 1            151206  Ursprungsversion
+* 1            151214  Ursprungsversion
 *
 */
 
@@ -49,11 +47,6 @@
 * KONSTRUKTORER
 *
 * NPC(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::string, std::function<void(NPC*)>)
-* position:		Plats på skärm där mätaren ska ritas.
-* size:			Storlek på mätaren.
-* color:		Färg på mätaren.
-* postfix:		Text som ska skrivas sist på mätaren.
-* uiPtr:		Pekare till användargränssnittet som mätaren är en del av.
 *
 * OPERATIONER
 *
@@ -69,10 +62,9 @@
 *
 * Revision     Datum   Förändringar
 *
-* 1            151206  Ursprungsversion
+* 1            151214  Ursprungsversion
 *
 */
-
 
 class NPC : public Entity
 {

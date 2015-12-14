@@ -29,7 +29,7 @@
 using namespace std;
 
 /*
-* KONSTRUKTOR UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
+* KONSTRUKTOR UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, const std::string& postfix, UserInterface* uiPtr)
 *
 * BESKRIVNING
 *
@@ -63,7 +63,7 @@ using namespace std;
 * 
 */
 
-UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
+UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, const std::string& postfix, UserInterface* uiPtr)
 	:fillLevel_{ 1 }, 
 	position_ {position}, 
 	size_ {size}, 

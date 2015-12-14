@@ -1,3 +1,24 @@
+/* IDENTIFIERING
+*
+* Filnamn:    FrameButton.h
+* Enhetsnamn: FrameButton
+* Typ:        Moduldeklaration
+* Revision:   1
+* Skriven av: Simon Arkeholt, Fredrik Gustafsson
+*
+*
+* BESKRIVNING
+*
+* Denna modul representerar en NPC i spelet.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*
+*/
+
 #pragma once
 
 #include <SFML\Graphics.hpp>
