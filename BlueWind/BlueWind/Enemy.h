@@ -106,5 +106,5 @@ private:
 };// class Enemy
 
   /*
-  * SLUT PÅ FILEN UIBar.h
+  * SLUT PÅ FILEN Enemy.h
   */
