@@ -281,5 +281,5 @@ void menuCallback(Application* ptr)
 }
 
 /*
-* SLUT PÅ FILEN Help.cpp
+* SLUT PÅ FILEN GameOver.cpp
 */

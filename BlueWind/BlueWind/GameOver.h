@@ -88,5 +88,5 @@ private:
 }; // class GameOver
 
    /*
-   * SLUT PÅ FILEN Credits.h
+   * SLUT PÅ FILEN GameOver.h
    */
