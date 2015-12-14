@@ -403,7 +403,7 @@ void helpCallback(Application* ptr)
 *
 * BESKRIVNING
 *
-* Funktionen som körs då man klickar på knappen "Credtis". Går ur startmenyn och öppnar en frame med lista över i spelet använt material. 
+* Funktionen som körs då man klickar på knappen "Credtis". Går ur startmenyn och öppnar en undermeny med en lista över i spelet använt material. 
 *
 * INDATA
 *
@@ -434,3 +434,6 @@ void creditsCallback(Application* ptr)
 	ptr->setNextFrame(new Credits(ptr));
 }
 
+/*
+* SLUT PÅ FILEN Menu.cpp
+*/
