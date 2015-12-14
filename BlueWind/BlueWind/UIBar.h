@@ -48,11 +48,6 @@
 * KONSTRUKTORER
 *
 * UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
-* position:		Plats på skärm där mätaren ska ritas.
-* size:			Storlek på mätaren.
-* color:		Färg på mätaren.
-* postfix:		Text som ska skrivas sist på mätaren.
-* uiPtr:		Pekare till användargränssnittet som mätaren är en del av.
 *
 * OPERATIONER
 *
