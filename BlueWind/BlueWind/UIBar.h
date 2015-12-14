@@ -48,11 +48,6 @@
 * KONSTRUKTORER
 *
 * UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
-* position:		Plats på skärm där mätaren ska ritas.
-* size:			Storlek på mätaren.
-* color:		Färg på mätaren.
-* postfix:		Text som ska skrivas sist på mätaren.
-* uiPtr:		Pekare till användargränssnittet som mätaren är en del av.
 *
 * OPERATIONER
 *
@@ -79,7 +74,7 @@
 class UIBar
 {
 public:
-	UIBar(sf::Vector2f, sf::Vector2f, sf::Color, std::string, UserInterface*);
+	UIBar(sf::Vector2f, sf::Vector2f, sf::Color, const std::string&, UserInterface*);
 	UIBar() = delete;
 	UIBar(UIBar&) = delete;
 	UIBar& operator=(const UIBar&) = delete;
