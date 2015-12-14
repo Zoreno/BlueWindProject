@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    TextureHandler.cpp
-* Enhetsnamn: NPC
+* Enhetsnamn: TextureHandler
 * Typ:        Definitioner hörande till klass TextureHandler
 * Revision:   1
 * Skriven av: Simon Arkeholt, Fredrik Gustafsson

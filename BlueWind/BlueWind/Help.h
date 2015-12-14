@@ -88,5 +88,5 @@ private:
 }; // class Help
 
    /*
-   * SLUT PÅ FILEN Menu.h
+   * SLUT PÅ FILEN Help.h
    */

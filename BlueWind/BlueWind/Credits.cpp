@@ -1,8 +1,8 @@
 /*
 * IDENTIFIERING
 *
-* Filnamn:    Help.cpp
-* Enhetsnamn:
+* Filnamn:    Credits.cpp
+* Enhetsnamn: Credits
 * Typ:        Definitioner hörande till klassen Help
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -43,7 +43,7 @@ void creditsMenuCallback(Application*);		// Funktionen som körs då man klickar p
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som Credits-objektet är en del av.
+* appPtr: Pekare till applikationen som Credits-objektet är en del av.
 *
 * UTDATA
 *
@@ -80,7 +80,7 @@ Credits::Credits(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -113,7 +113,7 @@ void Credits::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -205,7 +205,7 @@ void Credits::update()
 *
 * INDATA
 *
-* window:			Fönster som undermenyn ska ritas upp i.
+* window: Fönster som undermenyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -251,7 +251,7 @@ void Credits::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som undermenyn är en del av.
+* ptr: Pekare till applikationen som undermenyn är en del av.
 *
 * UTDATA
 *

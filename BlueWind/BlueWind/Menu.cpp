@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    Menu.cpp
-* Enhetsnamn: 
+* Enhetsnamn: Menu
 * Typ:        Definitioner hörande till klassen Menu
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -50,7 +50,7 @@ void creditsCallback(Application*);		// Funktionen som körs då man klickar på kn
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som startmenyn är en del av.
+* appPtr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -92,7 +92,7 @@ Menu::Menu(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -125,7 +125,7 @@ void Menu::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -216,7 +216,7 @@ void Menu::update()
 *
 * INDATA
 *
-* window:			Fönster som startmenyn ska ritas upp i.
+* window: Fönster som startmenyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -262,7 +262,7 @@ void Menu::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -298,7 +298,7 @@ void newGameCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -334,7 +334,7 @@ void loadGameCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -370,7 +370,7 @@ void quitCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -406,7 +406,7 @@ void helpCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *

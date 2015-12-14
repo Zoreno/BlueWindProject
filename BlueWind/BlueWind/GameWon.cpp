@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    GameWon.cpp
-* Enhetsnamn:
+* Enhetsnamn: GameWon
 * Typ:        Definitioner hörande till klassen GameWon
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -43,7 +43,7 @@ void mainMenuCallback(Application*);	// Funktionen som körs då man klickar på kn
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som GameWon-objektet är en del av.
+* appPtr: Pekare till applikationen som GameWon-objektet är en del av.
 *
 * UTDATA
 *
@@ -81,7 +81,7 @@ GameWon::GameWon(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -114,7 +114,7 @@ void GameWon::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -206,7 +206,7 @@ void GameWon::update()
 *
 * INDATA
 *
-* window:			Fönster som menyn ska ritas upp i.
+* window: Fönster som menyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -252,7 +252,7 @@ void GameWon::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som menyn är en del av.
+* ptr: Pekare till applikationen som menyn är en del av.
 *
 * UTDATA
 *

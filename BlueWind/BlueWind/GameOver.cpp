@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    GameOver.cpp
-* Enhetsnamn:
+* Enhetsnamn: GameOver
 * Typ:        Definitioner hörande till klassen GameOver
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -44,7 +44,7 @@ void menuCallback(Application*);	// Funktionen som körs då man klickar på knappe
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som GameOver-objektet är en del av.
+* appPtr: Pekare till applikationen som GameOver-objektet är en del av.
 *
 * UTDATA
 *
@@ -82,7 +82,7 @@ GameOver::GameOver(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -115,7 +115,7 @@ void GameOver::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -207,7 +207,7 @@ void GameOver::update()
 *
 * INDATA
 *
-* window:			Fönster som menyn ska ritas upp i.
+* window: Fönster som menyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -253,7 +253,7 @@ void GameOver::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som menyn är en del av.
+* ptr: Pekare till applikationen som menyn är en del av.
 *
 * UTDATA
 *
