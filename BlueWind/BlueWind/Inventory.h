@@ -53,7 +53,7 @@ class Game;
 *
 * KONSTRUKTORER
 *
-* default-konstruktor.
+* Ärver från std::logic_error.
 *
 * OPERATIONER
 *
@@ -86,7 +86,7 @@ public:
 *
 * BESKRIVNING
 *
-* Klassen representerar förråd i spelet
+* Klassen representerar Inventory i spelet
 *
 * TILLSTÅND
 *

@@ -25,7 +25,6 @@
 
 #include "World.h"
 #include "Universe.h"
-#include <iostream>
 
 using namespace std;
 
@@ -988,8 +987,7 @@ int World::getIntFromColor(sf::Color color)
 	case 0x77617CFF: //Sten på gräs
 		return 902;
 
-	default: // TODO Undantag istället?
-		cout << "Fel färg!" << endl;
+	default: // TODO Undantag istället? (Johannes: Hanteras genom att sätta -1 vilket målar rosa tile, räcker så imo. Andra alternativet är ingen rosa tile och i stället exception!)
 		return -1;
 	}
 }

@@ -25,7 +25,7 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include<vector>
+#include <vector>
 #include <string>
 #include <SFML\Graphics.hpp>
 #include "GameWindow.h"

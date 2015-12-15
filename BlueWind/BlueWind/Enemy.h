@@ -26,9 +26,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <functional>
 #include "Entity.h"
 #include "GameWindow.h"
-#include <functional>
 
 /*
 * LOKALA FUNKTIONER (DEKLARATIONER)

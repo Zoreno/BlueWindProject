@@ -23,9 +23,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include "UIInventoryFrame.h"
 #include <algorithm>
 #include <string>
+#include "UIInventoryFrame.h"
 
 using namespace std;
 

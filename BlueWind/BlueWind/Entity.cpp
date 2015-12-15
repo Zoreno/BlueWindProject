@@ -3,7 +3,6 @@
 #include "Universe.h"
 #include "Game.h"
 #include "Tile.h"
-#include <iostream>
 #include <math.h>
 #include <algorithm>
 
@@ -130,11 +129,9 @@ void Entity::removeHealth(int value)
 		health_ = 0;
 		die();
 	}
-	cout << "Damage taken. Current health: " << health_ << endl;
 }
 
 void Entity::die()
 {
-	cout << "Entity died" << endl; 
 }
 

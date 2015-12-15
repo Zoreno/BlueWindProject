@@ -26,9 +26,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <deque>
 #include "UIComponent.h"
 #include "UserInterface.h"
-#include <deque>
 
 /*
 * KLASS UIChatBox

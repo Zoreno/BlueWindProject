@@ -26,9 +26,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include "GameWindow.h"
 #include <string>
 #include <SFML\Graphics.hpp>
+#include "GameWindow.h"
 
 /*
 * KLASS Item

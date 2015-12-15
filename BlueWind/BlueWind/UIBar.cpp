@@ -23,8 +23,8 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include "UIBar.h"
 #include <string>
+#include "UIBar.h"
 
 using namespace std;
 

@@ -25,14 +25,13 @@
 /*
 * REFERERADE BIBLIOTEK OCH MODULER
 */
-
-#include "GameWindow.h"
 #include <string>
+#include <map>
+#include <stdexcept>
+#include "GameWindow.h"
 #include "Enemy.h"
 #include "NPC.h"
 #include "Sensor.h"
-#include <map>
-#include <stdexcept>
 
 /*
 * Framåtdeklarationer
@@ -57,7 +56,7 @@ class Universe;
 *
 * KONSTRUKTORER
 *
-* default-konstruktor. TODO Hur??
+* Ärver från std::logic_error.
 *
 * OPERATIONER
 *

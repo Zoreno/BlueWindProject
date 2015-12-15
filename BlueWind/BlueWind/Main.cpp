@@ -23,7 +23,6 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include <iostream>
 #include "Application.h"
 
 using namespace std;

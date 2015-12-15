@@ -24,7 +24,6 @@
 */
 
 #include "UIChatBox.h"
-#include <iostream>
 
 using namespace std;
 

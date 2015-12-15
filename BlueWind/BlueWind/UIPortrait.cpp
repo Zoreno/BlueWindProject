@@ -23,8 +23,8 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include "UIPortrait.h"
 #include <string>
+#include "UIPortrait.h"
 
 using namespace std;
 

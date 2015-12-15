@@ -27,7 +27,6 @@
 #include "World.h"
 #include "Universe.h"
 #include "Game.h"
-#include <iostream>
 
 using namespace std;
 
