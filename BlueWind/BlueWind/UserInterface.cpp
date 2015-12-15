@@ -25,7 +25,7 @@ UserInterface::~UserInterface()
 	}
 }
 
-void UserInterface::handleKeyEvent(sf::Event ev)
+void UserInterface::handleKeyEvent(const sf::Event& ev)
 {
 	for (auto it : components_)
 	{

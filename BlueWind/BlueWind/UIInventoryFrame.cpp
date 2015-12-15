@@ -1,8 +1,65 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    UIInventoryFrame.cpp
+* Enhetsnamn: UIInventoryFrame
+* Typ:        Definitioner hörande till klass UIInventoryFrame
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen UIInventoryFrame.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include "UIInventoryFrame.h"
 #include <algorithm>
 #include <string>
 
 using namespace std;
+
+/*
+* KONSTRUKTOR UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
+*
+* BESKRIVNING
+*
+* Denna konstruktor konstruerar ett fönster för spelarens föremål.
+*
+* INDATA
+*
+* uiPtr:		Pekare till användargränssnittet.
+* playerPtr:	Pekare till spelaren.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul:	Inventory
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 UIInventoryFrame::UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
 	:UIComponent{ sf::Vector2f(480,50), sf::Vector2f(300,500), uiPtr, playerPtr , false}
@@ -11,9 +68,73 @@ UIInventoryFrame::UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
 	inventorySize_ = playerInventory_->getMaxSize();
 }
 
+/*
+* FUNKTION UIInventoryFrame::update()
+*
+* BESKRIVNING
+*
+* Uppdaterar föremålsfönstret.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void UIInventoryFrame::update()
 {
 }
+
+/*
+* FUNKTION UIInventoryFrame::render(GameWindow & window)
+*
+* BESKRIVNING
+*
+* Ritar föremålsfönstret på window.
+*
+* INDATA
+*
+* window:	Fönster som föremålsfönstret ska ritas på.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul:	sfml-grafik
+* modul:	Inventory
+* modul:	Item
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void UIInventoryFrame::render(GameWindow & window)
 {
@@ -41,7 +162,39 @@ void UIInventoryFrame::render(GameWindow & window)
 	}
 }
 
-void UIInventoryFrame::handleKeyEvent(sf::Event ev)
+/*
+* FUNKTION UIInventoryFrame::handleKeyEvent(const sf::Event& ev)
+*
+* BESKRIVNING
+*
+* Hanterar tangentbordshändelser.
+*
+* INDATA
+*
+* ev:	Händelse som ska behandlas.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
+
+void UIInventoryFrame::handleKeyEvent(const	sf::Event& ev)
 {
 	switch (ev.key.code)
 	{
@@ -50,3 +203,7 @@ void UIInventoryFrame::handleKeyEvent(sf::Event ev)
 		break;
 	}
 }
+
+/*
+* SLUT PÅ FILEN UIInventoryFrame.cpp
+*/
