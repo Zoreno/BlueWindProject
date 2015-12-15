@@ -548,15 +548,12 @@ void World::removeSensor(Sensor* sensorPtr)
 
 void World::changeTile(int pos, int value)
 {
-	if (pos < 0)
+	if (pos < 0 || (static_cast<unsigned int>(pos) > tileVector_.size()))
 	{
-		throw WorldException("Position för tile måste vara större än 0, du angav:" + pos);
+		throw WorldException("Åtkomst till tile utanför kartan, du angav:" + pos);
 	}
 
-	if (!(static_cast<unsigned int>(pos) > tileVector_.size()))
-	{
-		tileVector_.at(pos) = value;
-	}
+	tileVector_.at(pos) = value;	
 }
 
 /*
