@@ -67,7 +67,7 @@ sf::Vector2f normalize(sf::Vector2f);
 * state_ :			Fiendens tillstånd
 * attackCooldown_ :	En timer som förhindrar att fienderna skadar spelaren för ofta
 * resetTimer_ :		En timer som uppmärksammar om fienden fastnat vid något hinder
-* deathFkn_ :		En funktion som körs när fienden dör	
+* deathFkn_ :		En funktion som körs när fienden dör
 *
 * REVISIONSBERÄTTELSE
 *
