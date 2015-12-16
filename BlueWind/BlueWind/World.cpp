@@ -5,7 +5,7 @@
 * Enhetsnamn: World
 * Typ:        Definitioner hörande till klassen World
 * Revision:   1
-* Skriven av: Joakim Bertils, Johannes Grundell TODO Fler?
+* Skriven av: Joakim Bertils, Johannes Grundell
 *
 *
 * BESKRIVNING
@@ -984,7 +984,7 @@ int World::getIntFromColor(sf::Color color)
 	case 0x77617CFF: //Sten på gräs
 		return 902;
 
-	default: // TODO Undantag istället? (Johannes: Hanteras genom att sätta -1 vilket målar rosa tile, räcker så imo. Andra alternativet är ingen rosa tile och i stället exception!)
+	default:
 		return -1;
 	}
 }

@@ -10,7 +10,7 @@
 *
 * BESKRIVNING
 *
-* Denna modul representerar saker som kan placeras i spelfönstret. TODO Bättre beskrivning?!
+* Denna modul representerar saker som kan placeras i spelfönstret.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -53,7 +53,7 @@ class Application;
 *
 * KONSTRUKTORER
 *
-* default-konstruktor. TODO Hur??
+* default-konstruktor.
 *
 * OPERATIONER
 *

@@ -5,7 +5,7 @@
 * Enhetsnamn: World
 * Typ:        Moduldeklaration
 * Revision:   1
-* Skriven av: Joakim Bertils, Johannes Grundell TODO Fler?
+* Skriven av: Joakim Bertils, Johannes Grundell
 *
 *
 * BESKRIVNING

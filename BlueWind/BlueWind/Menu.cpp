@@ -62,7 +62,7 @@ void creditsCallback(Application*);		// Funktionen som körs då man klickar på kn
 *
 * UTNYTTJAR
 *
-* - // TODO Borde det stå Application.h här? (Iom att funktionen ej funkar om man tar bort deklarationen)
+* -
 *
 * REVISIONSBERÄTTELSE
 *

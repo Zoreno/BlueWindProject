@@ -55,7 +55,7 @@ class Application;
 *
 * KONSTRUKTORER
 *
-* default-konstruktor. TODO Hur??
+* default-konstruktor. 
 *
 * OPERATIONER
 *
