@@ -92,12 +92,11 @@ Game::Game(Application * appPtr, bool loadSave)
 	player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this }, 
 	ui_{&player_}
 {
+	appPtr->getSoundHandler().playMusic("world0Music");
 	if (loadSave)
 	{
 		loadGame();
-	}
-	else
-		appPtr->getSoundHandler().playMusic("world0Music");
+	}	
 }
 
 /*
