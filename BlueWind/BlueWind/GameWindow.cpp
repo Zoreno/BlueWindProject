@@ -34,7 +34,7 @@
 *
 * INDATA
 *
-* videoMode: Spelfönstrets storlek. 
+* videoMode: Spelfönstrets storlek.
 * title: Spelfönstrets namn.
 *
 * UTDATA

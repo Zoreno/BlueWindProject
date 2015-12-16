@@ -212,7 +212,6 @@ void World::render(GameWindow& window)
 	{
 		it.second->render(window);
 	}
-
 }
 
 /*
@@ -457,7 +456,7 @@ void World::changeTile(int pos, int value)
 		throw WorldException("Åtkomst till tile utanför kartan, du angav:" + pos);
 	}
 
-	tileVector_.at(pos) = value;	
+	tileVector_.at(pos) = value;
 }
 
 /*

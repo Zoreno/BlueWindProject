@@ -30,6 +30,12 @@
 #include "GameWindow.h"
 
 /*
+* Framåtdeklarationer
+*/
+
+class Game;
+
+/*
 * KLASS Sensor
 *
 * BASKLASSER
@@ -46,7 +52,7 @@
 *
 * DATAMEDLEMMAR
 *
-* callback_:		Callbackfunktion som triggas av sensorn.
+* callback_: Callbackfunktion som triggas av sensorn.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -55,8 +61,6 @@
 * 1            151214  Ursprungsversion
 *
 */
-
-class Game;
 
 class Sensor : public Entity
 {

@@ -76,7 +76,7 @@ public:
 	void render(GameWindow&) override;
 private:
 	sf::Sprite background_;
-}; // class Help
+};
 
 /*
 * SLUT PÅ FILEN Help.h

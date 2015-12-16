@@ -45,7 +45,7 @@ using textureTable = std::map<const std::string, sf::Texture*>;
 *
 * KONSTRUKTORER
 *
-* default-konstruktor.
+* Ärver från std::logic_error.
 *
 * DATAMEDLEMMAR
 *
@@ -74,7 +74,7 @@ public:
 *
 * BESKRIVNING
 *
-* Klassen representerar texturhateraren i spelet. TextureHandler läser in, sparar och ger åtkomst till alla texturer som används i spelet. 
+* Klassen representerar texturhateraren i spelet. TextureHandler läser in, sparar och ger åtkomst till alla texturer som används i spelet.
 *
 * KONSTRUKTORER
 *
@@ -82,7 +82,7 @@ public:
 *
 * DATAMEDLEMMAR
 *
-* textures_:		TextureTable med alla texturer lagrade.
+* textures_: TextureTable med alla texturer lagrade.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -106,7 +106,7 @@ private:
 	textureTable textures_;
 
 	void loadTexture(const std::string&, const std::string&);
-};// class TextureHandler
+};
 
 /*
 * SLUT PÅ FILEN TextureHandler.h

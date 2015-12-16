@@ -1,4 +1,4 @@
-/* 
+/*
 * IDENTIFIERING
 *
 * Filnamn:    SoundHandler.cpp
@@ -197,7 +197,6 @@ void SoundHandler::stopMusic()
 	{
 		it.second->stop();
 	}
-	
 }
 
 /*

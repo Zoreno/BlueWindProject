@@ -111,7 +111,7 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC6", "res/textures/NPC6.png");
 	loadTexture("cityPriest", "res/textures/NPC7.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
-	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 
+	loadTexture("Firimaniums", "res/textures/Firimaniums.png");
 	loadTexture("brokenFountain", "res/textures/brokenFountain.png");
 	loadTexture("citizenWoman1", "res/textures/citizenWoman1.png");
 	loadTexture("citizenWoman2", "res/textures/citizenWoman2.png");
@@ -183,7 +183,7 @@ TextureHandler::~TextureHandler()
 *
 * INDATA
 *
-* ref:		Sträng motsvarande texturen vi vill ha.
+* ref: Sträng motsvarande texturen vi vill ha.
 *
 * UTDATA
 *
@@ -211,7 +211,7 @@ sf::Texture & TextureHandler::getTextureRef(const std::string& ref)
 *
 * INDATA
 *
-* ref:		Sträng motsvarande texturen vi vill ha.
+* ref: Sträng motsvarande texturen vi vill ha.
 *
 * UTDATA
 *

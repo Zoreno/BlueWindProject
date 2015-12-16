@@ -116,7 +116,7 @@ public:
 protected:
 	std::vector<FrameButton*> buttons_;
 	Application* appPointer_;
-}; // class Frame
+};
 
 /*
 * SLUT PÅ FILEN Frame.h

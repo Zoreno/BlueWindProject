@@ -76,7 +76,7 @@ public:
 	void render(GameWindow&) override;
 private:
 	sf::Sprite background_;
-}; // class GameWon
+};
 
 /*
 * SLUT PÅ FILEN GameWon.h

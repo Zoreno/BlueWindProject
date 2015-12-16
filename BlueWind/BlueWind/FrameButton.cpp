@@ -28,7 +28,6 @@
 
 using namespace std;
 
-
 /*
 * KONSTRUKTOR FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f size, std::string normalFile, std::string hoverFile, std::function<void(Application*)> callbackFunc)
 *
