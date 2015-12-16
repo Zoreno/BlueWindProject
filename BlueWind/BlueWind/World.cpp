@@ -46,14 +46,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -82,14 +74,6 @@ World::World(int ID, Universe* universePtr, std::string mapFile, string music)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -142,14 +126,6 @@ World::~World()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -179,14 +155,6 @@ void World::update()
 * window: Fönster som spelvärlden ska ritas upp i.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -262,14 +230,6 @@ void World::render(GameWindow& window)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -313,14 +273,6 @@ void World::loadWorld(std::string mapFile)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -346,14 +298,6 @@ void World::addEnemy(Enemy* enemyPtr)
 * NPCPtr: Pekare till den NPC som skall läggas till.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -385,14 +329,6 @@ void World::addNPC(NPC* NPCPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -418,14 +354,6 @@ void World::addSensor(Sensor* sensorPtr)
 * enemyPtr: Pekare till den fiende som skall tas bort.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -457,14 +385,6 @@ void World::removeEnemy(Enemy* enemyPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -490,14 +410,6 @@ void World::removeNPC(NPC* NPCPtr)
 * sensorPtr: Pekare till den sensor som skall tas bort.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -527,14 +439,6 @@ void World::removeSensor(Sensor* sensorPtr)
 * value: Den typ av tile som den gamla ska ersättas med.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -571,14 +475,6 @@ void World::changeTile(int pos, int value)
 *
 * Universe*: Pekare till det speluniversum som spelvärlden tillhör.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -606,14 +502,6 @@ Universe* World::getUniverse() const
 * UTDATA
 *
 * const int: Spelvärldens ID.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -643,14 +531,6 @@ const int World::getID() const
 *
 * std::string: Den musik som spelas i spelvärlden.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -678,14 +558,6 @@ const std::string World::getMusic()
 * UTDATA
 *
 * const int: Spelvärldens bredd.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -715,14 +587,6 @@ const int World::getMapWidth() const
 *
 * const int: Spelvärldens höjd.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -750,14 +614,6 @@ const int World::getMapHeight() const
 * UTDATA
 *
 * std::vector<int>: Lista över spelvärldens tiles.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -787,14 +643,6 @@ const std::vector<int> World::getTileVector() const
 *
 * std::map<int,NPC*>: Lista över spelvärldens alla NPC:er.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -822,14 +670,6 @@ const std::map<int, NPC*> World::getNPCVector() const
 * UTDATA
 *
 * std::map<int, Sensor*>: Lista över spelvärldens alla sensorer.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -859,14 +699,6 @@ const std::map<int, Sensor*> World::getSensorVector() const
 *
 * std::map<int, Enemy*>: Lista över spelvärldens alla fiender.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -894,14 +726,6 @@ const std::map<int, Enemy*> World::getEnemyVector() const
 * UTDATA
 *
 * int: Färgens motsvarande heltal.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -1001,14 +825,6 @@ int World::getIntFromColor(sf::Color color)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
