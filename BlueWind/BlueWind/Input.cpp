@@ -29,7 +29,7 @@ void Input::update()
 	}
 	catch (const out_of_range& e)
 	{
-		cerr << e.what() << " @ Input.update()" << endl;
+		throw;
 	}
 }
 

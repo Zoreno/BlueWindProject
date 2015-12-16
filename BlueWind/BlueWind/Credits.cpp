@@ -49,14 +49,6 @@ void creditsMenuCallback(Application*);		// Funktionen som körs då man klickar p
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -86,14 +78,6 @@ Credits::Credits(Application* appPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -116,14 +100,6 @@ void Credits::handleKeyEvent(sf::Event event) {}
 * event: Ett musklick
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -174,14 +150,6 @@ void Credits::handleMouseEvent(sf::Event event)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -210,14 +178,6 @@ void Credits::update()
 * window: Fönster som undermenyn ska ritas upp i.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -256,14 +216,6 @@ void Credits::render(GameWindow& window)
 * ptr: Pekare till applikationen som undermenyn är en del av.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

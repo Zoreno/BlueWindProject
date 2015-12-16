@@ -41,17 +41,9 @@
 *
 * Klassen representerar en ruta (tile) i spelvärlden.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Tile(sf::Texture&, bool)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

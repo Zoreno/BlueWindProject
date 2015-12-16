@@ -41,14 +41,6 @@
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -81,14 +73,6 @@ Tile::Tile(sf::Texture& texture, bool walkable)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -117,14 +101,6 @@ void Tile::render(GameWindow& window, int x, int y)
 * UTDATA
 *
 * bool: Anger om man kan gå på rutan (true) eller ej.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *

@@ -44,17 +44,9 @@ using musicTable = std::map<const std::string, sf::Music*>;
 *
 * Klassen kastar undantag för SoundHandler.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
-* default-konstruktor.
-*
-* OPERATIONER
-*
-* -
+* Ärver från std::logic_error.
 *
 * DATAMEDLEMMAR
 *
@@ -85,17 +77,9 @@ public:
 *
 * Klassen representerar ljudhanteraren i spelet. Ljudhanteraren spelar upp, byter och stänger av musik och ljudeffekter.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * SoundHandler()
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -124,7 +108,7 @@ public:
 	void playSound(const std::string&);
 	void playMusic(const std::string&);
 	void stopMusic();
-	
+
 private:
 	soundTable sounds_;
 	musicTable music_;
@@ -133,8 +117,8 @@ private:
 
 	void loadSound(const std::string&, const std::string&);
 	void loadMusic(const std::string&, const std::string&);
-};//class SoundHandler
+};// class SoundHandler
 
-   /*
-   * SLUT PÅ FILEN SoundHandler.h
-   */
+/*
+* SLUT PÅ FILEN SoundHandler.h
+*/

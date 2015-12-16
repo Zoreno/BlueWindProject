@@ -28,7 +28,6 @@
 
 using namespace std;
 
-
 /*
 * KONSTRUKTOR FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f size, std::string normalFile, std::string hoverFile, std::function<void(Application*)> callbackFunc)
 *
@@ -46,14 +45,6 @@ using namespace std;
 * callbackFunc	Funktionen som anropas då knappen klickas på.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -92,14 +83,6 @@ FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f siz
 *
 * sf::Vector2f: Knappens position.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -128,14 +111,6 @@ sf::Vector2f FrameButton::getPosition() const
 *
 * sf::Vector2f: Knappens storlek.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -161,14 +136,6 @@ sf::Vector2f FrameButton::getSize() const
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -205,14 +172,6 @@ void FrameButton::update()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -239,14 +198,6 @@ void FrameButton::render(GameWindow& window)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -278,14 +229,6 @@ void FrameButton::clicked()
 * UTDATA
 *
 * bool: Anger om musen hålls över knappen (true) eller ej.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *

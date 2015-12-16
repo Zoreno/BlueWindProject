@@ -1,4 +1,4 @@
-/* 
+/*
 * IDENTIFIERING
 *
 * Filnamn:    NPC.cpp
@@ -54,14 +54,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -71,8 +63,8 @@ using namespace std;
 */
 
 NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, string conversation, std::function<void(NPC*)> callbackFunc)
-	: Entity(level, health, damage, ID, name, position, worldPtr, texture), 
-	conversation_{ conversation }, 
+	: Entity(level, health, damage, ID, name, position, worldPtr, texture),
+	conversation_{ conversation },
 	callback_{ callbackFunc }
 {
 	sprite_.setOrigin(sf::Vector2f(0.0f, 0.0f));
@@ -95,14 +87,6 @@ NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -111,9 +95,7 @@ NPC::NPC(int level, int health, int damage, int ID, std::string name, sf::Vector
 *
 */
 
-void NPC::update()
-{
-}
+void NPC::update() {}
 
 /*
 * FUNKTION NPC::render(GameWindow & window)
@@ -127,14 +109,6 @@ void NPC::update()
 * window:	Fönster som NPC:n ska ritas på.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -166,14 +140,6 @@ void NPC::render(GameWindow & window)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -197,16 +163,9 @@ void NPC::talk() const
 *
 * INDATA
 *
+* -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -233,16 +192,9 @@ void NPC::interact()
 *
 * INDATA
 *
+* -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

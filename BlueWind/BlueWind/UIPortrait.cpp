@@ -65,8 +65,7 @@ UIPortrait::UIPortrait(UserInterface * uiPtr, Player * playerPtr)
 	healthBar_{position_ + sf::Vector2f(10,40), sf::Vector2f(180,20), sf::Color::Red, "HP", uiPtr},
 	manaBar_{ position_ + sf::Vector2f(10,60), sf::Vector2f(180,20), sf::Color::Yellow, "kWh", uiPtr },
 	expBar_{ position_ + sf::Vector2f(10,80), sf::Vector2f(180,20), sf::Color::Green, "XP", uiPtr }
-{
-}
+{}
 
 /*
 * FUNKTION UIPortrait::handleKeyEvent(const sf::Event& ev)
@@ -99,9 +98,7 @@ UIPortrait::UIPortrait(UserInterface * uiPtr, Player * playerPtr)
 *
 */
 
-void UIPortrait::handleKeyEvent(const sf::Event&)
-{
-}
+void UIPortrait::handleKeyEvent(const sf::Event&) {}
 
 /*
 * FUNKTION UIPortrait::update()
@@ -177,7 +174,7 @@ void UIPortrait::render(GameWindow & window)
 {
 	sf::RectangleShape frame{ size_ };
 	frame.setPosition(position_);
-	frame.setFillColor(sf::Color{ 200,200,200,100 });
+	frame.setFillColor(sf::Color{ 200,200,200,200 });
 	frame.setOutlineColor(sf::Color{ 100,100,100,255 });
 	frame.setOutlineThickness(4.0f);
 	window.draw(frame);

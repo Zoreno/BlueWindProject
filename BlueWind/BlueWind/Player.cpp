@@ -1,3 +1,28 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    Player.cpp
+* Enhetsnamn: Player
+* Typ:        Definitioner hörande till klass Player
+* Revision:   1
+* Skriven av: Jonas Ehn, Olle Andersson
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen Player.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include <map>
 #include <math.h>
 #include <algorithm>
@@ -12,27 +37,116 @@
 #include "GameOver.h"
 
 using namespace std;
+/*
+* KONSTRUKTOR Player(World * worldPtr, sf::Texture& texture, Game* game)
+*
+* BESKRIVNING
+*
+* Denna konstruktor konstruerar spelaren
+*
+* INDATA
+*
+* worldPtr:		Pekare till den aktuella världen
+* texture:		En referens till en texture
+* game:			En pekare till Game
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
-//TODO HP och Damage just nu för debug
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "Faranos", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
-	mana_{ 20 }, 
-	maxMana_{ 20 }, 
-	gamePointer_{ game }, 
+	: Entity(1, 100, 10, 0, "Faranos", sf::Vector2f(20 * 32, 20 * 32), worldPtr, game->getTexture("player")),
+	mana_{ 20 },
+	maxMana_{ 20 },
+	gamePointer_{ game },
 	inventory_{ this,game }
-{
-	
-}
+{}
 
+/*
+* FUNKTION Player::getExperience() const
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar erfarenhetspoängen som spelaren har
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* int:		Erfarenhetspoäng
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 int Player::getExperience() const
 {
 	return experience_;
 }
 
+/*
+* FUNKTION Player::addExperience(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion ökar spelarens erfarenhetspoäng
+*
+* INDATA
+*
+* value:	Ett heltal med erfarenhetspoäng att lägga till
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::addExperience(int value)
 {
 	experience_ += value;
-	while(checkForLevelup())
+	while (checkForLevelup())
 	{
 		maxHealth_ += 20;
 		health_ = maxHealth_;
@@ -42,68 +156,459 @@ void Player::addExperience(int value)
 	}
 }
 
+/*
+* FUNKTION Player::getMana() const
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar spelarens magipoäng
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* mana_:	Ett heltal med spelarens magipoäng
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 int Player::getMana() const
 {
 	return mana_;
 }
 
+/*
+* FUNKTION Player::setMana(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens magipoäng till ett visst värde
+*
+* INDATA
+*
+* value:	Ett heltal som spelarens magipoäng sätts till
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setMana(int value)
 {
 	mana_ = value;
 }
 
+/*
+* FUNKTION Player::addMana(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion lägger till magipoäng till spelaren
+*
+* INDATA
+*
+* value:	Ett heltal som spelarens magipoäng ökas med
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::addMana(int value)
 {
 	mana_ = min(mana_ + value, maxMana_);
 }
 
+/*
+* FUNKTION getMaxMana() const
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar maxantalet magipoäng som spelaren har
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* int:		Ett heltalsvärde som är spelarens maximala magipoäng
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 int Player::getMaxMana() const
 {
 	return maxMana_;
 }
 
+/*
+* FUNKTION setMaxMana(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens maximala antal magipoäng
+*
+* INDATA
+*
+* value:	Heltal som sätts till maximala antal magipoäng
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setMaxMana(int value)
 {
 	maxMana_ = value;
 	mana_ = value;
 }
 
+/*
+* FUNKTION getMaxExperience()
+*
+* BESKRIVNING
+*
+* Denna funktion returnerar spelarens maximala erfarenhetspoäng
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* int:	Maximala antalet erfarenhetspoäng
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 int Player::getMaxExperience()
 {
 	return getXpToLevel();
 }
 
+/*
+* FUNKTION setName(std::string name)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens namn
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setName(std::string name)
 {
 	name_ = name;
 }
 
+/*
+* FUNKTION setMaxHealth(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens maximala hälsopoäng
+*
+* INDATA
+*
+* value:	Heltalsvärde som blir spelarens maximala hälsopoäng
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setMaxHealth(int value)
 {
 	maxHealth_ = value;
 	health_ = value;
 }
 
+/*
+* FUNKTION setDamage(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens skadeverkan
+*
+* INDATA
+*
+* value:	Heltalsvärde som blir spelarens skadeverkan
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setDamage(int value)
 {
 	damage_ = value;
 }
 
+/*
+* FUNKTION setLevel(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens nivå
+*
+* INDATA
+*
+* value:	Heltalsvärde som blir spelarens nivå
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* 
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setLevel(int value)
 {
 	level_ = value;
 }
 
+/*
+* FUNKTION setExperience(int value)
+*
+* BESKRIVNING
+*
+* Denna funktion sätter spelarens erfarenhetspoäng
+*
+* INDATA
+*
+* value:	Heltalsvärde som blir spelarens erfarenhetspoäng
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Player::setExperience(int value)
 {
 	experience_ = value;
 }
+
+/*
+* FUNKTION getInventory()
+*
+* BESKRIVNING
+*
+* En funktion som returnerar en pekare till spelarens inventory
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* Inventory* :		En pekare till spelarens inventory
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 Inventory* Player::getInventory()
 {
 	return &inventory_;
 }
 
+/*
+* FUNKTION swordAttack(const map<int, Enemy*>& enemies)
+*
+* BESKRIVNING
+*
+* En funktion som representerar en svärdsattack
+*
+* INDATA
+*
+* enemies : en map med alla fiender i världen
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Player::swordAttack(const map<int, Enemy*>& enemies)
 {
@@ -138,6 +643,37 @@ void Player::swordAttack(const map<int, Enemy*>& enemies)
 	}
 }
 
+/*
+* FUNKTION fireballAttack(const std::map<int, Enemy*>& enemies)
+*
+* BESKRIVNING
+*
+* En funktion som representerar en magiattack
+*
+* INDATA
+*
+* enemies : en map med alla fiender i världen
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 {
 	if (mana_ < 12 || !getInventory()->hasItem(5)) return;
@@ -147,10 +683,41 @@ void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 64)
 		{
-			it.second->removeHealth(2*damage_);
+			it.second->removeHealth(2 * damage_);
 		}
 	}
 }
+
+/*
+* FUNKTION interact(const std::map<int, NPC*>& NPCs)
+*
+* BESKRIVNING
+*
+* En funktion som representerar interaktion med NPC:er
+*
+* INDATA
+*
+* NPCs : en map med alla NPCer i världen
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Player::interact(const std::map<int, NPC*>& NPCs)
 {
@@ -182,10 +749,73 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 	}
 }
 
+/*
+* FUNKTION getXpToLevel()
+*
+* BESKRIVNING
+*
+* En funktion som räknar ut hur många erfarenhetspoäng
+* som krävs för att nå nästa nivå.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* int : antalet erfarenhetspoäng till nästa nivå
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 int Player::getXpToLevel()
 {
-	return static_cast<int>(std::floor( 100 * std::pow(1.15f, level_)));
+	return static_cast<int>(std::floor(100 * std::pow(1.15f, level_)));
 }
+
+/*
+* FUNKTION checkForLevelup()
+*
+* BESKRIVNING
+*
+* En funktion som räknar ut om spelaren går upp en nivå
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* bool : ska spelaren gå upp en nivå?
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 bool Player::checkForLevelup()
 {
@@ -198,13 +828,44 @@ bool Player::checkForLevelup()
 	return false;
 }
 
+/*
+* FUNKTION update()
+*
+* BESKRIVNING
+*
+* En funktion som uppdaterar spelaren
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void Player::update()
 {
 	healthCounter_++;
 	manaCounter_++;
 
-	if(healthCounter_ % 15 == 0)
-	{ 
+	if (healthCounter_ % 15 == 0)
+	{
 		addHealth(level_);
 		healthCounter_ = 0;
 	}
@@ -234,17 +895,108 @@ void Player::update()
 	checkSensors();
 }
 
+/*
+* FUNKTION render(GameWindow & window)
+*
+* BESKRIVNING
+*
+* En funktion som renderar spelaren
+*
+* INDATA
+*
+* window : spelfönstret som allt ritas upp i
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
 void Player::render(GameWindow & window)
 {
 	anim_.render(window);
 }
 
+/*
+* FUNKTION die()
+*
+* BESKRIVNING
+*
+* En funktion som dödar spelaren
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Player::die()
 {
 	gamePointer_->getApp()->setNextFrame(new GameOver(gamePointer_->getApp()));
 }
 
+/*
+* FUNKTION checkSensors()
+*
+* BESKRIVNING
+*
+* En funktion som kontrollerar om spelaren är nära nog för att trigga någon sensor
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void Player::checkSensors()
 {
@@ -257,4 +1009,3 @@ void Player::checkSensors()
 		}
 	}
 }
-

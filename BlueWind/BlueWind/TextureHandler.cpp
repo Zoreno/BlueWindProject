@@ -42,14 +42,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -82,7 +74,6 @@ TextureHandler::TextureHandler()
 	loadTexture("burnedGround", "res/textures/burnedGround.png");
 	loadTexture("fountain", "res/textures/fountain.png");
 	loadTexture("grassStone", "res/textures/grassStone.png");
-
 	loadTexture("noneWalkableSand", "res/textures/noneWalkableSand.png");
 
 	//Items
@@ -120,7 +111,7 @@ TextureHandler::TextureHandler()
 	loadTexture("NPC6", "res/textures/NPC6.png");
 	loadTexture("cityPriest", "res/textures/NPC7.png");
 	loadTexture("saveNPC", "res/textures/saveNPC.png");
-	loadTexture("Firimaniums", "res/textures/Firimaniums.png"); 
+	loadTexture("Firimaniums", "res/textures/Firimaniums.png");
 	loadTexture("brokenFountain", "res/textures/brokenFountain.png");
 	loadTexture("citizenWoman1", "res/textures/citizenWoman1.png");
 	loadTexture("citizenWoman2", "res/textures/citizenWoman2.png");
@@ -165,14 +156,6 @@ TextureHandler::TextureHandler()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -200,19 +183,11 @@ TextureHandler::~TextureHandler()
 *
 * INDATA
 *
-* ref:		Sträng motsvarande texturen vi vill ha.
+* ref: Sträng motsvarande texturen vi vill ha.
 *
 * UTDATA
 *
 * Texture&:	Referens till textur.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -236,21 +211,11 @@ sf::Texture & TextureHandler::getTextureRef(const std::string& ref)
 *
 * INDATA
 *
-* ref:		Sträng motsvarande texturen vi vill ha.
+* ref: Sträng motsvarande texturen vi vill ha.
 *
 * UTDATA
 *
 * Texture&:	Referens till texturen.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	std::string
-* modul:	sfml-grafik
-* modul:	TextureException
 *
 * REVISIONSBERÄTTELSE
 *
@@ -271,5 +236,5 @@ void TextureHandler::loadTexture(const std::string& texName, const std::string& 
 }
 
 /*
-* SLUT PÅ FILEN TextureException.cpp
+* SLUT PÅ FILEN TextureHandler.cpp
 */

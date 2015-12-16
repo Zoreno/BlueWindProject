@@ -26,7 +26,6 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include <iostream>
 #include <SFML\Graphics.hpp>
 #include "GameWindow.h"
 #include "Menu.h"

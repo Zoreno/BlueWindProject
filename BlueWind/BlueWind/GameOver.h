@@ -46,17 +46,9 @@ class Application;
 *
 * Klassen representerar en meny som visas då spelaren förlorar spelet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * GameOver(Application*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -82,10 +74,9 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
-
 private:
 	sf::Sprite background_;
-}; // class GameOver
+}; 
 
 /*
 * SLUT PÅ FILEN GameOver.h

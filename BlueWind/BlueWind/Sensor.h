@@ -30,6 +30,12 @@
 #include "GameWindow.h"
 
 /*
+* Framåtdeklarationer
+*/
+
+class Game;
+
+/*
 * KLASS Sensor
 *
 * BASKLASSER
@@ -40,21 +46,13 @@
 *
 * Klassen representerar sensorer i spelet. Sensorer triggar callbackfunktioner när spelaren närmar sig.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Sensor(int, std::string, sf::Vector2f, World*, std::function<void(World*)>, sf::Texture&)
 *
-* OPERATIONER
-*
-* -
-*
 * DATAMEDLEMMAR
 *
-* callback_:		Callbackfunktion som triggas av sensorn.
+* callback_: Callbackfunktion som triggas av sensorn.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -63,8 +61,6 @@
 * 1            151214  Ursprungsversion
 *
 */
-
-class Game;
 
 class Sensor : public Entity
 {
@@ -81,8 +77,8 @@ public:
 	void die() override;
 private:
 	std::function<void(World*)> callback_;
-};//class Sensor
+};// class Sensor
 
-   /*
-   * SLUT PÅ FILEN Sensor.h
-   */
+/*
+* SLUT PÅ FILEN Sensor.h
+*/

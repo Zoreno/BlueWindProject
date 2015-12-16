@@ -5,7 +5,7 @@
 * Enhetsnamn: World
 * Typ:        Definitioner hörande till klassen World
 * Revision:   1
-* Skriven av: Joakim Bertils, Johannes Grundell TODO Fler?
+* Skriven av: Joakim Bertils, Johannes Grundell
 *
 *
 * BESKRIVNING
@@ -46,14 +46,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -82,14 +74,6 @@ World::World(int ID, Universe* universePtr, std::string mapFile, string music)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -142,14 +126,6 @@ World::~World()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -179,14 +155,6 @@ void World::update()
 * window: Fönster som spelvärlden ska ritas upp i.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -244,7 +212,6 @@ void World::render(GameWindow& window)
 	{
 		it.second->render(window);
 	}
-
 }
 
 /*
@@ -259,14 +226,6 @@ void World::render(GameWindow& window)
 * mapFile: Spelvärldens pixelkarta.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -313,14 +272,6 @@ void World::loadWorld(std::string mapFile)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -346,14 +297,6 @@ void World::addEnemy(Enemy* enemyPtr)
 * NPCPtr: Pekare till den NPC som skall läggas till.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -385,14 +328,6 @@ void World::addNPC(NPC* NPCPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -418,14 +353,6 @@ void World::addSensor(Sensor* sensorPtr)
 * enemyPtr: Pekare till den fiende som skall tas bort.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -457,14 +384,6 @@ void World::removeEnemy(Enemy* enemyPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -490,14 +409,6 @@ void World::removeNPC(NPC* NPCPtr)
 * sensorPtr: Pekare till den sensor som skall tas bort.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -530,14 +441,6 @@ void World::removeSensor(Sensor* sensorPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -553,7 +456,7 @@ void World::changeTile(int pos, int value)
 		throw WorldException("Åtkomst till tile utanför kartan, du angav:" + pos);
 	}
 
-	tileVector_.at(pos) = value;	
+	tileVector_.at(pos) = value;
 }
 
 /*
@@ -570,14 +473,6 @@ void World::changeTile(int pos, int value)
 * UTDATA
 *
 * Universe*: Pekare till det speluniversum som spelvärlden tillhör.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -607,14 +502,6 @@ Universe* World::getUniverse() const
 *
 * const int: Spelvärldens ID.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -642,14 +529,6 @@ const int World::getID() const
 * UTDATA
 *
 * std::string: Den musik som spelas i spelvärlden.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -679,14 +558,6 @@ const std::string World::getMusic()
 *
 * const int: Spelvärldens bredd.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -714,14 +585,6 @@ const int World::getMapWidth() const
 * UTDATA
 *
 * const int: Spelvärldens höjd.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -751,14 +614,6 @@ const int World::getMapHeight() const
 *
 * std::vector<int>: Lista över spelvärldens tiles.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -786,14 +641,6 @@ const std::vector<int> World::getTileVector() const
 * UTDATA
 *
 * std::map<int,NPC*>: Lista över spelvärldens alla NPC:er.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -823,14 +670,6 @@ const std::map<int, NPC*> World::getNPCVector() const
 *
 * std::map<int, Sensor*>: Lista över spelvärldens alla sensorer.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -859,14 +698,6 @@ const std::map<int, Sensor*> World::getSensorVector() const
 *
 * std::map<int, Enemy*>: Lista över spelvärldens alla fiender.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -894,14 +725,6 @@ const std::map<int, Enemy*> World::getEnemyVector() const
 * UTDATA
 *
 * int: Färgens motsvarande heltal.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -984,7 +807,7 @@ int World::getIntFromColor(sf::Color color)
 	case 0x77617CFF: //Sten på gräs
 		return 902;
 
-	default: // TODO Undantag istället? (Johannes: Hanteras genom att sätta -1 vilket målar rosa tile, räcker så imo. Andra alternativet är ingen rosa tile och i stället exception!)
+	default:
 		return -1;
 	}
 }
@@ -1001,14 +824,6 @@ int World::getIntFromColor(sf::Color color)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

@@ -46,17 +46,9 @@ class Application;
 *
 * Klassen representerar en undermeny till spelets startmeny där en lista över det material som använts i spelet visas.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Credits(Application*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -85,7 +77,7 @@ public:
 
 private:
 	sf::Sprite background_;
-}; // class Credits
+}; 
 
 /*
 * SLUT PÅ FILEN Credits.h
