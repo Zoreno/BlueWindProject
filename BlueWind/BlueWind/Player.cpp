@@ -13,16 +13,13 @@
 
 using namespace std;
 
-//TODO HP och Damage just nu för debug
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "Faranos", sf::Vector2f(20 * 32, 20* 32), worldPtr, game->getTexture("player")),
-	mana_{ 20 }, 
-	maxMana_{ 20 }, 
-	gamePointer_{ game }, 
+	: Entity(1, 100, 10, 0, "Faranos", sf::Vector2f(20 * 32, 20 * 32), worldPtr, game->getTexture("player")),
+	mana_{ 20 },
+	maxMana_{ 20 },
+	gamePointer_{ game },
 	inventory_{ this,game }
-{
-	
-}
+{}
 
 int Player::getExperience() const
 {
@@ -32,7 +29,7 @@ int Player::getExperience() const
 void Player::addExperience(int value)
 {
 	experience_ += value;
-	while(checkForLevelup())
+	while (checkForLevelup())
 	{
 		maxHealth_ += 20;
 		health_ = maxHealth_;
@@ -147,7 +144,7 @@ void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 	{
 		if (getDistance(position_, it.second->getPosition()) <= 64)
 		{
-			it.second->removeHealth(2*damage_);
+			it.second->removeHealth(2 * damage_);
 		}
 	}
 }
@@ -184,7 +181,7 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 
 int Player::getXpToLevel()
 {
-	return static_cast<int>(std::floor( 100 * std::pow(1.15f, level_)));
+	return static_cast<int>(std::floor(100 * std::pow(1.15f, level_)));
 }
 
 bool Player::checkForLevelup()
@@ -203,8 +200,8 @@ void Player::update()
 	healthCounter_++;
 	manaCounter_++;
 
-	if(healthCounter_ % 15 == 0)
-	{ 
+	if (healthCounter_ % 15 == 0)
+	{
 		addHealth(level_);
 		healthCounter_ = 0;
 	}

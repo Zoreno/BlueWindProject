@@ -28,7 +28,7 @@
 
 using namespace std;
 
-int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 {
 	try
 	{
@@ -37,10 +37,10 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 	}
 	catch (const exception& e)
 	{
-		cerr << e.what() << endl;
+		//TODO filström
+		e.what();
 	}
 	
-
 	return 0;
 }
 

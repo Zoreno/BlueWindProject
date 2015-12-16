@@ -10,7 +10,7 @@
 *
 * BESKRIVNING
 *
-* Denna modul representerar saker som kan placeras i spelfönstret. TODO Bättre beskrivning?!
+* Denna modul representerar saker som kan placeras i spelfönstret.
 *
 * REVISIONSBERÄTTELSE
 *
@@ -47,17 +47,9 @@ class Application;
 *
 * Klassen kastar undantag i Frame.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
-* default-konstruktor. TODO Hur??
-*
-* OPERATIONER
-*
-* -
+* Ärver från std::logic_error.
 *
 * DATAMEDLEMMAR
 *
@@ -88,17 +80,9 @@ public:
 *
 * Klassen representerar saker som kan placeras i spelfönstret. Basklass till "Game" samt alla menyer.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Frame(Application*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -129,7 +113,6 @@ public:
 	virtual ~Frame();
 
 	void addButton(sf::Vector2f, sf::Vector2f, std::string, std::string, std::function<void(Application*)>);
-
 protected:
 	std::vector<FrameButton*> buttons_;
 	Application* appPointer_;

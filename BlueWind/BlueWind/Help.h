@@ -46,17 +46,9 @@ class Application;
 *
 * Klassen representerar en undermeny till spelets startmeny där spelets kontroller visas.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Help(Application*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -82,7 +74,6 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
-
 private:
 	sf::Sprite background_;
 }; // class Help

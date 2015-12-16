@@ -46,17 +46,9 @@ class Application;
 *
 * Klassen representerar spelets startmeny.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Menu(Application*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -82,7 +74,6 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
-
 private:
 	sf::Sprite background_;
 }; // class Menu

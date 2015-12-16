@@ -1,3 +1,4 @@
+
 /*
 * IDENTIFIERING
 *
@@ -23,11 +24,12 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+
+#include <fstream>
+#include <sstream>
 #include "Game.h"
 #include "Application.h"
 #include "Universe.h"
-#include <fstream>
-#include <sstream>
 
 using namespace std;
 
@@ -106,7 +108,6 @@ Game::Game(Application * appPtr, bool loadSave)
 	player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this }, 
 	ui_{&player_}
 {
-	
 	if (loadSave)
 	{
 		loadGame();
@@ -369,7 +370,6 @@ void Game::saveGame()
 		saveStream << player_.getInventory()->toString() << endl;
 		saveStream << gameState_.toString() << endl;
 		saveStream.close();
-		cout << "Game saved!" << endl;
 	}
 	else
 		throw FrameException("Kunde inte spara data till savefile.txt");

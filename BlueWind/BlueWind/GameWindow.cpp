@@ -34,18 +34,10 @@
 *
 * INDATA
 *
-* videoMode: Spelfönstrets storlek. TODO Bättre beskrivning?!
+* videoMode: Spelfönstrets storlek. 
 * title: Spelfönstrets namn.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
