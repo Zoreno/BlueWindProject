@@ -1609,6 +1609,8 @@ void isgolathDeath(Enemy* enemyPtr)
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("*Oh no, I have been defeated!");
 	UI->addStringToChatBox("Bluewind will avenge me!");
+	UI->addStringToChatBox("Faranos: Bluewind? Who's that?");
+	UI->addStringToChatBox("I'm only fighting Bad Alloc.");
 
 	if (!enemyPtr->getWorld()->getUniverse()->getGame()->getGameState()->bridge2Built)
 	{
