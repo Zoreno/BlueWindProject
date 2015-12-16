@@ -34,6 +34,10 @@
 #include "NPC.h"
 #include "Sensor.h"
 
+/*
+* Framåtdeklarationer
+*/
+
 class Game;
 
 /*
@@ -47,17 +51,9 @@ class Game;
 *
 * Klassen kastar undantag för Universe.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
-* default-konstruktor.
-*
-* OPERATIONER
-*
-* -
+* Ärver från std::logic_error.
 *
 * DATAMEDLEMMAR
 *
@@ -87,23 +83,15 @@ public:
 *
 * Klassen representerar speluniversumet. Universe skapar och håller reda på alla världar i spelet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Universe(Game*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
 * gamePointer_:		Pekare till aktuellt Game.
 * currentWorld_:	Pekare till världen spelaren befinner sig i.
-* worlds_:			Vektor innehållande spelets alla världar.	
+* worlds_:			Vektor innehållande spelets alla världar.
 * tileAtlas_:		Map innehållande pekare till alla Tiles och respektive nyckel.
 *
 * REVISIONSBERÄTTELSE
@@ -140,7 +128,6 @@ public:
 	void addSensor(int, Sensor*);
 
 	void populateCity();
-
 private:
 	Game* gamePointer_;
 	World* currentWorld_;
@@ -149,9 +136,9 @@ private:
 
 	void loadTiles();
 	void loadWorlds();
-	void populateWorlds();	
-}; //class NPC
+	void populateWorlds();
+}; //class Universe
 
-   /*
-   * SLUT PÅ FILEN NPC.h
-   */
+/*
+* SLUT PÅ FILEN Universe.h
+*/
