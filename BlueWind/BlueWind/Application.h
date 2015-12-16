@@ -44,17 +44,9 @@
 *
 * Klassen representerar spelapplikationen
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Application()
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

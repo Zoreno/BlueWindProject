@@ -44,17 +44,9 @@
 *
 * Sparar viktiga framsteg i spelet
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * GameState() = default
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -84,7 +76,7 @@ public:
 }; //Class GameState
 
 
-   /*
+/*
    * KLASS Game
    *
    * BASKLASSER
@@ -95,17 +87,9 @@ public:
    *
    * En klass som representerar många viktiga funktionaliteter i spelet.
    *
-   * TILLSTÅND
-   *
-   * -
-   *
    * KONSTRUKTORER
    *
    * Game(Application*, bool = false)
-   *
-   * OPERATIONER
-   *
-   * -
    *
    * DATAMEDLEMMAR
    *
@@ -129,7 +113,7 @@ public:
 	Game(Application*, bool = false);
 	Game(const Game&) = delete;
 	Game& operator=(const Game&) = delete;
-	
+
 	void update() override;
 	void render(GameWindow&) override;
 

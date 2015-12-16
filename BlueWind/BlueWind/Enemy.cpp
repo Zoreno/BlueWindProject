@@ -54,14 +54,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -88,14 +80,6 @@ Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Ve
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -129,14 +113,6 @@ void Enemy::update()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -169,14 +145,6 @@ void Enemy::render(GameWindow & window)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -204,14 +172,6 @@ void Enemy::die()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *
@@ -284,14 +244,6 @@ void Enemy::updateState()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -349,14 +301,6 @@ void Enemy::executeState()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -393,14 +337,6 @@ void Enemy::attackPlayer()
 *
 * float : ett tal som anger avståndet mellan spelaren och fienden
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -429,14 +365,6 @@ float getDistance(sf::Vector2f vec1, sf::Vector2f vec2)
 * UTDATA
 *
 * sf::Vector2f : En vektor med element som har längden ett.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *

@@ -56,15 +56,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-* modul: std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -100,14 +91,6 @@ Entity::Entity(int level, int health, int damage, int ID, std::string name, sf::
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *
@@ -178,14 +161,6 @@ void Entity::move(float dx, float dy)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -213,14 +188,6 @@ void Entity::teleport(float x, float y)
 * UTDATA
 *
 * int:		Ett tal med objektets nivå
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -250,14 +217,6 @@ int Entity::getLevel() const
 *
 * int:		Ett tal med objektets hälsopoäng
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -285,14 +244,6 @@ int Entity::getHealth() const
 * UTDATA
 *
 * int:		Ett tal med objektets maximala hälsopoäng
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -322,14 +273,6 @@ int Entity::getMaxHealth() const
 *
 * int:		Ett tal med objektets skadeverkan
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -357,14 +300,6 @@ int Entity::getDamage() const
 * UTDATA
 *
 * int:		Ett tal med objektets ID
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -394,14 +329,6 @@ int Entity::getID() const
 *
 * std::string:		En sträng med objektets namn
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -429,14 +356,6 @@ std::string Entity::getName() const
 * UTDATA
 *
 * const sf::Vector2f:		En vektor med objektets position
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *
@@ -467,14 +386,6 @@ const sf::Vector2f Entity::getPosition() const
 *
 * World*:		En pekare till världen som objektet befinner sig i
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -500,14 +411,6 @@ World * Entity::getWorld() const
 * worldPtr:		En pekare till en värld
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -539,14 +442,6 @@ void Entity::setCurrentWorld(World * worldPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -572,14 +467,6 @@ void Entity::addHealth(int value)
 * value:		Antalet hälsopoäng som ska tas bort
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -613,14 +500,6 @@ void Entity::removeHealth(int value)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

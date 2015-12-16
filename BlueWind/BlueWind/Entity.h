@@ -48,18 +48,10 @@ class World;
 *
 * Klassen representerar objekt i spelvärlden
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Entity(int level, int health, int damage, int ID, std::string name,
 *        sf::Vector2f position, World * worldPtr, sf::Texture& tex)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

@@ -41,14 +41,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -85,14 +77,6 @@ Application::Application()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -117,14 +101,6 @@ Application::~Application()
 *
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -182,14 +158,6 @@ void Application::run()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -215,14 +183,6 @@ void Application::render(GameWindow & window)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -255,14 +215,6 @@ void Application::update()
 *
 * const Input& : Applikationens Input-objekt
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -291,14 +243,6 @@ const Input& Application::getInput()
 *
 * Frame* : En pekare till den nuvarande framen
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -326,14 +270,6 @@ Frame * Application::getCurrentFrame()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *
@@ -368,14 +304,6 @@ void Application::changeCurrentFrame()
 *
 * GameWindow& : En GameWindow-referens som innehåller det nuvarande fönstret
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -404,14 +332,6 @@ GameWindow& Application::getGameWindow()
 *
 * SoundHandler : Applikationens SoundHandler-objekt
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -437,14 +357,6 @@ SoundHandler & Application::getSoundHandler()
 * framePtr : En frame-pekare till nästa frame
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
