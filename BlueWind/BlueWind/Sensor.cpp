@@ -72,6 +72,7 @@ Sensor::Sensor(int ID, std::string name, sf::Vector2f position, World * worldPtr
 *
 * INDATA
 *
+* -
 *
 * UTDATA
 *
@@ -96,6 +97,7 @@ void Sensor::update() {}
 *
 * INDATA
 *
+* -
 *
 * UTDATA
 *
