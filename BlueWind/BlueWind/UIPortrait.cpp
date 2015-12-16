@@ -1,7 +1,64 @@
-#include "UIPortrait.h"
+/*
+* IDENTIFIERING
+*
+* Filnamn:    UIPortrait.cpp
+* Enhetsnamn: UIPortrait
+* Typ:        Definitioner hörande till klass UIPortrait
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klassen UIPortrait
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
 #include <string>
+#include "UIPortrait.h"
 
 using namespace std;
+
+/*
+* KONSTRUKTOR UIPortrait(UserInterface * uiPtr, Player * playerPtr)
+*
+* BESKRIVNING
+*
+* Denna konstruktor konstruerar en ruta som visar spelarens attribut.
+*
+* INDATA
+*
+* uiPtr:		Pekare till användargränssnittet.
+* playerPtr:	Pekare till spelaren.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul:	UIBar
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 UIPortrait::UIPortrait(UserInterface * uiPtr, Player * playerPtr)
 	:UIComponent{ sf::Vector2f(10,10), sf::Vector2f(200,120), uiPtr, playerPtr },
@@ -11,9 +68,71 @@ UIPortrait::UIPortrait(UserInterface * uiPtr, Player * playerPtr)
 {
 }
 
-void UIPortrait::handleKeyEvent(sf::Event)
+/*
+* FUNKTION UIPortrait::handleKeyEvent(const sf::Event& ev)
+*
+* BESKRIVNING
+*
+* Hanterar tangentbordshändelser.
+*
+* INDATA
+*
+* ev:	Händelse som ska behandlas.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
+
+void UIPortrait::handleKeyEvent(const sf::Event&)
 {
 }
+
+/*
+* FUNKTION UIPortrait::update()
+*
+* BESKRIVNING
+*
+* Uppdaterar attributrutan
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void UIPortrait::update()
 {
@@ -21,6 +140,38 @@ void UIPortrait::update()
 	manaBar_.update(player_->getMana(), player_->getMaxMana());
 	expBar_.update(player_->getExperience(), player_->getMaxExperience());
 }
+
+/*
+* FUNKTION UIPortrait::render(GameWindow & window)
+*
+* BESKRIVNING
+*
+* Ritar föremålsfönstret på window.
+*
+* INDATA
+*
+* window:	Fönster som föremålsfönstret ska ritas på.
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul:	sfml-grafik
+* modul:	UIBar
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 
 void UIPortrait::render(GameWindow & window)
 {
@@ -41,3 +192,7 @@ void UIPortrait::render(GameWindow & window)
 	expBar_.render(window);
 
 }
+
+/*
+* SLUT PÅ FILEN UIPortrait.cpp
+*/

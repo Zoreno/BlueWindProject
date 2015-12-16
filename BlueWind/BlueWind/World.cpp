@@ -25,7 +25,6 @@
 
 #include "World.h"
 #include "Universe.h"
-#include <iostream>
 
 using namespace std;
 
@@ -549,15 +548,12 @@ void World::removeSensor(Sensor* sensorPtr)
 
 void World::changeTile(int pos, int value)
 {
-	if (pos < 0)
+	if (pos < 0 || (static_cast<unsigned int>(pos) > tileVector_.size()))
 	{
-		throw WorldException("Position för tile måste vara större än 0, du angav:" + pos);
+		throw WorldException("Åtkomst till tile utanför kartan, du angav:" + pos);
 	}
 
-	if (!(static_cast<unsigned int>(pos) > tileVector_.size()))
-	{
-		tileVector_.at(pos) = value;
-	}
+	tileVector_.at(pos) = value;	
 }
 
 /*
@@ -988,8 +984,7 @@ int World::getIntFromColor(sf::Color color)
 	case 0x77617CFF: //Sten på gräs
 		return 902;
 
-	default: // TODO Undantag istället?
-		cout << "Fel färg!" << endl;
+	default: // TODO Undantag istället? (Johannes: Hanteras genom att sätta -1 vilket målar rosa tile, räcker så imo. Andra alternativet är ingen rosa tile och i stället exception!)
 		return -1;
 	}
 }

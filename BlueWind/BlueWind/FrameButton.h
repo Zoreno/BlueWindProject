@@ -28,9 +28,9 @@
 
 #include <SFML\Graphics.hpp>
 #include <string>
-#include "GameWindow.h"
 #include <functional>
 #include <stdexcept>
+#include "GameWindow.h"
 
 /*
 * Framåtdeklarationer

@@ -26,9 +26,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <stdexcept>
 #include "GameWindow.h"
 #include "FrameButton.h"
-#include <stdexcept>
 
 /*
 * Framåtdeklarationer

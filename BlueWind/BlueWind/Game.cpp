@@ -3,7 +3,6 @@
 #include "Universe.h"
 #include <fstream>
 #include <sstream>
-#include <iostream>
 
 using namespace std;
 
@@ -22,7 +21,6 @@ Game::Game(Application * appPtr, bool loadSave)
 	player_{universe_.getCurrentWorld(), textureHandler_.getTextureRef("player"), this }, 
 	ui_{&player_}
 {
-	cout << "Game startas!" << endl;
 	
 	if (loadSave)
 	{
@@ -61,13 +59,6 @@ void Game::handleKeyEvent(sf::Event event)
 		break;
 	case sf::Keyboard::K:
 		player_.interact(universe_.getCurrentWorld()->getNPCVector());
-		break;
-	case sf::Keyboard::U:
-		cout << (int) player_.getPosition().x / 32 << "," << (int) player_.getPosition().y / 32 << endl;
-		break;
-	case sf::Keyboard::F:
-		player_.getInventory()->addItem(0);
-		cout << player_.getInventory()->toString() << endl;
 		break;
 	case sf::Keyboard::L:
 		ui_.handleKeyEvent(event);

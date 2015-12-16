@@ -23,12 +23,12 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
-#include <iostream>
+#include <Windows.h>
 #include "Application.h"
 
 using namespace std;
 
-int main()
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 {
 	try
 	{

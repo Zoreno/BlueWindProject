@@ -26,9 +26,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <deque>
 #include "UIComponent.h"
 #include "UserInterface.h"
-#include <deque>
 
 /*
 * KLASS UIChatBox
@@ -73,7 +73,7 @@ public:
 	UIChatBox(const UIChatBox&) = delete;
 	UIChatBox& operator=(const UIChatBox&) = delete;
 
-	void handleKeyEvent(sf::Event) override;
+	void handleKeyEvent(const sf::Event&) override;
 	void update() override;
 	void render(GameWindow&) override;
 

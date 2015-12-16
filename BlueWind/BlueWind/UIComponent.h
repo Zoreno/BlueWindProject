@@ -83,7 +83,7 @@ public:
 	UIComponent(const UIComponent&) = delete;
 	UIComponent& operator=(const UIComponent&) = delete;
 
-	virtual void handleKeyEvent(sf::Event) = 0;
+	virtual void handleKeyEvent(const sf::Event&) = 0;
 	virtual void update() = 0;
 	virtual void render(GameWindow&) = 0;
 

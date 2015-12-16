@@ -24,7 +24,6 @@
 */
 
 #include "UIChatBox.h"
-#include <iostream>
 
 using namespace std;
 
@@ -65,7 +64,7 @@ UIChatBox::UIChatBox(UserInterface* uiPtr, Player* playerPtr)
 {}
 
 /*
-* FUNKTION UIChatBox::handleKeyEvent(sf::Event ev)
+* FUNKTION UIChatBox::handleKeyEvent(const sf::Event& ev)
 *
 * BESKRIVNING
 *
@@ -95,7 +94,7 @@ UIChatBox::UIChatBox(UserInterface* uiPtr, Player* playerPtr)
 *
 */
 
-void UIChatBox::handleKeyEvent(sf::Event ev) {}
+void UIChatBox::handleKeyEvent(const sf::Event& ev) {}
 
 /*
 * FUNKTION UIChatBox::update()

@@ -25,14 +25,14 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <map>
+#include <stdexcept>
 #include "GameWindow.h"
 #include "World.h"
 #include "Tile.h"
-#include <map>
 #include "Enemy.h"
 #include "NPC.h"
 #include "Sensor.h"
-#include <stdexcept>
 
 class Game;
 
