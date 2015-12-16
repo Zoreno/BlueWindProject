@@ -1,3 +1,30 @@
+
+/*
+* IDENTIFIERING
+*
+* Filnamn:    Game.cpp
+* Enhetsnamn: Game
+* Typ:        Definitioner hörande till klass Game och GameState
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna implementeringsfil definierar medlemsfunktioner för klasserna Game och GameState.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*/
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
+
+
 #include <fstream>
 #include <sstream>
 #include "Game.h"
@@ -6,6 +33,35 @@
 
 using namespace std;
 
+/*
+* FUNKTION toString()
+*
+* BESKRIVNING
+*
+* Konstruerar en sträng av de tre datamedlemmarna i klassen
+*
+* INDATA
+*
+*
+* UTDATA
+*
+* std::string :	en sträng som innehåller de tre datamedlemmarna i klassen
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 string GameState::toString()
 {
 	string s;
@@ -15,6 +71,37 @@ string GameState::toString()
 	return s;
 }
 
+/*
+* KONSTRUKTOR Game(Application * appPtr, bool loadSave)
+*
+* BESKRIVNING
+*
+* Konstruktor för Game-klassen
+*
+* INDATA
+*
+* appPtr :		En pekare till applikationen	
+* loadSave :	Boolsk uttryck för om vi vill köra load eller save 
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 Game::Game(Application * appPtr, bool loadSave)
 	:Frame{appPtr}, 
 	universe_{this}, 
@@ -29,6 +116,36 @@ Game::Game(Application * appPtr, bool loadSave)
 		appPtr->getSoundHandler().playMusic("world0Music");
 }
 
+/*
+* FUNKTION update()
+*
+* BESKRIVNING
+*
+* Uppdaterar viktiga delar i spelet
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Game::update()
 {
 	universe_.update();
@@ -36,6 +153,36 @@ void Game::update()
 	ui_.update();
 }
 
+/*
+* FUNKTION render(GameWindow & window)
+*
+* BESKRIVNING
+*
+* Renderar viktiga delar i spelet
+*
+* INDATA
+*
+* window:	Spelfönstret
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Game::render(GameWindow & window)
 {
 	sf::View camera = window.getView();
@@ -46,6 +193,36 @@ void Game::render(GameWindow & window)
 	ui_.render(window);
 }
 
+/*
+* FUNKTION handleKeyEvent(sf::Event event)
+*
+* BESKRIVNING
+*
+* Känner av vilka knappar som trycks in
+*
+* INDATA
+*
+* event:	Här lagras vilken knapp som tryckts in
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Game::handleKeyEvent(sf::Event event)
 {
 	switch (event.key.code)
@@ -67,10 +244,71 @@ void Game::handleKeyEvent(sf::Event event)
 	}
 }
 
+/*
+* FUNKTION handleMouseEvent(sf::Event)
+*
+* BESKRIVNING
+*
+* Känner av vilka musrörelser i spelet (dvs inga)
+*
+* INDATA
+*
+* event:	Här lagras musrörelser
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Game::handleMouseEvent(sf::Event)
 {
 }
 
+/*
+* FUNKTION splitString(string s)
+*
+* BESKRIVNING
+*
+* Genererar en lista, delar upp strängar vid mellanslag
+*
+* INDATA
+*
+* s:	En sträng
+*
+* UTDATA
+*
+* Vector<int>: 
+*
+* SIDOEFFEKTER
+*
+* 
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+* std::string
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 vector<int> splitString(string s)
 {
 	stringstream ss(s);
@@ -82,6 +320,38 @@ vector<int> splitString(string s)
 	return IDs;
 }
 
+/*
+* FUNKTION saveGame()
+*
+* BESKRIVNING
+*
+* Sparar aktuellt spel
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* savefile.txt:		Sparar aktuellt speltillstånd till en txt-fil.
+*
+* SIDOEFFEKTER
+*
+*
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+* std::string
+* modul: iostream
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Game::saveGame()
 {
 	ofstream saveStream;
@@ -105,6 +375,38 @@ void Game::saveGame()
 		throw FrameException("Kunde inte spara data till savefile.txt");
 }
 
+/*
+* FUNKTION loadGame()
+*
+* BESKRIVNING
+*
+* Laddar senast sparade spel från savefile.txt
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* modul: sfml-grafik
+* std::string
+* modul: iostream
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 void Game::loadGame()
 {
 	string line;
@@ -169,26 +471,176 @@ void Game::loadGame()
 		throw FrameException("Kunde inte ladda data från savefile.txt");
 }
 
+/*
+* FUNKTION Game::getPlayer()
+*
+* BESKRIVNING
+*
+* Returnerar spelaren
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* Player*:	En pekare till spelaren
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+*¨-
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 Player * Game::getPlayer()
 {
 	return &player_;
 }
 
+/*
+* FUNKTION Game::getApp()
+*
+* BESKRIVNING
+*
+* Returnerar en pekare till applikationen
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* Application*:	En pekare till applikationen
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 Application * Game::getApp()
 {
 	return appPointer_;
 }
 
+/*
+* FUNKTION Game::getUserInterface()
+*
+* BESKRIVNING
+*
+* Returnerar en pekare till user interface
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* UserInterface*:	En pekare till user interfacet
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 UserInterface * Game::getUserInterface()
 {
 	return &ui_;
 }
 
+/*
+* FUNKTION Game::getGameState()
+*
+* BESKRIVNING
+*
+* Returnerar en pekare till Game State
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* GameState*:	En pekare till user GameState
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 GameState * Game::getGameState()
 {
 	return &gameState_;
 }
 
+/*
+* FUNKTION Game::getTexture(const std::string& ref)
+*
+* BESKRIVNING
+*
+* Returnerar referensen till en textur
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* Texture &:	En referens till en textur
+*
+* SIDOEFFEKTER
+*
+* -
+*
+* UTNYTTJAR
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151120          Ursprungsversion
+*
+*/
 sf::Texture & Game::getTexture(const std::string& ref)
 {
 	return textureHandler_.getTextureRef(ref);
