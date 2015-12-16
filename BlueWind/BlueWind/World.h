@@ -25,6 +25,7 @@
 /*
 * REFERERADE BIBLIOTEK OCH MODULER
 */
+
 #include <string>
 #include <map>
 #include <stdexcept>
@@ -50,17 +51,9 @@ class Universe;
 *
 * Klassen kastar undantag i World.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Ärver från std::logic_error.
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -91,17 +84,9 @@ public:
 *
 * Klassen representerar en spelvärld.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * World(int, Universe*, std::string, std::string)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
