@@ -605,14 +605,14 @@ void Universe::populateWorlds()
 	addNPC(2, new NPC(1, 100, 10, 2, "valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("warrior"), "", manInValleyInteract));
 
 	//Enemies
-	addEnemy(2, new Enemy(1, 350, 30, 0, "snowWolf1", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 350, 30, 1, "snowWolf2", sf::Vector2f(32 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 350, 30, 2, "snowWolf3", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 3, "snowWolf4", sf::Vector2f(23 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 4, "snowWolf5", sf::Vector2f(43 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 5, "snowWolf6", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 6, "snowWolf7", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 7, "snowWolf8", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 350, 25, 0, "snowWolf1", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 350, 25, 1, "snowWolf2", sf::Vector2f(32 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 350, 25, 2, "snowWolf3", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 3, "snowWolf4", sf::Vector2f(23 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 4, "snowWolf5", sf::Vector2f(43 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 5, "snowWolf6", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 6, "snowWolf7", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 7, "snowWolf8", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 450, 40, 8, "snowWolf9", sf::Vector2f(15 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 450, 40, 9, "snowWolf10", sf::Vector2f(22 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 650, 30, 10, "Isgolath", sf::Vector2f(19 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("blueWizard"), isgolathDeath));
