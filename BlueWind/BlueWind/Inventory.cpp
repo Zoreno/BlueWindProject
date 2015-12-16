@@ -516,7 +516,7 @@ void Inventory::populateItemList()
 {
 	//							ID	Namn		Textur
 	allItems_.push_back(new Item{ 0,"Tree",gamePointer_->getTexture("grassTreeChoppable") });
-	allItems_.push_back(new Item{ 1,"Axe",gamePointer_->getTexture("pickAxe") });
+	allItems_.push_back(new Item{ 1,"Pick Axe",gamePointer_->getTexture("pickAxe") });
 	allItems_.push_back(new Item{ 2,"Energy Ring",gamePointer_->getTexture("energyRing") });
 	allItems_.push_back(new Item{ 3,"Armour",gamePointer_->getTexture("armour") });
 	allItems_.push_back(new Item{ 4,"Amulet of Power",gamePointer_->getTexture("amulet") });
