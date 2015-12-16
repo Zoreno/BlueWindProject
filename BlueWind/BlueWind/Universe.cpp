@@ -1029,8 +1029,8 @@ void CthuluInteract(NPC* NPCPtr)
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("*Greetings Faranos! I can teleport you");
 		UI->addStringToChatBox("to the dreadful realm of Bad Alloc,");
-		UI->addStringToChatBox("but I need the power of my four magic");
-		UI->addStringToChatBox("fountains. Repair them for me!");
+		UI->addStringToChatBox("but I need the power of my four ");
+		UI->addStringToChatBox("magic fountains. Repair them for me!");
 	}
 }
 
