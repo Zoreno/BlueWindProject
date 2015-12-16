@@ -47,14 +47,6 @@ using namespace std;
 *
 * std::string :	en sträng som innehåller de tre datamedlemmarna i klassen
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -84,14 +76,6 @@ string GameState::toString()
 * loadSave :	Boolsk uttryck för om vi vill köra load eller save 
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -131,14 +115,6 @@ Game::Game(Application * appPtr, bool loadSave)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -167,14 +143,6 @@ void Game::update()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *
@@ -207,14 +175,6 @@ void Game::render(GameWindow & window)
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *
@@ -259,14 +219,6 @@ void Game::handleKeyEvent(sf::Event event)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -292,15 +244,6 @@ void Game::handleMouseEvent(sf::Event)
 * UTDATA
 *
 * Vector<int>: 
-*
-* SIDOEFFEKTER
-*
-* 
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-* std::string
 *
 * REVISIONSBERÄTTELSE
 *
@@ -334,16 +277,6 @@ vector<int> splitString(string s)
 * UTDATA
 *
 * savefile.txt:		Sparar aktuellt speltillstånd till en txt-fil.
-*
-* SIDOEFFEKTER
-*
-*
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-* std::string
-* modul: iostream
 *
 * REVISIONSBERÄTTELSE
 *
@@ -389,16 +322,6 @@ void Game::saveGame()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-* std::string
-* modul: iostream
 *
 * REVISIONSBERÄTTELSE
 *
@@ -486,14 +409,6 @@ void Game::loadGame()
 *
 * Player*:	En pekare till spelaren
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*¨-
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -520,14 +435,6 @@ Player * Game::getPlayer()
 * UTDATA
 *
 * Application*:	En pekare till applikationen
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -556,14 +463,6 @@ Application * Game::getApp()
 *
 * UserInterface*:	En pekare till user interfacet
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -591,14 +490,6 @@ UserInterface * Game::getUserInterface()
 *
 * GameState*:	En pekare till user GameState
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -625,14 +516,6 @@ GameState * Game::getGameState()
 * UTDATA
 *
 * Texture &:	En referens till en textur
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *

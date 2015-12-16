@@ -47,20 +47,12 @@ class Entity;
 *
 * Klassen representerar en animation för ett entity-objekt
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Animation(Entity* entityPointer, sf::Texture& tex)
 * entityPointer:		En pekare till det entity-objekt som animationen är		
 *						kopplad till
 * tex:					Det texturobjekt som ska flyttas in i spriten.
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

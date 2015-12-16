@@ -48,18 +48,10 @@ sf::Vector2f normalize(sf::Vector2f);
 *
 * Klassen representerar entity-objekt av fiendekaraktär
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Enemy(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr,
 		sf::Texture& texture, std::function<void(Enemy*)> callbackFunc)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

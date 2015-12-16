@@ -54,14 +54,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -93,14 +85,6 @@ Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
 *
 * int:		Erfarenhetspoäng
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -125,14 +109,6 @@ int Player::getExperience() const
 * value:	Ett heltal med erfarenhetspoäng att lägga till
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -171,14 +147,6 @@ void Player::addExperience(int value)
 *
 * mana_:	Ett heltal med spelarens magipoäng
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -203,14 +171,6 @@ int Player::getMana() const
 * value:	Ett heltal som spelarens magipoäng sätts till
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -241,14 +201,6 @@ void Player::setMana(int value)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -276,14 +228,6 @@ void Player::addMana(int value)
 *
 * int:		Ett heltalsvärde som är spelarens maximala magipoäng
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -308,14 +252,6 @@ int Player::getMaxMana() const
 * value:	Heltal som sätts till maximala antal magipoäng
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -347,14 +283,6 @@ void Player::setMaxMana(int value)
 *
 * int:	Maximala antalet erfarenhetspoäng
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -382,14 +310,6 @@ int Player::getMaxExperience()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -416,14 +336,6 @@ void Player::setName(std::string name)
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* std::string
 *
 * REVISIONSBERÄTTELSE
 *
@@ -453,14 +365,6 @@ void Player::setMaxHealth(int value)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -487,14 +391,6 @@ void Player::setDamage(int value)
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* 
 *
 * REVISIONSBERÄTTELSE
 *
@@ -523,14 +419,6 @@ void Player::setLevel(int value)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -557,14 +445,6 @@ void Player::setExperience(int value)
 * UTDATA
 *
 * Inventory* :		En pekare till spelarens inventory
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
 *
 * REVISIONSBERÄTTELSE
 *
@@ -593,14 +473,6 @@ Inventory* Player::getInventory()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
 *
 * REVISIONSBERÄTTELSE
 *
@@ -658,14 +530,6 @@ void Player::swordAttack(const map<int, Enemy*>& enemies)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -702,14 +566,6 @@ void Player::fireballAttack(const std::map<int, Enemy*>& enemies)
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
 *
 * REVISIONSBERÄTTELSE
 *
@@ -765,14 +621,6 @@ void Player::interact(const std::map<int, NPC*>& NPCs)
 *
 * int : antalet erfarenhetspoäng till nästa nivå
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -800,14 +648,6 @@ int Player::getXpToLevel()
 * UTDATA
 *
 * bool : ska spelaren gå upp en nivå?
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
 *
 * REVISIONSBERÄTTELSE
 *
@@ -842,14 +682,6 @@ bool Player::checkForLevelup()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
 *
 * REVISIONSBERÄTTELSE
 *
@@ -910,14 +742,6 @@ void Player::update()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -945,14 +769,6 @@ void Player::render(GameWindow & window)
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
 *
 * REVISIONSBERÄTTELSE
 *
@@ -982,14 +798,6 @@ void Player::die()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-*
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -1009,3 +817,7 @@ void Player::checkSensors()
 		}
 	}
 }
+
+/*
+* Slut på filen Player.cpp
+*/

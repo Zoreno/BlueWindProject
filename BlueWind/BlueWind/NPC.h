@@ -76,7 +76,7 @@ private:
 	sf::Sprite sprite_;
 	std::string conversation_;
 	std::function<void(NPC*)> callback_;
-}; // class NPC
+}; 
 
 /*
 * SLUT PÅ FILEN NPC.h
