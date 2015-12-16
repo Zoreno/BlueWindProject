@@ -49,14 +49,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -85,14 +77,6 @@ Universe::Universe(Game * gamePtr)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -128,21 +112,13 @@ Universe::~Universe()
 *
 * BESKRIVNING
 *
-* Uppdaterar speluniversumet genom att kalla på nuvarnade världens update.
+* Uppdaterar speluniversumet genom att kalla på nuvarande världens update-funktion.
 *
 * INDATA
 *
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -159,16 +135,84 @@ void Universe::update()
 	currentWorld_->update();
 }
 
+/*
+* FUNKTION Universe::render()
+*
+* BESKRIVNING
+*
+* Uppdaterar speluniversumet genom att kalla på nuvarande världens render-funktion.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void Universe::render(GameWindow & window)
 {
 	currentWorld_->render(window);
 }
 
+/*
+* FUNKTION Universe::getCurrentWorld()
+*
+* BESKRIVNING
+*
+* Returnerar pekare till nuvarande spelvärld.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* World*:	Pekare till nuvarande spelvärld.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 World * Universe::getCurrentWorld()
 {
 	return currentWorld_;
 }
+
+/*
+* FUNKTION Universe::getWorld(int ID)
+*
+* BESKRIVNING
+*
+* Hämtar pekare till en värld utifrån dess unika ID.
+*
+* INDATA
+*
+* ID:	Sökta världens unika ID.
+*
+* UTDATA
+*
+* World*:	Pekare till världen (om den finns).
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 World * Universe::getWorld(int ID)
 {
@@ -182,6 +226,29 @@ World * Universe::getWorld(int ID)
 	throw UniverseException("Kunde inte hitta värld med ID:" + ID);
 }
 
+/*
+* FUNKTION Universe::setCurrentWorld(int ID)
+*
+* BESKRIVNING
+*
+* Ändrar nuvarande spelvärld till en ny med ett specifikt ID.
+*
+* INDATA
+*
+* ID:	Nya världens unika ID.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void Universe::setCurrentWorld(int ID)
 {
 	for (auto it : worlds_)
@@ -193,6 +260,32 @@ void Universe::setCurrentWorld(int ID)
 	}
 }
 
+/*
+* FUNKTION Universe::switchWorld(int ID, int x, int y)
+*
+* BESKRIVNING
+*
+* Ändrar nuvarande värld, förflyttar spelaren till nya koordinater och byter musik.
+* Sker genom anrop av teleport, setCurrentWorld och playMusic.
+*
+* INDATA
+*
+* ID:	Nya världens unika ID.
+* x:	x-koordinat i nya världen dit spelaren flyttas.
+* y:	y-koordinat i nya världen dit spelaren flyttas.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void Universe::switchWorld(int ID, int x, int y)
 {
 	setCurrentWorld(ID);
@@ -201,15 +294,84 @@ void Universe::switchWorld(int ID, int x, int y)
 	gamePointer_->getApp()->getSoundHandler().playMusic(currentWorld_->getMusic());
 }
 
+/*
+* FUNKTION Universe::getTile(int i)
+*
+* BESKRIVNING
+*
+* Hämtar referens till specifik Tile utifrån dess unika nyckel.
+*
+* INDATA
+*
+* i:	Nyckel motsvarande en Tile. 
+*
+* UTDATA
+*
+* Tile&:	Tile motsvarande nyckeln.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 Tile& Universe::getTile(int i)
 {
 	return (*tileAtlas_.find(i)->second);
 }
 
+/*
+* FUNKTION Universe::getGame()
+*
+* BESKRIVNING
+*
+* Returnerar pekare till nuvarande Game.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* Game*:	Pekare till nuvarnade Game.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 Game * Universe::getGame() const
 {
 	return gamePointer_;
 }
+
+/*
+* FUNKTION Universe::loadTiles()
+*
+* BESKRIVNING
+*
+* Läser in alla Tiles som används i spelet. 
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void Universe::loadTiles()
 {
@@ -251,6 +413,29 @@ void Universe::loadTiles()
 	tileAtlas_.emplace(902, new Tile(gamePointer_->getTexture("grassStone"), false));
 }
 
+/*
+* FUNKTION Universe::loadWorlds()
+*
+* BESKRIVNING
+*
+* Läser in alla spelvärldar med tillhörande musik och lagrar i worlds_.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void Universe::loadWorlds()
 {
 	worlds_.push_back(new World(0, this, "res/worlds/world0.bmp", "world0Music"));
@@ -262,6 +447,29 @@ void Universe::loadWorlds()
 
 	setCurrentWorld(0);
 }
+
+/*
+* FUNKTION Universe::populateCity()
+*
+* BESKRIVNING
+*
+* Deklarerar särskilda funktioner, skapar NPC:er i värld 1 (staden).
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void Universe::populateCity()
 {
@@ -282,6 +490,30 @@ void Universe::populateCity()
 	addNPC(1, new NPC(1, 100, 10, 9, "Gandalf", sf::Vector2f(49 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("saveNPC"), "", saveGame));
 	addNPC(1, new NPC(1, 100, 10, 10, "Simon", sf::Vector2f(41 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenWoman3"), "*Thank you for saving us!", thankfulCitizen));
 }
+
+/*
+* FUNKTION Universe::populateWorlds()
+*
+* BESKRIVNING
+*
+* Befolkar samtliga spelvärldar med NPC:er, fiender, föremål och sensorer.
+* Sker genom anrop av addNPC, addEnemy och addSensor.
+*
+* INDATA
+*
+* -
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void Universe::populateWorlds() 
 {
@@ -323,9 +555,6 @@ void Universe::populateWorlds()
 	void superGhostDeath(Enemy*);
 
 	void voidFkn(NPC*);
-
-	//OBS!!!!!!
-	//UNIKA ID KRÄVS
 
 	//-----------------WORLD 0------------------------------------
 	//NPC
@@ -448,6 +677,30 @@ void Universe::populateWorlds()
 
 }
 
+/*
+* FUNKTION Universe::addEnemy(int worldID, Enemy * enemyPtr)
+*
+* BESKRIVNING
+*
+* Lägger till en fiende i spelet.
+*
+* INDATA
+*
+* worldID:	ID på världen där fienden läggs till.
+* enemyPtr:	Pekare till fienden som ska läggas till.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void Universe::addEnemy(int worldID, Enemy * enemyPtr)
 {
 	for (auto it : worlds_)
@@ -459,6 +712,30 @@ void Universe::addEnemy(int worldID, Enemy * enemyPtr)
 		}
 	}
 }
+
+/*
+* FUNKTION Universe::addNPC(int worldID, NPC * NPCPtr)
+*
+* BESKRIVNING
+*
+* Lägger till en NPC i spelet.
+*
+* INDATA
+*
+* worldID:	ID på världen där NPC:n läggs till.
+* NPCPtr:	Pekare till NPC:n som ska läggas till.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void Universe::addNPC(int worldID, NPC * NPCPtr)
 {
@@ -472,6 +749,30 @@ void Universe::addNPC(int worldID, NPC * NPCPtr)
 	}
 }
 
+/*
+* FUNKTION Universe::addSensor(int worldID, Sensor * sensorPtr)
+*
+* BESKRIVNING
+*
+* Lägger till en sensor i spelet.
+*
+* INDATA
+*
+* worldID:		ID på världen där sensorn läggs till.
+* sensorPtr:	Pekare till sensorn som ska läggas till.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void Universe::addSensor(int worldID, Sensor* sensorPtr)
 {
 	for (auto it : worlds_)
@@ -483,6 +784,29 @@ void Universe::addSensor(int worldID, Sensor* sensorPtr)
 		}
 	}
 }
+
+/*
+* FUNKTION Universe::BridgeGuardInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med brovakten i värld 0.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void BridgeGuardInteract(NPC* NPCPtr)
 {
@@ -531,9 +855,55 @@ void BridgeGuardInteract(NPC* NPCPtr)
 	
 }
 
+/*
+* FUNKTION Universe::voidFkn(NPC*)
+*
+* BESKRIVNING
+*
+* Tom interaktionsfunktion för en del NPC:er.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void voidFkn(NPC*)
 {
 }
+
+/*
+* FUNKTION Universe::treeInteract(NPC* NPCPtr) 
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med träden i värld 0.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void treeInteract(NPC* NPCPtr) 
 {
@@ -550,6 +920,29 @@ void treeInteract(NPC* NPCPtr)
 	}
 }
 
+/*
+* FUNKTION Universe::stoneInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med stenen i värld 1.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void stoneInteract(NPC* NPCPtr)
 {
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(1))
@@ -561,6 +954,29 @@ void stoneInteract(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getWorld(2)->changeTile(startposition, 0);
 	}
 }
+
+/*
+* FUNKTION Universe::CthuluInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med Cthulu i värld 3.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void CthuluInteract(NPC* NPCPtr)
 {
@@ -588,10 +1004,56 @@ void CthuluInteract(NPC* NPCPtr)
 	}
 }
 
+/*
+* FUNKTION Universe::citizenInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med medborgarna i värld 1.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void citizenInteract(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*Thank you for saving us!");
 }
+
+/*
+* FUNKTION Universe::GirlInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med flickan i värld 0.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void GirlInteract(NPC* NPCPtr)
 {
@@ -602,6 +1064,29 @@ void GirlInteract(NPC* NPCPtr)
 	UI->addStringToChatBox("beautiful land of MaroWind!");
 }
 
+/*
+* FUNKTION Universe::minInValley(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med soldaten i värld 2.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void manInValleyInteract(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
@@ -610,6 +1095,29 @@ void manInValleyInteract(NPC* NPCPtr)
 	UI->addStringToChatBox("mountain pass of Bad Allocs minions");
 	UI->addStringToChatBox("for us and we shall fix it!");
 }
+
+/*
+* FUNKTION Universe::CthuluInteract2(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med Cthulu i värld 4.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void CthuluInteract2(NPC* NPCPtr)
 {
@@ -620,45 +1128,252 @@ void CthuluInteract2(NPC* NPCPtr)
 	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 14 * Tile::TILESIZE, 15 * Tile::TILESIZE);
 }
 
+/*
+* FUNKTION Universe::World0_World1Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 0 och 1.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void World0_World1Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(1, 14 * Tile::TILESIZE, 14 * Tile::TILESIZE);
 }
+
+/*
+* FUNKTION Universe::World1_World0Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 1 och 0.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void World1_World0Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(0, 65 * Tile::TILESIZE, 13 * Tile::TILESIZE);
 }
 
+/*
+* FUNKTION Universe::World1_World2Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 1 och 2.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void World1_World2Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(2, 41 * Tile::TILESIZE, 63 * Tile::TILESIZE);
 }
+
+/*
+* FUNKTION Universe::World1_World5Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 1 och 5.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void World1_World5Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(5, 31 * Tile::TILESIZE, 13 * Tile::TILESIZE);
 }
 
+/*
+* FUNKTION Universe::World5_World1Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 5 och 1.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void World5_World1Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(1, 56 * Tile::TILESIZE, 53 * Tile::TILESIZE);
 }
+
+/*
+* FUNKTION Universe::World2_World1Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 2 och 1.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void World2_World1Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(1, 58 * Tile::TILESIZE, 10 * Tile::TILESIZE);
 }
 
+/*
+* FUNKTION Universe::World2_World3Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 2 och 3.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void World2_World3Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(3, 13 * Tile::TILESIZE, 17 * Tile::TILESIZE);
 }
 
+/*
+* FUNKTION Universe::World3_World2Interact(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar sensorn som kopplar samman värld 3 och 2.
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande värld.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void World3_World2Interact(World* worldPtr)
 {
 	worldPtr->getUniverse()->switchWorld(2, 69 * Tile::TILESIZE, 17 * Tile::TILESIZE);
 }
+
+/*
+* FUNKTION Universe::defaultDeath(Enemy* enemyPtr)
+*
+* BESKRIVNING
+*
+* Tar bort en fiende som blivit dödad.
+*
+* INDATA
+*
+* enemyPtr:	Pekare till fienden som ska tas bort.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void defaultDeath(Enemy* enemyPtr)
 {
@@ -666,11 +1381,57 @@ void defaultDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
 
+/*
+* FUNKTION Universe::saveGame(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Sparar spelet i en txt-fil.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n som agerar som spar-checkpoint.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void saveGame(NPC* NPCPtr)
 {
 	NPCPtr->getWorld()->getUniverse()->getGame()->saveGame();
 	NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface()->addStringToChatBox("*Game saved!");
 }
+
+/*
+* FUNKTION Universe::thankfulManInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 1.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void thankfulManInteract(NPC* NPCPtr)
 {
@@ -683,6 +1444,29 @@ void thankfulManInteract(NPC* NPCPtr)
 		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
 	}
 }
+
+/*
+* FUNKTION Universe::thankfulCitizen(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 1.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void thankfulCitizen(NPC* NPCPtr)
 {
@@ -700,6 +1484,29 @@ void thankfulCitizen(NPC* NPCPtr)
 		}
 }
 
+/*
+* FUNKTION Universe::minotaurDeath(Enemy* enemyPtr)
+*
+* BESKRIVNING
+*
+* Hanterar hur minotauren i värld 1 tas bort ur spelet.
+*
+* INDATA
+*
+* enemyPtr:	Pekare till fienden (minotauren).
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void minotaurDeath(Enemy* enemyPtr)
 {
 	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(70);
@@ -711,6 +1518,29 @@ void minotaurDeath(Enemy* enemyPtr)
 	}
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
+
+/*
+* FUNKTION Universe::isgolathDeath(Enemy* enemyPtr)
+*
+* BESKRIVNING
+*
+* Hanterar hur Isgolath i värld 2 tas bort ur spelet.
+*
+* INDATA
+*
+* enemyPtr:	Pekare till fienden (Isgolath).
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void isgolathDeath(Enemy* enemyPtr)
 {
@@ -734,6 +1564,28 @@ void isgolathDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
 
+/*
+* FUNKTION Universe::badAllocDeath(Enemy* enemyPtr)
+*
+* BESKRIVNING
+*
+* Hanterar hur Bad Alloc i värld 4 tas bort ur spelet.
+*
+* INDATA
+*
+* enemyPtr:	Pekare till fienden (Bad Alloc).
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void badAllocDeath(Enemy* enemyPtr)
 {
@@ -746,6 +1598,29 @@ void badAllocDeath(Enemy* enemyPtr)
 	enemyPtr->getWorld()->getUniverse()->addNPC(4, new NPC(1, 100, 10, 3, "Cthulu", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), enemyPtr->getWorld()->getUniverse()->getWorld(4), enemyPtr->getWorld()->getUniverse()->getGame()->getTexture("NPC5"), "*I AM CTHULU", CthuluInteract2));
 }
 
+/*
+* FUNKTION Universe::blueWindDeath(Enemy* enemyPtr)
+*
+* BESKRIVNING
+*
+* Hanterar hur BlueWind i värld 4 tas bort ur spelet.
+*
+* INDATA
+*
+* enemyPtr:	Pekare till fienden (BlueWind).
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void blueWindDeath(Enemy* enemyPtr)
 {
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
@@ -753,9 +1628,55 @@ void blueWindDeath(Enemy* enemyPtr)
 	AppPtr->setNextFrame(new GameWon(AppPtr));
 }
 
+/*
+* FUNKTION Universe::fireDeath(Enemy* enemyPtr)
+*
+* BESKRIVNING
+*
+* Ser till att elden inte kan "dödas".
+*
+* INDATA
+*
+* enemyPtr:	Pekare till fienden (elden).
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void fireDeath(Enemy* enemyPtr)
 {
 }
+
+/*
+* FUNKTION Universe::energyPowerupInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 0.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void energyPowerupInteract(NPC* NPCPtr)
 {
@@ -782,6 +1703,29 @@ void energyPowerupInteract(NPC* NPCPtr)
 	}
 }
 
+/*
+* FUNKTION Universe::snowChestInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 2.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void snowChestInteract(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
@@ -799,6 +1743,29 @@ void snowChestInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("*The chest is empty.");
 	}
 }
+
+/*
+* FUNKTION Universe::world5GuyInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 5.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void world5GuyInteract(NPC* NPCPtr)
 {
@@ -828,6 +1795,29 @@ void world5GuyInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("*Be careful!");	
 }
 
+/*
+* FUNKTION Universe::superGhostDeath(Enemy * enemyPtr)
+*
+* BESKRIVNING
+*
+* Hanterar borttagning av En typ av fiende i värld 3.
+*
+* INDATA
+*
+* enemyPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void superGhostDeath(Enemy * enemyPtr)
 {
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
@@ -838,7 +1828,28 @@ void superGhostDeath(Enemy * enemyPtr)
 	enemyPtr->getWorld()->removeEnemy(enemyPtr);
 }
 
-
+/*
+* FUNKTION Universe::brokenFountainInteract1(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 3.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void brokenFountainInteract1(NPC* NPCPtr)
 {
@@ -853,6 +1864,30 @@ void brokenFountainInteract1(NPC* NPCPtr)
 		NPCPtr->die();
 	}
 }
+
+/*
+* FUNKTION Universe::brokenFountainInteract1(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 3.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void brokenFountainInteract2(NPC* NPCPtr)
 {
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
@@ -866,6 +1901,30 @@ void brokenFountainInteract2(NPC* NPCPtr)
 		NPCPtr->die();
 	}
 }
+
+/*
+* FUNKTION Universe::brokenFountainInteract1(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 3.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void brokenFountainInteract3(NPC* NPCPtr)
 {
 	if (NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->hasItem(6))
@@ -879,6 +1938,30 @@ void brokenFountainInteract3(NPC* NPCPtr)
 		NPCPtr->die();
 	}
 }
+
+/*
+* FUNKTION Universe::brokenFountainInteract1(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 3.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
 void brokenFountainInteract4(NPC* NPCPtr)
 {
 	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
@@ -893,6 +1976,29 @@ void brokenFountainInteract4(NPC* NPCPtr)
 		NPCPtr->die();
 	}
 }
+
+/*
+* FUNKTION Universe::FirimaniumsInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Hanterar interaktion med en NPC i värld 5.
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void FirimaniumsInteract(NPC* NPCPtr)
 {
@@ -920,6 +2026,28 @@ void FirimaniumsInteract(NPC* NPCPtr)
 	}
 }
 
+/*
+* FUNKTION Universe::houseFireInteract(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Hanterar brinnande huset i värld 5.
+*
+* INDATA
+*
+* World*:	Pekare till världen.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
 
 void houseFireInteract(World* worldPtr)
 {
@@ -962,5 +2090,7 @@ void houseFireInteract(World* worldPtr)
 	}
 }
 
-
+/*
+* SLUT PÅ FILEN Universe.cpp
+*/
 
