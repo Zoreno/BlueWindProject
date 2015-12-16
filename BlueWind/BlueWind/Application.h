@@ -88,7 +88,7 @@ public:
 private:
 	GameWindow window_{ sf::VideoMode(800, 600), "Bluewind" };
 	Frame* currentFrame_;
-	Frame* nextFrame_; 
+	Frame* nextFrame_;
 	Input input_;
 	SoundHandler soundHandler_;
 }; //class Application
