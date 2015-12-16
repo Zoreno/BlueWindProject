@@ -526,6 +526,7 @@ void Universe::populateWorlds()
 	void world5GuyInteract(NPC*);
 	void FirimaniumsInteract(NPC*);
 	void manInValleyInteract(NPC*);
+	void hereLivesWizardInteract(NPC*);
 
 	void saveGame(NPC*);
 
@@ -545,6 +546,7 @@ void Universe::populateWorlds()
 	void brokenFountainInteract2(NPC*);
 	void brokenFountainInteract3(NPC*);
 	void brokenFountainInteract4(NPC*);
+	void blueWindTalks(World*);
 
 	void defaultDeath(Enemy*);
 	void badAllocDeath(Enemy*);
@@ -588,7 +590,7 @@ void Universe::populateWorlds()
 	//NPC
 	addNPC(1, new NPC(1, 100, 10, 11, "Stone", sf::Vector2f(58 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("grassStone"), "", stoneInteract));
 	addNPC(1, new NPC(1, 100, 10, 12, "Citizen1", sf::Vector2f(29 * Tile::TILESIZE, 13 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("citizenBoy1"), "*Please save us from the minotaur!", voidFkn));
-	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenGirl2"), "*This is where the wizard lives", voidFkn));
+	addNPC(1, new NPC(1, 100, 10, 13, "Citizen2", sf::Vector2f(54 * Tile::TILESIZE, 50 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenGirl2"), "", hereLivesWizardInteract));
 
 	//Enemies
 	addEnemy(1, new Enemy(1, 150, 20, 2, "Minotaur", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("minotaur"), minotaurDeath));
@@ -601,7 +603,7 @@ void Universe::populateWorlds()
 	//----------------------------WORLD2--------------------------
 	// NPC
 	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(55 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
-	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
+	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
 	addNPC(2, new NPC(1, 100, 10, 2, "valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("warrior"), "", manInValleyInteract));
 
 	//Enemies
@@ -656,6 +658,9 @@ void Universe::populateWorlds()
 	addEnemy(4, new Enemy(1, 1500, 50, 6, "redWizard", sf::Vector2f(32 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("redWizard"), defaultDeath));
 	addEnemy(4, new Enemy(1, 2800, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
 	addEnemy(4, new Enemy(10, 7000, 70, 3, "BlueWind", sf::Vector2f(49 * Tile::TILESIZE, 22 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
+
+	//Sensor
+	addSensor(4, new Sensor(0, "BlueWind-Talks", sf::Vector2f(36 * Tile::TILESIZE, 22 * Tile::TILESIZE), getWorld(4), blueWindTalks, gamePointer_->getTexture("void")));
 
 	//------------------------WORLD5-----------------------------
 	// NPC
@@ -850,6 +855,38 @@ void BridgeGuardInteract(NPC* NPCPtr)
 	}
 	UI->addStringToChatBox("*The bridge is finished! You may");
 	UI->addStringToChatBox("proceed to the town.");
+}
+
+/*
+* FUNKTION Universe::hereLivesWizardInteract(NPC* NPCPtr)
+*
+* BESKRIVNING
+*
+* Interaktionsfunktion för en man som beskriver trollkarlens värld
+*
+* INDATA
+*
+* NPCPtr:	Pekare till NPC:n.
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
+void hereLivesWizardInteract(NPC* NPCPtr)
+{
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("*This is the forest Feratum.");
+	UI->addStringToChatBox("The fire wizard Firimanium ");
+	UI->addStringToChatBox("lives here. But no one knows");
+	UI->addStringToChatBox("if he's good or bad.");
 }
 
 /*
@@ -1085,7 +1122,7 @@ void manInValleyInteract(NPC* NPCPtr)
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("*The bridge on the other side of the");
 	UI->addStringToChatBox("valley has been destroyed. Clear the");
-	UI->addStringToChatBox("mountain pass of Bad Allocs minions");
+	UI->addStringToChatBox("mountain pass of Bad Alloc's minions");
 	UI->addStringToChatBox("for us and we shall fix it!");
 }
 
@@ -1346,6 +1383,38 @@ void World3_World2Interact(World* worldPtr)
 }
 
 /*
+* FUNKTION Universe::blueWindTalks(World* worldPtr)
+*
+* BESKRIVNING
+*
+* Bluewind säger några saker innan vi möter honom
+*
+* INDATA
+*
+* worldPtr:	Pekare till nuvarande världen 
+*
+* UTDATA
+*
+* -
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision             Datum           Förändringar
+*
+* 1                    151214          Ursprungsversion
+*
+*/
+
+void blueWindTalks(World* worldPtr)
+{
+	UserInterface* UI{ worldPtr->getUniverse()->getGame()->getUserInterface() };
+	UI->addStringToChatBox("*I am the great Bluewind! I have ");
+	UI->addStringToChatBox("waited long for a worthy champion.");
+	UI->addStringToChatBox("Faranos: Enough talk! Let's fight!");
+	UI->addStringToChatBox("Bluewind: Agreed...");
+}
+
+/*
 * FUNKTION Universe::defaultDeath(Enemy* enemyPtr)
 *
 * BESKRIVNING
@@ -1540,6 +1609,8 @@ void isgolathDeath(Enemy* enemyPtr)
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("*Oh no, I have been defeated!");
 	UI->addStringToChatBox("Bluewind will avenge me!");
+	UI->addStringToChatBox("Faranos: Bluewind? Who's that?");
+	UI->addStringToChatBox("I'm only fighting Bad Alloc.");
 
 	if (!enemyPtr->getWorld()->getUniverse()->getGame()->getGameState()->bridge2Built)
 	{
@@ -1811,6 +1882,7 @@ void world5GuyInteract(NPC* NPCPtr)
 
 void superGhostDeath(Enemy * enemyPtr)
 {
+	enemyPtr->getWorld()->getUniverse()->getGame()->getPlayer()->addExperience(20);
 	UserInterface* UI{ enemyPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("*You slayed the ghost and it");
 	UI->addStringToChatBox("dropped a Magic Wet Chalice");

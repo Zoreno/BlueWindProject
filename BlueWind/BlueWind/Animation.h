@@ -50,7 +50,7 @@ class Entity;
 * KONSTRUKTORER
 *
 * Animation(Entity* entityPointer, sf::Texture& tex)
-* entityPointer:		En pekare till det entity-objekt som animationen är		
+* entityPointer:		En pekare till det entity-objekt som animationen är
 *						kopplad till
 * tex:					Det texturobjekt som ska flyttas in i spriten.
 *
@@ -59,9 +59,9 @@ class Entity;
 * currentSprite_ :		Den nuvarande spriten som ska ritas ut.
 * texture_ :			Texturen som används i spriten.
 * counter_ :			Räknare som styr uppdateringsfrekvensen.
-* animState_ :			State som håller reda på vad vi ska plocka ur 
+* animState_ :			State som håller reda på vad vi ska plocka ur
 *						sprite-sheetet.
-* attackCounter_ :		Räknare som håller kvar attack-spriten en 
+* attackCounter_ :		Räknare som håller kvar attack-spriten en
 *						liten extra stund.
 *
 * REVISIONSBERÄTTELSE
@@ -80,7 +80,7 @@ public:
 	Animation(const Animation&) = delete;
 	Animation& operator=(const Animation&) = delete;
 
-	void update(int,int, bool);
+	void update(int, int, bool);
 	void render(GameWindow&);
 
 private:
