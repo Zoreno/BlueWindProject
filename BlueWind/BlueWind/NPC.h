@@ -40,17 +40,9 @@
 *
 * Klassen representerar en NPC i spelet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * NPC(int, int, int, int, std::string, sf::Vector2f, World*, sf::Texture&, std::string, std::function<void(NPC*)>)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -84,8 +76,8 @@ private:
 	sf::Sprite sprite_;
 	std::string conversation_;
 	std::function<void(NPC*)> callback_;
-}; //class NPC
+}; // class NPC
 
-   /*
-   * SLUT PÅ FILEN NPC.h
-   */
+/*
+* SLUT PÅ FILEN NPC.h
+*/

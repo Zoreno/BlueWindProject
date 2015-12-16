@@ -43,17 +43,9 @@ using textureTable = std::map<const std::string, sf::Texture*>;
 *
 * Klassen kastar undantag för TextureHandler.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * default-konstruktor.
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -84,17 +76,9 @@ public:
 *
 * Klassen representerar texturhateraren i spelet. TextureHandler läser in, sparar och ger åtkomst till alla texturer som används i spelet. 
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * TextureHandler()
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -122,8 +106,8 @@ private:
 	textureTable textures_;
 
 	void loadTexture(const std::string&, const std::string&);
-};//class TextureHandler
+};// class TextureHandler
 
-   /*
-   * SLUT PÅ FILEN TextureHandler.h
-   */
+/*
+* SLUT PÅ FILEN TextureHandler.h
+*/

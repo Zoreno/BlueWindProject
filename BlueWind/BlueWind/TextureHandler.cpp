@@ -42,14 +42,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -82,7 +74,6 @@ TextureHandler::TextureHandler()
 	loadTexture("burnedGround", "res/textures/burnedGround.png");
 	loadTexture("fountain", "res/textures/fountain.png");
 	loadTexture("grassStone", "res/textures/grassStone.png");
-
 	loadTexture("noneWalkableSand", "res/textures/noneWalkableSand.png");
 
 	//Items
@@ -165,14 +156,6 @@ TextureHandler::TextureHandler()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -206,14 +189,6 @@ TextureHandler::~TextureHandler()
 *
 * Texture&:	Referens till textur.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -242,16 +217,6 @@ sf::Texture & TextureHandler::getTextureRef(const std::string& ref)
 *
 * Texture&:	Referens till texturen.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	std::string
-* modul:	sfml-grafik
-* modul:	TextureException
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -271,5 +236,5 @@ void TextureHandler::loadTexture(const std::string& texName, const std::string& 
 }
 
 /*
-* SLUT PÅ FILEN TextureException.cpp
+* SLUT PÅ FILEN TextureHandler.cpp
 */

@@ -24,6 +24,7 @@
 */
 
 #include <Windows.h>
+#include <fstream>
 #include "Application.h"
 
 using namespace std;
@@ -37,8 +38,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nSho
 	}
 	catch (const exception& e)
 	{
-		//TODO filström
-		e.what();
+		ofstream crashLogStream;
+		crashLogStream.open("crashlog.txt", std::ofstream::out);
+		if (crashLogStream.is_open())
+		{
+			crashLogStream << e.what() << endl;
+			crashLogStream.close();
+		}
 	}
 	
 	return 0;
