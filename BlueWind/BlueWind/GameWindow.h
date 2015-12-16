@@ -40,17 +40,9 @@
 *
 * Klassen representerar ett spelfönster.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * GameWindow(sf::VideoMode, std::string)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

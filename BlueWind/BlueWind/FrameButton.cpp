@@ -49,14 +49,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -92,14 +84,6 @@ FrameButton::FrameButton(Application* appPtr, sf::Vector2f pos, sf::Vector2f siz
 *
 * sf::Vector2f: Knappens position.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -128,14 +112,6 @@ sf::Vector2f FrameButton::getPosition() const
 *
 * sf::Vector2f: Knappens storlek.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -161,14 +137,6 @@ sf::Vector2f FrameButton::getSize() const
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -205,14 +173,6 @@ void FrameButton::update()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -239,14 +199,6 @@ void FrameButton::render(GameWindow& window)
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -278,14 +230,6 @@ void FrameButton::clicked()
 * UTDATA
 *
 * bool: Anger om musen hålls över knappen (true) eller ej.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *

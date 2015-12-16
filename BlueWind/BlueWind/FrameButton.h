@@ -49,17 +49,9 @@ class Application;
 *
 * Klassen kastar undantag för FrameButton.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
-* default-konstruktor. 
-*
-* OPERATIONER
-*
-* -
+* Ärver från std::logic_error.
 *
 * DATAMEDLEMMAR
 *
@@ -90,17 +82,9 @@ public:
 *
 * Klassen representerar en knapp i spelet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * FrameButton(Application*,sf::Vector2f, sf::Vector2f, std::string, std::string, std::function<void (Application*)>)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

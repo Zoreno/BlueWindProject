@@ -49,14 +49,6 @@ void mainMenuCallback(Application*);	// Funktionen som körs då man klickar på kn
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -87,14 +79,6 @@ GameWon::GameWon(Application* appPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -117,14 +101,6 @@ void GameWon::handleKeyEvent(sf::Event event) {}
 * event: Ett musklick
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -174,14 +150,6 @@ void GameWon::handleMouseEvent(sf::Event event)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -210,14 +178,6 @@ void GameWon::update()
 * window: Fönster som menyn ska ritas upp i.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -256,14 +216,6 @@ void GameWon::render(GameWindow& window)
 * ptr: Pekare till applikationen som menyn är en del av.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

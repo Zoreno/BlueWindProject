@@ -49,14 +49,6 @@ void menuCallback(Application*);	// Funktionen som körs då man klickar på knappe
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -87,14 +79,6 @@ GameOver::GameOver(Application* appPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -117,14 +101,6 @@ void GameOver::handleKeyEvent(sf::Event event) {}
 * event: Ett musklick
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -174,14 +150,6 @@ void GameOver::handleMouseEvent(sf::Event event)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -210,14 +178,6 @@ void GameOver::update()
 * window: Fönster som menyn ska ritas upp i.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -256,14 +216,6 @@ void GameOver::render(GameWindow& window)
 * ptr: Pekare till applikationen som menyn är en del av.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

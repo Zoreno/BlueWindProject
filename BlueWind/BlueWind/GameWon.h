@@ -46,17 +46,9 @@ class Application;
 *
 * Klassen representerar en meny som visas då spelaren vinner spelet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * GameWon(Application*)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
@@ -82,7 +74,6 @@ public:
 
 	void update() override;
 	void render(GameWindow&) override;
-
 private:
 	sf::Sprite background_;
 }; // class GameWon
