@@ -334,7 +334,7 @@ void Game::loadGame()
 {
 	string line;
 	ifstream saveStream("savefile.txt");
-	if (saveStream.is_open())
+	if (saveStream.is_open() && saveStream.good())
 	{
 		getline(saveStream, line); //name
 		player_.setName(line);
@@ -390,8 +390,6 @@ void Game::loadGame()
 		}
 		saveStream.close();
 	}
-	else
-		throw FrameException("Kunde inte ladda data från savefile.txt");
 }
 
 /*
