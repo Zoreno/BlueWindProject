@@ -344,3 +344,7 @@ void UserInterface::loadComponents(Player* playerPtr)
 	components_.emplace("chatbox", new UIChatBox(this, playerPtr));
 	components_.emplace("inventoryScreen", new UIInventoryFrame(this, playerPtr));
 }
+
+/*
+* SLUT PÅ FILEN UserInterface.cpp
+*/
