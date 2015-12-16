@@ -42,14 +42,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: std::string
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -85,14 +77,6 @@ SoundHandler::SoundHandler()
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -136,14 +120,6 @@ SoundHandler::~SoundHandler()
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -170,14 +146,6 @@ void SoundHandler::playSound(const std::string& soundName)
 * musicName:	Namn på musikslingan som ska spelas upp.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -215,14 +183,6 @@ void SoundHandler::playMusic(const std::string& musicName)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -255,16 +215,6 @@ void SoundHandler::stopMusic()
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: std::string
-* modul: sf::SoundBuffer
-* modul: SoundException
 *
 * REVISIONSBERÄTTELSE
 *
@@ -299,16 +249,6 @@ void SoundHandler::loadSound(const std::string& soundName, const std::string& fi
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	std::string
-* modul:	sf::Music
-* modul:	SoundException
 *
 * REVISIONSBERÄTTELSE
 *
