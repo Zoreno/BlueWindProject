@@ -60,7 +60,7 @@ void helpMenuCallback(Application*);	// Funktionen som körs då man klickar på kn
 Help::Help(Application* appPtr)
 	: Frame{ appPtr }
 {
-	addButton(sf::Vector2f(400 - 175, 365), sf::Vector2f(350, 100), "res/textures/menuButton.png", "res/textures/menuButtonHover.png", helpMenuCallback);
+	addButton(sf::Vector2f(800 - 155, 600 - 65), sf::Vector2f(130, 50), "res/textures/menuButtonSmall.png", "res/textures/menuButtonSmallHover.png", helpMenuCallback);
 }
 
 /*

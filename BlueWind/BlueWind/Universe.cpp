@@ -603,7 +603,7 @@ void Universe::populateWorlds()
 	//----------------------------WORLD2--------------------------
 	// NPC
 	addNPC(2, new NPC(1, 100, 10, 0, "Gandalf", sf::Vector2f(55 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("saveNPC"), "", saveGame));
-	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
+	addNPC(2, new NPC(1, 100, 10, 1, "Chest", sf::Vector2f(19 * Tile::TILESIZE, 10 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowChest"), "", snowChestInteract));
 	addNPC(2, new NPC(1, 100, 10, 2, "valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("warrior"), "", manInValleyInteract));
 
 	//Enemies
