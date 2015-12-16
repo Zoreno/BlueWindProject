@@ -70,8 +70,7 @@ UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, const st
 	color_{color}, 
 	postfix_ {postfix}, 
 	ui_{uiPtr}
-{
-}
+{}
 
 /*
 * FUNKTION UIBar::update(int current, int max)

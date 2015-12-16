@@ -115,7 +115,6 @@ void Help::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
-	
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };

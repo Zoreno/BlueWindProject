@@ -24,11 +24,14 @@
 */
 
 #include <Windows.h>
+#include <fstream>
+#include <time.h>
+#include <chrono>
 #include "Application.h"
 
 using namespace std;
 
-int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 {
 	try
 	{
@@ -37,10 +40,15 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 	}
 	catch (const exception& e)
 	{
-		cerr << e.what() << endl;
+		ofstream crashLogStream;
+		crashLogStream.open("crashlog.txt", std::ofstream::out);
+		if (crashLogStream.is_open())
+		{
+			crashLogStream << e.what() << endl;
+			crashLogStream.close();
+		}
 	}
 	
-
 	return 0;
 }
 

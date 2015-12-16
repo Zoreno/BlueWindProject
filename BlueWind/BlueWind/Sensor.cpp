@@ -61,8 +61,7 @@ using namespace std;
 Sensor::Sensor(int ID, std::string name, sf::Vector2f position, World * worldPtr, std::function<void(World*)> callbackFunc, sf::Texture& tex)
 	: Entity(0, 0, 0, ID, name, position, worldPtr, tex), 
 	callback_{ callbackFunc }
-{
-}
+{}
 
 /*
 * FUNKTION Sensor::update()
@@ -86,9 +85,7 @@ Sensor::Sensor(int ID, std::string name, sf::Vector2f position, World * worldPtr
 *
 */
 
-void Sensor::update()
-{
-}
+void Sensor::update() {}
 
 /*
 * FUNKTION NPC::render()
@@ -111,9 +108,7 @@ void Sensor::update()
 * 1                    151214          Ursprungsversion
 *
 */
-void Sensor::render(GameWindow & window)
-{
-}
+void Sensor::render(GameWindow & window) {}
 
 /*
 * FUNKTION NPC::trigger()
@@ -166,9 +161,7 @@ void Sensor::trigger()
 *
 */
 
-void Sensor::die()
-{
-}
+void Sensor::die() {}
 
 /*
 * SLUT PÅ FILEN Sensor.cpp

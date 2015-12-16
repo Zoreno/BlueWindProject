@@ -71,7 +71,9 @@ using namespace std;
 */
 
 Enemy::Enemy(int level, int health, int damage, int ID, std::string name, sf::Vector2f position, World * worldPtr, sf::Texture& texture, std::function<void(Enemy*)> deathFkn)
-	: Entity(level,health,damage,ID,name,position,worldPtr, texture), startPosition_{position}, deathFkn_{ deathFkn }
+	: Entity(level,health,damage,ID,name,position,worldPtr, texture), 
+	startPosition_{position}, 
+	deathFkn_{ deathFkn }
 {}
 
 /*
@@ -365,7 +367,6 @@ void Enemy::executeState()
 
 void Enemy::attackPlayer()
 {
-	
 	if (attackCooldown_ >= 60)
 	{
 		animState_ = Entity::STATES::attacking;
