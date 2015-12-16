@@ -99,9 +99,7 @@ UIInventoryFrame::UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
 *
 */
 
-void UIInventoryFrame::update()
-{
-}
+void UIInventoryFrame::update() {}
 
 /*
 * FUNKTION UIInventoryFrame::render(GameWindow & window)
@@ -140,7 +138,7 @@ void UIInventoryFrame::render(GameWindow & window)
 {
 	sf::RectangleShape frame{ size_ };
 	frame.setPosition(position_);
-	frame.setFillColor(sf::Color{ 200,200,200,255 });
+	frame.setFillColor(sf::Color{ 200,200,200,200 });
 	frame.setOutlineColor(sf::Color{ 100,100,100,255 });
 	frame.setOutlineThickness(4.0f);
 	window.draw(frame);
@@ -192,7 +190,6 @@ void UIInventoryFrame::render(GameWindow & window)
 * 1                    151120          Ursprungsversion
 *
 */
-
 
 void UIInventoryFrame::handleKeyEvent(const	sf::Event& ev)
 {

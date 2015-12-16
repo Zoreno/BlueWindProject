@@ -322,7 +322,7 @@ const int Inventory::getCount(int ID)
 	{
 		if (it->getID() == ID)
 		{
-			count++;
+			++count;
 		}
 	}
 
@@ -522,7 +522,6 @@ void Inventory::populateItemList()
 	allItems_.push_back(new Item{ 4,"Amulet of Power",gamePointer_->getTexture("amulet") });
 	allItems_.push_back(new Item{ 5,"Magic Orb of Fire",gamePointer_->getTexture("magicFireOrb") });
 	allItems_.push_back(new Item{ 6,"Magic Wet Chalice",gamePointer_->getTexture("magicWaterCalice") });
-
 }
 
 /*

@@ -19,8 +19,7 @@ Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
 	maxMana_{ 20 },
 	gamePointer_{ game },
 	inventory_{ this,game }
-{
-}
+{}
 
 int Player::getExperience() const
 {
