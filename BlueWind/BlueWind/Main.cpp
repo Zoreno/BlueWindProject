@@ -25,8 +25,6 @@
 
 #include <Windows.h>
 #include <fstream>
-#include <time.h>
-#include <chrono>
 #include "Application.h"
 
 using namespace std;

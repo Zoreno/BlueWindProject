@@ -1,14 +1,84 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    UIBar.h
+* Enhetsnamn: UIBar
+* Typ:        Moduldeklaration
+* Revision:   1
+* Skriven av: Joakim Bertils, Johannes Grundell
+*
+*
+* BESKRIVNING
+*
+* Denna modul representerar en mätare på användargränssnittet.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*
+*/
+
 #pragma once
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
 
 #include <map>
 #include "Entity.h"
 #include "Inventory.h"
+
+/*
+* FRAMÅTDEKLARATIONER
+*/
 
 class World;
 class Game;
 class Enemy;
 class NPC;
 
+/*
+* KLASS Player
+*
+* BASKLASSER
+*
+* Entity
+*
+* BESKRIVNING
+*
+* Klassen representerar spelaren
+*
+* TILLSTÅND
+*
+* -
+*
+* KONSTRUKTORER
+*
+* Player(World*, sf::Texture&, Game*);
+*
+* OPERATIONER
+*
+* -
+*
+* DATAMEDLEMMAR
+*
+* experience_:		Erfarenhetspoäng till spelaren
+* mana_:			Magipoäng till spelaren
+* maxMana_:			Maximala antalet magipoäng till spelaren
+* gamePointer_:		En pekare till spelet
+* inventory_:		Spelarens väska
+* healthCounter_:	Ett helttalsvärde med spelarens hälsopoäng
+* manaCounter_:		Ett helttalsvärde med spelarens magipoäng
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151120  Ursprungsversion
+*
+*/
 class Player : public Entity
 {
 public:
