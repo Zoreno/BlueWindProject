@@ -50,17 +50,10 @@ class NPC;
 *
 * Klassen representerar spelaren
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * Player(World*, sf::Texture&, Game*);
 *
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
