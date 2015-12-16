@@ -1,7 +1,6 @@
+#include <SFML\Graphics.hpp>
 #include "Input.h"
 #include "Application.h"
-
-#include <SFML\Graphics.hpp>
 
 using namespace std;
 

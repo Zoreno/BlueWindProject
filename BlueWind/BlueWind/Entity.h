@@ -1,9 +1,9 @@
 #pragma once
 
-#include "GameWindow.h"
 #include <string>
 #include <SFML\Graphics.hpp>
 #include "Animation.h"
+#include "GameWindow.h"
 
 class World;
 

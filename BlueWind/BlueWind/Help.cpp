@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    Help.cpp
-* Enhetsnamn:
+* Enhetsnamn: Help
 * Typ:        Definitioner hörande till klassen Help
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -35,7 +35,7 @@ using namespace std;
 void helpMenuCallback(Application*);	// Funktionen som körs då man klickar på knappen "Main Menu"
 
 /*
-* KONSTRUKTOR Help(Application* appPtr)
+* KONSTRUKTOR Help::Help(Application* appPtr)
 *
 * BESKRIVNING
 *
@@ -43,7 +43,7 @@ void helpMenuCallback(Application*);	// Funktionen som körs då man klickar på kn
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som Help-objektet är en del av.
+* appPtr: Pekare till applikationen som Help-objektet är en del av.
 *
 * UTDATA
 *
@@ -55,7 +55,7 @@ void helpMenuCallback(Application*);	// Funktionen som körs då man klickar på kn
 *
 * UTNYTTJAR
 *
-* - 
+* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -80,7 +80,7 @@ Help::Help(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -113,7 +113,7 @@ void Help::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -139,6 +139,7 @@ void Help::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
+	
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
@@ -152,6 +153,7 @@ void Help::handleMouseEvent(sf::Event event)
 			}
 		}
 	}
+
 	default:
 		break;
 	}
@@ -205,7 +207,7 @@ void Help::update()
 *
 * INDATA
 *
-* window:			Fönster som undermenyn ska ritas upp i.
+* window: Fönster som undermenyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -251,7 +253,7 @@ void Help::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som undermenyn är en del av.
+* ptr: Pekare till applikationen som undermenyn är en del av.
 *
 * UTDATA
 *

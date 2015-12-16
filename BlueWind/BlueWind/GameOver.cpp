@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    GameOver.cpp
-* Enhetsnamn:
+* Enhetsnamn: GameOver
 * Typ:        Definitioner hörande till klassen GameOver
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -25,7 +25,6 @@
 
 #include "GameOver.h"
 #include "Application.h"
-#include <iostream>
 
 using namespace std;
 
@@ -36,7 +35,7 @@ using namespace std;
 void menuCallback(Application*);	// Funktionen som körs då man klickar på knappen "Main Menu"
 
 /*
-* KONSTRUKTOR GameOver(Application* appPtr)
+* KONSTRUKTOR GameOver::GameOver(Application* appPtr)
 *
 * BESKRIVNING
 *
@@ -44,7 +43,7 @@ void menuCallback(Application*);	// Funktionen som körs då man klickar på knappe
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som GameOver-objektet är en del av.
+* appPtr: Pekare till applikationen som GameOver-objektet är en del av.
 *
 * UTDATA
 *
@@ -56,7 +55,7 @@ void menuCallback(Application*);	// Funktionen som körs då man klickar på knappe
 *
 * UTNYTTJAR
 *
-* - 
+* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -82,7 +81,7 @@ GameOver::GameOver(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -115,7 +114,7 @@ void GameOver::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -141,6 +140,7 @@ void GameOver::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
+
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
@@ -154,6 +154,7 @@ void GameOver::handleMouseEvent(sf::Event event)
 			}
 		}
 	}
+
 	default:
 		break;
 	}
@@ -207,7 +208,7 @@ void GameOver::update()
 *
 * INDATA
 *
-* window:			Fönster som menyn ska ritas upp i.
+* window: Fönster som menyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -253,7 +254,7 @@ void GameOver::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som menyn är en del av.
+* ptr: Pekare till applikationen som menyn är en del av.
 *
 * UTDATA
 *
@@ -281,5 +282,5 @@ void menuCallback(Application* ptr)
 }
 
 /*
-* SLUT PÅ FILEN Help.cpp
+* SLUT PÅ FILEN GameOver.cpp
 */

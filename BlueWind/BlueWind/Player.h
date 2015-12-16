@@ -1,9 +1,8 @@
 #pragma once
 
+#include <map>
 #include "Entity.h"
 #include "Inventory.h"
-#include <map>
-//#include "Animation.h"
 
 class World;
 class Game;

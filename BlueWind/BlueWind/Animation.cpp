@@ -23,10 +23,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <SFML\Graphics.hpp>
 #include "Animation.h"
 #include "Entity.h"
-#include <iostream>
-#include <SFML\Graphics.hpp>
 
 using namespace std;
 

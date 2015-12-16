@@ -26,9 +26,9 @@
 * REFERERADE BIBLIOTEK OCH MODULER
 */
 
+#include <functional>
 #include "Entity.h"
 #include "GameWindow.h"
-#include <functional>
 
 /*
 * LOKALA FUNKTIONER (DEKLARATIONER)
@@ -67,7 +67,7 @@ sf::Vector2f normalize(sf::Vector2f);
 * state_ :			Fiendens tillstånd
 * attackCooldown_ :	En timer som förhindrar att fienderna skadar spelaren för ofta
 * resetTimer_ :		En timer som uppmärksammar om fienden fastnat vid något hinder
-* deathFkn_ :		En funktion som körs när fienden dör	
+* deathFkn_ :		En funktion som körs när fienden dör
 *
 * REVISIONSBERÄTTELSE
 *
@@ -106,5 +106,5 @@ private:
 };// class Enemy
 
   /*
-  * SLUT PÅ FILEN UIBar.h
+  * SLUT PÅ FILEN Enemy.h
   */

@@ -2,7 +2,7 @@
 * IDENTIFIERING
 *
 * Filnamn:    Menu.cpp
-* Enhetsnamn: 
+* Enhetsnamn: Menu
 * Typ:        Definitioner hörande till klassen Menu
 * Revision:   1
 * Skriven av: Simon Arkholt, Fredrik Gustafsson
@@ -42,7 +42,7 @@ void helpCallback(Application*);		// Funktionen som körs då man klickar på knapp
 void creditsCallback(Application*);		// Funktionen som körs då man klickar på knappen "Credits"
 
 /*
-* KONSTRUKTOR Menu(Application* appPtr)
+* KONSTRUKTOR Menu::Menu(Application* appPtr)
 *
 * BESKRIVNING
 *
@@ -50,7 +50,7 @@ void creditsCallback(Application*);		// Funktionen som körs då man klickar på kn
 *
 * INDATA
 *
-* appPtr:		Pekare till applikationen som startmenyn är en del av.
+* appPtr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -73,9 +73,9 @@ void creditsCallback(Application*);		// Funktionen som körs då man klickar på kn
 */
 
 Menu::Menu(Application* appPtr)
-	: Frame{appPtr} 
+	: Frame{ appPtr }
 {
-	addButton(sf::Vector2f(400-175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
+	addButton(sf::Vector2f(400 - 175, 150), sf::Vector2f(350, 100), "res/textures/newgameButton.png", "res/textures/newgameButtonHover.png", newGameCallback);
 	addButton(sf::Vector2f(400 - 175, 275), sf::Vector2f(350, 100), "res/textures/loadgameButton.png", "res/textures/loadgameButtonHover.png", loadGameCallback);
 	addButton(sf::Vector2f(400 - 175, 400), sf::Vector2f(350, 100), "res/textures/quitButton.png", "res/textures/quitButtonHover.png", quitCallback);
 	addButton(sf::Vector2f(800 - 155, 600 - 65), sf::Vector2f(130, 50), "res/textures/helpButton.png", "res/textures/helpButtonHover.png", helpCallback);
@@ -92,7 +92,7 @@ Menu::Menu(Application* appPtr)
 *
 * INDATA
 *
-* event:		Ett tangenttryck
+* event: Ett tangenttryck
 *
 * UTDATA
 *
@@ -125,7 +125,7 @@ void Menu::handleKeyEvent(sf::Event event) {}
 *
 * INDATA
 *
-* event:		Ett musklick
+* event: Ett musklick
 *
 * UTDATA
 *
@@ -151,9 +151,11 @@ void Menu::handleMouseEvent(sf::Event event)
 {
 	switch (event.mouseButton.button)
 	{
+	
 	case sf::Mouse::Left:
 	{
 		sf::Vector2i mousePosition{ appPointer_->getGameWindow().mapPixelToCoords(sf::Mouse::getPosition(appPointer_->getGameWindow())) };
+		
 		for (auto it : buttons_)
 		{
 			if (it->mouseOnButton(mousePosition))
@@ -163,6 +165,7 @@ void Menu::handleMouseEvent(sf::Event event)
 			}
 		}
 	}
+
 	default:
 		break;
 	}
@@ -216,7 +219,7 @@ void Menu::update()
 *
 * INDATA
 *
-* window:			Fönster som startmenyn ska ritas upp i.
+* window: Fönster som startmenyn ska ritas upp i.
 *
 * UTDATA
 *
@@ -262,7 +265,7 @@ void Menu::render(GameWindow& window)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -298,7 +301,7 @@ void newGameCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -334,7 +337,7 @@ void loadGameCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -370,7 +373,7 @@ void quitCallback(Application* ptr)
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *
@@ -394,7 +397,7 @@ void quitCallback(Application* ptr)
 
 void helpCallback(Application* ptr)
 {
-	ptr->setNextFrame(new Help(ptr)); 
+	ptr->setNextFrame(new Help(ptr));
 }
 
 /*
@@ -402,11 +405,11 @@ void helpCallback(Application* ptr)
 *
 * BESKRIVNING
 *
-* Funktionen som körs då man klickar på knappen "Credtis". Går ur startmenyn och öppnar en undermeny med en lista över i spelet använt material. 
+* Funktionen som körs då man klickar på knappen "Credtis". Går ur startmenyn och öppnar en undermeny med en lista över i spelet använt material.
 *
 * INDATA
 *
-* ptr:			Pekare till applikationen som startmenyn är en del av.
+* ptr: Pekare till applikationen som startmenyn är en del av.
 *
 * UTDATA
 *

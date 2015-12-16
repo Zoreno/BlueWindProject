@@ -27,7 +27,6 @@
 #include "World.h"
 #include "Universe.h"
 #include "Game.h"
-#include <iostream>
 
 using namespace std;
 
@@ -37,7 +36,7 @@ using namespace std;
 *
 * BESKRIVNING
 *
-* Denna konstruktor konstruerar en mätare.
+* Denna konstruktor konstruerar en fiende.
 *
 * INDATA
 *
@@ -162,7 +161,7 @@ void Enemy::render(GameWindow & window)
 *
 * INDATA
 *
-* window :		Fönstret som vi ritar upp fienden i
+* -
 *
 * UTDATA
 *

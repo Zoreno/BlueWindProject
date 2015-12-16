@@ -1,9 +1,74 @@
+/*
+* IDENTIFIERING
+*
+* Filnamn:    GameWon.h
+* Enhetsnamn: GameWon
+* Typ:        Moduldeklaration
+* Revision:   1
+* Skriven av: Simon Arkeholt, Fredrik Gustafsson
+*
+*
+* BESKRIVNING
+*
+* Denna modul representerar en meny som visas då spelaren vinner spelet.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*
+*/
+
 #pragma once
+
+/*
+* REFERERADE BIBLIOTEK OCH MODULER
+*/
 
 #include "Frame.h"
 #include "GameWindow.h"
 
+/*
+* Framåtdeklarationer
+*/
+
 class Application;
+
+/*
+* KLASS GameWon
+*
+* BASKLASSER
+*
+* Frame
+*
+* BESKRIVNING
+*
+* Klassen representerar en meny som visas då spelaren vinner spelet.
+*
+* TILLSTÅND
+*
+* -
+*
+* KONSTRUKTORER
+*
+* GameWon(Application*)
+*
+* OPERATIONER
+*
+* -
+*
+* DATAMEDLEMMAR
+*
+* background_: Menyns bakgrundsbild.
+*
+* REVISIONSBERÄTTELSE
+*
+* Revision     Datum   Förändringar
+*
+* 1            151214  Ursprungsversion
+*
+*/
 
 class GameWon : public Frame
 {
@@ -20,4 +85,8 @@ public:
 
 private:
 	sf::Sprite background_;
-};
+}; // class GameWon
+
+/*
+* SLUT PÅ FILEN GameWon.h
+*/

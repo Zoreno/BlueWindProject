@@ -1,10 +1,10 @@
 #pragma once
 
+#include <string>
 #include "Frame.h"
 #include "GameWindow.h"
 #include "TextureHandler.h"
 #include "Universe.h"
-#include <string>
 #include "Player.h"
 #include "UserInterface.h"
 

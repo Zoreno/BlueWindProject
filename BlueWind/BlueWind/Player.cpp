@@ -1,3 +1,7 @@
+#include <map>
+#include <math.h>
+#include <algorithm>
+
 #include "Player.h"
 #include "World.h"
 #include "Universe.h"
@@ -5,10 +9,7 @@
 #include "Frame.h"
 #include "Application.h"
 #include "Input.h"
-#include <map>
-#include <math.h>
 #include "GameOver.h"
-#include <algorithm>
 
 using namespace std;
 
