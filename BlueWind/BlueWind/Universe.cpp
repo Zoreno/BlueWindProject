@@ -303,7 +303,7 @@ void Universe::switchWorld(int ID, int x, int y)
 *
 * INDATA
 *
-* i:	Nyckel motsvarande en Tile. 
+* i:	Nyckel motsvarande en Tile.
 *
 * UTDATA
 *
@@ -355,7 +355,7 @@ Game * Universe::getGame() const
 *
 * BESKRIVNING
 *
-* Läser in alla Tiles som används i spelet. 
+* Läser in alla Tiles som används i spelet.
 *
 * INDATA
 *
@@ -515,7 +515,7 @@ void Universe::populateCity()
 *
 */
 
-void Universe::populateWorlds() 
+void Universe::populateWorlds()
 {
 	void BridgeGuardInteract(NPC*);
 	void CthuluInteract(NPC*);
@@ -573,7 +573,7 @@ void Universe::populateWorlds()
 	addNPC(0, new NPC(1, 100, 10, 12, "Tree", sf::Vector2f(40 * Tile::TILESIZE, 46 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
 	addNPC(0, new NPC(1, 100, 10, 13, "Tree", sf::Vector2f(30 * Tile::TILESIZE, 47 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
 	addNPC(0, new NPC(1, 100, 10, 14, "Tree", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("grassTreeChoppable"), "", treeInteract));
-	
+
 	//Enemies
 	addEnemy(0, new Enemy(1, 100, 10, 0, "demon1", sf::Vector2f(22 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("demon"), defaultDeath));
 	addEnemy(0, new Enemy(1, 100, 10, 1, "demon2", sf::Vector2f(30 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(0), gamePointer_->getTexture("demon"), defaultDeath));
@@ -592,7 +592,7 @@ void Universe::populateWorlds()
 
 	//Enemies
 	addEnemy(1, new Enemy(1, 150, 20, 2, "Minotaur", sf::Vector2f(36 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(1), gamePointer_->getTexture("minotaur"), minotaurDeath));
-	
+
 	//Sensor
 	addSensor(1, new Sensor(0, "World1_World0", sf::Vector2f(12 * Tile::TILESIZE, 14 * Tile::TILESIZE), getWorld(1), World1_World0Interact, gamePointer_->getTexture("void")));
 	addSensor(1, new Sensor(1, "World1_World2", sf::Vector2f(58 * Tile::TILESIZE, 9 * Tile::TILESIZE), getWorld(1), World1_World2Interact, gamePointer_->getTexture("void")));
@@ -605,14 +605,14 @@ void Universe::populateWorlds()
 	addNPC(2, new NPC(1, 100, 10, 2, "valleyman", sf::Vector2f(39 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("warrior"), "", manInValleyInteract));
 
 	//Enemies
-	addEnemy(2, new Enemy(1, 350, 30, 0, "snowWolf1", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 350, 30, 1, "snowWolf2", sf::Vector2f(32 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 350, 30, 2, "snowWolf3", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 3, "snowWolf4", sf::Vector2f(23 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 4, "snowWolf5", sf::Vector2f(43 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 5, "snowWolf6", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 6, "snowWolf7", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
-	addEnemy(2, new Enemy(1, 400, 30, 7, "snowWolf8", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 350, 25, 0, "snowWolf1", sf::Vector2f(44 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 350, 25, 1, "snowWolf2", sf::Vector2f(32 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 350, 25, 2, "snowWolf3", sf::Vector2f(23 * Tile::TILESIZE, 45 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 3, "snowWolf4", sf::Vector2f(23 * Tile::TILESIZE, 42 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 4, "snowWolf5", sf::Vector2f(43 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 5, "snowWolf6", sf::Vector2f(43 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 6, "snowWolf7", sf::Vector2f(44 * Tile::TILESIZE, 31 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
+	addEnemy(2, new Enemy(1, 400, 25, 7, "snowWolf8", sf::Vector2f(44 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 450, 40, 8, "snowWolf9", sf::Vector2f(15 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 450, 40, 9, "snowWolf10", sf::Vector2f(22 * Tile::TILESIZE, 18 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("snowWolf"), defaultDeath));
 	addEnemy(2, new Enemy(1, 650, 30, 10, "Isgolath", sf::Vector2f(19 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(2), gamePointer_->getTexture("blueWizard"), isgolathDeath));
@@ -628,7 +628,6 @@ void Universe::populateWorlds()
 	addNPC(3, new NPC(1, 100, 10, 4, "Broken Fountain2", sf::Vector2f(43 * Tile::TILESIZE, 23 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract2));
 	addNPC(3, new NPC(1, 100, 10, 5, "Broken Fountain3", sf::Vector2f(33 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract3));
 	addNPC(3, new NPC(1, 100, 10, 6, "Broken Fountain4", sf::Vector2f(43 * Tile::TILESIZE, 33 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("brokenFountain"), "", brokenFountainInteract4));
-
 
 	//Enemy
 	addEnemy(3, new Enemy(1, 1000, 25, 0, "ghost", sf::Vector2f(32 * Tile::TILESIZE, 16 * Tile::TILESIZE), getWorld(3), gamePointer_->getTexture("ghost"), defaultDeath));
@@ -647,7 +646,7 @@ void Universe::populateWorlds()
 	addSensor(3, new Sensor(0, "World3_World2", sf::Vector2f(12 * Tile::TILESIZE, 17 * Tile::TILESIZE), getWorld(3), World3_World2Interact, gamePointer_->getTexture("void")));
 
 	//----------------------------WORLD4--------------------------
-	
+
 	//NPC
 	addNPC(4, new NPC(1, 100, 10, 2, "Gandalf", sf::Vector2f(13 * Tile::TILESIZE, 41 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("saveNPC"), "", saveGame));
 
@@ -658,7 +657,7 @@ void Universe::populateWorlds()
 	addEnemy(4, new Enemy(1, 2800, 30, 2, "Bad Alloc", sf::Vector2f(46 * Tile::TILESIZE, 49 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("badAlloc"), badAllocDeath));
 	addEnemy(4, new Enemy(10, 7000, 70, 3, "BlueWind", sf::Vector2f(49 * Tile::TILESIZE, 22 * Tile::TILESIZE), getWorld(4), gamePointer_->getTexture("blueWind"), blueWindDeath));
 
-    //------------------------WORLD5-----------------------------
+	//------------------------WORLD5-----------------------------
 	// NPC
 	addNPC(5, new NPC(1, 100, 10, 0, "Guy", sf::Vector2f(25 * Tile::TILESIZE, 48 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("citizenWoman1"), "", world5GuyInteract));
 	addNPC(5, new NPC(1, 100, 10, 1, "Firimaniums", sf::Vector2f(18 * Tile::TILESIZE, 32 * Tile::TILESIZE), getWorld(5), gamePointer_->getTexture("Firimaniums"), "", FirimaniumsInteract));
@@ -674,7 +673,6 @@ void Universe::populateWorlds()
 	// Sensor
 	addSensor(5, new Sensor(0, "World5_World1", sf::Vector2f(31 * Tile::TILESIZE, 12 * Tile::TILESIZE), getWorld(5), World5_World1Interact, gamePointer_->getTexture("void")));
 	addSensor(5, new Sensor(1, "houseFireSensor", sf::Vector2f(20 * Tile::TILESIZE, 29 * Tile::TILESIZE), getWorld(5), houseFireInteract, gamePointer_->getTexture("void")));
-
 }
 
 /*
@@ -852,7 +850,6 @@ void BridgeGuardInteract(NPC* NPCPtr)
 	}
 	UI->addStringToChatBox("*The bridge is finished! You may");
 	UI->addStringToChatBox("proceed to the town.");
-	
 }
 
 /*
@@ -878,12 +875,10 @@ void BridgeGuardInteract(NPC* NPCPtr)
 *
 */
 
-void voidFkn(NPC*)
-{
-}
+void voidFkn(NPC*) {}
 
 /*
-* FUNKTION Universe::treeInteract(NPC* NPCPtr) 
+* FUNKTION Universe::treeInteract(NPC* NPCPtr)
 *
 * BESKRIVNING
 *
@@ -905,7 +900,7 @@ void voidFkn(NPC*)
 *
 */
 
-void treeInteract(NPC* NPCPtr) 
+void treeInteract(NPC* NPCPtr)
 {
 	if (!NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory()->isFull())
 	{
@@ -980,19 +975,17 @@ void stoneInteract(NPC* NPCPtr)
 
 void CthuluInteract(NPC* NPCPtr)
 {
-	if ((NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 33) == 200)&&
-		(NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 43) == 200)&&
-		(NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 33) == 200)&&
+	if ((NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 33) == 200) &&
+		(NPCPtr->getWorld()->getTileVector().at(23 * NPCPtr->getWorld()->getMapWidth() + 43) == 200) &&
+		(NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 33) == 200) &&
 		(NPCPtr->getWorld()->getTileVector().at(33 * NPCPtr->getWorld()->getMapWidth() + 43) == 200))
 	{
-			
 		UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 		UI->addStringToChatBox("*Well done! You have repaired my");
 		UI->addStringToChatBox("fabulous fountains, many thanks.");
 		UI->addStringToChatBox("Good luck almighty, potent,");
 		UI->addStringToChatBox("invincible, awesome Faranos!");
-	NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
-	
+		NPCPtr->getWorld()->getUniverse()->switchWorld(4, 13 * Tile::TILESIZE, 37 * Tile::TILESIZE);
 	}
 	else
 	{
@@ -1057,10 +1050,10 @@ void citizenInteract(NPC* NPCPtr)
 
 void GirlInteract(NPC* NPCPtr)
 {
-	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };	
+	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("*Faranos? Thank god you are here!");
 	UI->addStringToChatBox("You must defeat Bad Alloc, his dark");
-	UI->addStringToChatBox("minions are destroying the"); 
+	UI->addStringToChatBox("minions are destroying the");
 	UI->addStringToChatBox("beautiful land of MaroWind!");
 }
 
@@ -1472,16 +1465,16 @@ void thankfulCitizen(NPC* NPCPtr)
 {
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	Inventory* inv{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer()->getInventory() };
-		
+
 	if (!inv->isFull() && !inv->hasItem(3))
-		{
-			UI->addStringToChatBox("*Take this armour for protection");
-			UI->addStringToChatBox("against Bad Allocs servants!");
-			inv->addItem(3);
-			NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
-			Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
-			player->setMaxHealth(player->getMaxHealth() + 10);
-		}
+	{
+		UI->addStringToChatBox("*Take this armour for protection");
+		UI->addStringToChatBox("against Bad Allocs servants!");
+		inv->addItem(3);
+		NPCPtr->getWorld()->getUniverse()->getGame()->getApp()->getSoundHandler().playSound("itemAdded");
+		Player* player{ NPCPtr->getWorld()->getUniverse()->getGame()->getPlayer() };
+		player->setMaxHealth(player->getMaxHealth() + 10);
+	}
 }
 
 /*
@@ -1651,9 +1644,7 @@ void blueWindDeath(Enemy* enemyPtr)
 *
 */
 
-void fireDeath(Enemy* enemyPtr)
-{
-}
+void fireDeath(Enemy* enemyPtr) {}
 
 /*
 * FUNKTION Universe::energyPowerupInteract(NPC* NPCPtr)
@@ -1792,7 +1783,7 @@ void world5GuyInteract(NPC* NPCPtr)
 		UI->addStringToChatBox("Woops, I guess you must be careful!");
 	}
 	else
-		UI->addStringToChatBox("*Be careful!");	
+		UI->addStringToChatBox("*Be careful!");
 }
 
 /*
@@ -2018,7 +2009,7 @@ void FirimaniumsInteract(NPC* NPCPtr)
 	}
 	else
 	{
-	
+
 		UI->addStringToChatBox("*I turn my back on you for two");
 		UI->addStringToChatBox("seconds and you burn down my");
 		UI->addStringToChatBox("house, nice to see you're putting");
@@ -2093,4 +2084,3 @@ void houseFireInteract(World* worldPtr)
 /*
 * SLUT PÅ FILEN Universe.cpp
 */
-
