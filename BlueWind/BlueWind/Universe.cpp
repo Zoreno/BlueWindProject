@@ -1122,7 +1122,7 @@ void manInValleyInteract(NPC* NPCPtr)
 	UserInterface* UI{ NPCPtr->getWorld()->getUniverse()->getGame()->getUserInterface() };
 	UI->addStringToChatBox("*The bridge on the other side of the");
 	UI->addStringToChatBox("valley has been destroyed. Clear the");
-	UI->addStringToChatBox("mountain pass of Bad Alloc's minions");
+	UI->addStringToChatBox("mountain pass of Bad Allocs minions");
 	UI->addStringToChatBox("for us and we shall fix it!");
 }
 

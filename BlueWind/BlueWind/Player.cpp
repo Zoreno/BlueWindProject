@@ -63,9 +63,9 @@ using namespace std;
 */
 
 Player::Player(World * worldPtr, sf::Texture& texture, Game* game)
-	: Entity(1, 100, 10, 0, "Faranos", sf::Vector2f(20 * 32, 20 * 32), worldPtr, game->getTexture("player")),
-	mana_{ 20 },
-	maxMana_{ 20 },
+	: Entity(1, 300, 50, 0, "Faranos", sf::Vector2f(20 * 32, 20 * 32), worldPtr, game->getTexture("player")),
+	mana_{ 60 },
+	maxMana_{ mana_ },
 	gamePointer_{ game },
 	inventory_{ this,game }
 {}
@@ -124,11 +124,11 @@ void Player::addExperience(int value)
 	experience_ += value;
 	while (checkForLevelup())
 	{
-		maxHealth_ += 20;
+		maxHealth_ += 50;
 		health_ = maxHealth_;
-		maxMana_ += 10;
+		maxMana_ += 20;
 		mana_ = maxMana_;
-		damage_ += 10;
+		damage_ += 30;
 	}
 }
 
