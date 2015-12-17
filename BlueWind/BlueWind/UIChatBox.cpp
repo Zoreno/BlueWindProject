@@ -43,14 +43,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -78,14 +70,6 @@ UIChatBox::UIChatBox(UserInterface* uiPtr, Player* playerPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -108,14 +92,6 @@ void UIChatBox::handleKeyEvent(const sf::Event& ev) {}
 * -
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -147,14 +123,6 @@ void UIChatBox::update()
 * window:	Fönster som textrutan ska ritas på.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *
@@ -197,14 +165,6 @@ void UIChatBox::render(GameWindow & window)
 * newConversation:	textsträng som ska sättas in
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

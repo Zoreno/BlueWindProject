@@ -47,17 +47,9 @@ class UserInterface;
 *
 * Klassen representerar en komponent på användargränssnittet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * UIComponent(sf::Vector2f position, sf::Vector2f size, UserInterface * uiPtr, Player * playerPtr, bool visible)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

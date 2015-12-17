@@ -41,17 +41,9 @@
 *
 * Klassen representerar en mätare på användargränssnittet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, std::string postfix, UserInterface* uiPtr)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

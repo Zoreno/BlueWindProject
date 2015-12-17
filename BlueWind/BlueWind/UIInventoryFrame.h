@@ -41,17 +41,9 @@
 *
 * Klassen representerar ett fönster för att visa spelarens föremål.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *

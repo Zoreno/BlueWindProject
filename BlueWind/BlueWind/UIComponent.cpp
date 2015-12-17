@@ -44,14 +44,6 @@
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -83,14 +75,6 @@ UIComponent::UIComponent(sf::Vector2f position, sf::Vector2f size, UserInterface
 *
 * bool:	Komponentens synlighetsstatus.
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -118,14 +102,6 @@ bool UIComponent::isVisible() const
 * UTDATA
 *
 * sf::Vector2f:	Vektor med komponentens position.
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
 *
 * REVISIONSBERÄTTELSE
 *
@@ -155,14 +131,6 @@ sf::Vector2f UIComponent::getPosition() const
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -188,14 +156,6 @@ void UIComponent::toggleVisible()
 * value:	Statusen som synligheten sätts till.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

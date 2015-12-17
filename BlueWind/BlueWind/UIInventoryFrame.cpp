@@ -45,14 +45,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	Inventory
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -83,14 +75,6 @@ UIInventoryFrame::UIInventoryFrame(UserInterface * uiPtr, Player * playerPtr)
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -115,16 +99,6 @@ void UIInventoryFrame::update() {}
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul:	sfml-grafik
-* modul:	Inventory
-* modul:	Item
 *
 * REVISIONSBERÄTTELSE
 *
@@ -172,14 +146,6 @@ void UIInventoryFrame::render(GameWindow & window)
 * ev:	Händelse som ska behandlas.
 *
 * UTDATA
-*
-* -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
 *
 * -
 *

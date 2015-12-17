@@ -47,14 +47,6 @@ using namespace std;
 *
 * -
 *
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* -
-*
 * REVISIONSBERÄTTELSE
 *
 * Revision             Datum           Förändringar
@@ -87,14 +79,6 @@ UIBar::UIBar(sf::Vector2f position, sf::Vector2f size, sf::Color color, const st
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: std::string
 *
 * REVISIONSBERÄTTELSE
 *
@@ -129,14 +113,6 @@ void UIBar::update(int current, int max)
 * UTDATA
 *
 * -
-*
-* SIDOEFFEKTER
-*
-* -
-*
-* UTNYTTJAR
-*
-* modul: sfml-grafik
 *
 * REVISIONSBERÄTTELSE
 *

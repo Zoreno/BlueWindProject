@@ -41,17 +41,9 @@
 *
 * Klassen representerar en textruta på användargränssnittet.
 *
-* TILLSTÅND
-*
-* -
-*
 * KONSTRUKTORER
 *
 * UIChatBox(UserInterface* uiPtr, Player* playerPtr)
-*
-* OPERATIONER
-*
-* -
 *
 * DATAMEDLEMMAR
 *
